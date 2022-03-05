@@ -8,7 +8,7 @@
                          v-bind:key="link"
                          :to="{ name: link.name }"
                          class="list-group-item list-group-item-action border-dark">
-                <font-awesome-icon :icon="link.icon"/>
+                <font-awesome-icon :icon="link.icon" class="me-3"/>
                 {{ link.title }}
             </router-link>
         </div>
