@@ -11,7 +11,7 @@
                                 class="accordion-header border-bottom border-white">
                                 <button aria-controls="collapse1"
                                         aria-expanded="false"
-                                        class="accordion-button"
+                                        class="accordion-button collapsed"
                                         data-bs-target="#collapse1"
                                         data-bs-toggle="collapse"
                                         type="button">
@@ -365,7 +365,7 @@
                                 class="accordion-header border-bottom border-white">
                                 <button aria-controls="collapse13"
                                         aria-expanded="false"
-                                        class="accordion-button"
+                                        class="accordion-button collapsed"
                                         data-bs-target="#collapse13"
                                         data-bs-toggle="collapse"
                                         type="button">
@@ -390,7 +390,7 @@
                                 class="accordion-header border-bottom border-white">
                                 <button aria-controls="collapse14"
                                         aria-expanded="false"
-                                        class="accordion-button"
+                                        class="accordion-button collapsed"
                                         data-bs-target="#collapse14"
                                         data-bs-toggle="collapse"
                                         type="button">
@@ -416,7 +416,7 @@
                                 class="accordion-header border-bottom border-white">
                                 <button aria-controls="collapse15"
                                         aria-expanded="false"
-                                        class="accordion-button"
+                                        class="accordion-button collapsed"
                                         data-bs-target="#collapse15"
                                         data-bs-toggle="collapse"
                                         type="button">
@@ -442,7 +442,7 @@
                                 class="accordion-header border-bottom border-white">
                                 <button aria-controls="collapse16"
                                         aria-expanded="false"
-                                        class="accordion-button"
+                                        class="accordion-button collapsed"
                                         data-bs-target="#collapse16"
                                         data-bs-toggle="collapse"
                                         type="button">
@@ -476,7 +476,7 @@
                                 class="accordion-header border-bottom border-white">
                                 <button aria-controls="collapse17"
                                         aria-expanded="false"
-                                        class="accordion-button"
+                                        class="accordion-button collapsed"
                                         data-bs-target="#collapse17"
                                         data-bs-toggle="collapse"
                                         type="button">
