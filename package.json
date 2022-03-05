@@ -22,7 +22,7 @@
     "vue": "~3.2.31",
     "vue-loading-overlay": "~5.0.3",
     "vue-router": "~4.0.13",
-    "vue3-country-region-select": "~1.0.0",
+    "vue3-country-region-select": "git://github.com/trouni/vue3-country-region-select.git",
     "vue3-date-time-picker": "^2.7.0",
     "yup": "~0.32.11"
   },
@@ -40,6 +40,7 @@
     "npm-check-updates": "~12.5.2",
     "sass": "~1.49.9",
     "sass-loader": "~12.6.0",
+    "sitemap-webpack-plugin": "^1.1.1",
     "typescript": "~4.6.2"
   }
 }
