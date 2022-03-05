@@ -6,7 +6,7 @@
                              class="navbar-brand">
                     <img alt="Biker Training LLC"
                          class="align-self-end"
-                         height="150"
+                         height="100"
                          src="img/bt_header.svg"/>
                 </router-link>
             </div>
@@ -16,7 +16,7 @@
                              class="navbar-brand">
                     <img alt="Motorcycle Safety Foundation"
                          class="align-self-end"
-                         height="150"
+                         height="100"
                          src="img/msf_header.svg"/>
                 </router-link>
             </div>
