@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /contact/thanks
+Disallow: /error/
+Disallow: /pages/
+Disallow: /register/confirmation
