@@ -76,11 +76,11 @@ import { defineComponent, onMounted } from "vue";
 export default defineComponent({
     name: "TheHome",
     setup() {
+        const threewbrc_special_canam = process.env.VUE_APP_PRICE_THREEWBRC_SPECIAL_CANAM;
+
         onMounted(() => {
             (document.getElementById("top") as HTMLDivElement).scrollIntoView();
         });
-
-        const threewbrc_special_canam = process.env.VUE_APP_PRICE_THREEWBRC_SPECIAL_CANAM;
 
         return {
             threewbrc_special_canam

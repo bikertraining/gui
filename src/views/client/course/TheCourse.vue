@@ -180,10 +180,6 @@ import { defineComponent, onMounted } from "vue";
 export default defineComponent({
     name: "TheCourse",
     setup() {
-        onMounted(() => {
-            (document.getElementById("top") as HTMLDivElement).scrollIntoView();
-        });
-
         const business_phone = process.env.VUE_APP_BUSINESS_PHONE;
 
         const prices = {
@@ -193,6 +189,10 @@ export default defineComponent({
             kickstart: process.env.VUE_APP_PRICE_KICKSTART,
             private: process.env.VUE_APP_PRICE_PRIVATE
         };
+
+        onMounted(() => {
+            (document.getElementById("top") as HTMLDivElement).scrollIntoView();
+        });
 
         return {
             business_phone,

@@ -73,11 +73,11 @@ import { defineComponent, onMounted } from "vue";
 export default defineComponent({
     name: "TheBrc",
     setup() {
+        const brc_reenroll = process.env.VUE_APP_PRICE_BRC_REENROLL;
+
         onMounted(() => {
             (document.getElementById("top") as HTMLDivElement).scrollIntoView();
         });
-
-        const brc_reenroll = process.env.VUE_APP_PRICE_BRC_REENROLL;
 
         return {
             brc_reenroll

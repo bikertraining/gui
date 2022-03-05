@@ -57,11 +57,11 @@ import { defineComponent, onMounted } from "vue";
 export default defineComponent({
     name: "TheKickstart",
     setup() {
+        const business_phone = process.env.VUE_APP_BUSINESS_PHONE;
+
         onMounted(() => {
             (document.getElementById("top") as HTMLDivElement).scrollIntoView();
         });
-
-        const business_phone = process.env.VUE_APP_BUSINESS_PHONE;
 
         return {
             business_phone

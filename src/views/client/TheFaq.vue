@@ -432,7 +432,7 @@
                                     All fees are nonrefundable unless students call {{ business_phone }} or email
                                     <a v-bind:href="'mailto:' + business_email">{{ business_email }}</a> 6 days prior to
                                     their scheduled class to obtain a partial refund. A partial refund is full tuition
-                                    minus a ${{ price_processing_fee }} processing fee.
+                                    minus a ${{ prices.processing_fee }} processing fee.
                                 </div>
                             </div>
                         </div>
@@ -461,11 +461,17 @@
                                         purchased:</p>
 
                                     <ol class="list-group-numbered list-group-flush">
-                                        <li class="list-group-item">Basic RiderCourse ${{ brc_reenroll }}</li>
+                                        <li class="list-group-item">Basic RiderCourse ${{ prices.brc_reenroll }}</li>
 
-                                        <li class="list-group-item">3-Wheel RiderCourse ${{ threewbrc_reenroll }}</li>
+                                        <li class="list-group-item">3-Wheel RiderCourse ${{
+                                                prices.threewbrc_reenroll
+                                            }}
+                                        </li>
 
-                                        <li class="list-group-item">Experienced RiderCourse ${{ erc_reenroll }}</li>
+                                        <li class="list-group-item">Experienced RiderCourse ${{
+                                                prices.erc_reenroll
+                                            }}
+                                        </li>
                                     </ol>
                                 </div>
                             </div>
@@ -510,29 +516,25 @@ import { defineComponent, onMounted } from "vue";
 export default defineComponent({
     name: "TheFaq",
     setup() {
-        onMounted(() => {
-            (document.getElementById("top") as HTMLDivElement).scrollIntoView();
-        });
-
-        const brc_reenroll = process.env.VUE_APP_PRICE_BRC_REENROLL;
-
         const business_email = process.env.VUE_APP_BUSINESS_EMAIL;
 
         const business_phone = process.env.VUE_APP_BUSINESS_PHONE;
 
-        const erc_reenroll = process.env.VUE_APP_PRICE_ERC_REENROLL;
+        const prices = {
+            brc_reenroll: process.env.VUE_APP_PRICE_BRC_REENROLL,
+            erc_reenroll: process.env.VUE_APP_PRICE_ERC_REENROLL,
+            processing_fee: process.env.VUE_APP_PRICE_PROCESSING_FEE,
+            threewbrc_reenroll: process.env.VUE_APP_PRICE_THREEWBRC_REENROLL
+        };
 
-        const price_processing_fee = process.env.VUE_APP_PRICE_PROCESSING_FEE;
-
-        const threewbrc_reenroll = process.env.VUE_APP_PRICE_THREEWBRC_REENROLL;
+        onMounted(() => {
+            (document.getElementById("top") as HTMLDivElement).scrollIntoView();
+        });
 
         return {
-            brc_reenroll,
             business_email,
             business_phone,
-            erc_reenroll,
-            price_processing_fee,
-            threewbrc_reenroll
+            prices
         };
     }
 });

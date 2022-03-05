@@ -77,12 +77,13 @@ import { defineComponent, onMounted } from "vue";
 export default defineComponent({
     name: "The3Wbrc",
     setup() {
+        const threewbrc_reenroll = process.env.VUE_APP_PRICE_THREEWBRC_REENROLL;
+
+        const threewbrc_rental = process.env.VUE_APP_PRICE_THREEWBRC_RENTAL;
+
         onMounted(() => {
             (document.getElementById("top") as HTMLDivElement).scrollIntoView();
         });
-
-        const threewbrc_reenroll = process.env.VUE_APP_PRICE_THREEWBRC_REENROLL;
-        const threewbrc_rental = process.env.VUE_APP_PRICE_THREEWBRC_RENTAL;
 
         return {
             threewbrc_reenroll,

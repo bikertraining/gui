@@ -4,7 +4,8 @@
         <div class="container-fluid">
             <div class="card rounded-3 shadow-sm">
                 <div class="card-header fw-bolder">
-                    <font-awesome-icon :icon="['fas', 'calendar-days']"/>
+                    <font-awesome-icon :icon="['fas', 'calendar-days']"
+                                       class="me-1"/>
                     Schedule
                 </div>
 
@@ -47,7 +48,8 @@
                     <ul class="list-group list-group-flush d-grid gap-3">
                         <li class="list-group-item bg-white">
                             <h6 class="mb-2">
-                                <font-awesome-icon :icon="['fas', 'location-crosshairs']"/>
+                                <font-awesome-icon :icon="['fas', 'location-crosshairs']"
+                                                   class="me-1"/>
                                 Training Location
                             </h6>
                             Harley-Davidson of Pensacola 6385 Pensacola Blvd Pensacola, FL 32505
@@ -55,7 +57,8 @@
 
                         <li class="list-group-item bg-white">
                             <h6 class="mb-2">
-                                <font-awesome-icon :icon="['fas', 'clock']"/>
+                                <font-awesome-icon :icon="['fas', 'clock']"
+                                                   class="me-1"/>
                                 Class Times for the scheduled BRC days
                             </h6>
 
@@ -72,7 +75,8 @@
 
                         <li class="list-group-item bg-white">
                             <h6 class="mb-2">
-                                <font-awesome-icon :icon="['fas', 'clock']"/>
+                                <font-awesome-icon :icon="['fas', 'clock']"
+                                                   class="me-1"/>
                                 Class Times for the scheduled 3 Wheel BRC days
                             </h6>
                             Two days: 7:00 AM to 3:00 PM on both days
@@ -80,7 +84,8 @@
 
                         <li class="list-group-item bg-white">
                             <h6 class="mb-2">
-                                <font-awesome-icon :icon="['fas', 'clock']"/>
+                                <font-awesome-icon :icon="['fas', 'clock']"
+                                                   class="me-1"/>
                                 Class Times for the scheduled Experienced RiderCourse
                             </h6>
                             Day & times as shown in schedule.
@@ -88,7 +93,8 @@
 
                         <li class="list-group-item bg-white">
                             <h6 class="mb-2">
-                                <font-awesome-icon :icon="['fas', 'calendar-check']"/>
+                                <font-awesome-icon :icon="['fas', 'calendar-check']"
+                                                   class="me-1"/>
                                 KickStart Course Schedule
                             </h6>
                             The three hour KickStart Course can be given just about any time during the week and on most

@@ -7,7 +7,8 @@
                      style="background-color: #42b983;">
                     <div class="d-flex justify-content-between pt-3">
                         <h4 class="mb-3">
-                            <font-awesome-icon :icon="['fas', 'motorcycle']"/>
+                            <font-awesome-icon :icon="['fas', 'motorcycle']"
+                                               class="me-1"/>
                             Registration Confirmation
                         </h4>
                     </div>

@@ -6,7 +6,8 @@
                 <div class="card-header">
                     <div class="d-flex justify-content-between pt-3">
                         <h4 class="mb-3">
-                            <font-awesome-icon :icon="['fas', 'at']"/>
+                            <font-awesome-icon :icon="['fas', 'at']"
+                                               class="me-1"/>
                             Contact Us
                         </h4>
 
@@ -80,6 +81,8 @@ export default defineComponent({
         InputTextArea
     },
     setup() {
+        const business_phone = process.env.VUE_APP_BUSINESS_PHONE;
+
         const {
             formErrors,
             formObj,
@@ -97,8 +100,6 @@ export default defineComponent({
         onMounted(() => {
             (document.getElementById("top") as HTMLDivElement).scrollIntoView();
         });
-
-        const business_phone = process.env.VUE_APP_BUSINESS_PHONE;
 
         return {
             business_phone,

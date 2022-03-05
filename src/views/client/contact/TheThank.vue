@@ -3,10 +3,12 @@
          class="row pt-3">
         <div class="col-lg-6">
             <div class="card rounded-3 shadow-sm">
-                <div class="card-header" style="background-color: #42b983;">
+                <div class="card-header"
+                     style="background-color: #42b983;">
                     <div class="d-flex justify-content-between pt-3">
                         <h4 class="mb-3">
-                            <font-awesome-icon :icon="['fas', 'comments']"/>
+                            <font-awesome-icon :icon="['fas', 'comments']"
+                                               class="me-1"/>
                             Thank you
                         </h4>
 
@@ -33,11 +35,11 @@ import { defineComponent, onMounted } from "vue";
 export default defineComponent({
     name: "TheThank",
     setup() {
+        const business_phone = process.env.VUE_APP_BUSINESS_PHONE;
+
         onMounted(() => {
             (document.getElementById("top") as HTMLDivElement).scrollIntoView();
         });
-
-        const business_phone = process.env.VUE_APP_BUSINESS_PHONE;
 
         return {
             business_phone
