@@ -16,13 +16,13 @@
 
                 <Form :validation-schema="schema"
                       @submit="submitLogin">
-                    <input-text label="Username"
-                                name="username"
-                                required="true"/>
+                    <input-text :required="true"
+                                label="Username"
+                                name="username"/>
 
-                    <input-text label="Password"
+                    <input-text :required="true"
+                                label="Password"
                                 name="password"
-                                required="true"
                                 type="password"/>
 
                     <button class="btn btn-outline-primary w-100 mt-2"
