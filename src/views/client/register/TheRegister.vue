@@ -174,15 +174,15 @@
                             <div class="col-md-4">
                                 <input-select v-model="formObj.credit_card_month"
                                               :options="{
-                                                '01': '01',
-                                                '02': '02',
-                                                '03': '03',
-                                                '04': '04',
-                                                '05': '05',
-                                                '06': '06',
-                                                '07': '07',
-                                                '08': '08',
-                                                '09': '09',
+                                                '1': '01',
+                                                '2': '02',
+                                                '3': '03',
+                                                '4': '04',
+                                                '5': '05',
+                                                '6': '06',
+                                                '7': '07',
+                                                '8': '08',
+                                                '9': '09',
                                                 '10': '10',
                                                 '11': '11',
                                                 '12': '12'
@@ -323,7 +323,7 @@ export default defineComponent({
             class_type: string().required(),
             comment: string(),
             credit_card_cvv2: string().required().min(3).max(4),
-            credit_card_month: string().required().length(2),
+            credit_card_month: string().required().min(1).max(2),
             credit_card_name: string().required(),
             credit_card_number: string().required().min(15).max(16),
             credit_card_year: string().required().length(4),
