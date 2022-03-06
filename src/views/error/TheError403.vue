@@ -5,6 +5,10 @@
         <div class="col-lg-6 mx-auto">
             <p class="lead mb-4">Access Denied.</p>
             <p class="text-muted">You do not have access to that resource.</p>
+            <p class="text-muted">
+                <router-link :to="{ name: 'client:home' }">Click here</router-link>
+                to go back to the main page.
+            </p>
         </div>
     </div>
 </template>
