@@ -16,11 +16,12 @@
         <div class="container-fluid">
             <div class="card rounded-3 shadow-sm">
                 <div class="card-header fw-bolder">
-                    <font-awesome-icon :icon="['fas', 'hand-holding-usd']"/>
+                    <font-awesome-icon :icon="['fas', 'hand-holding-usd']"
+                                       class="me-1"/>
                     Prices
                 </div>
 
-                <div class="card-body pb-0">
+                <div class="card-body p-0">
                     <table class="table table-hover">
                         <thead class="table-light">
                         <tr>

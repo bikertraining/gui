@@ -27,11 +27,12 @@
         <div class="container-fluid">
             <div class="card rounded-3 shadow-sm">
                 <div class="card-header fw-bolder">
-                    <font-awesome-icon :icon="['fas', 'calendar-days']"/>
+                    <font-awesome-icon :icon="['fas', 'calendar-days']"
+                                       class="me-1"/>
                     Schedule
                 </div>
 
-                <div class="card-body pb-0">
+                <div class="card-body p-0">
                     <table class="table table-hover">
                         <thead class="table-light">
                         <tr>

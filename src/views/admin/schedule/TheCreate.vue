@@ -20,7 +20,8 @@
                 <div class="col-lg-6">
                     <div class="card rounded-3 shadow-sm mb-3">
                         <div class="card-header fw-bolder">
-                            <font-awesome-icon :icon="['fas', 'calendar-days']"/>
+                            <font-awesome-icon :icon="['fas', 'calendar-days']"
+                                               class="me-1"/>
                             Class Settings
                         </div>
 

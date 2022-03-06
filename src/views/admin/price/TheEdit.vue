@@ -31,7 +31,8 @@
                 <div class="col-lg-6">
                     <div class="card rounded-3 shadow-sm mb-3">
                         <div class="card-header fw-bolder">
-                            <font-awesome-icon :icon="['fas', 'hand-holding-usd']"/>
+                            <font-awesome-icon :icon="['fas', 'hand-holding-usd']"
+                                               class="me-1"/>
                             Price Settings
                         </div>
 
