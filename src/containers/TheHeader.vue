@@ -68,7 +68,7 @@
                                      class="dropdown-item list-group-item list-group-item-action">
                             <img alt="{{ link.name }}"
                                  class="me-3"
-                                 v-bind:src="'img/sidebar/' + link.img"/> <span class="fw-bold">{{ link.title }}</span>
+                                 v-bind:src="'img/icon/' + link.img"/> <span class="fw-bold">{{ link.title }}</span>
                         </router-link>
                     </li>
                 </ul>
