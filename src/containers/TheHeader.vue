@@ -1,5 +1,6 @@
 <template>
     <div class="flex-shrink-1 p-1 border-bottom border-dark d-print-none">
+        <!-- Start show on desktop -->
         <div class="d-flex justify-content-center d-none d-lg-flex">
             <div class="p-2">
                 <router-link :to="{ name: 'client:home' }"
@@ -21,9 +22,11 @@
                 </router-link>
             </div>
         </div>
+        <!-- End show on desktop -->
 
         <div class="d-flex justify-content-center d-lg-flex fw-bolder fs-4">Call us at {{ business_phone }}</div>
 
+        <!-- Start show on phone -->
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="d-flex justify-content-center d-lg-none">
                 <div class="p-2">
@@ -63,13 +66,15 @@
                                      v-bind:key="link"
                                      :to="{ name: link.name }"
                                      class="dropdown-item list-group-item list-group-item-action">
-                            <font-awesome-icon :icon="link.icon"/>
-                            {{ link.title }}
+                            <img alt="{{ link.name }}"
+                                 class="me-3"
+                                 v-bind:src="'img/sidebar/' + link.img"/> <span class="fw-bold">{{ link.title }}</span>
                         </router-link>
                     </li>
                 </ul>
             </div>
         </nav>
+        <!-- End show on phone -->
     </div>
 </template>
 
@@ -86,47 +91,47 @@ export default defineComponent({
 
         const links = [
             {
-                icon: ['fas', 'home'],
+                img: 'motorbike.png',
                 name: 'client:home',
                 title: 'Home'
             },
             {
-                icon: ['fas', 'motorcycle'],
+                img: 'register.png',
                 name: 'client:register',
-                title: 'Sign up'
+                title: 'Sign Up Here'
             },
             {
-                icon: ['fas', 'graduation-cap'],
+                img: 'course.png',
                 name: 'client:courses',
                 title: 'Courses'
             },
             {
-                icon: ['fas', 'calendar-days'],
+                img: 'schedule.png',
                 name: 'client:schedule',
                 title: 'Schedule'
             },
             {
-                icon: ['fas', 'circle-question'],
+                img: 'faq.png',
                 name: 'client:faq',
                 title: 'FAQ'
             },
             {
-                icon: ['fas', 'image'],
+                img: 'pictures.png',
                 name: 'client:pictures',
                 title: 'Pictures'
             },
             {
-                icon: ['fas', 'users'],
+                img: 'coach.png',
                 name: 'client:coaches',
                 title: 'Rider Coaches'
             },
             {
-                icon: ['fas', 'map'],
+                img: 'map.png',
                 name: 'client:map',
                 title: 'Map'
             },
             {
-                icon: ['fas', 'at'],
+                img: 'email.png',
                 name: 'client:contact',
                 title: 'Contact Us'
             }

@@ -8,8 +8,9 @@
                          v-bind:key="link"
                          :to="{ name: link.name }"
                          class="list-group-item list-group-item-action border-dark">
-                <font-awesome-icon :icon="link.icon" class="me-3"/>
-                {{ link.title }}
+                <img alt="{{ link.name }}"
+                     class="me-3"
+                     v-bind:src="'img/sidebar/' + link.img"/> <span class="fw-bold">{{ link.title }}</span>
             </router-link>
         </div>
     </div>
@@ -26,47 +27,47 @@ export default defineComponent({
 
         const links = [
             {
-                icon: ['fas', 'home'],
+                img: 'motorbike.png',
                 name: 'client:home',
                 title: 'Home'
             },
             {
-                icon: ['fas', 'motorcycle'],
+                img: 'register.png',
                 name: 'client:register',
-                title: 'Sign up'
+                title: 'Sign Up Here'
             },
             {
-                icon: ['fas', 'graduation-cap'],
+                img: 'course.png',
                 name: 'client:courses',
                 title: 'Courses'
             },
             {
-                icon: ['fas', 'calendar-days'],
+                img: 'schedule.png',
                 name: 'client:schedule',
                 title: 'Schedule'
             },
             {
-                icon: ['fas', 'circle-question'],
+                img: 'faq.png',
                 name: 'client:faq',
                 title: 'FAQ'
             },
             {
-                icon: ['fas', 'image'],
+                img: 'pictures.png',
                 name: 'client:pictures',
                 title: 'Pictures'
             },
             {
-                icon: ['fas', 'users'],
+                img: 'coach.png',
                 name: 'client:coaches',
                 title: 'Rider Coaches'
             },
             {
-                icon: ['fas', 'map'],
+                img: 'map.png',
                 name: 'client:map',
                 title: 'Map'
             },
             {
-                icon: ['fas', 'at'],
+                img: 'email.png',
                 name: 'client:contact',
                 title: 'Contact Us'
             }
