@@ -12,7 +12,7 @@
                 <div class="card-body p-0">
                     <table class="table table-hover caption-top">
                         <caption class="mb-3 mt-3">
-                            <span class="ms-2">Click on a class to register.</span>
+                            <span class="ms-2 fw-bold text-dark">Click on a class to register.</span>
                         </caption>
 
                         <thead class="table-light">

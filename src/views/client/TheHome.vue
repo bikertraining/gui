@@ -41,11 +41,14 @@
                     <p>Our Basic RiderCourse meets the state of Florida license endorsement requirement so at
                         BikerTraining.Net you can… Get Your Ticket To Ride!</p>
 
-                    <div class="d-flex justify-content-center mt-3">
-                        <font-awesome-icon :icon="['fab', 'facebook']"
-                                           class="text-primary fa-2xl"/>
-                        <span class="fw-bolder pt-1 mx-3">FOLLOW US</span>
-                    </div>
+                    <p>
+                        <router-link :to="{ name: 'client:register'}"
+                                     class="text-decoration-none">
+                            <font-awesome-icon :icon="['fa-solid', 'arrow-right']"
+                                               class="text-dark"/>
+                            Click Here to Sign-up
+                        </router-link>
+                    </p>
 
                     <hr>
 
@@ -63,6 +66,12 @@
 
                         <p class="mt-3">For a limited time, those that want to enroll in the 3-Wheel Basic RiderCourse
                             on a Can-Am Spyder can do so for only ${{ threewbrc_special_canam }}.</p>
+                    </div>
+
+                    <div class="d-flex justify-content-center mt-3">
+                        <font-awesome-icon :icon="['fab', 'facebook']"
+                                           class="text-primary fa-2xl"/>
+                        <span class="fw-bolder pt-1 mx-3">FOLLOW US</span>
                     </div>
                 </div>
             </div>
