@@ -28,12 +28,11 @@
 
         <!-- Start show on phone -->
         <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="d-flex justify-content-center d-lg-none">
+            <div class="d-flex justify-content-center d-lg-none mx-auto">
                 <div class="p-2">
                     <router-link :to="{ name: 'client:home' }"
                                  class="navbar-brand">
                         <img alt="Biker Training LLC"
-                             class="align-self-end"
                              height="60"
                              src="img/bt_header.svg"/>
                     </router-link>
@@ -43,23 +42,29 @@
                     <router-link :to="{ name: 'client:home' }"
                                  class="navbar-brand">
                         <img alt="Motorcycle Safety Foundation"
-                             class="align-self-end"
                              height="60"
                              src="img/msf_header.svg"/>
                     </router-link>
                 </div>
             </div>
 
-            <div class="dropstart d-lg-none ms-auto">
-                <button id="dropdownMenuButton1"
+            <div v-if="!globalSidebar.toggle"
+                 class="dropdown d-grid gap-2 col-10 mx-auto mt-3">
+                <button id="dropdownMenuButton12"
                         aria-expanded="false"
-                        class="btn btn-outline-light border d-print-none text-dark"
+                        class="btn btn-success"
                         data-bs-toggle="dropdown"
                         type="button">
-                    Menu <span class="navbar-toggler-icon"/>
+                    <font-awesome-icon :icon="['fa-solid', 'arrow-right']"
+                                       class="text-white me-3"/>
+
+                    Menu
+
+                    <font-awesome-icon :icon="['fa-solid', 'arrow-left']"
+                                       class="text-white ms-3"/>
                 </button>
 
-                <ul aria-labelledby="dropdownMenuButton1"
+                <ul aria-labelledby="dropdownMenuButton12"
                     class="dropdown-menu p-0">
                     <li>
                         <router-link v-for="link in links"
@@ -146,3 +151,11 @@ export default defineComponent({
     }
 });
 </script>
+
+<style lang="css">
+.dropdown-menu {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 100% !important;
+}
+</style>
