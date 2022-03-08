@@ -265,7 +265,7 @@
                         Spyder for only ${{ threewbrc_special_canam }} <a class="text-decoration-none"
                                                                           href="https://bit.ly/2Dr72tB"
                                                                           target="_blank">CLICK HERE</a>. Then select
-                        “Florida” and then “Pensacola”
+                        “Florida” and then “Pensacola”.
                     </div>
 
                     <div class="mt-3">
