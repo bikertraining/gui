@@ -6,8 +6,7 @@
                 <div class="card-header">
                     <div class="d-flex justify-content-between pt-3">
                         <h4 class="mb-3">
-                            <font-awesome-icon :icon="['fas', 'at']"
-                                               class="me-1"/>
+                            <img src="img/icon/email.png" alt="Contact Us" class="me-1"/>
                             Contact Us
                         </h4>
 

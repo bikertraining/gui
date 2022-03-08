@@ -4,8 +4,7 @@
         <div class="container-fluid">
             <div class="card rounded-3 shadow-sm">
                 <div class="card-header fw-bolder">
-                    <font-awesome-icon :icon="['fas', 'calendar-days']"
-                                       class="me-1"/>
+                    <img src="img/icon/schedule.png" alt="Schedule" class="me-1"/>
                     Schedule
                 </div>
 

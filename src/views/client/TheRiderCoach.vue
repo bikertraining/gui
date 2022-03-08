@@ -4,8 +4,7 @@
         <div class="container-fluid">
             <div class="card rounded-3 shadow-sm">
                 <div class="card-header fw-bolder">
-                    <font-awesome-icon :icon="['fas', 'users']"
-                                       class="me-1"/>
+                    <img src="img/icon/coach.png" alt="Rider Coaches" class="me-1"/>
                     Rider Coaches
                 </div>
 

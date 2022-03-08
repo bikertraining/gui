@@ -3,6 +3,11 @@
          class="row pt-3">
         <div class="container-fluid">
             <div class="card rounded-3 shadow-sm">
+                <div class="card-header fw-bolder">
+                    <img src="img/icon/faq.png" alt="Frequently Asked Questions" class="me-1"/>
+                    Frequently Asked Questions
+                </div>
+
                 <div class="card-body">
                     <div id="accordionFaq"
                          class="accordion">
