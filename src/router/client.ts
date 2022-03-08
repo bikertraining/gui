@@ -106,14 +106,6 @@ export const clientRoutes = (): RouteInterface => {
                 component: () => import('@/views/client/TheMap.vue')
             },
             {
-                path: 'pictures',
-                name: 'client:pictures',
-                meta: {
-                    label: 'Pictures'
-                },
-                component: () => import('@/views/client/ThePicture.vue')
-            },
-            {
                 path: 'register/:id?',
                 name: 'client:register',
                 meta: {

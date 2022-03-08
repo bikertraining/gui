@@ -78,11 +78,6 @@
                                  class="me-3"
                                  v-bind:src="'img/icon/' + link.img"/> <span class="fw-bold">{{ link.title }}</span>
                         </router-link>
-
-                        <a class="dropdown-item list-group-item list-group-item-action"
-                           href="#"> <img alt="Follow Us"
-                                          class="me-3"
-                                          src="img/icon/facebook.png"/> <span class="fw-bold">Follow Us</span> </a>
                     </li>
                 </ul>
             </div>
@@ -127,11 +122,6 @@ export default defineComponent({
                 img: 'faq.png',
                 name: 'client:faq',
                 title: 'FAQ'
-            },
-            {
-                img: 'pictures.png',
-                name: 'client:pictures',
-                title: 'Pictures'
             },
             {
                 img: 'coach.png',
