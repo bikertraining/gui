@@ -6,7 +6,7 @@
             <p class="lead mb-4">Request Timeout.</p>
             <p class="text-muted">The page you are looking for took too long to load.</p>
             <p class="text-muted">Please give us a call at <a class="text-muted text-decoration-none"
-                                                              v-bind:href="'tel:' + business_phone">{{
+                                                              v-bind:href="'tel:' + business_phone.replace(/-/g,'')">{{
                     business_phone
                 }}</a></p>
             <p class="text-muted">

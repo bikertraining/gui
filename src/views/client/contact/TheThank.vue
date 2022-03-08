@@ -16,7 +16,7 @@
                             <font-awesome-icon :icon="['fas', 'phone']"
                                                class="me-1"/>
                             <a class="text-white text-decoration-none"
-                               v-bind:href="'tel:' + business_phone">{{ business_phone }}</a>
+                               v-bind:href="'tel:' + business_phone.replace(/-/g,'')">{{ business_phone }}</a>
                         </h5>
                     </div>
                 </div>

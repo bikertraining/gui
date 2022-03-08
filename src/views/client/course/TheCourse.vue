@@ -123,7 +123,7 @@
                     </ul>
 
                     <a class="text-decoration-none"
-                       v-bind:href="'tel:' + business_phone">
+                       v-bind:href="'tel:' + business_phone.replace(/-/g,'')">
                         <button class="w-100 btn btn-lg btn-outline-danger"
                                 type="button">
                             <font-awesome-icon :icon="['fas', 'phone']"/>
@@ -159,7 +159,7 @@
                     </ul>
 
                     <a class="text-decoration-none"
-                       v-bind:href="'tel:' + business_phone">
+                       v-bind:href="'tel:' + business_phone.replace(/-/g,'')">
                         <button class="w-100 btn btn-lg btn-outline-danger"
                                 type="button">
                             <font-awesome-icon :icon="['fas', 'phone']"/>

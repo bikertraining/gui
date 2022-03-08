@@ -39,7 +39,7 @@
                     <div class="row">
                         <div class="text-center">
                             <a class="text-decoration-none"
-                               v-bind:href="'tel:' + business_phone">
+                               v-bind:href="'tel:' + business_phone.replace(/-/g,'')">
                                 <button class="w-50 btn btn-lg btn-outline-success"
                                         type="button">
                                     <font-awesome-icon :icon="['fas', 'phone']"/>

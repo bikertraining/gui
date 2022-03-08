@@ -255,7 +255,7 @@
                         your class starts) confirming your enrollment and providing all details about your specific
                         class. If you’d prefer to enroll on the phone, give us a call at
                         <a class="text-dark text-decoration-none"
-                           v-bind:href="'tel:' + business_phone">{{ business_phone }}</a>.
+                           v-bind:href="'tel:' + business_phone.replace(/-/g,'')">{{ business_phone }}</a>.
                     </div>
 
                     <div class="mt-3">

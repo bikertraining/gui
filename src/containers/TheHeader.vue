@@ -26,7 +26,7 @@
 
         <div class="d-flex justify-content-center d-lg-flex fw-bolder fs-4">
             <a class="text-dark text-decoration-none"
-               v-bind:href="'tel:' + business_phone">Call us at {{ business_phone }}</a>
+               v-bind:href="'tel:' + business_phone.replace(/-/g,'')">Call us at {{ business_phone }}</a>
         </div>
 
         <!-- Start show on phone -->
