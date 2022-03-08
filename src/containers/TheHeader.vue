@@ -68,7 +68,7 @@
                 </button>
 
                 <ul aria-labelledby="dropdownMenuButton12"
-                    class="dropdown-menu p-0">
+                    class="dropdown-menu p-0 w-100">
                     <li>
                         <router-link v-for="link in links"
                                      v-bind:key="link"
