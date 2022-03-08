@@ -3,7 +3,7 @@
         <span>
             &copy; {{ new Date().getFullYear() }} <a class="text-decoration-none"
                                                      href="https://bikertraining.net"
-                                                     target="_blank">BikerTraining LLC</a>
+                                                     target="_blank">Biker Training LLC</a>
         </span>
     </footer>
 </template>
