@@ -12,6 +12,11 @@
                      class="me-3"
                      v-bind:src="'img/icon/' + link.img"/> <span class="fw-bold">{{ link.title }}</span>
             </router-link>
+
+            <a class="list-group-item list-group-item-action border-dark"
+               href="#"> <img alt="Follow Us"
+                              class="me-3"
+                              src="img/icon/facebook.png"/> <span class="fw-bold">Follow Us</span> </a>
         </div>
     </div>
 </template>
