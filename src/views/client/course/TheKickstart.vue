@@ -38,11 +38,14 @@
 
                     <div class="row">
                         <div class="text-center">
-                        <button class="w-50 btn btn-lg btn-outline-success"
-                                type="button">
-                            <font-awesome-icon :icon="['fas', 'phone']"/>
-                            Call us at {{ business_phone }}
-                        </button>
+                            <a class="text-decoration-none"
+                               v-bind:href="'tel:' + business_phone">
+                                <button class="w-50 btn btn-lg btn-outline-success"
+                                        type="button">
+                                    <font-awesome-icon :icon="['fas', 'phone']"/>
+                                    Call us at {{ business_phone }}
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>

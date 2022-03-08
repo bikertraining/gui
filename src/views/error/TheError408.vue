@@ -5,7 +5,10 @@
         <div class="col-lg-6 mx-auto">
             <p class="lead mb-4">Request Timeout.</p>
             <p class="text-muted">The page you are looking for took too long to load.</p>
-            <p class="text-muted">Please give us a call at {{ business_phone }}</p>
+            <p class="text-muted">Please give us a call at <a class="text-muted text-decoration-none"
+                                                              v-bind:href="'tel:' + business_phone">{{
+                    business_phone
+                }}</a></p>
             <p class="text-muted">
                 <router-link :to="{ name: 'client:home' }">Click here</router-link>
                 to go back to the main page.

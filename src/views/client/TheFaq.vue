@@ -29,7 +29,9 @@
                                     <router-link :to="{ name: 'client:register' }"
                                                  class="text-decoration-none">Click here
                                     </router-link>
-                                    to register online <span class="fw-bold">OR</span> call us at {{ business_phone }}
+                                    to register online <span class="fw-bold">OR</span> call us at
+                                    <a class="text-dark text-decoration-none"
+                                       v-bind:href="'tel:' + business_phone">{{ business_phone }}</a>
                                 </div>
                             </div>
                         </div>
@@ -102,7 +104,10 @@
                                  class="accordion-collapse collapse"
                                  data-bs-parent="#accordionFaq">
                                 <div class="accordion-body p-3">
-                                    Of course, call us at {{ business_phone }}
+                                    Of course, call us at <a class="text-dark text-decoration-none"
+                                                             v-bind:href="'tel:' + business_phone">{{
+                                        business_phone
+                                    }}</a>
                                 </div>
                             </div>
                         </div>
@@ -429,7 +434,9 @@
                                  class="accordion-collapse collapse"
                                  data-bs-parent="#accordionFaq">
                                 <div class="accordion-body p-3">
-                                    All fees are nonrefundable unless students call {{ business_phone }} or email
+                                    All fees are nonrefundable unless students call
+                                    <a class="text-dark text-decoration-none"
+                                       v-bind:href="'tel:' + business_phone">{{ business_phone }}</a> or email
                                     <a v-bind:href="'mailto:' + business_email">{{ business_email }}</a> 6 days prior to
                                     their scheduled class to obtain a partial refund. A partial refund is full tuition
                                     minus a ${{ prices.processing_fee }} processing fee.

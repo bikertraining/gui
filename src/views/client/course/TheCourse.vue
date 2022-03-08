@@ -122,11 +122,14 @@
                         </li>
                     </ul>
 
-                    <button class="w-100 btn btn-lg btn-outline-danger"
-                            type="button">
-                        <font-awesome-icon :icon="['fas', 'phone']"/>
-                        Call us at {{ business_phone }}
-                    </button>
+                    <a class="text-decoration-none"
+                       v-bind:href="'tel:' + business_phone">
+                        <button class="w-100 btn btn-lg btn-outline-danger"
+                                type="button">
+                            <font-awesome-icon :icon="['fas', 'phone']"/>
+                            Call us at {{ business_phone }}
+                        </button>
+                    </a>
 
                     <router-link :to="{ name: 'client:courses:kickstart' }">
                         <button class="w-100 btn btn-lg btn-outline-primary mt-3"
@@ -155,11 +158,14 @@
                         <li>&nbsp;</li>
                     </ul>
 
-                    <button class="w-100 btn btn-lg btn-outline-danger"
-                            type="button">
-                        <font-awesome-icon :icon="['fas', 'phone']"/>
-                        Call us at {{ business_phone }}
-                    </button>
+                    <a class="text-decoration-none"
+                       v-bind:href="'tel:' + business_phone">
+                        <button class="w-100 btn btn-lg btn-outline-danger"
+                                type="button">
+                            <font-awesome-icon :icon="['fas', 'phone']"/>
+                            Call us at {{ business_phone }}
+                        </button>
+                    </a>
 
                     <router-link :to="{ name: 'client:courses:private' }">
                         <button class="w-100 btn btn-lg btn-outline-primary mt-3"

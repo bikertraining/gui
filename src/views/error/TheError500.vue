@@ -5,7 +5,10 @@
         <div class="col-lg-6 mx-auto">
             <p class="lead mb-4">Houston, we have a problem!</p>
             <p class="text-muted">The page you are looking for is temporarily unavailable.</p>
-            <p class="text-muted">Please give us a call at {{ business_phone }}</p>
+            <p class="text-muted">Please give us a call at <a class="text-muted text-decoration-none"
+                                                              v-bind:href="'tel:' + business_phone">{{
+                    business_phone
+                }}</a></p>
             <p class="text-muted">
                 <router-link :to="{ name: 'client:home' }">Click here</router-link>
                 to go back to the main page.

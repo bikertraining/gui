@@ -12,8 +12,10 @@
                         </h4>
 
                         <h5>
-                            <font-awesome-icon :icon="['fas', 'phone']"/>
-                            {{ business_phone }}
+                            <font-awesome-icon :icon="['fas', 'phone']"
+                                               class="me-1"/>
+                            <a class="text-white text-decoration-none"
+                               v-bind:href="'tel:' + business_phone">{{ business_phone }}</a>
                         </h5>
                     </div>
                 </div>

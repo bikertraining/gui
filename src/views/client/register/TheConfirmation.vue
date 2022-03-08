@@ -22,7 +22,8 @@
                     </div>
 
                     <div class="mb-3">If for some reason you do not receive the email within 24 hours please call us at
-                        {{ business_phone }}
+                        <a class="text-dark text-decoration-none"
+                           v-bind:href="'tel:' + business_phone">{{ business_phone }}</a>
                     </div>
 
                     <div>
@@ -34,7 +35,8 @@
                         </div>
 
                         <div class="mb-3"><span class="fw-bold">Cancellation:</span> All fees are nonrefundable unless
-                            students call {{ business_phone }} or email
+                            students call <a class="text-dark text-decoration-none"
+                                             v-bind:href="'tel:' + business_phone">{{ business_phone }}</a> or email
                             <a v-bind:href="'mailto:' + business_email">{{ business_email }}</a> 6 days prior to their
                             scheduled class to obtain a partial refund. A partial refund is full tuition minus a
                             ${{ prices.price_processing_fee }} processing fee.

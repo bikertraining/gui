@@ -24,7 +24,10 @@
         </div>
         <!-- End show on desktop -->
 
-        <div class="d-flex justify-content-center d-lg-flex fw-bolder fs-4">Call us at {{ business_phone }}</div>
+        <div class="d-flex justify-content-center d-lg-flex fw-bolder fs-4">
+            <a class="text-dark text-decoration-none"
+               v-bind:href="'tel:' + business_phone">Call us at {{ business_phone }}</a>
+        </div>
 
         <!-- Start show on phone -->
         <nav class="navbar navbar-expand-lg navbar-light">
