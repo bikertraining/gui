@@ -4,7 +4,7 @@
     <div class="vh-100 d-flex flex-column overflow-hidden" v-if="globalSidebar.toggle">
         <TheHeader/>
 
-        <div class="flex-fill d-flex flex-row overflow-auto">
+        <div class="flex-fill d-flex flex-row overflow-auto bg-light">
             <TheSidebar/>
 
             <main class="flex-fill overflow-auto bg-light">
@@ -22,7 +22,7 @@
     <div class="d-flex flex-column overflow-hidden" v-if="!globalSidebar.toggle">
         <TheHeader/>
 
-        <div class="flex-fill d-flex flex-row overflow-auto">
+        <div class="flex-fill d-flex flex-row overflow-auto bg-light">
             <TheSidebar/>
 
             <main class="flex-fill overflow-auto bg-light">
