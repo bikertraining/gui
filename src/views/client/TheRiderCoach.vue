@@ -20,7 +20,7 @@
                         success! Be ready to have a blast with these patient and enthusiastic professionals!</p>
                 </div>
 
-                <div class="row row-cols-1 row-cols-md-3 g-0 text-center">
+                <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-3 g-0 text-center">
                     <div v-for="coach in coaches"
                          v-bind:key="coach"
                          class="col">
