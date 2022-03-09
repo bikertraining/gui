@@ -36,10 +36,10 @@
                     <table class="table table-hover">
                         <thead class="table-light">
                         <tr>
-                            <th scope="col">Dates</th>
-                            <th scope="col">Days</th>
-                            <th scope="col">Course</th>
-                            <th scope="col">Seats Available</th>
+                            <th scope="col" style="width: 25%;">Dates</th>
+                            <th scope="col" style="width: 25%;">Days</th>
+                            <th scope="col" style="width: 25%;">Course</th>
+                            <th scope="col" style="width: 25%;">Seats Available</th>
                         </tr>
                         </thead>
 
@@ -86,8 +86,13 @@ export default defineComponent({
             const start = dayjs(date_from).format('MMM D');
             const end = dayjs(date_to).format('D, YYYY');
 
+            const start_day = dayjs(date_from).format('D');
+            const end_day = dayjs(date_to).format('D');
+
             if (date_from === date_to) {
                 return start + dayjs(date_to).format(', YYYY');
+            } else if (start_day > end_day) {
+                return start + '-' + dayjs(date_to).format('MMM D, YYYY');
             } else {
                 return start + '-' + end;
             }
