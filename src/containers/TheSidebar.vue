@@ -22,7 +22,7 @@
                                    :icon="['fas', 'angle-double-left']"
                                    size="lg"/>
 
-                Hide Sidebar
+                Hide This Menu
             </button>
         </div>
     </div>
