@@ -13,6 +13,18 @@
                      v-bind:src="'img/icon/' + link.img"/> <span class="fw-bold">{{ link.title }}</span>
             </router-link>
         </div>
+
+        <div class="fixed-bottom mb-5 ms-3">
+            <button class="btn d-print-none"
+                    type="button"
+                    v-on:click="toggleSidebar">
+                <font-awesome-icon v-if="globalSidebar.toggle"
+                                   :icon="['fas', 'angle-double-left']"
+                                   size="lg"/>
+
+                Hide Sidebar
+            </button>
+        </div>
     </div>
 </template>
 
@@ -23,7 +35,7 @@ import { defineComponent } from "vue";
 export default defineComponent({
     name: "TheSidebar",
     setup() {
-        const { globalSidebar } = useSidebar();
+        const { globalSidebar, toggleSidebar } = useSidebar();
 
         const links = [
             {
@@ -70,7 +82,8 @@ export default defineComponent({
 
         return {
             globalSidebar,
-            links
+            links,
+            toggleSidebar
         };
     }
 });

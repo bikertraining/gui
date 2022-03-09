@@ -78,6 +78,14 @@
                                  class="me-3"
                                  v-bind:src="'img/icon/' + link.img"/> <span class="fw-bold">{{ link.title }}</span>
                         </router-link>
+
+                        <a href="#" class="dropdown-item list-group-item list-group-item-action d-none d-md-block" v-on:click="toggleSidebar">
+                            <font-awesome-icon v-if="!globalSidebar.toggle"
+                                               :icon="['fas', 'angle-double-right']"
+                                               size="lg" class="me-4"/>
+
+                            <span class="fw-bold">Show Side Menu</span>
+                        </a>
                     </li>
                 </ul>
             </div>
