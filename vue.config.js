@@ -48,12 +48,6 @@ const paths = [
         lastmod: new Date().toISOString().slice(0,10),
         priority: 0.3,
         changefreq: 'monthly'
-    },
-    {
-        path: '/#/pictures',
-        lastmod: new Date().toISOString().slice(0,10),
-        priority: 0.2,
-        changefreq: 'weekly'
     }
 ];
 
