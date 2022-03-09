@@ -1,14 +1,14 @@
 <template>
     <div id="top"
          class="row pt-3">
-        <div class="col-lg-6">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
             <div class="card rounded-3 shadow-sm">
                 <div class="card-header">
                     <div class="d-flex justify-content-between pt-3">
                         <h4 class="mb-3">
-                            <img src="img/icon/email.png" alt="Contact Us" class="me-1"/>
-                            Contact Us
-                        </h4>
+                            <img alt="Contact Us"
+                                 class="me-1"
+                                 src="img/icon/email.png"/> Contact Us </h4>
 
                         <h5>
                             <font-awesome-icon :icon="['fas', 'phone']"
@@ -23,7 +23,7 @@
                     <Form :validation-schema="schema"
                           @submit="submitContact">
                         <div class="row g-3">
-                            <div class="col-sm-6">
+                            <div class="col-md-6">
                                 <input-text v-model="formObj.name"
                                             :required="true"
                                             label="Name"

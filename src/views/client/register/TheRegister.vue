@@ -1,7 +1,7 @@
 <template>
     <div id="top"
          class="row pt-3">
-        <div class="col-lg-6 mb-3">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6 mb-3">
             <div class="card rounded-3 shadow-sm">
                 <div class="card-body">
                     <h4 class="mb-3">
@@ -241,7 +241,7 @@
             </div>
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
             <div class="card rounded-3 shadow-sm">
                 <div class="card-body">
                     <div>
