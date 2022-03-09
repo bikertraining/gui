@@ -1,10 +1,10 @@
 <template>
     <div id="top"
-         class="row row-cols-1 row-cols-md-3 mb-3 text-center pt-3">
-        <div class="col">
-            <div class="card mb-4 rounded-3 shadow-sm">
+         class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-3 mb-3 text-center pt-3">
+        <div class="col mb-3">
+            <div class="card rounded-3 shadow-sm h-100">
                 <div class="card-header py-3">
-                    <h4 class="my-0 fw-normal">Basic RiderCourse <br> (BRCu)</h4>
+                    <h4 class="my-0 fw-normal">Basic RiderCourse (BRCu)</h4>
                 </div>
 
                 <div class="card-body">
@@ -16,7 +16,9 @@
                             riding. Each student will be provided their own motorcycle.
                         </li>
                     </ul>
+                </div>
 
+                <div class="card-footer bg-white border-0">
                     <router-link :to="{ name: 'client:register' }">
                         <button class="w-100 btn btn-lg btn-outline-success"
                                 type="button">
@@ -36,10 +38,10 @@
             </div>
         </div>
 
-        <div class="col">
-            <div class="card mb-4 rounded-3 shadow-sm">
+        <div class="col mb-3">
+            <div class="card rounded-3 shadow-sm h-100">
                 <div class="card-header py-3">
-                    <h4 class="my-0 fw-normal">Experienced RiderCourse <br> (BRCu2)</h4>
+                    <h4 class="my-0 fw-normal">Experienced RiderCourse (BRCu2)</h4>
                 </div>
 
                 <div class="card-body">
@@ -51,7 +53,9 @@
                             ready to obtain new skills. You’re good, we’ll make ya better!
                         </li>
                     </ul>
+                </div>
 
+                <div class="card-footer bg-white border-0">
                     <router-link :to="{ name: 'client:register' }">
                         <button class="w-100 btn btn-lg btn-outline-success"
                                 type="button">
@@ -71,10 +75,10 @@
             </div>
         </div>
 
-        <div class="col">
-            <div class="card mb-4 rounded-3 shadow-sm">
+        <div class="col mb-3">
+            <div class="card rounded-3 shadow-sm h-100">
                 <div class="card-header py-3">
-                    <h4 class="my-0 fw-normal">3-Wheel Basic RiderCourse <br> (3WBRCu)</h4>
+                    <h4 class="my-0 fw-normal">3-Wheel Basic RiderCourse (3WBRCu)</h4>
                 </div>
 
                 <div class="card-body">
@@ -86,7 +90,9 @@
                             motorcycles or one may be rented for the training.
                         </li>
                     </ul>
+                </div>
 
+                <div class="card-footer bg-white border-0">
                     <router-link :to="{ name: 'client:register' }">
                         <button class="w-100 btn btn-lg btn-outline-success"
                                 type="button">
@@ -106,8 +112,8 @@
             </div>
         </div>
 
-        <div class="col">
-            <div class="card mb-4 rounded-3 shadow-sm">
+        <div class="col mb-3">
+            <div class="card rounded-3 shadow-sm h-100">
                 <div class="card-header py-3">
                     <h4 class="my-0 fw-normal">Kickstart</h4>
                 </div>
@@ -121,7 +127,9 @@
                             emphasis on teaching basic control to riders with no riding experience.
                         </li>
                     </ul>
+                </div>
 
+                <div class="card-footer bg-white border-0">
                     <a class="text-decoration-none"
                        v-bind:href="'tel:' + business_phone.replace(/-/g,'')">
                         <button class="w-100 btn btn-lg btn-outline-danger"
@@ -142,8 +150,8 @@
             </div>
         </div>
 
-        <div class="col">
-            <div class="card mb-4 rounded-3 shadow-sm">
+        <div class="col mb-3">
+            <div class="card rounded-3 shadow-sm h-100">
                 <div class="card-header py-3">
                     <h4 class="my-0 fw-normal">Private Lessons</h4>
                 </div>
@@ -154,10 +162,10 @@
                     <ul class="list-unstyled mt-3 mb-4 text-start">
                         <li>Private instruction is available for riders of all skill levels from beginners to advanced.
                         </li>
-                        <li>&nbsp;</li>
-                        <li>&nbsp;</li>
                     </ul>
+                </div>
 
+                <div class="card-footer bg-white border-0">
                     <a class="text-decoration-none"
                        v-bind:href="'tel:' + business_phone.replace(/-/g,'')">
                         <button class="w-100 btn btn-lg btn-outline-danger"
