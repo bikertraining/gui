@@ -12,18 +12,16 @@
                      class="me-3"
                      v-bind:src="'img/icon/' + link.img"/> <span class="fw-bold">{{ link.title }}</span>
             </router-link>
-        </div>
 
-        <div class="fixed-bottom mb-5 ms-3">
-            <button class="btn d-print-none"
-                    type="button"
-                    v-on:click="toggleSidebar">
+            <a class="list-group-item list-group-item-action border-dark"
+               href="#"
+               v-on:click="toggleSidebar">
                 <font-awesome-icon v-if="globalSidebar.toggle"
                                    :icon="['fas', 'angle-double-left']"
+                                   class="me-4"
                                    size="lg"/>
 
-                Hide This Menu
-            </button>
+                <span class="fw-bold">Hide This Menu</span> </a>
         </div>
     </div>
 </template>
