@@ -216,13 +216,13 @@
 
                 <div class="row gy-3">
                     <div class="col-md-12">
-                        <input-select v-model="formObj.schedule"
-                                      :options="getSchedule(formArr)"
-                                      :required="true"
-                                      help-text="Date of class you are signing up for"
-                                      label="Schedule"
-                                      name="schedule"
-                                      v-on:change="updatePrice(formObj.schedule)"/>
+                        <input-select-schedule v-model="formObj.schedule"
+                                               :options="getSchedule(formArr)"
+                                               :required="true"
+                                               help-text="Date of class you are signing up for"
+                                               label="Schedule"
+                                               name="schedule"
+                                               v-on:change="updatePrice(formObj.schedule)"/>
                     </div>
 
                     <div class="col-md-4 fw-bolder">Total ${{ priceObj.amount }}</div>
@@ -294,7 +294,7 @@
 </template>
 
 <script lang="ts">
-import { InputSelect, InputSelectState, InputText, InputTextArea } from "@/components";
+import { InputSelect, InputSelectSchedule, InputSelectState, InputText, InputTextArea } from "@/components";
 import { useClientRegister } from "@/composables";
 import dayjs from "dayjs";
 import { Form } from "vee-validate";
@@ -307,6 +307,7 @@ export default defineComponent({
     components: {
         Form,
         InputSelect,
+        InputSelectSchedule,
         InputSelectState,
         InputText,
         InputTextArea
