@@ -2,7 +2,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <router-link :to="{ name: 'client:home' }"
-                         class="navbar-brand">
+                         class="navbar-brand"
+                         v-on:click="close()">
                 <img alt="Biker Training LLC"
                      height="100"
                      src="img/bikertraining.png"/>
