@@ -47,7 +47,7 @@
                 <a href="https://www.flhsmv.gov/driver-licenses-id-cards/motorcycle-rider-education-endorsements/florida-rider-training-program-courses/"
                    target="_blank"> <img alt="Florida Rider Training Program"
                                          class="d-block img-fluid"
-                                         src="img/frtp.png"
+                                         src="img/frtp.svg"
                                          style="height: 200px;"> </a>
             </div>
         </div>
