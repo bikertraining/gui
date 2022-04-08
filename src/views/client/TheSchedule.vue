@@ -1,106 +1,78 @@
 <template>
-    <div id="top"
-         class="row pt-3">
-        <div class="container-fluid">
-            <div class="card rounded-3 shadow-sm">
-                <div class="card-header fw-bolder">
-                    <img src="img/icon/schedule.png" alt="Schedule" class="me-1"/>
-                    Schedule
-                </div>
+    <div class="py-5 pt-3">
+        <table class="table table-hover caption-top table-striped">
+            <caption class="mb-3">
+                <span class="ms-2 fw-bold text-dark">Click on a class to register.</span>
+            </caption>
 
-                <div class="card-body p-0">
-                    <table class="table table-hover caption-top">
-                        <caption class="mb-3 mt-3">
-                            <span class="ms-2 fw-bold text-dark">Click on a class to register.</span>
-                        </caption>
+            <thead class="table-light">
+            <tr>
+                <th scope="col"
+                    style="width: 25%;">Dates
+                </th>
+                <th scope="col"
+                    style="width: 25%;">Days
+                </th>
+                <th scope="col"
+                    style="width: 25%;">Course
+                </th>
+                <th scope="col"
+                    style="width: 25%;">Seats Available
+                </th>
+            </tr>
+            </thead>
 
-                        <thead class="table-light">
-                        <tr>
-                            <th scope="col" style="width: 25%;">Dates</th>
-                            <th scope="col" style="width: 25%;">Days</th>
-                            <th scope="col" style="width: 25%;">Course</th>
-                            <th scope="col" style="width: 25%;">Seats Available</th>
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                        <tr v-for="schedule in formArr"
-                            v-bind:key="schedule"
-                            v-on="schedule['seats'] > 0 ? { click: () => register(schedule['id']) } : { click: () => $event.preventDefault() }">
-                            <td>{{ classDate(schedule['date_from'], schedule['date_to']) }}</td>
-                            <td>{{ schedule['day_type_name'] }}</td>
-                            <td>{{ schedule['class_type_name'] }}</td>
-                            <td v-if="schedule['seats'] > 0">{{ schedule['seats'] }}</td>
-                            <td v-else>CLASS FULL</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+            <tbody>
+            <tr v-for="schedule in formArr"
+                v-bind:key="schedule"
+                v-on="schedule['seats'] > 0 ? { click: () => register(schedule['id']) } : { click: () => $event.preventDefault() }">
+                <td>{{ classDate(schedule['date_from'], schedule['date_to']) }}</td>
+                <td>{{ schedule['day_type_name'] }}</td>
+                <td>{{ schedule['class_type_name'] }}</td>
+                <td v-if="schedule['seats'] > 0">{{ schedule['seats'] }}</td>
+                <td v-else>CLASS FULL</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 
-    <div class="row mt-3">
-        <div class="container-fluid">
-            <div class="card rounded-3 shadow-sm">
-                <div class="card-body">
-                    <ul class="list-group list-group-flush d-grid gap-3">
-                        <li class="list-group-item bg-white">
-                            <h6 class="mb-2">
-                                <font-awesome-icon :icon="['fas', 'location-crosshairs']"
-                                                   class="me-1"/>
-                                Training Location
-                            </h6>
-                            Harley-Davidson of Pensacola 6385 Pensacola Blvd Pensacola, FL 32505
-                        </li>
+    <div class="row g-4 row-cols-1 row-cols-lg-2">
+        <div class="col d-flex align-items-start">
+            <div>
+                <h3>
+                    <font-awesome-icon :icon="['fas', 'clock']"
+                                       class="me-1 fa-xs"/>
+                    Class Times
+                </h3>
 
-                        <li class="list-group-item bg-white">
-                            <h6 class="mb-2">
-                                <font-awesome-icon :icon="['fas', 'clock']"
-                                                   class="me-1"/>
-                                Class Times for the scheduled BRC days
-                            </h6>
+                <p><span class="fw-bold">Basic RiderCourse</span> - <span class="fw-bold">Friday</span> 5:30 PM to 9:00
+                    PM and <span class="fw-bold">Saturday/Sunday</span> 7:00 AM to 4:00 PM</p>
 
-                            <div class="mb-2">
-                                <span class="fw-bold">Fri, Sat & Sun:</span> Friday 5:30 PM to 9:00 PM and
-                                Saturday/Sunday 7:00 AM to 4:00 PM
-                            </div>
+                <p><span class="fw-bold">Basic RiderCourse</span> - <span class="fw-bold">Monday</span> 12:00 PM to 4:00
+                    PM and <span class="fw-bold">Tuesday/Wednesday</span> 7:00 AM to 4:00 PM</p>
 
-                            <div>
-                                <span class="fw-bold">Mon, Tues & Wed:</span> Monday 12:00 PM to 4:00 PM and
-                                Tuesday/Wednesday 7:00 AM to 4:00 PM
-                            </div>
-                        </li>
+                <p><span class="fw-bold">3-Wheel Basic RiderCourse</span> -
+                    <span class="fw-bold">Monday & Tuesday</span> 7:00 AM to 3:00 PM on both days</p>
 
-                        <li class="list-group-item bg-white">
-                            <h6 class="mb-2">
-                                <font-awesome-icon :icon="['fas', 'clock']"
-                                                   class="me-1"/>
-                                Class Times for the scheduled 3 Wheel BRC days
-                            </h6>
-                            Two days: 7:00 AM to 3:00 PM on both days
-                        </li>
+                <p><span class="fw-bold">Experienced RiderCourse</span> - Day & times as shown in schedule</p>
+            </div>
+        </div>
 
-                        <li class="list-group-item bg-white">
-                            <h6 class="mb-2">
-                                <font-awesome-icon :icon="['fas', 'clock']"
-                                                   class="me-1"/>
-                                Class Times for the scheduled Experienced RiderCourse
-                            </h6>
-                            Day & times as shown in schedule.
-                        </li>
+        <div class="col d-flex align-items-start">
+            <div>
+                <h3>
+                    <font-awesome-icon :icon="['fas', 'map']"
+                                       class="me-1 fa-xs"/>
+                    Training Location
+                </h3>
 
-                        <li class="list-group-item bg-white">
-                            <h6 class="mb-2">
-                                <font-awesome-icon :icon="['fas', 'calendar-check']"
-                                                   class="me-1"/>
-                                KickStart Course Schedule
-                            </h6>
-                            The three hour KickStart Course can be given just about any time during the week and on most
-                            weekends. Call to set one up. If you aren’t sure if you should take this course or not, call
-                            us we can help.
-                        </li>
-                    </ul>
+                <p>Harley-Davidson of Pensacola 6385 Pensacola Blvd Pensacola, FL 32505</p>
+
+                <div class="ratio ratio-21x9">
+                    <iframe allowfullscreen=""
+                            loading="lazy"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3438.4832386303056!2d-87.25632568454179!3d30.479071804863704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8890bfc8ff1757f1%3A0x3fbb458075146bc2!2s6385%20Pensacola%20Blvd%2C%20Pensacola%2C%20FL%2032505!5e0!3m2!1sen!2sus!4v1644870012208!5m2!1sen!2sus"
+                            style="border:0;"></iframe>
                 </div>
             </div>
         </div>
@@ -118,8 +90,6 @@ export default defineComponent({
         const { formArr, getSearch } = useClientSchedule();
 
         onMounted(() => {
-            (document.getElementById("top") as HTMLDivElement).scrollIntoView();
-
             getSearch();
         });
 
@@ -152,14 +122,3 @@ export default defineComponent({
     }
 });
 </script>
-
-<style lang="css">
-.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-    background-color: #198754;
-    color: #FFFFFF;
-}
-
-.table tbody > tr:nth-last-child(1) {
-    border-color: #FFFFFF;
-}
-</style>

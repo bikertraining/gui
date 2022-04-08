@@ -36,10 +36,12 @@ const redirectLogout = () => {
 };
 
 const requireUnauthenticated = () => {
-    const { globalAuth } = useAuth();
+    const { globalAuth, initialize } = useAuth();
+
+    initialize();
 
     if (globalAuth.token !== '') {
-        return router.push({ name: 'admin:search' });
+        return router.push({ name: 'admin:schedule:search' });
     }
 };
 

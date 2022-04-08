@@ -6,7 +6,7 @@
                     <img alt="Login"
                          class="mb-3"
                          height="100"
-                         src="/img/bt_header.svg"/>
+                         src="/img/bikertraining.png"/>
                 </div>
 
                 <div v-if="nonFieldFormError"
@@ -25,7 +25,7 @@
                                 name="password"
                                 type="password"/>
 
-                    <button class="btn btn-outline-primary w-100 mt-2"
+                    <button class="btn btn-outline-success w-100 mt-2"
                             type="submit">Login
                     </button>
                 </form>

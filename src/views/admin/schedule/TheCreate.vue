@@ -1,57 +1,44 @@
 <template>
-    <div id="top"
-         class="row pt-3">
-        <div class="mb-3">
-            <div class="col-auto">
-                <router-link :to="{ name: 'admin:schedule:search' }">
-                    <button class="btn btn-primary"
-                            type="button">
-                            <span class="pe-2">
-                                <font-awesome-icon :icon="['fas', 'search']"/>
-                            </span> Search
-                    </button>
-                </router-link>
-            </div>
-        </div>
+    <div class="py-5">
+        <div class="d-inline-flex">
+            <Form :validation-schema="schema"
+                  @submit="submitUpdate">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <input-select v-model="formObj.price"
+                                      :options="choices.price"
+                                      :required="true"
+                                      label="Class Type"
+                                      name="price"/>
+                    </div>
 
-        <Form :validation-schema="schema"
-              @submit="submitCreate">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="card rounded-3 shadow-sm mb-3">
-                        <div class="card-header fw-bolder">
-                            <font-awesome-icon :icon="['fas', 'calendar-days']"
-                                               class="me-1"/>
-                            Class Settings
-                        </div>
+                    <div class="col-md-6">
+                        <input-select v-model="formObj.day_type"
+                                      :options="choices.day"
+                                      :required="true"
+                                      label="Day Type"
+                                      name="day_type"/>
+                    </div>
 
-                        <div class="card-body">
-                            <input-select v-model="formObj.price"
-                                          :options="choices.price"
-                                          :required="true"
-                                          label="Class Type"
-                                          name="price"/>
+                    <div class="col-md-6">
+                        <input-date v-model="formObj.date_from"
+                                    :required="true"
+                                    help-text="YYYY-MM-DD"
+                                    label="Starting Date"
+                                    name="date_from"/>
+                    </div>
 
-                            <input-select v-model="formObj.day_type"
-                                          :options="choices.day"
-                                          :required="true"
-                                          label="Day Type"
-                                          name="day_type"/>
+                    <div class="col-md-6">
+                        <input-date v-model="formObj.date_to"
+                                    :required="true"
+                                    help-text="YYYY-MM-DD"
+                                    label="Ending Date"
+                                    name="date_to"/>
+                    </div>
 
-                            <input-date v-model="formObj.date_from"
-                                        :required="true"
-                                        help-text="YYYY-MM-DD"
-                                        label="Starting Date"
-                                        name="date_from"/>
-
-                            <input-date v-model="formObj.date_to"
-                                        :required="true"
-                                        help-text="YYYY-MM-DD"
-                                        label="Ending Date"
-                                        name="date_to"/>
-
-                            <input-select v-model="formObj.seats"
-                                          :options="{
+                    <div class="col-md-6">
+                        <input-select v-model="formObj.seats"
+                                      :options="{
                                             '0': 'Class Full',
                                             '1': '1',
                                             '2': '2',
@@ -66,20 +53,19 @@
                                             '11': '11',
                                             '12': '12'
                                           }"
-                                          :required="true"
-                                          label="Seats"
-                                          name="seats"/>
-
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-outline-primary px-4"
-                                        type="submit">Create
-                                </button>
-                            </div>
-                        </div>
+                                      :required="true"
+                                      label="Seats"
+                                      name="seats"/>
                     </div>
                 </div>
-            </div>
-        </Form>
+
+                <div class="d-flex justify-content-between">
+                    <button class="btn btn-outline-success px-4"
+                            type="submit">Create
+                    </button>
+                </div>
+            </Form>
+        </div>
     </div>
 </template>
 

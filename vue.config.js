@@ -36,18 +36,6 @@ const paths = [
         lastmod: new Date().toISOString().slice(0,10),
         priority: 0.5,
         changefreq: 'monthly'
-    },
-    {
-        path: '/#/map',
-        lastmod: new Date().toISOString().slice(0,10),
-        priority: 0.4,
-        changefreq: 'monthly'
-    },
-    {
-        path: '/#/coaches',
-        lastmod: new Date().toISOString().slice(0,10),
-        priority: 0.3,
-        changefreq: 'monthly'
     }
 ];
 

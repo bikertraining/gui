@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 <head>
     <meta charset="utf-8">
     <meta name="description" CONTENT="Learn to ride or improve your motorcycle skills. Get your ticket to ride!">
@@ -12,13 +12,13 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100 position-relative">
 <noscript>
     <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
         Please enable it to continue.</strong>
 </noscript>
 
-<div id="app"></div>
+<main id="app" class="flex-shrink-0"></main>
 <!-- built files will be auto injected -->
 </body>
 </html>

@@ -1,130 +1,117 @@
 <template>
-    <div id="top"
-         class="row pt-3">
+    <div class="py-5 row">
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6 mb-3">
-            <div class="card rounded-3 shadow-sm">
-                <div class="card-body">
-                    <h4 class="mb-3">
-                        <font-awesome-icon :icon="['fa-solid', 'user-plus']"/>
-                        Registration
-                    </h4>
+            <h4 class="mb-3">
+                <font-awesome-icon :icon="['fa-solid', 'user-plus']"/>
+                Registration
+            </h4>
 
-                    <Form :validation-schema="schema"
-                          @submit="submitRegistration">
-                        <input-text v-model="formObj.class_type"
-                                    :required="false"
-                                    name="class_type"
-                                    type="hidden"/>
+            <Form :validation-schema="schema"
+                  @submit="submitRegistration">
+                <input-text v-model="formObj.class_type"
+                            :required="false"
+                            name="class_type"
+                            type="hidden"/>
 
-                        <div class="row g-3">
-                            <div class="col-sm-6">
-                                <input-text v-model="formObj.first_name"
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <input-text v-model="formObj.first_name"
+                                    :required="true"
+                                    help-text="As printed on your Drivers License"
+                                    label="First Name"
+                                    name="first_name"/>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <input-text v-model="formObj.last_name"
+                                    :required="true"
+                                    help-text="As printed on your Drivers License"
+                                    label="Last Name"
+                                    name="last_name"/>
+                    </div>
+
+                    <div class="col-12">
+                        <input-text v-model="formObj.address"
+                                    :required="true"
+                                    label="Address"
+                                    name="address"/>
+                    </div>
+
+                    <div class="col-md-5">
+                        <input-text v-model="formObj.city"
+                                    :required="true"
+                                    label="City"
+                                    name="city"/>
+                    </div>
+
+                    <div class="col-md-4">
+                        <input-select-state v-model="formObj.state"
+                                            v-model:region="formObj.state"
                                             :required="true"
-                                            help-text="As printed on your Drivers License"
-                                            label="First Name"
-                                            name="first_name"/>
-                            </div>
+                                            country="US"
+                                            label="State"
+                                            name="state"/>
+                    </div>
 
-                            <div class="col-sm-6">
-                                <input-text v-model="formObj.last_name"
+                    <div class="col-md-3">
+                        <input-text v-model="formObj.zipcode"
+                                    :required="true"
+                                    label="Zipcode"
+                                    max-length="28"
+                                    name="zipcode"/>
+                    </div>
+
+                    <div class="col-md-6">
+                        <input-text v-model="formObj.email"
+                                    :required="true"
+                                    label="Email"
+                                    name="email"/>
+                    </div>
+
+                    <div class="col-md-6">
+                        <input-text v-model="formObj.phone"
+                                    :required="true"
+                                    label="Phone Number"
+                                    name="phone"/>
+                    </div>
+
+                    <div class="col-md-4">
+                        <input-text v-model="formObj.dln"
+                                    :required="true"
+                                    label="Drivers License Number"
+                                    name="dln"/>
+                    </div>
+
+                    <div class="col-md-4">
+                        <input-select-state v-model="formObj.dls"
+                                            v-model:region="formObj.dls"
                                             :required="true"
-                                            help-text="As printed on your Drivers License"
-                                            label="Last Name"
-                                            name="last_name"/>
-                            </div>
+                                            country="US"
+                                            label="License State of Issue"
+                                            name="dls"/>
+                    </div>
 
-                            <div class="col-12">
-                                <input-text v-model="formObj.address"
-                                            :required="true"
-                                            label="Address"
-                                            name="address"/>
-                            </div>
+                    <div class="col-md-4">
+                        <input-text v-model="formObj.dob"
+                                    :required="true"
+                                    help-text="MM/DD/YYYY"
+                                    label="Date of Birth"
+                                    max-length="10"
+                                    name="dob"/>
+                    </div>
+                </div>
 
-                            <div class="col-md-5">
-                                <input-text v-model="formObj.city"
-                                            :required="true"
-                                            label="City"
-                                            name="city"/>
-                            </div>
+                <hr class="my-4">
 
-                            <div class="col-md-4">
-                                <input-select-state v-model="formObj.state"
-                                                    v-model:region="formObj.state"
-                                                    :required="true"
-                                                    country="US"
-                                                    label="State"
-                                                    name="state"/>
-                            </div>
+                <h4 class="mb-3">
+                    <font-awesome-icon :icon="['fa-solid', 'bicycle']"/>
+                    Experience
+                </h4>
 
-                            <div class="col-md-3">
-                                <input-text v-model="formObj.zipcode"
-                                            :required="true"
-                                            label="Zipcode"
-                                            max-length="28"
-                                            name="zipcode"/>
-                            </div>
-
-                            <div class="col-md-6">
-                                <input-text v-model="formObj.email"
-                                            :required="true"
-                                            label="Email"
-                                            name="email"/>
-                            </div>
-
-                            <div class="col-md-6">
-                                <input-text v-model="formObj.phone"
-                                            :required="true"
-                                            label="Phone Number"
-                                            name="phone"/>
-                            </div>
-
-                            <div class="col-md-4">
-                                <input-text v-model="formObj.dln"
-                                            :required="true"
-                                            label="Drivers License Number"
-                                            name="dln"/>
-                            </div>
-
-                            <div class="col-md-4">
-                                <input-select-state v-model="formObj.dls"
-                                                    v-model:region="formObj.dls"
-                                                    :required="true"
-                                                    country="US"
-                                                    label="License State of Issue"
-                                                    name="dls"/>
-                            </div>
-
-                            <div class="col-md-4">
-                                <input-text v-model="formObj.dob"
-                                            :required="true"
-                                            help-text="MM/DD/YYYY"
-                                            label="Date of Birth"
-                                            max-length="10"
-                                            name="dob"/>
-                            </div>
-
-                            <div class="col-md-12">
-                                <input-select v-model="formObj.schedule"
-                                              :options="getSchedule(formArr)"
-                                              :required="true"
-                                              help-text="Date of class you are signing up for"
-                                              label="Schedule"
-                                              name="schedule"
-                                              v-on:change="updatePrice(formObj.schedule)"/>
-                            </div>
-                        </div>
-
-                        <hr class="my-4">
-
-                        <h4 class="mb-3">
-                            <font-awesome-icon :icon="['fa-solid', 'bicycle']"/>
-                            Experience
-                        </h4>
-
-                        <div class="row gy-3">
-                            <div class="col-md-6">
-                                <input-select v-model="formObj.xpl"
-                                              :options="{
+                <div class="row gy-3">
+                    <div class="col-md-6">
+                        <input-select v-model="formObj.xpl"
+                                      :options="{
                                                   'none': 'None',
                                                   'some': 'Some, but a long time ago',
                                                   '1_6': '1 to 6 months',
@@ -132,48 +119,48 @@
                                                   'more': 'More than one year',
                                                   'dirt': 'Dirt bike only'
                                               }"
-                                              :required="false"
-                                              label="Current Level of Motorcycle Experience"
-                                              name="xpl"/>
-                            </div>
+                                      :required="false"
+                                      label="Current Level of Motorcycle Experience"
+                                      name="xpl"/>
+                    </div>
 
-                            <div class="col-md-12">
-                                <input-text-area v-model="formObj.comment"
-                                                 :required="false"
-                                                 help-text="Anything we should be aware of?"
-                                                 label="Comments"
-                                                 name="comment"
-                                                 rows="3"/>
-                            </div>
-                        </div>
+                    <div class="col-md-12">
+                        <input-text-area v-model="formObj.comment"
+                                         :required="false"
+                                         help-text="Anything we should be aware of?"
+                                         label="Comments"
+                                         name="comment"
+                                         rows="3"/>
+                    </div>
+                </div>
 
-                        <hr class="my-4">
+                <hr class="my-4">
 
-                        <h4 class="mb-3">
-                            <font-awesome-icon :icon="['fa-solid', 'credit-card']"/>
-                            Payment
-                        </h4>
+                <h4 class="mb-3">
+                    <font-awesome-icon :icon="['fa-solid', 'credit-card']"/>
+                    Payment
+                </h4>
 
-                        <div class="row gy-3">
-                            <div class="col-md-6">
-                                <input-text v-model="formObj.credit_card_name"
-                                            :required="true"
-                                            help-text="Full name as displayed on card"
-                                            label="Name"
-                                            name="credit_card_name"/>
-                            </div>
+                <div class="row gy-3">
+                    <div class="col-md-6">
+                        <input-text v-model="formObj.credit_card_name"
+                                    :required="true"
+                                    help-text="Full name as displayed on card"
+                                    label="Name"
+                                    name="credit_card_name"/>
+                    </div>
 
-                            <div class="col-md-6">
-                                <input-text v-model="formObj.credit_card_number"
-                                            :required="true"
-                                            label="Credit Card Number"
-                                            max-length="16"
-                                            name="credit_card_number"/>
-                            </div>
+                    <div class="col-md-6">
+                        <input-text v-model="formObj.credit_card_number"
+                                    :required="true"
+                                    label="Credit Card Number"
+                                    max-length="16"
+                                    name="credit_card_number"/>
+                    </div>
 
-                            <div class="col-md-4">
-                                <input-select v-model="formObj.credit_card_month"
-                                              :options="{
+                    <div class="col-md-4">
+                        <input-select v-model="formObj.credit_card_month"
+                                      :options="{
                                                 '1': '01',
                                                 '2': '02',
                                                 '3': '03',
@@ -187,14 +174,14 @@
                                                 '11': '11',
                                                 '12': '12'
                                               }"
-                                              :required="true"
-                                              label="Expiration Month"
-                                              name="credit_card_month"/>
-                            </div>
+                                      :required="true"
+                                      label="Expiration Month"
+                                      name="credit_card_month"/>
+                    </div>
 
-                            <div class="col-md-4">
-                                <input-select v-model="formObj.credit_card_year"
-                                              :options="{
+                    <div class="col-md-4">
+                        <input-select v-model="formObj.credit_card_year"
+                                      :options="{
                                                 '2022': '2022',
                                                 '2023': '2023',
                                                 '2024': '2024',
@@ -206,74 +193,100 @@
                                                 '2030': '2030',
                                                 '2031': '2031'
                                               }"
-                                              :required="true"
-                                              label="Expiration Year"
-                                              name="credit_card_year"/>
-                            </div>
+                                      :required="true"
+                                      label="Expiration Year"
+                                      name="credit_card_year"/>
+                    </div>
 
-                            <div class="col-md-4">
-                                <input-text v-model="formObj.credit_card_cvv2"
-                                            :required="true"
-                                            label="CVV"
-                                            max-length="4"
-                                            name="credit_card_cvv2"/>
-                            </div>
-                        </div>
-
-                        <div class="row gy-3">
-                            <div class="col-md-4 fw-bolder">Total ${{ priceObj.amount }}</div>
-                        </div>
-
-                        <hr class="my-4">
-
-                        <div v-if="nonFieldFormError"
-                             class="text-danger mb-3">
-                            {{ nonFieldFormMessage }}
-                        </div>
-
-                        <button class="w-100 btn btn-success btn-lg"
-                                type="submit">
-                            <font-awesome-icon :icon="['fa-solid', 'lock']"/>
-                            Register
-                        </button>
-                    </form>
+                    <div class="col-md-4">
+                        <input-text v-model="formObj.credit_card_cvv2"
+                                    :required="true"
+                                    label="CVV"
+                                    max-length="4"
+                                    name="credit_card_cvv2"/>
+                    </div>
                 </div>
-            </div>
+
+                <hr class="my-4">
+
+                <h4 class="mb-3">
+                    <font-awesome-icon :icon="['fa-solid', 'calendar-days']"/>
+                    Available Classes
+                </h4>
+
+                <div class="row gy-3">
+                    <div class="col-md-12">
+                        <input-select v-model="formObj.schedule"
+                                      :options="getSchedule(formArr)"
+                                      :required="true"
+                                      help-text="Date of class you are signing up for"
+                                      label="Schedule"
+                                      name="schedule"
+                                      v-on:change="updatePrice(formObj.schedule)"/>
+                    </div>
+
+                    <div class="col-md-4 fw-bolder">Total ${{ priceObj.amount }}</div>
+                </div>
+
+                <div v-if="nonFieldFormError"
+                     class="text-danger mb-3">
+                    {{ nonFieldFormMessage }}
+                </div>
+
+                <button class="w-100 btn btn-success btn-lg"
+                        type="submit">
+                    <font-awesome-icon :icon="['fa-solid', 'lock']"/>
+                    Register
+                </button>
+            </form>
         </div>
 
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
-            <div class="card rounded-3 shadow-sm">
-                <div class="card-body">
-                    <div>
-                        <h4 class="mb-3">
-                            <font-awesome-icon :icon="['fas', 'triangle-exclamation']"
-                                               class="text-danger"/>
-                            Notice
-                        </h4>
+            <h4 class="mb-3">
+                <font-awesome-icon :icon="['fas', 'triangle-exclamation']"
+                                   class="text-danger"/>
+                Notice
+            </h4>
 
-                        After submitting your application, you will receive an email by the next business day (or before
-                        your class starts) confirming your enrollment and providing all details about your specific
-                        class. If you’d prefer to enroll on the phone, give us a call at
-                        <a class="text-dark text-decoration-none"
-                           v-bind:href="'tel:' + business_phone.replace(/-/g,'')">{{ business_phone }}</a>.
-                    </div>
+            <div class="mb-3">After submitting your application, you will receive an email by the next business day (or
+                before your class starts) confirming your enrollment and providing all details about your specific
+                class. If you’d prefer to enroll on the phone, give us a call at
+                <a class="text-dark text-decoration-none"
+                   v-bind:href="'tel:' + business_phone.replace(/-/g,'')">{{ business_phone }}</a>.
+            </div>
 
-                    <div class="mt-3">
-                        <h4 class="mb-3">Can-AM Spyder Training</h4>
+            <div>
+                <h6>REFUND/CANCELLATION POLICY</h6>
 
-                        For a limited time, those that want to enroll in the 3-Wheel Basic RiderCourse on a Can-Am
-                        Spyder for only ${{ threewbrc_special_canam }} <a class="text-decoration-none"
-                                                                          href="https://bit.ly/2Dr72tB"
-                                                                          target="_blank">CLICK HERE</a>. Then select
-                        “Florida” and then “Pensacola”.
-                    </div>
+                <div class="mb-3">When enrolling, you are purchasing a seat in the class of your choice. Once purchased,
+                    that seat is set aside for only your use. Please select the date that will ensure you can attend
+                    each day for the times indicated. You must attend all class/range sessions.
+                </div>
 
-                    <div class="mt-3">
-                        <a href="https://letsencrypt.org/"
-                           target="_blank"> <img alt="Let's Encrypt"
-                                                 height="100"
-                                                 src="img/le-logo-standard.svg"> </a>
-                    </div>
+                <div class="mb-3"><span class="fw-bold">Cancellation:</span> All fees are nonrefundable unless students
+                    call <a class="text-dark text-decoration-none"
+                            v-bind:href="'tel:' + business_phone.replace(/-/g,'')">{{ business_phone }}</a> or email
+                    <a v-bind:href="'mailto:' + business_email">{{ business_email }}</a> 6 days prior to their scheduled
+                    class to obtain a partial refund. A partial refund is full tuition minus a ${{
+                        price_processing_fee
+                    }} processing fee.
+                </div>
+
+                <div class="mb-3">There is a minimum of four students per class. If minimum is not met, student has
+                    option to move to any future class or receive a full refund.
+                </div>
+
+                <div class="mb-3"><span class="fw-bold">Postponement:</span> There is no charge for postponement
+                    provided the student calls or emails at least 48 hours prior to the start of their scheduled class.
+                    If less than 48 hours prior or if a student does not complete the entire class, a seat in a
+                    subsequent class may be purchased.
+                </div>
+
+                <div class="mb-3"><span class="fw-bold">Late Arrivals:</span> Learning to ride a motorcycle requires
+                    skill progression. This progression begins with small tasks and builds to larger, more complex
+                    tasks. It is critical that students arrive on time. Preferably, come early! If you miss a class or
+                    range session, you will not be allowed to complete the course and will have to purchase another seat
+                    in a later class.
                 </div>
             </div>
         </div>
@@ -313,7 +326,11 @@ export default defineComponent({
             priceObj
         } = useClientRegister();
 
+        const business_email = process.env.VUE_APP_BUSINESS_EMAIL;
+
         const business_phone = process.env.VUE_APP_BUSINESS_PHONE;
+
+        const price_processing_fee = process.env.VUE_APP_PRICE_PROCESSING_FEE;
 
         const route = useRoute();
 
@@ -342,17 +359,14 @@ export default defineComponent({
             zipcode: string().required()
         });
 
-        const threewbrc_special_canam = process.env.VUE_APP_PRICE_THREEWBRC_SPECIAL_CANAM;
-
         onMounted(() => {
-            (document.getElementById("top") as HTMLDivElement).scrollIntoView();
-
             getDefaults(route.params);
 
             getSchedule();
         });
 
         return {
+            business_email,
             business_phone,
             createStudent,
             formArr,
@@ -363,9 +377,9 @@ export default defineComponent({
             id,
             nonFieldFormError,
             nonFieldFormMessage,
+            price_processing_fee,
             priceObj,
-            schema,
-            threewbrc_special_canam
+            schema
         };
     },
     methods: {

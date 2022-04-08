@@ -1,68 +1,58 @@
 <template>
-    <div id="top"
-         class="row pt-3">
-        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
-            <div class="card rounded-3 shadow-sm">
-                <div class="card-header">
-                    <div class="d-flex justify-content-between pt-3">
-                        <h4 class="mb-3">
-                            <img alt="Contact Us"
-                                 class="me-1"
-                                 src="img/icon/email.png"/> Contact Us </h4>
+    <div class="py-5 pt-3">
+        <h3 class="d-flex flex-row fw-bold">
+            <font-awesome-icon :icon="['fa-solid', 'envelope']"
+                               class="me-2 mt-1 mb-3"/>
+            Contact Us
+        </h3>
 
-                        <h5>
-                            <font-awesome-icon :icon="['fas', 'phone']"
-                                               class="me-1"/>
-                            <a class="text-white text-decoration-none"
-                               v-bind:href="'tel:' + business_phone.replace(/-/g,'')">{{ business_phone }}</a>
-                        </h5>
+        <div class="d-flex flex-row mb-3">
+            We can always be reached at&nbsp;<a class="text-dark text-decoration-none"
+                                           v-bind:href="'tel:' + business_phone.replace(/-/g,'')">{{
+                business_phone
+            }}</a>
+        </div>
+
+        <div class="d-inline-flex">
+            <Form :validation-schema="schema"
+                  @submit="submitContact">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <input-text v-model="formObj.name"
+                                    :required="true"
+                                    label="Name"
+                                    name="name"/>
+                    </div>
+
+                    <div class="col-md-6">
+                        <input-text v-model="formObj.email"
+                                    :required="true"
+                                    label="Email"
+                                    name="email"/>
+                    </div>
+
+                    <div class="col-md-6">
+                        <input-text v-model="formObj.phone"
+                                    :required="false"
+                                    label="Phone Number"
+                                    name="phone"/>
+                    </div>
+
+                    <div class="col-12">
+                        <input-text-area v-model="formObj.message"
+                                         :required="true"
+                                         label="Questions / Comments"
+                                         name="message"
+                                         rows="7"/>
                     </div>
                 </div>
 
-                <div class="card-body">
-                    <Form :validation-schema="schema"
-                          @submit="submitContact">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <input-text v-model="formObj.name"
-                                            :required="true"
-                                            label="Name"
-                                            name="name"/>
-                            </div>
-
-                            <div class="col-md-6">
-                                <input-text v-model="formObj.email"
-                                            :required="true"
-                                            label="Email"
-                                            name="email"/>
-                            </div>
-
-                            <div class="col-md-6">
-                                <input-text v-model="formObj.phone"
-                                            :required="false"
-                                            label="Phone Number"
-                                            name="phone"/>
-                            </div>
-
-                            <div class="col-12">
-                                <input-text-area v-model="formObj.message"
-                                                 :required="true"
-                                                 label="Questions / Comments"
-                                                 name="message"
-                                                 rows="7"/>
-                            </div>
-                        </div>
-
-                        <hr class="my-4">
-
-                        <button class="w-100 btn btn-success btn-lg"
-                                type="submit">
-                            <font-awesome-icon :icon="['fas', 'comment']"/>
-                            Submit
-                        </button>
-                    </form>
-                </div>
-            </div>
+                <button class="w-100 btn btn-success btn-lg"
+                        type="submit">
+                    <font-awesome-icon :icon="['fas', 'comment']"/>
+                    Submit
+                </button>
+            </form>
         </div>
     </div>
 </template>
@@ -71,7 +61,7 @@
 import { InputText, InputTextArea } from "@/components";
 import { useClientContact } from "@/composables";
 import { Form } from "vee-validate";
-import { defineComponent, onMounted } from "vue";
+import { defineComponent } from "vue";
 import { object, string } from "yup";
 
 export default defineComponent({
@@ -96,10 +86,6 @@ export default defineComponent({
             message: string().required(),
             name: string().required(),
             phone: string()
-        });
-
-        onMounted(() => {
-            (document.getElementById("top") as HTMLDivElement).scrollIntoView();
         });
 
         return {

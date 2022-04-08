@@ -6,7 +6,7 @@
 }
 
 .accordion-button {
-  background-color: #3C4B64;
+  background-color: #212529;
   color: #FFFFFF;
 }
 
@@ -15,12 +15,12 @@
 }
 
 .accordion-button:hover {
-  background-color: #42b983 !important;
+  background-color: #FE5C26 !important;
   color: #FFFFFF;
 }
 
 .accordion-button:not(.collapsed) {
-  background-color: #3C4B64;
+  background-color: #FE5C26;
   color: #FFFFFF;
   box-shadow: 0 0 0 0;
 }
@@ -39,11 +39,34 @@
 }
 
 .card-header {
-  background-color: #3C4B64;
+  background-color: #212529;
   color: #FFFFFF;
 }
 
-// Font Weight
-.fw-bold {
-  font-weight: 500 !important;
+// Nav
+.nav .nav-item .nav-link {
+  color: #F8F9FA;
+}
+
+.nav .nav-item .nav-link:hover {
+  color: #FE541F;
+}
+
+// Nav Bar
+.navbar-nav .nav-item .nav-link {
+  color: #F8F9FA;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  color: #FE541F;
+}
+
+// Table
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #198754;
+  color: #FFFFFF;
+}
+
+.table tbody > tr:nth-last-child(1) {
+  border-color: #FFFFFF;
 }

@@ -1,27 +1,27 @@
 <template>
     <page-loading :is-active="loadingState.isActive"/>
 
-    <TheHeader/>
+    <TheHeaderAuthenticated/>
+
+    <alert-banner/>
 
     <div class="container-fluid mb-3">
         <router-view/>
     </div>
-
-    <TheFooter/>
 </template>
 
 <script lang="ts">
-import { PageLoading } from "@/components";
+import { AlertBanner, PageLoading } from "@/components";
 import { usePageLoading } from "@/composables";
-import { TheFooter, TheHeader } from "@/containers";
+import TheHeaderAuthenticated from "@/containers/TheHeaderAuthenticated.vue";
 import { defineComponent } from "vue";
 
 export default defineComponent({
-    name: "TheContainerUnauthenticated",
+    name: "TheContainerAuthenticated",
     components: {
+        AlertBanner,
         PageLoading,
-        TheHeader,
-        TheFooter
+        TheHeaderAuthenticated
     },
     setup() {
         const { loadingState } = usePageLoading();

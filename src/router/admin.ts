@@ -7,7 +7,7 @@ export const adminRoutes = (requireAuthenticated: () => void): RouteInterface =>
             name: 'admin:schedule:search'
         },
         name: 'admin',
-        component: () => import('@/containers/TheContainer.vue'),
+        component: () => import('@/containers/TheContainerAuthenticated.vue'),
         beforeEnter: requireAuthenticated,
         children: [
             {

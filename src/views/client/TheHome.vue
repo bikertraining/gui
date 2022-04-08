@@ -1,93 +1,61 @@
 <template>
-    <div id="top"
-         class="row pt-3">
-        <div class="container-fluid">
-            <div class="card rounded-3 shadow-sm">
-                <div class="card-header fw-bolder text-center">LEARN TO RIDE OR IMPROVE YOUR MOTORCYCLE SKILLS</div>
+    <div class="px-4 py-5 pb-3 my-1 text-center"
+         style="min-height: calc(100vh - 274px) !important;">
+        <h4 class="fw-bold mb-4">LEARN TO RIDE OR IMPROVE YOUR MOTORCYCLE SKILLS</h4>
 
-                <div class="card-body">
-                    <div class="text-center fw-bolder"
-                         style="color: #3C4B64;">
-                        <p>If you want the best, come see us!</p>
-                    </div>
+        <img alt="Pensacola Harley-Davidson"
+             class="d-block mx-auto mb-4 img-fluid"
+             src="img/phd.svg"
+             style="height: 100px;">
 
-                    <div class="d-flex justify-content-center">
-                        <img alt="Penscola Harley-Davidson"
-                             class="d-none d-lg-flex"
-                             height="100"
-                             src="img/phd.svg"/>
+        <h5 class="fw-bold">We are the exclusive provider for all motorcycle training at Pensacola Harley-Davidson</h5>
 
-                        <img alt="Penscola Harley-Davidson"
-                             class="d-lg-none"
-                             height="75"
-                             src="img/phd.svg"/>
-                    </div>
+        <div class="col-lg-6 mx-auto mt-4">
+            <p class="lead mb-4">Whether you are totally new to motorcycles, a returning rider or already experienced,
+                we have a course to meet your needs. Our Basic RiderCourse meets the state of Florida license
+                endorsement requirement.</p>
 
-                    <div class="text-center fw-bolder mb-3"
-                         style="color: #3C4B64;">We are the exclusive provider for all motorcycle training at Pensacola
-                        Harley-Davidson
-                    </div>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <router-link :to="{ name: 'client:register' }">
+                    <button class="btn btn-success btn-lg px-4 gap-3"
+                            type="button">
+                        Sign Up Here
+                    </button>
+                </router-link>
 
-                    <p>Thanks for visiting our website! We look forward to meeting your motorcycle training needs. With
-                        nationally certified RiderCoaches, our primary goal is to allow you to develop your skills in a
-                        safe and fun learning environment.</p>
+                <router-link :to="{ name: 'client:schedule' }">
+                    <button class="btn btn-outline-success btn-lg px-4"
+                            type="button">
+                        Schedule
+                    </button>
+                </router-link>
+            </div>
+        </div>
 
-                    <p>Whether you are totally new to motorcycles, a returning rider or already experienced, we have a
-                        course to meet your needs.</p>
+        <hr class="w-75 mx-auto mt-5 border-1">
 
-                    <p>Use the buttons to navigate our site, get information and to sign up for the course that fits
-                        your needs.</p>
+        <div class="d-flex justify-content-center flex-wrap">
+            <div>
+                <a href="https://msf-usa.org/"
+                   target="_blank"> <img alt="Motorcycle Safety Foundation"
+                                         class="d-block img-fluid mt-5"
+                                         src="img/msf_header.svg"
+                                         style="height: 100px;"> </a>
+            </div>
 
-                    <p>Our Basic RiderCourse meets the state of Florida license endorsement requirement so at
-                        BikerTraining.Net you can… Get Your Ticket To Ride!</p>
-
-                    <p>
-                        <router-link :to="{ name: 'client:register'}"
-                                     class="text-decoration-none">
-                            <font-awesome-icon :icon="['fa-solid', 'arrow-right']"
-                                               class="text-dark"/>
-                            Click Here to Sign-up
-                        </router-link>
-                    </p>
-
-                    <hr>
-
-                    <div class="text-center">
-                        <p class="fw-bolder"
-                           style="color: #3C4B64;">Can-AM Spyder Training</p>
-
-                        <a class="text-decoration-none"
-                           href="https://bit.ly/2Dr72tB"
-                           target="_blank"> <img alt="Can-AM"
-                                                 class="align-self-end img-fluid"
-                                                 height="250"
-                                                 src="img/canam.svg"
-                                                 width="650"/> </a>
-
-                        <p class="mt-3">For a limited time, those that want to enroll in the 3-Wheel Basic RiderCourse
-                            on a Can-Am Spyder can do so for only ${{ threewbrc_special_canam }}.</p>
-                    </div>
-                </div>
+            <div>
+                <a href="https://www.flhsmv.gov/driver-licenses-id-cards/motorcycle-rider-education-endorsements/florida-rider-training-program-courses/"
+                   target="_blank"> <img alt="Florida Rider Training Program"
+                                         class="d-block img-fluid"
+                                         src="img/frtp.png"
+                                         style="height: 200px;"> </a>
             </div>
         </div>
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, onMounted } from "vue";
-
-export default defineComponent({
-    name: "TheHome",
-    setup() {
-        const threewbrc_special_canam = process.env.VUE_APP_PRICE_THREEWBRC_SPECIAL_CANAM;
-
-        onMounted(() => {
-            (document.getElementById("top") as HTMLDivElement).scrollIntoView();
-        });
-
-        return {
-            threewbrc_special_canam
-        };
-    }
-});
+<script>
+export default {
+    name: "TheHome"
+}
 </script>

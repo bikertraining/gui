@@ -10,14 +10,6 @@ export const clientRoutes = (): RouteInterface => {
         component: () => import('@/containers/TheContainerUnauthenticated.vue'),
         children: [
             {
-                path: 'coaches',
-                name: 'client:coaches',
-                meta: {
-                    label: 'Rider Coaches'
-                },
-                component: () => import('@/views/client/TheRiderCoach.vue')
-            },
-            {
                 path: 'contact',
                 name: 'client:contact',
                 meta: {
@@ -96,14 +88,6 @@ export const clientRoutes = (): RouteInterface => {
                     label: 'Home'
                 },
                 component: () => import('@/views/client/TheHome.vue')
-            },
-            {
-                path: 'map',
-                name: 'client:map',
-                meta: {
-                    label: 'Map'
-                },
-                component: () => import('@/views/client/TheMap.vue')
             },
             {
                 path: 'register/:id?',

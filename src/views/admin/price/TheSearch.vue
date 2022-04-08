@@ -1,47 +1,26 @@
 <template>
-    <div id="top"
-         class="row pt-3">
-        <div class="row mb-3">
-            <div class="col-auto">
-                <router-link :to="{ name: 'admin:schedule:search' }">
-                    <button class="btn btn-primary"
-                            type="button">
-                            <span class="pe-2">
-                                <font-awesome-icon :icon="['fas', 'search']"/>
-                            </span> Search Schedules
-                    </button>
-                </router-link>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="card rounded-3 shadow-sm">
-                <div class="card-header fw-bolder">
-                    <font-awesome-icon :icon="['fas', 'hand-holding-usd']"
-                                       class="me-1"/>
-                    Prices
-                </div>
+    <div class="py-5">
+        <table class="table table-hover caption-top table-striped">
+            <caption class="mb-3">
+                <span class="ms-2 fw-bold text-dark">Click on a price to edit.</span>
+            </caption>
 
-                <div class="card-body p-0">
-                    <table class="table table-hover">
-                        <thead class="table-light">
-                        <tr>
-                            <th scope="col">Course</th>
-                            <th scope="col">Amount</th>
-                        </tr>
-                        </thead>
+            <thead class="table-light">
+            <tr>
+                <th scope="col">Course</th>
+                <th scope="col">Amount</th>
+            </tr>
+            </thead>
 
-                        <tbody>
-                        <tr v-for="price in formArr"
-                            v-bind:key="price"
-                            v-on:click="edit(price['id'])">
-                            <td>{{ price['class_type_name'] }}</td>
-                            <td>${{ price['amount'] }}</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+            <tbody>
+            <tr v-for="price in formArr"
+                v-bind:key="price"
+                v-on:click="edit(price['id'])">
+                <td>{{ price['class_type_name'] }}</td>
+                <td>${{ price['amount'] }}</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </template>
 
@@ -55,8 +34,6 @@ export default defineComponent({
         const { formArr, getSearch } = useAdminPrice();
 
         onMounted(() => {
-            (document.getElementById("top") as HTMLDivElement).scrollIntoView();
-
             getSearch();
         });
 

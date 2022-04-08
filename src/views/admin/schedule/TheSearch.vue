@@ -1,6 +1,5 @@
 <template>
-    <div id="top"
-         class="row pt-3">
+    <div class="py-5">
         <div class="row mb-3">
             <div class="col-auto">
                 <router-link :to="{ name: 'admin:schedule:create' }">
@@ -8,56 +7,46 @@
                             type="button">
                             <span class="pe-2">
                                 <font-awesome-icon :icon="['fas', 'user-plus']"/>
-                            </span> Create
-                    </button>
-                </router-link>
-            </div>
-
-            <div class="col-auto">
-                <router-link :to="{ name: 'admin:price:search' }">
-                    <button class="btn btn-warning"
-                            type="button">
-                            <span class="pe-2">
-                                <font-awesome-icon :icon="['fas', 'hand-holding-usd']"/>
-                            </span> Price Management
+                            </span> Create Schedule
                     </button>
                 </router-link>
             </div>
         </div>
-        <div class="container-fluid">
-            <div class="card rounded-3 shadow-sm">
-                <div class="card-header fw-bolder">
-                    <font-awesome-icon :icon="['fas', 'calendar-days']"
-                                       class="me-1"/>
-                    Schedule
-                </div>
 
-                <div class="card-body p-0">
-                    <table class="table table-hover">
-                        <thead class="table-light">
-                        <tr>
-                            <th scope="col" style="width: 25%;">Dates</th>
-                            <th scope="col" style="width: 25%;">Days</th>
-                            <th scope="col" style="width: 25%;">Course</th>
-                            <th scope="col" style="width: 25%;">Seats Available</th>
-                        </tr>
-                        </thead>
+        <table class="table table-hover caption-top table-striped">
+            <caption class="mb-3">
+                <span class="ms-2 fw-bold text-dark">Click on a class to edit.</span>
+            </caption>
 
-                        <tbody>
-                        <tr v-for="schedule in formArr"
-                            v-bind:key="schedule"
-                            v-on:click="edit(schedule['id'])">
-                            <td>{{ classDate(schedule['date_from'], schedule['date_to']) }}</td>
-                            <td>{{ schedule['day_type_name'] }}</td>
-                            <td>{{ schedule['class_type_name'] }}</td>
-                            <td v-if="schedule['seats'] > 0">{{ schedule['seats'] }}</td>
-                            <td v-else>CLASS FULL</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+            <thead class="table-light">
+            <tr>
+                <th scope="col"
+                    style="width: 25%;">Dates
+                </th>
+                <th scope="col"
+                    style="width: 25%;">Days
+                </th>
+                <th scope="col"
+                    style="width: 25%;">Course
+                </th>
+                <th scope="col"
+                    style="width: 25%;">Seats Available
+                </th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr v-for="schedule in formArr"
+                v-bind:key="schedule"
+                v-on:click="edit(schedule['id'])">
+                <td>{{ classDate(schedule['date_from'], schedule['date_to']) }}</td>
+                <td>{{ schedule['day_type_name'] }}</td>
+                <td>{{ schedule['class_type_name'] }}</td>
+                <td v-if="schedule['seats'] > 0">{{ schedule['seats'] }}</td>
+                <td v-else>CLASS FULL</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </template>
 
@@ -72,8 +61,6 @@ export default defineComponent({
         const { formArr, getSearch } = useAdminSchedule();
 
         onMounted(() => {
-            (document.getElementById("top") as HTMLDivElement).scrollIntoView();
-
             getSearch();
         });
 
@@ -106,14 +93,3 @@ export default defineComponent({
     }
 });
 </script>
-
-<style lang="css">
-.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-    background-color: #198754;
-    color: #FFFFFF;
-}
-
-.table tbody > tr:nth-last-child(1) {
-    border-color: #FFFFFF;
-}
-</style>

@@ -1,4 +1,19 @@
 // Here you can add other styles
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #F8F9FA;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+  height: 100%;
+}
+
 .required label:after {
   content: "*";
   color: #FF0000;
