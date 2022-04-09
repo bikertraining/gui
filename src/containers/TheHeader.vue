@@ -58,7 +58,7 @@
                         </router-link>
                     </li>
 
-                    <li class="nav-item"
+                    <li class="nav-item me-3"
                         v-on:click="close()">
                         <router-link :to="{ name: 'client:contact'}"
                                      class="nav-link fw-bold">
@@ -74,6 +74,16 @@
                             <font-awesome-icon :icon="['fa-solid', 'phone']"/>
                             {{ business_phone }}</a>
                     </li>
+
+                    <li v-if="globalAuth.isAdmin"
+                        class="nav-item"
+                        v-on:click="close()">
+                        <router-link :to="{ name: 'admin:schedule:search'}"
+                                     class="nav-link fw-bold text-danger">
+                            <font-awesome-icon :icon="['fa-solid', 'user-secret']"/>
+                            Admin
+                        </router-link>
+                    </li>
                 </ul>
 
                 <div class="d-flex me-5 fs-5 fw-bold d-none d-lg-flex">
@@ -88,14 +98,20 @@
 </template>
 
 <script lang="ts">
+import { useAuth } from "@/composables";
 import { defineComponent } from "vue";
 
 export default defineComponent({
     name: "TheHeader",
     setup() {
+        const { globalAuth, initialize } = useAuth();
+
         const business_phone = process.env.VUE_APP_BUSINESS_PHONE;
 
+        initialize();
+
         return {
+            globalAuth,
             business_phone
         };
     },

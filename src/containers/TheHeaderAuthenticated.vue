@@ -24,6 +24,15 @@
                 <ul class="navbar-nav mb-2 mb-lg-0 me-auto px-4">
                     <li class="nav-item me-3"
                         v-on:click="close()">
+                        <router-link :to="{ name: 'client:home'}"
+                                     class="nav-link fw-bold">
+                            <font-awesome-icon :icon="['fa-solid', 'home']"/>
+                            Home
+                        </router-link>
+                    </li>
+
+                    <li class="nav-item me-3"
+                        v-on:click="close()">
                         <router-link :to="{ name: 'admin:schedule:search'}"
                                      class="nav-link fw-bold">
                             <font-awesome-icon :icon="['fa-solid', 'calendar-days']"/>

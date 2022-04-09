@@ -5,6 +5,7 @@ interface UseAuthInterface {
     formErrors: ComputedRef<string>;
     formSuccess: ComputedRef<boolean>;
     globalAuth: {
+        isAdmin: boolean;
         token: string;
     };
     initialize: () => void;
@@ -18,6 +19,7 @@ interface UseAuthInterface {
 }
 
 const globalAuth = reactive({
+    isAdmin: false,
     token: ''
 });
 
@@ -42,6 +44,7 @@ export const useAuth = (): UseAuthInterface => {
 
             session.defaults.headers.common['Authorization'] = `Token ${token}`;
 
+            globalAuth.isAdmin = true;
             globalAuth.token = token;
         }
     };
@@ -76,6 +79,7 @@ export const useAuth = (): UseAuthInterface => {
 
             session.defaults.headers.common['Authorization'] = `Token ${response.key}`;
 
+            globalAuth.isAdmin = true;
             globalAuth.token = response.key;
 
             localAuth.formSuccess = true;
@@ -97,6 +101,7 @@ export const useAuth = (): UseAuthInterface => {
 
         delete session.defaults.headers.common['Authorization'];
 
+        globalAuth.isAdmin = false;
         globalAuth.token = '';
 
         await processor.post(
