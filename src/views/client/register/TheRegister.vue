@@ -1,17 +1,38 @@
 <template>
-    <div class="py-5 row">
+    <div class="py-5 pt-3 row">
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6 mb-3">
-            <h4 class="mb-3">
-                <font-awesome-icon :icon="['fa-solid', 'user-plus']"/>
-                Registration
-            </h4>
-
             <Form :validation-schema="schema"
                   @submit="submitRegistration">
                 <input-text v-model="formObj.class_type"
                             :required="false"
                             name="class_type"
                             type="hidden"/>
+
+                <h4 class="mb-3">
+                    <font-awesome-icon :icon="['fa-solid', 'calendar-days']"/>
+                    Available Classes
+                </h4>
+
+                <div class="row g-3">
+                    <div class="col-md-12">
+                        <input-select-schedule v-model="formObj.schedule"
+                                               :options="getSchedule(formArr)"
+                                               :required="true"
+                                               help-text="Date of class you are signing up for"
+                                               label="Schedule"
+                                               name="schedule"
+                                               v-on:change="updatePrice(formObj.schedule)"/>
+                    </div>
+
+                    <div class="col-md-4 fw-bolder mt-0">Total ${{ priceObj.amount }}</div>
+                </div>
+
+                <hr class="my-4">
+
+                <h4 class="mb-3">
+                    <font-awesome-icon :icon="['fa-solid', 'user-plus']"/>
+                    Registration
+                </h4>
 
                 <div class="row g-3">
                     <div class="col-sm-6">
@@ -101,14 +122,14 @@
                     </div>
                 </div>
 
-                <hr class="my-4">
+                <hr class="my-4 mt-0">
 
                 <h4 class="mb-3">
                     <font-awesome-icon :icon="['fa-solid', 'bicycle']"/>
                     Experience
                 </h4>
 
-                <div class="row gy-3">
+                <div class="row g-3">
                     <div class="col-md-6">
                         <input-select v-model="formObj.xpl"
                                       :options="{
@@ -134,14 +155,14 @@
                     </div>
                 </div>
 
-                <hr class="my-4">
+                <hr class="my-4 mt-0">
 
                 <h4 class="mb-3">
                     <font-awesome-icon :icon="['fa-solid', 'credit-card']"/>
                     Payment
                 </h4>
 
-                <div class="row gy-3">
+                <div class="row g-3">
                     <div class="col-md-6">
                         <input-text v-model="formObj.credit_card_name"
                                     :required="true"
@@ -207,29 +228,8 @@
                     </div>
                 </div>
 
-                <hr class="my-4">
-
-                <h4 class="mb-3">
-                    <font-awesome-icon :icon="['fa-solid', 'calendar-days']"/>
-                    Available Classes
-                </h4>
-
-                <div class="row gy-3">
-                    <div class="col-md-12">
-                        <input-select-schedule v-model="formObj.schedule"
-                                               :options="getSchedule(formArr)"
-                                               :required="true"
-                                               help-text="Date of class you are signing up for"
-                                               label="Schedule"
-                                               name="schedule"
-                                               v-on:change="updatePrice(formObj.schedule)"/>
-                    </div>
-
-                    <div class="col-md-4 fw-bolder">Total ${{ priceObj.amount }}</div>
-                </div>
-
                 <div v-if="nonFieldFormError"
-                     class="text-danger mb-3">
+                     class="text-danger my-3">
                     {{ nonFieldFormMessage }}
                 </div>
 
@@ -391,8 +391,13 @@ export default defineComponent({
             const start_day = dayjs(date_from).format('D');
             const end_day = dayjs(date_to).format('D');
 
+            const start_month = dayjs(date_from).format('MM');
+            const end_month = dayjs(date_to).format('MM');
+
             if (date_from === date_to) {
                 return start + dayjs(date_to).format(', YYYY');
+            } else if (start_month > end_month) {
+                return dayjs(date_from).format('MMM D, YYYY') + '-' + dayjs(date_to).format('MMM D, YYYY');
             } else if (start_day > end_day) {
                 return start + '-' + dayjs(date_to).format('MMM D, YYYY');
             } else {
