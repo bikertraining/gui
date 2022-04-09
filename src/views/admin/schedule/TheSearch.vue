@@ -76,8 +76,13 @@ export default defineComponent({
             const start_day = dayjs(date_from).format('D');
             const end_day = dayjs(date_to).format('D');
 
+            const start_month = dayjs(date_from).format('MM');
+            const end_month = dayjs(date_to).format('MM');
+
             if (date_from === date_to) {
                 return start + dayjs(date_to).format(', YYYY');
+            } else if (start_month > end_month) {
+                return dayjs(date_from).format('MMM D, YYYY') + '-' + dayjs(date_to).format('MMM D, YYYY');
             } else if (start_day > end_day) {
                 return start + '-' + dayjs(date_to).format('MMM D, YYYY');
             } else {
