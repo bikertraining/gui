@@ -3,10 +3,12 @@
         <div class="div-center border border-dark">
             <div class="content">
                 <div class="d-flex justify-content-center">
-                    <img alt="Login"
-                         class="mb-3"
-                         height="100"
-                         src="/img/bikertraining.png"/>
+                    <router-link :to="{ name: 'client:home' }">
+                        <img alt="Login"
+                             class="mb-3"
+                             height="100"
+                             src="/img/bikertraining.png"/>
+                    </router-link>
                 </div>
 
                 <div v-if="nonFieldFormError"
