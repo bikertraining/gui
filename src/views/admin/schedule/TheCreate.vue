@@ -2,7 +2,7 @@
     <div class="py-5">
         <div class="d-inline-flex">
             <Form :validation-schema="schema"
-                  @submit="submitUpdate">
+                  @submit="submitCreate">
                 <div class="row g-3">
                     <div class="col-md-6">
                         <input-select v-model="formObj.price"
