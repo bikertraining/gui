@@ -31,7 +31,7 @@
 
                 <h4 class="mb-3">
                     <font-awesome-icon :icon="['fa-solid', 'user-plus']"/>
-                    Registration
+                    Student Enrollment
                 </h4>
 
                 <div class="row g-3">
@@ -126,7 +126,7 @@
 
                 <h4 class="mb-3">
                     <font-awesome-icon :icon="['fa-solid', 'bicycle']"/>
-                    Experience
+                    Optional Information
                 </h4>
 
                 <div class="row g-3">
