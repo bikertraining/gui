@@ -2,7 +2,7 @@
     <div class="py-5 pt-3">
         <table class="table table-hover caption-top table-striped">
             <caption class="mb-3">
-                <span class="ms-2 fw-bold text-dark">Click on a class to register.</span>
+                <font-awesome-icon :icon="['fa-solid', 'star']" class="text-warning ms-2"/> <span class="fw-bold text-dark">Click on a class to register</span>
             </caption>
 
             <thead class="table-light">
@@ -26,7 +26,10 @@
             <tr v-for="schedule in formArr"
                 v-bind:key="schedule"
                 v-on="schedule['seats'] > 0 ? { click: () => register(schedule['id']) } : { click: () => $event.preventDefault() }">
-                <td>{{ classDate(schedule['date_from'], schedule['date_to']) }}</td>
+                <td>
+                    {{ classDate(schedule['date_from'], schedule['date_to']) }} <br> <span v-if="schedule['seats'] > 0"
+                                                                                           class="badge rounded-pill bg-secondary border border-dark">Sign Up Here</span>
+                </td>
                 <td>{{ schedule['day_type_name'] }}</td>
                 <td>{{ schedule['class_type_name'] }}</td>
                 <td v-if="schedule['seats'] > 0">{{ schedule['seats'] }}</td>
