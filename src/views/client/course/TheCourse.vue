@@ -1,6 +1,5 @@
 <template>
-    <div id="top"
-         class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-3 mb-3 text-center pt-3">
+    <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-3 mb-3 text-center py-5 pt-3">
         <div class="col mb-3">
             <div class="card rounded-3 shadow-sm h-100">
                 <div class="card-header py-3">
@@ -86,8 +85,8 @@
 
                     <ul class="list-unstyled mt-3 mb-4 text-start">
                         <li>This course meets the State of Florida license endorsement requirement. This course is for
-                            those who want to learn to ride a 3-wheel motorcycle. Students provide their 3-wheel
-                            motorcycles or one may be rented for the training.
+                            those who want to learn to ride a 3-wheel motorcycle. Students must provide their own
+                            3-wheel motorcycle for the training.
                         </li>
                     </ul>
                 </div>
@@ -189,7 +188,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from "vue";
+import { defineComponent } from "vue";
 
 export default defineComponent({
     name: "TheCourse",
@@ -203,10 +202,6 @@ export default defineComponent({
             kickstart: process.env.VUE_APP_PRICE_KICKSTART,
             private: process.env.VUE_APP_PRICE_PRIVATE
         };
-
-        onMounted(() => {
-            (document.getElementById("top") as HTMLDivElement).scrollIntoView();
-        });
 
         return {
             business_phone,
