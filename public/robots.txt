@@ -5,3 +5,4 @@ Disallow: /error/
 Disallow: /pages/
 Disallow: /payment
 Disallow: /register/confirmation
+Sitemap: https://bikertraining.net/sitemap.xml
