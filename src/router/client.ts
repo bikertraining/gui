@@ -106,6 +106,22 @@ export const clientRoutes = (): RouteInterface => {
                 component: () => import('@/views/client/register/TheConfirmation.vue')
             },
             {
+                path: 'payment',
+                name: 'client:payment',
+                meta: {
+                    label: 'Payment'
+                },
+                component: () => import('@/views/client/payment/ThePayment.vue')
+            },
+            {
+                path: 'payment/confirmation',
+                name: 'client:payment:confirmation',
+                meta: {
+                    label: 'Payment Confirmation'
+                },
+                component: () => import('@/views/client/payment/TheConfirmation.vue')
+            },
+            {
                 path: 'schedule',
                 name: 'client:schedule',
                 meta: {

@@ -4,7 +4,7 @@ import processor from "@/composables/processor";
 import session from "@/composables/session";
 
 import { useAdminPrice, useAdminSchedule } from "@/composables/admin";
-import { useClientContact, useClientRegister, useClientSchedule } from "@/composables/client";
+import { useClientContact, useClientPayment, useClientRegister, useClientSchedule } from "@/composables/client";
 
 export {
     processor,
@@ -13,6 +13,7 @@ export {
     useAdminSchedule,
     useAuth,
     useClientContact,
+    useClientPayment,
     useClientRegister,
     useClientSchedule,
     usePageLoading
