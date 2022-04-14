@@ -35,7 +35,7 @@
                 </h4>
 
                 <div class="row g-3">
-                    <div class="col-sm-6">
+                    <div class="col-md-6">
                         <input-text v-model="formObj.first_name"
                                     :required="true"
                                     help-text="As printed on your Drivers License"
@@ -43,7 +43,7 @@
                                     name="first_name"/>
                     </div>
 
-                    <div class="col-sm-6">
+                    <div class="col-md-6">
                         <input-text v-model="formObj.last_name"
                                     :required="true"
                                     help-text="As printed on your Drivers License"
@@ -51,7 +51,7 @@
                                     name="last_name"/>
                     </div>
 
-                    <div class="col-12">
+                    <div class="col-md-12">
                         <input-text v-model="formObj.address"
                                     :required="true"
                                     label="Address"

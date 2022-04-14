@@ -73,7 +73,7 @@
                                     name="credit_card_cvv2"/>
                     </div>
 
-                    <div class="col-9">
+                    <div class="col-md-9">
                         <input-text v-model="formObj.address"
                                     :required="true"
                                     help-text="Billing Address"
@@ -90,7 +90,7 @@
                                     name="zipcode"/>
                     </div>
 
-                    <div class="col-sm-6">
+                    <div class="col-md-6">
                         <input-text v-model="formObj.first_name"
                                     :required="true"
                                     help-text="Student's first name as printed on Drivers License"
@@ -98,7 +98,7 @@
                                     name="first_name"/>
                     </div>
 
-                    <div class="col-sm-6">
+                    <div class="col-md-6">
                         <input-text v-model="formObj.last_name"
                                     :required="true"
                                     help-text="Student's last name as printed on Drivers License"
