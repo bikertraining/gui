@@ -3,10 +3,10 @@
          style="min-height: calc(100vh - 274px) !important;">
         <h4 class="fw-bold mb-4">LEARN TO RIDE OR IMPROVE YOUR MOTORCYCLE SKILLS</h4>
 
-        <img alt="Pensacola Harley-Davidson"
+        <img alt="Biker Training LLC"
              class="d-block mx-auto mb-4 img-fluid"
-             src="img/phd.svg"
-             style="height: 100px;">
+             src="img/bikertraining_bike.png"
+             style="min-height: 100px; max-height: 200px;"/>
 
         <h5 class="fw-bold">We are the exclusive provider for all motorcycle training at Pensacola Harley-Davidson</h5>
 
@@ -34,7 +34,15 @@
 
         <hr class="w-75 mx-auto mt-5 border-1">
 
-        <div class="d-flex justify-content-center flex-wrap">
+        <div class="d-flex justify-content-evenly flex-wrap">
+            <div>
+                <a href="https://www.flhsmv.gov/driver-licenses-id-cards/motorcycle-rider-education-endorsements/florida-rider-training-program-courses/"
+                   target="_blank"> <img alt="Florida Rider Training Program"
+                                         class="d-block img-fluid"
+                                         src="img/frtp.svg"
+                                         style="height: 200px;"> </a>
+            </div>
+
             <div>
                 <a href="https://msf-usa.org/"
                    target="_blank"> <img alt="Motorcycle Safety Foundation"
@@ -44,11 +52,11 @@
             </div>
 
             <div>
-                <a href="https://www.flhsmv.gov/driver-licenses-id-cards/motorcycle-rider-education-endorsements/florida-rider-training-program-courses/"
-                   target="_blank"> <img alt="Florida Rider Training Program"
-                                         class="d-block img-fluid"
-                                         src="img/frtp.svg"
-                                         style="height: 200px;"> </a>
+                <a href="https://www.pensacolaharley.com/"
+                   target="_blank"> <img alt="Pensacola Harley-Davidson"
+                                         class="d-block mx-auto mb-4 img-fluid mt-5"
+                                         src="img/phd.svg"
+                                         style="height: 100px;"> </a>
             </div>
         </div>
     </div>
