@@ -11,14 +11,15 @@
             TO ALL OF THE TERMS AND CONDITIONS, THEN PLEASE DO NOT ACCESS OR USE OUR SITE OR OUR SERVICES.</p>
 
         <p>The present terms and conditions (this "Agreement" or "Terms") is a legal agreement between you and Biker
-            Training LLC (hereinafter " "), a company duly organized and validly existing, located at 92 Garfield Dr,
+            Training LLC (hereinafter), a company duly organized and validly existing, located at 92 Garfield Dr,
             Pensacola, Florida 32505. This Agreement annuls and voids all previous agreements.</p>
 
         <p class="text-decoration-underline fw-bold">Overview</p>
 
-        <p>The Site (https://bikertraining.net) is operated by . Throughout the Site, the terms "we", "us" and "our"
-            refer to . offers this Site, including all information, tools and services available from this Site to you,
-            the user, conditioned upon your acceptance of all terms, conditions, policies and notices stated here.</p>
+        <p>The Site (https://bikertraining.net) is operated by Biker Training LLC. Throughout the Site, the terms "we",
+            "us" and "our" refer to offers this Site, including all information, tools and services available from this
+            Site to you, the user, conditioned upon your acceptance of all terms, conditions, policies and notices
+            stated here.</p>
 
         <p>By visiting our Site and/or purchasing something from us, you engage in our "Service" and agree to be bound
             by the following terms and conditions, including those additional terms and conditions and policies
