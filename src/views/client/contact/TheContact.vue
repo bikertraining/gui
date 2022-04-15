@@ -7,10 +7,18 @@
         </h3>
 
         <div class="d-flex flex-row mb-3">
-            We can always be reached at&nbsp;<a class="text-dark text-decoration-none"
+            If you have any questions / concerns please let us know.
+        </div>
+
+        <div class="d-flex flex-row mb-3">
+            <span class="fw-bold">Phone:</span>&nbsp;<a class="text-dark text-decoration-none"
                                            v-bind:href="'tel:' + business_phone.replace(/-/g,'')">{{
                 business_phone
             }}</a>
+        </div>
+
+        <div class="d-flex flex-row mb-3">
+            <span class="fw-bold">Email:</span>&nbsp;<a href="mailto: sammie@bikertraining.net" class="text-decoration-none">sammie@bikertraining.net</a>
         </div>
 
         <div class="d-inline-flex">
