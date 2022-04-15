@@ -38,8 +38,23 @@
                 </li>
             </ul>
 
-
             <p class="text-center text-white">&copy; {{ new Date().getFullYear() }} Biker Training LLC</p>
+
+            <ul class="nav justify-content-center pb-3">
+                <li class="nav-item">
+                    <router-link :to="{ name: 'client:privacy'}"
+                                 class="nav-link px-2">
+                        Privacy Policy
+                    </router-link>
+                </li>
+
+                <li class="nav-item">
+                    <router-link :to="{ name: 'client:tos'}"
+                                 class="nav-link px-2">
+                        Terms of Service
+                    </router-link>
+                </li>
+            </ul>
         </div>
     </footer>
 </template>

@@ -90,22 +90,6 @@ export const clientRoutes = (): RouteInterface => {
                 component: () => import('@/views/client/TheHome.vue')
             },
             {
-                path: 'register/:id?',
-                name: 'client:register',
-                meta: {
-                    label: 'Register'
-                },
-                component: () => import('@/views/client/register/TheRegister.vue')
-            },
-            {
-                path: 'register/confirmation/:class_type',
-                name: 'client:register:confirmation',
-                meta: {
-                    label: 'Registration Confirmation'
-                },
-                component: () => import('@/views/client/register/TheConfirmation.vue')
-            },
-            {
                 path: 'payment',
                 name: 'client:payment',
                 meta: {
@@ -122,12 +106,44 @@ export const clientRoutes = (): RouteInterface => {
                 component: () => import('@/views/client/payment/TheConfirmation.vue')
             },
             {
+                path: 'privacy',
+                name: 'client:privacy',
+                meta: {
+                    label: 'Privacy Policy'
+                },
+                component: () => import('@/views/client/ThePrivacy.vue')
+            },
+            {
+                path: 'register/:id?',
+                name: 'client:register',
+                meta: {
+                    label: 'Register'
+                },
+                component: () => import('@/views/client/register/TheRegister.vue')
+            },
+            {
+                path: 'register/confirmation/:class_type',
+                name: 'client:register:confirmation',
+                meta: {
+                    label: 'Registration Confirmation'
+                },
+                component: () => import('@/views/client/register/TheConfirmation.vue')
+            },
+            {
                 path: 'schedule',
                 name: 'client:schedule',
                 meta: {
                     label: 'Schedule'
                 },
                 component: () => import('@/views/client/TheSchedule.vue')
+            },
+            {
+                path: 'tos',
+                name: 'client:tos',
+                meta: {
+                    label: 'Terms of Service'
+                },
+                component: () => import('@/views/client/TheTos.vue')
             }
         ]
     };
