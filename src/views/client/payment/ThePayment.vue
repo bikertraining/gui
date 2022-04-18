@@ -132,7 +132,7 @@
                 <div class="mb-3">
                     <span class="fw-bold">Protected by</span> <img alt="Let's Encrypt"
                                                                    height="50"
-                                                                   src="img/le-logo-wide.svg"/>
+                                                                   src="/img/le-logo-wide.svg"/>
                 </div>
 
                 <button class="w-100 btn btn-success btn-lg"

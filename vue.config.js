@@ -8,31 +8,31 @@ const paths = [
         changefreq: 'hourly'
     },
     {
-        path: '/#/register',
+        path: '/register',
         lastmod: new Date().toISOString().slice(0,10),
         priority: 0.9,
         changefreq: 'hourly'
     },
     {
-        path: '/#/schedule',
+        path: '/schedule',
         lastmod: new Date().toISOString().slice(0,10),
         priority: 0.8,
         changefreq: 'hourly'
     },
     {
-        path: '/#/courses',
+        path: '/courses',
         lastmod: new Date().toISOString().slice(0,10),
         priority: 0.7,
         changefreq: 'daily'
     },
     {
-        path: '/#/faq',
+        path: '/faq',
         lastmod: new Date().toISOString().slice(0,10),
         priority: 0.6,
         changefreq: 'daily'
     },
     {
-        path: '/#/contact',
+        path: '/contact',
         lastmod: new Date().toISOString().slice(0,10),
         priority: 0.5,
         changefreq: 'monthly'

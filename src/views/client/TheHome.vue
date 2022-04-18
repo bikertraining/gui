@@ -5,7 +5,7 @@
 
         <img alt="Biker Training LLC"
              class="d-block mx-auto mb-4 img-fluid"
-             src="img/bikertraining_bike.png"
+             src="/img/bikertraining_bike.png"
              style="min-height: 100px; max-height: 200px;"/>
 
         <h5 class="fw-bold">We are the exclusive provider for all motorcycle training at Pensacola Harley-Davidson</h5>
@@ -39,7 +39,7 @@
                 <a href="https://www.flhsmv.gov/driver-licenses-id-cards/motorcycle-rider-education-endorsements/florida-rider-training-program-courses/"
                    target="_blank"> <img alt="Florida Rider Training Program"
                                          class="d-block img-fluid"
-                                         src="img/frtp.svg"
+                                         src="/img/frtp.svg"
                                          style="height: 200px;"> </a>
             </div>
 
@@ -47,7 +47,7 @@
                 <a href="https://msf-usa.org/"
                    target="_blank"> <img alt="Motorcycle Safety Foundation"
                                          class="d-block img-fluid mt-5"
-                                         src="img/msf_header.svg"
+                                         src="/img/msf_header.svg"
                                          style="height: 100px;"> </a>
             </div>
 
@@ -55,7 +55,7 @@
                 <a href="https://www.pensacolaharley.com/"
                    target="_blank"> <img alt="Pensacola Harley-Davidson"
                                          class="d-block mx-auto mb-4 img-fluid mt-5"
-                                         src="img/phd.svg"
+                                         src="/img/phd.svg"
                                          style="height: 100px;"> </a>
             </div>
         </div>

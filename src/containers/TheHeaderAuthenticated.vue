@@ -6,7 +6,7 @@
                          v-on:click="close()">
                 <img alt="Biker Training LLC"
                      height="100"
-                     src="img/bikertrainingw.png"/>
+                     src="/img/bikertrainingw.png"/>
             </router-link>
 
             <button aria-controls="navbarSupportedContent"
