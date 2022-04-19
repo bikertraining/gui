@@ -100,9 +100,13 @@ export const useClientRegister = (): UseClientRegisterInterface => {
     };
 
     const getSchedule = async () => {
+        loadingState.isActive = true;
+
         localRegister.formArr = await processor.get(
             'client/schedule/search'
         );
+
+        loadingState.isActive = false;
     };
 
     const priceObj = computed(() => {
