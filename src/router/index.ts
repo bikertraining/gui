@@ -4,7 +4,7 @@ import { clientRoutes } from "@/router/client";
 import { errorRoutes } from "@/router/error";
 import { pagesRoutes } from "@/router/pages";
 import { RendererElement } from "vue";
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 
 export interface RouteInterface {
     path: string;
@@ -60,7 +60,7 @@ const routes: Array<RouteRecordRaw> = [
 ];
 
 const router = createRouter({
-    history: createWebHistory(process.env.BASE_URL),
+    history: createWebHashHistory(process.env.BASE_URL),
     routes,
     scrollBehavior() {
         return { top: 0 };
