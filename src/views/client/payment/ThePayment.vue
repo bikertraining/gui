@@ -73,18 +73,32 @@
                                     name="credit_card_cvv2"/>
                     </div>
 
-                    <div class="col-md-9">
+                    <div class="col-md-12">
                         <input-text v-model="formObj.address"
                                     :required="true"
-                                    help-text="Billing Address"
                                     label="Address"
                                     name="address"/>
+                    </div>
+
+                    <div class="col-md-5">
+                        <input-text v-model="formObj.city"
+                                    :required="true"
+                                    label="City"
+                                    name="city"/>
+                    </div>
+
+                    <div class="col-md-4">
+                        <input-select-state v-model="formObj.state"
+                                            v-model:region="formObj.state"
+                                            :required="true"
+                                            country="US"
+                                            label="State"
+                                            name="state"/>
                     </div>
 
                     <div class="col-md-3">
                         <input-text v-model="formObj.zipcode"
                                     :required="true"
-                                    help-text="Billing Zipcode"
                                     label="Zipcode"
                                     max-length="28"
                                     name="zipcode"/>
@@ -161,7 +175,7 @@
 </template>
 
 <script lang="ts">
-import { InputSelect, InputText } from "@/components";
+import { InputSelect, InputSelectState, InputText } from "@/components";
 import { useClientPayment } from "@/composables";
 import { Form } from "vee-validate";
 import { defineComponent } from "vue";
@@ -172,6 +186,7 @@ export default defineComponent({
     components: {
         Form,
         InputSelect,
+        InputSelectState,
         InputText
     },
     setup() {
@@ -190,6 +205,7 @@ export default defineComponent({
 
         const schema = object({
             address: string().required(),
+            city: string().required(),
             credit_card_cvv2: string().required().min(3).max(4),
             credit_card_month: string().required().min(1).max(2),
             credit_card_name: string().required(),
@@ -199,6 +215,7 @@ export default defineComponent({
             first_name: string().required(),
             last_name: string().required(),
             phone: string().required(),
+            state: string().required(),
             zipcode: string().required()
         });
 
