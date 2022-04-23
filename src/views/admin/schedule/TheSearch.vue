@@ -81,7 +81,7 @@ export default defineComponent({
 
             if (date_from === date_to) {
                 return start + dayjs(date_to).format(', YYYY');
-            } else if (start_month > end_month) {
+            } else if (start_month.padStart(2, '0') > end_month.padStart(2, '0')) {
                 return dayjs(date_from).format('MMM D, YYYY') + '-' + dayjs(date_to).format('MMM D, YYYY');
             } else if (start_day.padStart(2, '0') > end_day.padStart(2, '0')) {
                 return start + '-' + dayjs(date_to).format('MMM D, YYYY');
