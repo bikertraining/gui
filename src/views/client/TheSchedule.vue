@@ -2,7 +2,9 @@
     <div class="py-5 pt-3">
         <table class="table table-hover caption-top table-striped">
             <caption class="mb-3">
-                <font-awesome-icon :icon="['fa-solid', 'star']" class="text-warning ms-2"/> <span class="fw-bold text-dark">Click on a class to register</span>
+                <font-awesome-icon :icon="['fa-solid', 'star']"
+                                   class="text-warning ms-2"/>
+                <span class="fw-bold text-dark">Click on a class to register</span>
             </caption>
 
             <thead class="table-light">
@@ -73,9 +75,12 @@
 
                 <div class="ratio ratio-21x9">
                     <iframe allowfullscreen=""
+                            height="450"
                             loading="lazy"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3438.4832386303056!2d-87.25632568454179!3d30.479071804863704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8890bfc8ff1757f1%3A0x3fbb458075146bc2!2s6385%20Pensacola%20Blvd%2C%20Pensacola%2C%20FL%2032505!5e0!3m2!1sen!2sus!4v1644870012208!5m2!1sen!2sus"
-                            style="border:0;"></iframe>
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3438.483238630305!2d-87.25632568455873!3d30.479071804863718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8890bfc8ff1757f1%3A0x3fbb458075146bc2!2s6385%20Pensacola%20Blvd%2C%20Pensacola%2C%20FL%2032505!5e0!3m2!1sen!2sus!4v1650728339732!5m2!1sen!2sus"
+                            style="border:0;"
+                            width="600"/>
                 </div>
             </div>
         </div>
