@@ -36,7 +36,7 @@
 </template>
 
 <script lang="ts">
-import Datepicker from 'vue3-date-time-picker';
+import Datepicker from '@vuepic/vue-datepicker';
 import { Field } from "vee-validate";
 import { defineComponent } from "vue";
 
@@ -87,7 +87,7 @@ export default defineComponent({
 <style lang="scss">
 @import "../../assets/scss/form";
 
-@import "vue3-date-time-picker/dist/main.css";
+@import "@vuepic/vue-datepicker/dist/main.css";
 
 .dp__input::placeholder {
     color: #000000;
