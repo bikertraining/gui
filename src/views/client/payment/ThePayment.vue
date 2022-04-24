@@ -1,6 +1,6 @@
 <template>
     <div class="py-5 pt-3 row">
-        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6 mb-3">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
             <Form :validation-schema="schema"
                   @submit="submitPayment">
                 <h4 class="mb-3">
@@ -158,11 +158,12 @@
         </div>
 
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
-            <h4 class="mb-3">
-                <font-awesome-icon :icon="['fas', 'triangle-exclamation']"
-                                   class="text-danger"/>
-                Notice
-            </h4>
+            <div class="mb-3">
+                <img alt="Pensacola Harley-Davidson"
+                     class="d-block img-fluid mt-5"
+                     src="/img/phd.svg"
+                     style="height: 100px;">
+            </div>
 
             <div class="mb-3">You can use this form to pay online for your class or give us a call at
                 <a class="text-dark text-decoration-none"
