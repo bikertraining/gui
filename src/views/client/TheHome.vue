@@ -60,7 +60,7 @@
             </div>
         </div>
 
-        <hr class="w-75 mx-auto mt-5 border-1">
+        <hr class="w-75 mx-auto mt-4 border-1">
 
         <div class="d-flex flex-column">
             <h5 class="fw-bold mb-3">Can-Am Spyder Training</h5>
