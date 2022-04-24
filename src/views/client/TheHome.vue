@@ -59,6 +59,29 @@
                                          style="height: 100px;"> </a>
             </div>
         </div>
+
+        <hr class="w-75 mx-auto mt-5 border-1">
+
+        <div class="d-flex flex-column">
+            <h5 class="fw-bold mb-3">Can-Am Spyder Training</h5>
+
+            <div class="d-flex justify-content-center">
+                <a href="http://bit.ly/2Dr72tB"
+                   target="_blank"> <img alt="BRP - CanAm Spyder Training"
+                                         class="d-block img-fluid"
+                                         src="/img/BRP_Can-Am-On-Road_REP-99_960x310.svg"
+                                         style="height: 200px;"> </a>
+            </div>
+
+            <div class="mt-3">
+                For a limited time, those that want to enroll in the 3-Wheel Basic RiderCourse on a Can-Am Spyder can do
+                so for only $99.00
+            </div>
+
+            <div class="mt-3">
+                After clicking on the image, choose "Florida" and then "Pensacola".
+            </div>
+        </div>
     </div>
 </template>
 
