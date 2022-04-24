@@ -66,7 +66,7 @@
             <h5 class="fw-bold">Can-Am Spyder Training</h5>
 
             <a class="mx-auto mt-3"
-               href="http://bit.ly/2Dr72tB"
+               href="https://bit.ly/2Dr72tB"
                target="_blank"> <img alt="BRP - CanAm Spyder Training"
                                      class="d-block img-fluid"
                                      src="/img/BRP_Can-Am-On-Road_REP-99_960x310.svg"
