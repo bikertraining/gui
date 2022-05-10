@@ -49,6 +49,15 @@
                         </router-link>
                     </li>
 
+                    <li class="nav-item me-3"
+                        v-on:click="close()">
+                        <router-link :to="{ name: 'admin:coach:search'}"
+                                     class="nav-link fw-bold">
+                            <font-awesome-icon :icon="['fa-solid', 'users']"/>
+                            Coaches
+                        </router-link>
+                    </li>
+
                     <li class="nav-item d-lg-none"
                         v-on:click="close()">
                         <router-link :to="{ name: 'pages:logout' }"

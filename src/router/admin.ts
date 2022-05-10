@@ -11,6 +11,30 @@ export const adminRoutes = (requireAuthenticated: () => void): RouteInterface =>
         beforeEnter: requireAuthenticated,
         children: [
             {
+                path: 'coach/create',
+                name: 'admin:coach:create',
+                meta: {
+                    label: 'Create Coach'
+                },
+                component: () => import('@/views/admin/coach/TheCreate.vue')
+            },
+            {
+                path: 'coach/edit/:id',
+                name: 'admin:coach:edit',
+                meta: {
+                    label: 'Edit Coach'
+                },
+                component: () => import('@/views/admin/coach/TheEdit.vue')
+            },
+            {
+                path: 'coach/search',
+                name: 'admin:coach:search',
+                meta: {
+                    label: 'Search Coach'
+                },
+                component: () => import('@/views/admin/coach/TheSearch.vue')
+            },
+            {
                 path: 'price/edit/:id',
                 name: 'admin:price:edit',
                 meta: {
