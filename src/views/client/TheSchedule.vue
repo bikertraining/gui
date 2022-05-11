@@ -3,7 +3,7 @@
         <table class="table table-hover caption-top table-striped">
             <caption class="mb-3">
                 <font-awesome-icon :icon="['fa-solid', 'star']"
-                                   class="text-warning ms-2"/>
+                                   class="text-warning ms-2 me-1"/>
                 <span class="fw-bold text-dark">Click on a class to register</span>
             </caption>
 
