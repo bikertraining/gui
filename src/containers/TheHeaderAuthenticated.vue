@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-print-none">
         <div class="container-fluid">
             <router-link :to="{ name: 'admin:schedule:search' }"
                          class="navbar-brand"
