@@ -63,7 +63,7 @@
             <tr v-for="coach in formArr"
                 v-bind:key="coach"
                 v-on:click="edit(coach['id'])">
-                <td>
+                <td v-if="coach['msf_id'] > 0">
                     {{ coach['msf_id'] }}<br>
 
                     Expires: {{ coach['date_to'] }}
@@ -72,13 +72,16 @@
                                        :icon="['fas', 'check']"
                                        class="text-success"/>
 
-                    <font-awesome-icon v-if="msf_expiration(coach['date_to']) < 6"
+                    <font-awesome-icon v-else-if="msf_expiration(coach['date_to']) < 6 && msf_expiration(coach['date_to']) >= 0"
                                        :icon="['fas', 'triangle-exclamation']"
                                        class="text-warning"/>
 
-                    <font-awesome-icon v-if="msf_expiration(coach['date_to']) <= 0"
+                    <font-awesome-icon v-else-if="msf_expiration(coach['date_to']) <= 0"
                                        :icon="['fas', 'xmark']"
                                        class="text-danger"/>
+                </td>
+                <td v-else>
+                    Range Aide
                 </td>
                 <td>{{ coach['name'] }}</td>
                 <td>

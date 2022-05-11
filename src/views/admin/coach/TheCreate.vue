@@ -57,7 +57,7 @@
 
                     <div class="col-md-6">
                         <input-text v-model="formObj.msf_id"
-                                    :required="true"
+                                    :required="false"
                                     label="MSF ID"
                                     name="msf_id"/>
                     </div>
@@ -109,7 +109,7 @@ export default defineComponent({
             city: string().required(),
             date_to: string().required(),
             email: string().email().required(),
-            msf_id: string().required(),
+            msf_id: string(),
             name: string().required(),
             phone: string().required(),
             state: string().required(),
