@@ -23,7 +23,7 @@
                                     label="Credit Card Number"
                                     max-length="16"
                                     name="credit_card_number"
-                                    type="number"/>
+                                    type="tel"/>
                     </div>
 
                     <div class="col-md-4">
@@ -72,7 +72,7 @@
                                     label="CVV"
                                     max-length="4"
                                     name="credit_card_cvv2"
-                                    type="number"/>
+                                    type="tel"/>
                     </div>
 
                     <div class="col-md-12">
@@ -104,7 +104,7 @@
                                     label="Zipcode"
                                     max-length="28"
                                     name="zipcode"
-                                    type="number"/>
+                                    type="tel"/>
                     </div>
 
                     <div class="col-md-6">
