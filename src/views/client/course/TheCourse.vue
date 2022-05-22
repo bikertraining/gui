@@ -21,7 +21,7 @@
                     <router-link :to="{ name: 'client:register' }">
                         <button class="w-100 btn btn-lg btn-outline-success"
                                 type="button">
-                            <font-awesome-icon :icon="['fas', 'user-plus']"/>
+                            <font-awesome-icon :icon="['fa-solid', 'user-plus']"/>
                             Sign up
                         </button>
                     </router-link>
@@ -29,7 +29,7 @@
                     <router-link :to="{ name: 'client:courses:brc' }">
                         <button class="w-100 btn btn-lg btn-outline-primary mt-3"
                                 type="button">
-                            <font-awesome-icon :icon="['fas', 'circle-info']"/>
+                            <font-awesome-icon :icon="['fa-solid', 'circle-info']"/>
                             More information
                         </button>
                     </router-link>
@@ -58,7 +58,7 @@
                     <router-link :to="{ name: 'client:register' }">
                         <button class="w-100 btn btn-lg btn-outline-success"
                                 type="button">
-                            <font-awesome-icon :icon="['fas', 'user-plus']"/>
+                            <font-awesome-icon :icon="['fa-solid', 'user-plus']"/>
                             Sign up
                         </button>
                     </router-link>
@@ -66,7 +66,7 @@
                     <router-link :to="{ name: 'client:courses:erc' }">
                         <button class="w-100 btn btn-lg btn-outline-primary mt-3"
                                 type="button">
-                            <font-awesome-icon :icon="['fas', 'circle-info']"/>
+                            <font-awesome-icon :icon="['fa-solid', 'circle-info']"/>
                             More information
                         </button>
                     </router-link>
@@ -95,7 +95,7 @@
                     <router-link :to="{ name: 'client:register' }">
                         <button class="w-100 btn btn-lg btn-outline-success"
                                 type="button">
-                            <font-awesome-icon :icon="['fas', 'user-plus']"/>
+                            <font-awesome-icon :icon="['fa-solid', 'user-plus']"/>
                             Sign up
                         </button>
                     </router-link>
@@ -103,7 +103,7 @@
                     <router-link :to="{ name: 'client:courses:3wbrc' }">
                         <button class="w-100 btn btn-lg btn-outline-primary mt-3"
                                 type="button">
-                            <font-awesome-icon :icon="['fas', 'circle-info']"/>
+                            <font-awesome-icon :icon="['fa-solid', 'circle-info']"/>
                             More information
                         </button>
                     </router-link>
@@ -133,7 +133,7 @@
                        v-bind:href="'tel:' + business_phone.replace(/-/g,'')">
                         <button class="w-100 btn btn-lg btn-outline-danger"
                                 type="button">
-                            <font-awesome-icon :icon="['fas', 'phone']"/>
+                            <font-awesome-icon :icon="['fa-solid', 'phone']"/>
                             Call us at {{ business_phone }}
                         </button>
                     </a>
@@ -141,7 +141,7 @@
                     <router-link :to="{ name: 'client:courses:kickstart' }">
                         <button class="w-100 btn btn-lg btn-outline-primary mt-3"
                                 type="button">
-                            <font-awesome-icon :icon="['fas', 'circle-info']"/>
+                            <font-awesome-icon :icon="['fa-solid', 'circle-info']"/>
                             More information
                         </button>
                     </router-link>
@@ -169,7 +169,7 @@
                        v-bind:href="'tel:' + business_phone.replace(/-/g,'')">
                         <button class="w-100 btn btn-lg btn-outline-danger"
                                 type="button">
-                            <font-awesome-icon :icon="['fas', 'phone']"/>
+                            <font-awesome-icon :icon="['fa-solid', 'phone']"/>
                             Call us at {{ business_phone }}
                         </button>
                     </a>
@@ -177,7 +177,7 @@
                     <router-link :to="{ name: 'client:courses:private' }">
                         <button class="w-100 btn btn-lg btn-outline-primary mt-3"
                                 type="button">
-                            <font-awesome-icon :icon="['fas', 'circle-info']"/>
+                            <font-awesome-icon :icon="['fa-solid', 'circle-info']"/>
                             More information
                         </button>
                     </router-link>

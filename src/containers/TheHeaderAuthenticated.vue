@@ -62,7 +62,7 @@
                         v-on:click="close()">
                         <router-link :to="{ name: 'pages:logout' }"
                                      class="nav-link fw-bold text-danger">
-                            <font-awesome-icon :icon="['fas', 'right-from-bracket']"/>
+                            <font-awesome-icon :icon="['fa-solid', 'right-from-bracket']"/>
                             Logout
                         </router-link>
                     </li>
@@ -71,7 +71,7 @@
                 <div class="d-flex me-5 fs-5 fw-bold d-none d-lg-flex">
                     <router-link :to="{ name: 'pages:logout' }"
                                  class="nav-link fw-bold text-danger">
-                        <font-awesome-icon :icon="['fas', 'right-from-bracket']"/>
+                        <font-awesome-icon :icon="['fa-solid', 'right-from-bracket']"/>
                         Logout
                     </router-link>
                 </div>

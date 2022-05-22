@@ -2,7 +2,7 @@
     <div class="py-5"
          style="min-height: calc(100vh - 270px) !important;">
         <h4 class="mb-3">
-            <font-awesome-icon :icon="['fas', 'motorcycle']"
+            <font-awesome-icon :icon="['fa-solid', 'motorcycle']"
                                class="me-1"/>
             Payment Confirmation
         </h4>

@@ -60,7 +60,7 @@
 
                 <button class="w-100 btn btn-success btn-lg"
                         type="submit">
-                    <font-awesome-icon :icon="['fas', 'comment']"/>
+                    <font-awesome-icon :icon="['fa-solid', 'comment']"/>
                     Submit
                 </button>
             </form>

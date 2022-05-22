@@ -6,7 +6,7 @@
                     <button class="btn btn-success"
                             type="button">
                             <span class="pe-2">
-                                <font-awesome-icon :icon="['fas', 'user-plus']"/>
+                                <font-awesome-icon :icon="['fa-solid', 'user-plus']"/>
                             </span> Create Schedule
                     </button>
                 </router-link>

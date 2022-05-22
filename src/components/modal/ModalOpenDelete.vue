@@ -4,7 +4,7 @@
             data-bs-toggle="modal"
             type="button">
         <span class="pe-2">
-            <font-awesome-icon :icon="['fas', 'trash-alt']"/>
+            <font-awesome-icon :icon="['fa-solid', 'trash-alt']"/>
         </span> Delete
     </button>
 
@@ -19,7 +19,7 @@
                     <h5 id="deleteModalLabel"
                         class="modal-title">
                         <span class="pe-2">
-                            <font-awesome-icon :icon="['fas', 'exclamation-triangle']"
+                            <font-awesome-icon :icon="['fa-solid', 'exclamation-triangle']"
                                                class="text-danger"/>
                         </span> Warning
                     </h5>
@@ -39,7 +39,7 @@
                             data-bs-dismiss="modal"
                             type="button">
                         <span class="pe-2">
-                            <font-awesome-icon :icon="['fas', 'window-close']"/>
+                            <font-awesome-icon :icon="['fa-solid', 'window-close']"/>
                         </span> Cancel
                     </button>
 
@@ -48,7 +48,7 @@
                             type="button"
                             @click="modalDelete();">
                         <span class="pe-2">
-                            <font-awesome-icon :icon="['fas', 'trash-alt']"/>
+                            <font-awesome-icon :icon="['fa-solid', 'trash-alt']"/>
                         </span> Delete
                     </button>
                 </div>

@@ -41,7 +41,7 @@
                            v-bind:href="'tel:' + business_phone.replace(/-/g,'')">
                             <button class="w-50 btn btn-lg btn-outline-success"
                                     type="button">
-                                <font-awesome-icon :icon="['fas', 'phone']"/>
+                                <font-awesome-icon :icon="['fa-solid', 'phone']"/>
                                 Call us at {{ business_phone }}
                             </button>
                         </a>

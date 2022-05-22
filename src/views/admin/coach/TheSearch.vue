@@ -1,7 +1,7 @@
 <template>
     <div class="d-none d-print-flex d-flex flex-row gap-2">
         <div>
-            <font-awesome-icon :icon="['fas', 'check']"
+            <font-awesome-icon :icon="['fa-solid', 'check']"
                                class="text-success"/>
             Valid
         </div>
@@ -9,7 +9,7 @@
         |
 
         <div>
-            <font-awesome-icon :icon="['fas', 'triangle-exclamation']"
+            <font-awesome-icon :icon="['fa-solid', 'triangle-exclamation']"
                                class="text-warning"/>
             Expires within 6 months
         </div>
@@ -17,7 +17,7 @@
         |
 
         <div>
-            <font-awesome-icon :icon="['fas', 'xmark']"
+            <font-awesome-icon :icon="['fa-solid', 'xmark']"
                                class="text-danger"/>
             Expired
         </div>
@@ -30,7 +30,7 @@
                     <button class="btn btn-success"
                             type="button">
                             <span class="pe-2">
-                                <font-awesome-icon :icon="['fas', 'user-plus']"/>
+                                <font-awesome-icon :icon="['fa-solid', 'user-plus']"/>
                             </span> Create Coach
                     </button>
                 </router-link>
@@ -69,15 +69,15 @@
                     Expires: {{ coach['date_to'] }}
 
                     <font-awesome-icon v-if="msf_expiration(coach['date_to']) >= 6"
-                                       :icon="['fas', 'check']"
+                                       :icon="['fa-solid', 'check']"
                                        class="text-success"/>
 
                     <font-awesome-icon v-else-if="msf_expiration(coach['date_to']) < 6 && msf_expiration(coach['date_to']) >= 0"
-                                       :icon="['fas', 'triangle-exclamation']"
+                                       :icon="['fa-solid', 'triangle-exclamation']"
                                        class="text-warning"/>
 
                     <font-awesome-icon v-else-if="msf_expiration(coach['date_to']) <= 0"
-                                       :icon="['fas', 'xmark']"
+                                       :icon="['fa-solid', 'xmark']"
                                        class="text-danger"/>
                 </td>
                 <td v-else>

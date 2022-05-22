@@ -45,7 +45,7 @@
         <div class="col d-flex align-items-start">
             <div>
                 <h3>
-                    <font-awesome-icon :icon="['fas', 'clock']"
+                    <font-awesome-icon :icon="['fa-solid', 'clock']"
                                        class="me-1 fa-xs"/>
                     Class Times
                 </h3>
@@ -66,7 +66,7 @@
         <div class="col d-flex align-items-start">
             <div>
                 <h3>
-                    <font-awesome-icon :icon="['fas', 'map']"
+                    <font-awesome-icon :icon="['fa-solid', 'map']"
                                        class="me-1 fa-xs"/>
                     Training Location
                 </h3>

@@ -64,7 +64,7 @@
                     <router-link :to="{ name: 'client:register' }">
                         <button class="w-50 btn btn-lg btn-outline-success"
                                 type="button">
-                            <font-awesome-icon :icon="['fas', 'user-plus']"/>
+                            <font-awesome-icon :icon="['fa-solid', 'user-plus']"/>
                             Sign up
                         </button>
                     </router-link>
