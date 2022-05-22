@@ -12,13 +12,14 @@
 
         <div class="d-flex flex-row mb-3">
             <span class="fw-bold">Phone:</span>&nbsp;<a class="text-dark text-decoration-none"
-                                           v-bind:href="'tel:' + business_phone.replace(/-/g,'')">{{
+                                                        v-bind:href="'tel:' + business_phone.replace(/-/g,'')">{{
                 business_phone
             }}</a>
         </div>
 
         <div class="d-flex flex-row mb-3">
-            <span class="fw-bold">Email:</span>&nbsp;<a href="mailto: sammie@bikertraining.net" class="text-decoration-none">sammie@bikertraining.net</a>
+            <span class="fw-bold">Email:</span>&nbsp;<a class="text-decoration-none"
+                                                        href="mailto: sammie@bikertraining.net">sammie@bikertraining.net</a>
         </div>
 
         <div class="d-inline-flex">
@@ -36,14 +37,16 @@
                         <input-text v-model="formObj.email"
                                     :required="true"
                                     label="Email"
-                                    name="email"/>
+                                    name="email"
+                                    type="email"/>
                     </div>
 
                     <div class="col-md-6">
                         <input-text v-model="formObj.phone"
                                     :required="false"
                                     label="Phone Number"
-                                    name="phone"/>
+                                    name="phone"
+                                    type="tel"/>
                     </div>
 
                     <div class="col-12">

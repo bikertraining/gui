@@ -22,7 +22,8 @@
                                     :required="true"
                                     label="Credit Card Number"
                                     max-length="16"
-                                    name="credit_card_number"/>
+                                    name="credit_card_number"
+                                    type="number"/>
                     </div>
 
                     <div class="col-md-4">
@@ -70,7 +71,8 @@
                                     :required="true"
                                     label="CVV"
                                     max-length="4"
-                                    name="credit_card_cvv2"/>
+                                    name="credit_card_cvv2"
+                                    type="number"/>
                     </div>
 
                     <div class="col-md-12">
@@ -101,7 +103,8 @@
                                     :required="true"
                                     label="Zipcode"
                                     max-length="28"
-                                    name="zipcode"/>
+                                    name="zipcode"
+                                    type="number"/>
                     </div>
 
                     <div class="col-md-6">
@@ -125,14 +128,16 @@
                                     :required="true"
                                     help-text="You will receive an emailed receipt"
                                     label="Email"
-                                    name="email"/>
+                                    name="email"
+                                    type="email"/>
                     </div>
 
                     <div class="col-md-6">
                         <input-text v-model="formObj.phone"
                                     :required="true"
                                     label="Phone Number"
-                                    name="phone"/>
+                                    name="phone"
+                                    type="tel"/>
                     </div>
                 </div>
 
