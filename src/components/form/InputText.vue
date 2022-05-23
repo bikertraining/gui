@@ -18,7 +18,7 @@
 
             <img v-if="name === 'credit_card_number'"
                  alt="Credit Card Types"
-                 src="/img/cc_types.png"
+                 src="/img/cc_types.svg"
                  style="height: 50px;"/>
 
             <div v-if="helpText"

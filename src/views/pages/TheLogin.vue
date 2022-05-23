@@ -7,7 +7,7 @@
                         <img alt="Login"
                              class="mb-3"
                              height="100"
-                             src="/img/bikertraining.png"/>
+                             src="/img/bikertraining.svg"/>
                     </router-link>
                 </div>
 

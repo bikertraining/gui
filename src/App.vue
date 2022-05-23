@@ -11,7 +11,7 @@ export default defineComponent({
         '$route' (to) {
             document.title = 'Biker Training - ' + to.meta.label || 'Biker Training'
         }
-    },
+    }
 });
 </script>
 

@@ -6,7 +6,7 @@
                          v-on:click="close()">
                 <img alt="Biker Training LLC"
                      height="100"
-                     src="/img/bikertrainingw.png"/>
+                     src="/img/bikertrainingw.svg"/>
             </router-link>
 
             <button aria-controls="navbarSupportedContent"
@@ -16,7 +16,7 @@
                     data-bs-target="#navbarSupportedContent"
                     data-bs-toggle="collapse"
                     type="button">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"/>
             </button>
 
             <div id="navbarSupportedContent"

@@ -5,7 +5,7 @@
 
         <img alt="Biker Training LLC"
              class="d-block mx-auto mb-4 img-fluid"
-             src="/img/bikertraining_bike.png"
+             src="/img/bikertraining_bike.svg"
              style="min-height: 100px; max-height: 200px;"/>
 
         <h5 class="fw-bold">We are the exclusive provider for all motorcycle training at Pensacola Harley-Davidson</h5>
