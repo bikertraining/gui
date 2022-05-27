@@ -4,7 +4,20 @@
             <Form :validation-schema="schema"
                   @submit="submitPayment">
                 <h4 class="mb-3">
-                    <font-awesome-icon :icon="['fa-solid', 'credit-card']"/>
+                    <svg aria-hidden="true"
+                         class="text-dark"
+                         data-icon="credit-card"
+                         data-prefix="fa-solid"
+                         focusable="false"
+                         role="img"
+                         style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
+                         viewBox="0 0 576 512"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path class=""
+                              d="M512 32C547.3 32 576 60.65 576 96V128H0V96C0 60.65 28.65 32 64 32H512zM576 416C576 451.3 547.3 480 512 480H64C28.65 480 0 451.3 0 416V224H576V416zM112 352C103.2 352 96 359.2 96 368C96 376.8 103.2 384 112 384H176C184.8 384 192 376.8 192 368C192 359.2 184.8 352 176 352H112zM240 384H368C376.8 384 384 376.8 384 368C384 359.2 376.8 352 368 352H240C231.2 352 224 359.2 224 368C224 376.8 231.2 384 240 384z"
+                              fill="currentColor"/>
+                    </svg>
+
                     Payment
                 </h4>
 
@@ -156,7 +169,20 @@
 
                 <button class="w-100 btn btn-success btn-lg"
                         type="submit">
-                    <font-awesome-icon :icon="['fa-solid', 'lock']"/>
+                    <svg aria-hidden="true"
+                         class="text-white"
+                         data-icon="lock"
+                         data-prefix="fa-solid"
+                         focusable="false"
+                         role="img"
+                         style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
+                         viewBox="0 0 448 512"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path class=""
+                              d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z"
+                              fill="currentColor"/>
+                    </svg>
+
                     Submit Payment
                 </button>
             </form>
