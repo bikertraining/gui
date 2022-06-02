@@ -11,8 +11,9 @@ interface UseClientRegisterInterface {
         class_type: string;
         comment: string;
         credit_card_cvv2: string;
+        credit_card_first_name: string;
+        credit_card_last_name: string;
         credit_card_month: string;
-        credit_card_name: string;
         credit_card_number: string;
         credit_card_year: string;
         dln: string;
@@ -122,8 +123,9 @@ export const useClientRegister = (): UseClientRegisterInterface => {
             class_type: '',
             comment: '',
             credit_card_cvv2: '',
+            credit_card_first_name: '',
+            credit_card_last_name: '',
             credit_card_month: '',
-            credit_card_name: '',
             credit_card_number: '',
             credit_card_year: '',
             dln: '',

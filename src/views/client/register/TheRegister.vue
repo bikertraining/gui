@@ -125,14 +125,14 @@
                                     type="tel"/>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <input-text v-model="formObj.dln"
                                     :required="true"
                                     label="Drivers License Number"
                                     name="dln"/>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <input-select-state v-model="formObj.dls"
                                             v-model:region="formObj.dls"
                                             :required="true"
@@ -220,11 +220,19 @@
 
                 <div class="row g-3">
                     <div class="col-md-6">
-                        <input-text v-model="formObj.credit_card_name"
+                        <input-text v-model="formObj.credit_card_first_name"
                                     :required="true"
-                                    help-text="Full name as displayed on card"
-                                    label="Name"
-                                    name="credit_card_name"/>
+                                    help-text="First name as displayed on card"
+                                    label="First Name"
+                                    name="credit_card_first_name"/>
+                    </div>
+
+                    <div class="col-md-6">
+                        <input-text v-model="formObj.credit_card_last_name"
+                                    :required="true"
+                                    help-text="Last name as displayed on card"
+                                    label="Last Name"
+                                    name="credit_card_last_name"/>
                     </div>
 
                     <div class="col-md-6">
@@ -236,7 +244,16 @@
                                     type="tel"/>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-6">
+                        <input-text v-model="formObj.credit_card_cvv2"
+                                    :required="true"
+                                    label="CVV"
+                                    max-length="4"
+                                    name="credit_card_cvv2"
+                                    type="tel"/>
+                    </div>
+
+                    <div class="col-md-6">
                         <input-select v-model="formObj.credit_card_month"
                                       :options="{
                                                 '1': '01',
@@ -257,7 +274,7 @@
                                       name="credit_card_month"/>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <input-select v-model="formObj.credit_card_year"
                                       :options="{
                                                 '2022': '2022',
@@ -274,15 +291,6 @@
                                       :required="true"
                                       label="Expiration Year"
                                       name="credit_card_year"/>
-                    </div>
-
-                    <div class="col-md-4">
-                        <input-text v-model="formObj.credit_card_cvv2"
-                                    :required="true"
-                                    label="CVV"
-                                    max-length="4"
-                                    name="credit_card_cvv2"
-                                    type="tel"/>
                     </div>
                 </div>
 
@@ -432,8 +440,9 @@ export default defineComponent({
             class_type: string().required(),
             comment: string(),
             credit_card_cvv2: string().required().min(3).max(4),
+            credit_card_first_name: string().required(),
+            credit_card_last_name: string().required(),
             credit_card_month: string().required().min(1).max(2),
-            credit_card_name: string().required(),
             credit_card_number: string().required().min(15).max(16),
             credit_card_year: string().required().length(4),
             dln: string().required(),
