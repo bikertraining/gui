@@ -28,6 +28,7 @@ module.exports = {
         ],
         "@typescript-eslint/no-explicit-any": "off",
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-        'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
+        'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+        "vue/no-reserved-component-names": "off"
     }
 };
