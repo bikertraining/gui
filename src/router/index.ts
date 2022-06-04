@@ -67,4 +67,19 @@ const router = createRouter({
     }
 });
 
+router.afterEach((to) => {
+    // @ts-ignore
+    gtag('config', 'G-SG8DK19KYY', {
+        page_path: to.fullPath,
+        app_name: 'Biker Training',
+        send_page_view: true
+    });
+
+    // @ts-ignore
+    gtag('event', 'screen_view', {
+        'app_name': 'Biker Training',
+        'screen_name': to.meta.label
+    });
+});
+
 export default router;

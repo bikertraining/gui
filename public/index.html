@@ -20,6 +20,21 @@
     <link href="<%= BASE_URL %>favicon.ico"
           rel="icon">
     <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async
+            src="https://www.googletagmanager.com/gtag/js?id=G-SG8DK19KYY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-SG8DK19KYY', { app_name: 'Biker Training', send_page_view: false });
+    </script>
 </head>
 
 <body class="d-flex flex-column min-vh-100 position-relative">
