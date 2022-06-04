@@ -60,7 +60,7 @@
             </div>
         </div>
 
-        <hr class="w-75 mx-auto mt-4 border-1">
+        <!--<hr class="w-75 mx-auto mt-4 border-1">
 
         <div class="d-flex flex-column">
             <h5 class="fw-bold">Can-Am Spyder Training</h5>
@@ -80,7 +80,7 @@
             <div class="mt-3 text-start mx-auto">
                 After clicking on the image, choose "Florida" and then "Pensacola".
             </div>
-        </div>
+        </div>-->
     </div>
 </template>
 
