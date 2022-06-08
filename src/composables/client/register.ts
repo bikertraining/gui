@@ -93,11 +93,15 @@ export const useClientRegister = (): UseClientRegisterInterface => {
     }
 
     const getPrice = async (id: number | string | string[]) => {
+        loadingState.isActive = true;
+
         localRegister.priceObj = await processor.get(
             `client/register/price/${id}`
         );
 
         localRegister.formObj.class_type = localRegister.priceObj.class_type;
+
+        loadingState.isActive = false;
     };
 
     const getSchedule = async () => {
