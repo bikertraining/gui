@@ -5,7 +5,7 @@
                          class="navbar-brand"
                          v-on:click="close()">
                 <img alt="Biker Training LLC"
-                     height="100"
+                     height="100" width="255.44"
                      src="/img/bikertrainingw.svg"/>
             </router-link>
 
