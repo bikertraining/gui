@@ -11,7 +11,7 @@
 
         <h5 class="fw-bold">We are the exclusive provider for all motorcycle training at Pensacola Harley-Davidson</h5>
 
-        <div class="col-lg-6 mx-auto mt-4">
+        <h1 class="col-lg-6 mx-auto mt-4">
             <p class="lead mb-4">Whether you are totally new to motorcycles, a returning rider or already experienced,
                 we have a course to meet your needs. Our Basic RiderCourse meets the state of Florida license
                 endorsement requirement.</p>
@@ -31,7 +31,7 @@
                     </button>
                 </router-link>
             </div>
-        </div>
+        </h1>
 
         <hr class="w-75 mx-auto mt-5 border-1">
 
