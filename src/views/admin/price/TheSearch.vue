@@ -9,6 +9,7 @@
             <tr>
                 <th scope="col">Course</th>
                 <th scope="col">Amount</th>
+                <th scope="col">Charge Status</th>
             </tr>
             </thead>
 
@@ -18,6 +19,13 @@
                 v-on:click="edit(price['id'])">
                 <td>{{ price['class_type_name'] }}</td>
                 <td>${{ price['amount'] }}</td>
+                <td>
+                    <span v-if="price['is_active']"
+                          class="text-success">Yes</span>
+
+                    <span v-else
+                          class="text-danger">No</span>
+                </td>
             </tr>
             </tbody>
         </table>

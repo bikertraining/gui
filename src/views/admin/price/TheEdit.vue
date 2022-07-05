@@ -3,21 +3,32 @@
         <div class="d-inline-flex">
             <Form :validation-schema="schema"
                   @submit="submitUpdate">
-                <div class="row g-3">
-                    <div class="col-md-6">
+                <div class="row g-3 col-md-6">
                         <static-data :value="formObj.class_type_name"
                                      name="Class Type"/>
-                    </div>
 
-                    <div class="col-md-6">
                         <input-text v-model="formObj.amount"
                                     :required="true"
                                     label="Amount"
                                     name="amount"/>
-                    </div>
+
+                        <input-text v-model="formObj.re_amount"
+                                    :required="true"
+                                    label="Re-Enrollment Amount"
+                                    name="re_amount"/>
+
+                        <input-text v-model="formObj.process_amount"
+                                    :required="true"
+                                    label="Cancellation Fee"
+                                    name="process_amount"/>
+
+                        <input-switch v-model="formObj.is_active"
+                                      help-text="Should this charge be processed?"
+                                      label="Charge Mode"
+                                      name="is_active"/>
                 </div>
 
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between mt-5">
                     <button class="btn btn-outline-success px-4"
                             type="submit">Update
                     </button>
@@ -28,17 +39,18 @@
 </template>
 
 <script lang="ts">
-import { InputText, StaticData } from "@/components";
+import { InputSwitch, InputText, StaticData } from "@/components";
 import { useAdminPrice } from "@/composables";
 import { Form } from "vee-validate";
 import { defineComponent, onMounted } from "vue";
 import { useRoute } from "vue-router";
-import { object, string } from "yup";
+import { boolean, object, string } from "yup";
 
 export default defineComponent({
     name: "TheEdit",
     components: {
         Form,
+        InputSwitch,
         InputText,
         StaticData
     },
@@ -56,7 +68,8 @@ export default defineComponent({
         const priceId = route.params.id.toString();
 
         const schema = object({
-            amount: string().required()
+            amount: string().required(),
+            is_active: boolean()
         });
 
         onMounted(() => {
