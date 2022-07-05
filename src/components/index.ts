@@ -7,6 +7,7 @@ import {
     InputSelect,
     InputSelectSchedule,
     InputSelectState,
+    InputSwitch,
     InputText,
     InputTextArea
 } from "@/components/form";
@@ -19,6 +20,7 @@ export {
     InputSelect,
     InputSelectSchedule,
     InputSelectState,
+    InputSwitch,
     InputText,
     InputTextArea,
     ModalOpenDelete,
