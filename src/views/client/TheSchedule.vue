@@ -74,6 +74,9 @@
                     Class Times
                 </h3>
 
+                <p><span class="fw-bold">Basic RiderCourse</span> - <span class="fw-bold">Thursday</span> 5:30 PM to
+                    9:00 PM and <span class="fw-bold">Saturday/Sunday</span> 8:00 AM to 5:00 PM</p>
+
                 <p><span class="fw-bold">Basic RiderCourse</span> - <span class="fw-bold">Friday</span> 5:30 PM to 9:00
                     PM and <span class="fw-bold">Saturday/Sunday</span> 7:00 AM to 4:00 PM</p>
 
