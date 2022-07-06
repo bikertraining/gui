@@ -185,7 +185,7 @@
                     {{ nonFieldFormMessage }}
                 </div>
 
-                <div class="col-md-4 fw-bolder mt-0 mb-3">Total ${{ price_brc }}</div>
+                <div class="col-md-4 fw-bolder mt-0 mb-3">Total ${{ formPrice.brc.amount.slice(0, -3) }}</div>
 
                 <div class="mb-3">
                     <span class="fw-bold">Protected by</span> <img alt="Let's Encrypt"
@@ -243,9 +243,8 @@
                     call <a class="text-dark text-decoration-none"
                             v-bind:href="'tel:' + business_phone.replace(/-/g,'')">{{ business_phone }}</a> or email
                     <a v-bind:href="'mailto:' + business_email">{{ business_email }}</a> 6 days prior to their scheduled
-                    class to obtain a partial refund. A partial refund is full tuition minus a ${{
-                        price_processing_fee
-                    }} processing fee.
+                    class to obtain a partial refund. A partial refund is full tuition minus a
+                    ${{ formPrice.brc.process_amount.slice(0, -3) }} processing fee.
                 </div>
 
                 <div class="mb-3">There is a minimum of four students per class. If minimum is not met, student has
@@ -271,9 +270,9 @@
 
 <script lang="ts">
 import { InputSelect, InputSelectState, InputText } from "@/components";
-import { useClientPayment } from "@/composables";
+import { useClientPayment, useClientPrice } from "@/composables";
 import { Form } from "vee-validate";
-import { defineComponent } from "vue";
+import { defineComponent, onMounted } from "vue";
 import { object, string } from "yup";
 
 export default defineComponent({
@@ -294,13 +293,14 @@ export default defineComponent({
             nonFieldFormMessage
         } = useClientPayment();
 
+        const {
+            formObj: formPrice,
+            getPrices
+        } = useClientPrice();
+
         const business_email = process.env.VUE_APP_BUSINESS_EMAIL;
 
         const business_phone = process.env.VUE_APP_BUSINESS_PHONE;
-
-        const price_brc = process.env.VUE_APP_PRICE_BRC;
-
-        const price_processing_fee = process.env.VUE_APP_PRICE_PROCESSING_FEE;
 
         const schema = object({
             address: string().required(),
@@ -319,17 +319,20 @@ export default defineComponent({
             zipcode: string().required()
         });
 
+        onMounted(() => {
+            getPrices();
+        });
+
         return {
             business_email,
             business_phone,
             createPayment,
             formErrors,
             formObj,
+            formPrice,
             formSuccess,
             nonFieldFormError,
             nonFieldFormMessage,
-            price_brc,
-            price_processing_fee,
             schema
         };
     },

@@ -430,7 +430,7 @@
                             business_phone
                         }}</a> or email <a v-bind:href="'mailto:' + business_email">{{ business_email }}</a> 6 days
                         prior to their scheduled class to obtain a partial refund. A partial refund is full tuition
-                        minus a ${{ prices.processing_fee }} processing fee.
+                        minus a ${{ formObj.brc.process_amount }} processing fee.
                     </div>
                 </div>
             </div>
@@ -458,17 +458,11 @@
                             the entire class, a seat in a subsequent class may be purchased:</p>
 
                         <ol class="list-group-numbered list-group-flush">
-                            <li class="list-group-item">Basic RiderCourse ${{ prices.brc_reenroll }}</li>
+                            <li class="list-group-item">Basic RiderCourse ${{ formObj.brc.re_amount }}</li>
 
-                            <li class="list-group-item">3-Wheel RiderCourse ${{
-                                    prices.threewbrc_reenroll
-                                }}
-                            </li>
+                            <li class="list-group-item">3-Wheel RiderCourse ${{ formObj["3wbrc"].re_amount }}</li>
 
-                            <li class="list-group-item">Experienced RiderCourse ${{
-                                    prices.erc_reenroll
-                                }}
-                            </li>
+                            <li class="list-group-item">Experienced RiderCourse ${{ formObj.erc.re_amount }}</li>
                         </ol>
                     </div>
                 </div>
@@ -504,7 +498,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { useClientPrice } from "@/composables";
+import { defineComponent, onMounted } from "vue";
 
 export default defineComponent({
     name: "TheFaq",
@@ -513,17 +508,19 @@ export default defineComponent({
 
         const business_phone = process.env.VUE_APP_BUSINESS_PHONE;
 
-        const prices = {
-            brc_reenroll: process.env.VUE_APP_PRICE_BRC_REENROLL,
-            erc_reenroll: process.env.VUE_APP_PRICE_ERC_REENROLL,
-            processing_fee: process.env.VUE_APP_PRICE_PROCESSING_FEE,
-            threewbrc_reenroll: process.env.VUE_APP_PRICE_THREEWBRC_REENROLL
-        };
+        const {
+            formObj,
+            getPrices
+        } = useClientPrice();
+
+        onMounted(() => {
+            getPrices();
+        });
 
         return {
             business_email,
             business_phone,
-            prices
+            formObj
         };
     }
 });

@@ -364,9 +364,8 @@
                     call <a class="text-dark text-decoration-none"
                             v-bind:href="'tel:' + business_phone.replace(/-/g,'')">{{ business_phone }}</a> or email
                     <a v-bind:href="'mailto:' + business_email">{{ business_email }}</a> 6 days prior to their scheduled
-                    class to obtain a partial refund. A partial refund is full tuition minus a ${{
-                        price_processing_fee
-                    }} processing fee.
+                    class to obtain a partial refund. A partial refund is full tuition minus a
+                    ${{ formPrice.brc.process_amount.slice(0, -3) }} processing fee.
                 </div>
 
                 <div class="mb-3">There is a minimum of four students per class. If minimum is not met, student has
@@ -392,7 +391,7 @@
 
 <script lang="ts">
 import { InputSelect, InputSelectSchedule, InputSelectState, InputText, InputTextArea } from "@/components";
-import { useClientRegister } from "@/composables";
+import { useClientPrice, useClientRegister } from "@/composables";
 import dayjs from "dayjs";
 import { Form } from "vee-validate";
 import { defineComponent, onMounted } from "vue";
@@ -411,6 +410,11 @@ export default defineComponent({
     },
     setup() {
         const {
+            formObj: formPrice,
+            getPrices
+        } = useClientPrice();
+
+        const {
             createStudent,
             formArr,
             formErrors,
@@ -427,8 +431,6 @@ export default defineComponent({
         const business_email = process.env.VUE_APP_BUSINESS_EMAIL;
 
         const business_phone = process.env.VUE_APP_BUSINESS_PHONE;
-
-        const price_processing_fee = process.env.VUE_APP_PRICE_PROCESSING_FEE;
 
         const route = useRoute();
 
@@ -461,6 +463,8 @@ export default defineComponent({
         onMounted(() => {
             getDefaults(route.params);
 
+            getPrices();
+
             getSchedule();
         });
 
@@ -471,12 +475,12 @@ export default defineComponent({
             formArr,
             formErrors,
             formObj,
+            formPrice,
             formSuccess,
             getPrice,
             id,
             nonFieldFormError,
             nonFieldFormMessage,
-            price_processing_fee,
             priceObj,
             schema
         };

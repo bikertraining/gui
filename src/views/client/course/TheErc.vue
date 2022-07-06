@@ -56,7 +56,7 @@
                         select and confirm the date of the class that best fits your schedule, fees are nonrefundable.
                         You must attend all class/range sessions. If you miss a class or range session or for any reason
                         do not fully complete your class, you can purchase a seat in a subsequent class for
-                        ${{ erc_reenroll }}.
+                        ${{ formObj.erc.re_amount }}.
                     </li>
                 </ul>
 
@@ -87,15 +87,23 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { useClientPrice } from "@/composables";
+import { defineComponent, onMounted } from "vue";
 
 export default defineComponent({
     name: "TheErc",
     setup() {
-        const erc_reenroll = process.env.VUE_APP_PRICE_ERC_REENROLL;
+        const {
+            formObj,
+            getPrices
+        } = useClientPrice();
+
+        onMounted(() => {
+            getPrices();
+        });
 
         return {
-            erc_reenroll
+            formObj
         };
     }
 });

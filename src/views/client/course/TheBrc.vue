@@ -47,7 +47,7 @@
                         select and confirm the date of the class that best fits your schedule, fees are nonrefundable.
                         You must attend all class/range sessions. If you miss a class or range session or for any reason
                         do not fully complete your class, you can purchase a seat in a subsequent class for
-                        ${{ brc_reenroll }}.
+                        ${{ formObj.brc.re_amount }}.
                     </li>
                 </ul>
 
@@ -78,15 +78,23 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { useClientPrice } from "@/composables";
+import { defineComponent, onMounted } from "vue";
 
 export default defineComponent({
     name: "TheBrc",
     setup() {
-        const brc_reenroll = process.env.VUE_APP_PRICE_BRC_REENROLL;
+        const {
+            formObj,
+            getPrices
+        } = useClientPrice();
+
+        onMounted(() => {
+            getPrices();
+        });
 
         return {
-            brc_reenroll
+            formObj
         };
     }
 });

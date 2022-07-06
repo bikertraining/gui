@@ -7,7 +7,7 @@
                 </div>
 
                 <div class="card-body">
-                    <h1 class="card-title">${{ prices.brc }}</h1>
+                    <h1 class="card-title">${{ formObj.brc.amount.slice(0, -3) }}</h1>
 
                     <ul class="list-unstyled mt-3 mb-4 text-start">
                         <li>This course meets the State of Florida license endorsement requirement. This course is for
@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="card-body">
-                    <h1 class="card-title">${{ prices.erc }}</h1>
+                    <h1 class="card-title">${{ formObj.erc.amount.slice(0, -3) }}</h1>
 
                     <ul class="list-unstyled mt-3 mb-4 text-start">
                         <li>For those that already ride and have their motorcycle endorsement but want to be better.
@@ -129,7 +129,7 @@
                 </div>
 
                 <div class="card-body">
-                    <h1 class="card-title">${{ prices.threewbrc }}</h1>
+                    <h1 class="card-title">${{ formObj["3wbrc"].amount.slice(0, -3) }}</h1>
 
                     <ul class="list-unstyled mt-3 mb-4 text-start">
                         <li>This course meets the State of Florida license endorsement requirement. This course is for
@@ -190,7 +190,7 @@
                 </div>
 
                 <div class="card-body">
-                    <h1 class="card-title">${{ prices.kickstart }}</h1>
+                    <h1 class="card-title">${{ formObj.ime.amount.slice(0, -3) }}</h1>
 
                     <ul class="list-unstyled mt-3 mb-4 text-start">
                         <li>This a prep course for the Basic RiderCourse for those with no motorcycle experience. While
@@ -252,7 +252,7 @@
                 </div>
 
                 <div class="card-body">
-                    <h1 class="card-title">${{ prices.private }} <small>/ per hour</small></h1>
+                    <h1 class="card-title">${{ formObj.private.amount.slice(0, -3) }} <small>/ per hour</small></h1>
 
                     <ul class="list-unstyled mt-3 mb-4 text-start">
                         <li>Private instruction is available for riders of all skill levels from beginners to advanced.
@@ -308,24 +308,26 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { useClientPrice } from "@/composables";
+import { defineComponent, onMounted } from "vue";
 
 export default defineComponent({
     name: "TheCourse",
     setup() {
         const business_phone = process.env.VUE_APP_BUSINESS_PHONE;
 
-        const prices = {
-            brc: process.env.VUE_APP_PRICE_BRC,
-            erc: process.env.VUE_APP_PRICE_ERC,
-            threewbrc: process.env.VUE_APP_PRICE_THREEWBRC,
-            kickstart: process.env.VUE_APP_PRICE_KICKSTART,
-            private: process.env.VUE_APP_PRICE_PRIVATE
-        };
+        const {
+            formObj,
+            getPrices
+        } = useClientPrice();
+
+        onMounted(() => {
+            getPrices();
+        });
 
         return {
             business_phone,
-            prices
+            formObj
         };
     }
 });

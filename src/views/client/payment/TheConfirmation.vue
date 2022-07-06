@@ -35,7 +35,7 @@
                         business_phone
                     }}</a> or email <a v-bind:href="'mailto:' + business_email">{{ business_email }}</a> 6 days prior to
                 their scheduled class to obtain a partial refund. A partial refund is full tuition minus a
-                ${{ prices.price_processing_fee }} processing fee.
+                ${{ formObj.brc.process_amount.slice(0, -3) }} processing fee.
             </div>
 
             <div class="mb-3">There is a minimum of four students per class. If minimum is not met, student has option
@@ -45,7 +45,7 @@
             <div class="mb-3"><span class="fw-bold">Postponement:</span> There is no charge for postponement provided
                 the student calls or emails at least 48 hours prior to the start of their scheduled class. If less than
                 48 hours prior or if a student does not complete the entire class, a seat in a subsequent class may be
-                purchased for ${{ prices.price_brc_reenroll }}.
+                purchased for ${{ formObj.brc.re_amount.slice(0, -3) }}.
             </div>
 
             <div class="mb-3"><span class="fw-bold">Late Arrivals:</span> Learning to ride a motorcycle requires skill
@@ -58,7 +58,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { useClientPrice } from "@/composables";
+import { defineComponent, onMounted } from "vue";
 
 export default defineComponent({
     name: "TheConfirmation",
@@ -67,15 +68,19 @@ export default defineComponent({
 
         const business_phone = process.env.VUE_APP_BUSINESS_PHONE;
 
-        const prices = {
-            price_brc_reenroll: process.env.VUE_APP_PRICE_BRC_REENROLL,
-            price_processing_fee: process.env.VUE_APP_PRICE_PROCESSING_FEE
-        };
+        const {
+            formObj,
+            getPrices
+        } = useClientPrice();
+
+        onMounted(() => {
+            getPrices();
+        });
 
         return {
             business_email,
             business_phone,
-            prices
+            formObj
         };
     }
 });

@@ -44,7 +44,7 @@
                         business_phone
                     }}</a> or email <a v-bind:href="'mailto:' + business_email">{{ business_email }}</a> 6 days prior to
                 their scheduled class to obtain a partial refund. A partial refund is full tuition minus a
-                ${{ prices.price_processing_fee }} processing fee.
+                ${{ formObj.brc.process_amount.slice(0, -3) }} processing fee.
             </div>
 
             <div class="mb-3">There is a minimum of four students per class. If minimum is not met, student has option
@@ -54,9 +54,9 @@
             <div class="mb-3"><span class="fw-bold">Postponement:</span> There is no charge for postponement provided
                 the student calls or emails at least 48 hours prior to the start of their scheduled class. If less than
                 48 hours prior or if a student does not complete the entire class, a seat in a subsequent class may be
-                purchased for <span v-if="class_type === 'brc'">${{ prices.price_brc_reenroll }}</span>
-                <span v-if="class_type === 'erc'">${{ prices.price_erc_reenroll }}</span>
-                <span v-if="class_type === '3wbrc'">${{ prices.price_threewrc_reenroll }}</span>.
+                purchased for <span v-if="class_type === 'brc'">${{ formObj.brc.re_amount.slice(0, -3) }}</span>
+                <span v-if="class_type === 'erc'">${{ formObj.erc.re_amount.slice(0, -3) }}</span>
+                <span v-if="class_type === '3wbrc'">${{ formObj["3wbrc"].re_amount.slice(0, -3) }}</span>.
             </div>
 
             <div class="mb-3"><span class="fw-bold">Late Arrivals:</span> Learning to ride a motorcycle requires skill
@@ -69,35 +69,35 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { useClientPrice } from "@/composables";
+import { defineComponent, onMounted } from "vue";
 import { useRoute } from "vue-router";
 
 export default defineComponent({
     name: "TheConfirmation",
     setup() {
-        const brc_reenroll = process.env.VUE_APP_PRICE_BRC_REENROLL;
-
         const business_email = process.env.VUE_APP_BUSINESS_EMAIL;
 
         const business_phone = process.env.VUE_APP_BUSINESS_PHONE;
 
-        const prices = {
-            price_brc_reenroll: process.env.VUE_APP_PRICE_BRC_REENROLL,
-            price_erc_reenroll: process.env.VUE_APP_PRICE_ERC_REENROLL,
-            price_threewrc_reenroll: process.env.VUE_APP_PRICE_THREEWBRC_REENROLL,
-            price_processing_fee: process.env.VUE_APP_PRICE_PROCESSING_FEE
-        };
+        const {
+            formObj,
+            getPrices
+        } = useClientPrice();
 
         const route = useRoute();
 
         const class_type = route.params.class_type;
 
+        onMounted(() => {
+            getPrices();
+        });
+
         return {
-            brc_reenroll,
             business_email,
             business_phone,
             class_type,
-            prices
+            formObj
         };
     }
 });
