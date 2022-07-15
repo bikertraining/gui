@@ -193,9 +193,10 @@
                     <h1 class="card-title">${{ formObj.ime.amount.slice(0, -3) }}</h1>
 
                     <ul class="list-unstyled mt-3 mb-4 text-start">
-                        <li>This a prep course for the Basic RiderCourse for those with no motorcycle experience. While
-                            not required prior to taking the Basic RiderCourse, these classes are very small with
-                            emphasis on teaching basic control to riders with no riding experience.
+                        <li>The KickStart Course is for students that have not reached a level of comfort that will
+                            enable them to continue with the course. True novice riders may find the slower pace helpful
+                            when learning the initial control skills and gain greater comfort and familiarity with the
+                            motorcycle.
                         </li>
                     </ul>
                 </div>
