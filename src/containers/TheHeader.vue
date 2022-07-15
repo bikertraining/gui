@@ -22,6 +22,7 @@
             <div id="navbarSupportedContent"
                  class="collapse navbar-collapse">
                 <ul class="navbar-nav mb-2 mb-lg-0 me-auto px-4">
+                    <!-- Start Registration -->
                     <li class="nav-item me-3"
                         v-on:click="close()">
                         <router-link :to="{ name: 'client:register'}"
@@ -42,7 +43,9 @@
                             Sign Up Here
                         </router-link>
                     </li>
+                    <!-- End Registration -->
 
+                    <!-- Start Schedule -->
                     <li class="nav-item me-3"
                         v-on:click="close()">
                         <router-link :to="{ name: 'client:schedule'}"
@@ -63,7 +66,9 @@
                             Schedule
                         </router-link>
                     </li>
+                    <!-- End Schedule -->
 
+                    <!-- Start Courses -->
                     <li class="nav-item me-3"
                         v-on:click="close()">
                         <router-link :to="{ name: 'client:courses'}"
@@ -84,7 +89,9 @@
                             Courses
                         </router-link>
                     </li>
+                    <!-- End Courses -->
 
+                    <!-- Start FAQ -->
                     <li class="nav-item me-3"
                         v-on:click="close()">
                         <router-link :to="{ name: 'client:faq'}"
@@ -105,7 +112,9 @@
                             FAQs
                         </router-link>
                     </li>
+                    <!-- End FAQ -->
 
+                    <!-- Start Contact -->
                     <li class="nav-item me-3"
                         v-on:click="close()">
                         <router-link :to="{ name: 'client:contact'}"
@@ -126,7 +135,9 @@
                             Contact Us
                         </router-link>
                     </li>
+                    <!-- End Contact -->
 
+                    <!-- Start Phone -->
                     <li class="nav-item d-lg-none"
                         v-on:click="close()">
                         <a class="nav-link fw-bold"
@@ -147,7 +158,9 @@
 
                             {{ business_phone }}</a>
                     </li>
+                    <!-- End Phone -->
 
+                    <!-- Start Admin -->
                     <li v-if="globalAuth.isAdmin"
                         class="nav-item"
                         v-on:click="close()">
@@ -170,8 +183,10 @@
                             Admin
                         </router-link>
                     </li>
+                    <!-- End Admin -->
                 </ul>
 
+                <!-- Start Minimized Phone -->
                 <div class="d-flex me-5 fs-5 fw-bold d-none d-lg-flex">
                     <a class="nav-link fw-bold text-white"
                        v-bind:href="'tel:' + business_phone.replace(/-/g,'')">
@@ -191,6 +206,7 @@
 
                         {{ business_phone }}</a>
                 </div>
+                <!-- End Minimized Phone -->
             </div>
         </div>
     </nav>
