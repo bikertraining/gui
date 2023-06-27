@@ -1,5 +1,5 @@
 {
-  "name": "dev",
+  "name": "gui",
   "private": true,
   "scripts": {
     "build": "nuxt build",
