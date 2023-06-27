@@ -1,0 +1,73 @@
+<script setup
+        lang="ts">
+definePageMeta({ auth: false });
+
+const { getBusinessPhone } = useUtils();
+
+useHead({
+    title: 'Private Motorcycle Lessons',
+    meta: [
+        { name: 'description', content: 'Private Motorcycle Lessons' },
+        {
+            name: 'keywords',
+            content: 'private motorcycle class'
+        }
+    ]
+});
+</script>
+
+<template>
+    <div class="py-5 pt-3"
+         style="min-height: calc(100vh - 270px) !important;">
+        <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Private Lessons</h4>
+            </div>
+
+            <div class="card-body">
+                <ul class="list-unstyled mt-3 mb-4 text-start">
+                    <li class="mt-3 fw-bold">You must provide your own motorcycle.</li>
+
+                    <li class="mt-3">Private instruction is available for riders of all skill levels from beginners to
+                        advanced.
+                    </li>
+
+                    <li class="mt-3">We can provide tailored instruction to meet your exact needs.</li>
+
+                    <li class="mt-3 fw-bold">Note: This course is NOT FOR ENDORSEMENT. You must already have your
+                        motorcycle endorsement.
+                    </li>
+                </ul>
+
+                <div class="row">
+                    <div class="text-center">
+                        <a class="text-decoration-none"
+                           v-bind:href="'tel:' + getBusinessPhone(true)">
+                            <button class="w-50 btn btn-lg btn-outline-success"
+                                    type="button">
+                                <svg aria-hidden="true"
+                                     data-icon="phone"
+                                     data-prefix="fa-solid"
+                                     focusable="false"
+                                     role="img"
+                                     style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
+                                     viewBox="0 0 512 512"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path class=""
+                                          d="M511.2 387l-23.25 100.8c-3.266 14.25-15.79 24.22-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.969-27.2 24.22-30.45l100.8-23.25C139.7-2.602 154.7 5.018 160.8 18.92l46.52 108.5c5.438 12.78 1.77 27.67-8.98 36.45L144.5 207.1c33.98 69.22 90.26 125.5 159.5 159.5l44.08-53.8c8.688-10.78 23.69-14.51 36.47-8.975l108.5 46.51C506.1 357.2 514.6 372.4 511.2 387z"
+                                          fill="currentColor"/>
+                                </svg>
+
+                                Call us at {{ getBusinessPhone(false) }}
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<style scoped>
+
+</style>

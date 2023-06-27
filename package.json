@@ -1,0 +1,30 @@
+{
+  "name": "dev",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@types/node": "^20",
+    "npm-check-updates": "^16.10.13",
+    "nuxt": "^3.6.0"
+  },
+  "dependencies": {
+    "@nuxtjs/robots": "^3.0.0",
+    "@sidebase/nuxt-auth": "^0.6.0-beta.3",
+    "@vee-validate/nuxt": "^4.10.2",
+    "@vee-validate/yup": "^4.10.2",
+    "@vuepic/vue-datepicker": "^5.3.0",
+    "dayjs-nuxt": "^1.1.2",
+    "mitt": "^3.0.0",
+    "nuxt-gtag": "^0.5.7",
+    "nuxt-simple-sitemap": "^2.7.0",
+    "sass": "^1.63.6",
+    "vue-loading-overlay": "^6.0.3"
+  }
+}
