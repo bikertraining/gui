@@ -49,7 +49,7 @@ const { meta } = useField(name, undefined, {
 <template>
     <Field v-slot="{ field, meta, errorMessage, handleChange, handleBlur }"
            :name="<string>name">
-        <div :class="{ 'has-error': !!errorMessage, success: (field.value !== '') ? meta.valid : false, 'required': required }"
+        <div :class="{ 'has-error': (name === 'coupon_code') ? false : !!errorMessage, success: (field.value !== '') ? meta.valid : false, 'required': required }"
              class="TextInput">
             <label :for="name"
                    class="fw-bold form-label">{{ label }}</label>
@@ -70,7 +70,8 @@ const { meta } = useField(name, undefined, {
             <div v-if="errorMessage"
                  v-show="errorMessage || !meta.valid"
                  class="help-message">
-                {{ errorMessage.replace(name, label) }}
+                <span v-if="name === 'coupon_code' && field.value !== ''">{{ errorMessage.replace(name, label) }}</span>
+                <span v-if="name !== 'coupon_code'">{{ errorMessage.replace(name, label) }}</span>
             </div>
         </div>
     </Field>
