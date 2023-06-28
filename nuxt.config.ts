@@ -51,6 +51,7 @@ export default defineNuxtConfig({
         id: process.env.NUXT_PUBLIC_GOOGLE_TAG
     },
     modules: [
+        '@nuxt/image',
         '@nuxtjs/robots',
         '@sidebase/nuxt-auth',
         '@vee-validate/nuxt',
