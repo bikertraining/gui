@@ -12,7 +12,7 @@
     "@nuxt/devtools": "latest",
     "@types/node": "^20",
     "npm-check-updates": "^16.10.13",
-    "nuxt": "^3.6.0"
+    "nuxt": "^3.6.1"
   },
   "dependencies": {
     "@nuxtjs/robots": "^3.0.0",
