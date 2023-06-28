@@ -26,6 +26,8 @@ export const useAdminPrice = (): UseAdminPriceInterface => {
 
     const { $event } = useNuxtApp();
 
+    const router = useRouter();
+
     const choices = computed(() => {
         return localPrice.choices;
     });
@@ -112,7 +114,7 @@ export const useAdminPrice = (): UseAdminPriceInterface => {
                 type: 'success'
             });
 
-            await useRouter().push({ path: '/admin/price' });
+            await router.push({ path: '/admin/price' });
         }
 
         loadingState.isActive = false;

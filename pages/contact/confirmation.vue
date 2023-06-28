@@ -1,16 +1,16 @@
 <script lang="ts"
         setup>
-definePageMeta({ auth: false });
+const route = useRoute();
+
+definePageMeta({
+    auth: false,
+    description: 'Contact Us - Thank You',
+    keywords: 'thanks for contacting us, thank you for contacting us message, thank you for contacting us email, contact form thank you message, thank you for contacting us how can we help you, thank you for contacting us message sample, thank you for the call today email, thank you for contacting with us, contact us thank you message, thank you message for contacting us, thank you for contacting us regarding our services, thank you for contacting us business letter, thank you for contacting us email example, thank you for contacting us page, thank you email after business visit, thank you for contacting us email sample, contact us thank you',
+    title: 'Contact Us - Thank You'
+});
 
 useHead({
-    title: 'Contact Us - Thank You',
-    meta: [
-        { name: 'description', content: 'Contact Us - Thank You' },
-        {
-            name: 'keywords',
-            content: 'thanks for contacting us, thank you for contacting us message, thank you for contacting us email, contact form thank you message, thank you for contacting us how can we help you, thank you for contacting us message sample, thank you for the call today email, thank you for contacting with us, contact us thank you message, thank you message for contacting us, thank you for contacting us regarding our services, thank you for contacting us business letter, thank you for contacting us email example, thank you for contacting us page, thank you email after business visit, thank you for contacting us email sample, contact us thank you'
-        }
-    ]
+    title: `${route.meta['title']}`
 });
 </script>
 

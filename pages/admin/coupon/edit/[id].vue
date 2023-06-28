@@ -2,11 +2,9 @@
         setup>
 import { boolean, object, string } from "yup";
 
-definePageMeta({ layout: 'admin' });
-
 const { choices, deleteCoupon, formErrors, formObj, getChoices, getEdit, updateCoupon } = useAdminCoupon();
 
-const { params } = useRoute();
+const route = useRoute();
 
 const schema = object({
     amount: string().required(),
@@ -15,14 +13,21 @@ const schema = object({
     name: string().required()
 });
 
+definePageMeta({
+    description: 'Edit coupon',
+    keywords: 'edit coupon, coupon, edit',
+    layout: 'admin',
+    title: 'Edit Coupon'
+});
+
 onMounted(() => {
     getChoices();
 
-    getEdit(params['id'].toString());
+    getEdit(route.params['id'].toString());
 });
 
 useHead({
-    title: 'Edit Coupon'
+    title: `${route.meta['title']}`
 });
 </script>
 
@@ -65,7 +70,7 @@ useHead({
 
                     <ModalDelete :delete="deleteCoupon"
                                  :message-error="formErrors"
-                                 :params="{ id: params['id'] }"
+                                 :params="{ id: route.params['id'] }"
                                  message-alert="Continuing will remove this coupon."
                                  message-success="Coupon has been removed."
                                  redirect="/admin/coupon"/>

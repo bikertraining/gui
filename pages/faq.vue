@@ -1,21 +1,24 @@
 <script lang="ts"
         setup>
-definePageMeta({ auth: false });
-
 const { formObj, getPrices } = useClientPrice();
 
+const route = useRoute();
+
 const { getBusinessEmail, getBusinessPhone } = useUtils();
+
+definePageMeta({
+    auth: false,
+    description: 'Frequently Asked Questions',
+    keywords: 'motorcycle frequently asked questions',
+    title: 'FAQ'
+});
 
 onMounted(() => {
     getPrices();
 });
 
 useHead({
-    title: 'FAQ',
-    meta: [
-        { name: 'description', content: 'Frequently Asked Questions' },
-        { name: 'keywords', content: 'motorcycle frequently asked questions' }
-    ]
+    title: `${route.meta['title']}`
 });
 </script>
 

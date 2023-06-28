@@ -18,6 +18,8 @@ export const useAdminEcourse = (): UseAdminEcourseInterface => {
 
     const { $event } = useNuxtApp();
 
+    const router = useRouter();
+
     const formErrors = computed(() => {
         return localEcourse.formErrors;
     });
@@ -70,7 +72,7 @@ export const useAdminEcourse = (): UseAdminEcourseInterface => {
                 type: 'success'
             });
 
-            await useRouter().push({ path: '/admin/ecourse' });
+            await router.push({ path: '/admin/ecourse' });
         }
 
         loadingState.isActive = false;

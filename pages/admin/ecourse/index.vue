@@ -2,15 +2,20 @@
         setup>
 import { object, string } from "yup";
 
-definePageMeta({ layout: 'admin' });
-
 const { formObj, getEdit, updateEcourse } = useAdminEcourse();
 
-const { params } = useRoute();
+const route = useRoute();
 
 const schema = object({
     link_3wbrc: string().required(),
     link_brc_e5: string().required()
+});
+
+definePageMeta({
+    description: 'eCourse links',
+    keywords: 'ecourse links, ecourse, links',
+    layout: 'admin',
+    title: 'eCourse Links'
 });
 
 onMounted(() => {
@@ -18,7 +23,7 @@ onMounted(() => {
 });
 
 useHead({
-    title: 'eCourse Links'
+    title: `${route.meta['title']}`
 });
 </script>
 

@@ -35,6 +35,8 @@ interface UseClientPaymentInterface {
 export const useClientPayment = (): UseClientPaymentInterface => {
     const { loadingState } = usePageLoading();
 
+    const router = useRouter();
+
     const formErrors = computed(() => {
         return localPayment.formErrors;
     });
@@ -99,7 +101,7 @@ export const useClientPayment = (): UseClientPaymentInterface => {
                 actions.setErrors(processorErrors.value);
             }
         } else {
-            await useRouter().push({ path: '/payment/confirmation/brc' });
+            await router.push({ path: '/payment/confirmation/brc' });
         }
 
         loadingState.isActive = false;

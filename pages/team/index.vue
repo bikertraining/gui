@@ -2,9 +2,9 @@
         setup>
 import { object, string } from "yup";
 
-definePageMeta({ auth: false });
-
 const { formObj, submitContact } = useClientTeam();
+
+const route = useRoute();
 
 const schema = object({
     email: string().required().email(),
@@ -15,15 +15,15 @@ const schema = object({
 
 const { getBusinessEmail, getBusinessPhone } = useUtils();
 
+definePageMeta({
+    auth: false,
+    description: 'Become a RiderCoach',
+    keywords: 'rider coach, ridercoach, coach, teach, teacher, instructor',
+    title: 'Join our Team'
+});
+
 useHead({
-    title: 'Join our Team',
-    meta: [
-        { name: 'description', content: 'Become a RiderCoach' },
-        {
-            name: 'keywords',
-            content: 'rider coach, ridercoach, coach, teach, teacher, instructor'
-        }
-    ]
+    title: `${route.meta['title']}`
 });
 </script>
 

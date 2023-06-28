@@ -1,15 +1,18 @@
 <script lang="ts"
         setup>
-definePageMeta({ auth: false });
+const route = useRoute();
 
 const { getBusinessEmail, getBusinessPhone } = useUtils();
 
+definePageMeta({
+    auth: false,
+    description: 'Terms of Service',
+    keywords: 'tos, terms of service',
+    title: 'Terms of Service'
+});
+
 useHead({
-    title: 'Terms of Service',
-    meta: [
-        { name: 'description', content: 'Terms of Service' },
-        { name: 'keywords', content: 'tos, terms of service' }
-    ]
+    title: `${route.meta['title']}`
 });
 </script>
 
@@ -374,10 +377,10 @@ useHead({
         <p class="text-decoration-underline fw-bold">Privacy Policy</p>
 
         <p>Every member's registration data and various other personal information are strictly protected by the Biker
-            Training LLC Online Privacy Policy (see the full Privacy Policy at https://bikertraining.com/privacy). As
-            a member, you herein consent to the collection and use of the information provided, including the transfer
-            of information within the United States and/or other countries for storage, processing or use by Biker
-            Training LLC and/or our subsidiaries and affiliates.</p>
+            Training LLC Online Privacy Policy (see the full Privacy Policy at https://bikertraining.com/privacy). As a
+            member, you herein consent to the collection and use of the information provided, including the transfer of
+            information within the United States and/or other countries for storage, processing or use by Biker Training
+            LLC and/or our subsidiaries and affiliates.</p>
     </div>
 </template>
 

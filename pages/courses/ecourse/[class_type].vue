@@ -1,24 +1,22 @@
 <script lang="ts"
         setup>
-definePageMeta({ auth: false });
-
 const { formObj, getEcourseLink } = useClientEcourse();
 
 const route = useRoute();
+
+definePageMeta({
+    auth: false,
+    description: 'eCourse',
+    keywords: 'eCourse, msf ecourse',
+    title: 'eCourse'
+});
 
 onMounted(() => {
     getEcourseLink();
 });
 
 useHead({
-    title: 'eCourse',
-    meta: [
-        { name: 'description', content: 'eCourse' },
-        {
-            name: 'keywords',
-            content: 'eCourse'
-        }
-    ]
+    title: `${route.meta['title']}`
 });
 </script>
 

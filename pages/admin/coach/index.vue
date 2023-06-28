@@ -1,15 +1,24 @@
 <script lang="ts"
         setup>
-definePageMeta({ layout: 'admin' });
-
 const { formArr, frtp_expiration, getSearch, msf_expiration } = useAdminCoach();
+
+const route = useRoute();
+
+const router = useRouter();
+
+definePageMeta({
+    description: 'Search coaches',
+    keywords: 'search coaches, coaches, search',
+    layout: 'admin',
+    title: 'Search Coaches'
+});
 
 onMounted(() => {
     getSearch();
 });
 
 useHead({
-    title: 'Search Coaches'
+    title: `${route.meta['title']}`
 });
 </script>
 
@@ -140,7 +149,7 @@ useHead({
             <tbody>
             <tr v-for="coach in formArr"
                 v-bind:key="coach"
-                v-on:click="useRouter().push({ path: `/admin/coach/edit/${coach['id']}`})">
+                v-on:click="router.push({ path: `/admin/coach/edit/${coach['id']}`})">
                 <td v-if="coach['msf_id'] > 0">
                     {{ coach['msf_id'] }}<br>
                 </td>

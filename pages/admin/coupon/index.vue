@@ -1,15 +1,24 @@
 <script lang="ts"
         setup>
-definePageMeta({ layout: 'admin' });
-
 const { formArr, getSearch } = useAdminCoupon();
+
+const route = useRoute();
+
+const router = useRouter();
+
+definePageMeta({
+    description: 'Search coupons',
+    keywords: 'search coupons, coupons, search',
+    layout: 'admin',
+    title: 'Search Coupons'
+});
 
 onMounted(() => {
     getSearch();
 });
 
 useHead({
-    title: 'Search Coupons'
+    title: `${route.meta['title']}`
 });
 </script>
 
@@ -80,7 +89,7 @@ useHead({
             <tbody>
             <tr v-for="coupon in formArr"
                 v-bind:key="coupon"
-                v-on:click="useRouter().push({ path: `/admin/coupon/edit/${coupon['id']}`})">
+                v-on:click="router.push({ path: `/admin/coupon/edit/${coupon['id']}`})">
                 <td>{{ coupon['name'] }}</td>
                 <td>{{ coupon['class_type_name'] }}</td>
                 <td>{{ coupon['amount'] }}</td>

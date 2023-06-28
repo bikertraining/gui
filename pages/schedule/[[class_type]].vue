@@ -1,24 +1,24 @@
 <script lang="ts"
         setup>
-definePageMeta({ auth: false });
-
 const { formArr, getSearch, utilClassDate } = useClientSchedule();
 
 const route = useRoute();
+
+const router = useRouter();
+
+definePageMeta({
+    auth: false,
+    description: 'Motorcycle Training Schedule',
+    keywords: 'motorcycle training schedule, harley davidson motorcycle class schedule, 7 day motorcycle course, 1 day motorcycle course near me, msf course schedule, motorcycle class schedule, motorcycle safety course schedule, motorcycle track training days, csn motorcycle class schedule, msf class schedule',
+    title: 'Schedule'
+});
 
 onMounted(() => {
     getSearch(route.params['class_type']);
 });
 
 useHead({
-    title: 'Schedule',
-    meta: [
-        { name: 'description', content: 'Motorcycle Training Schedule' },
-        {
-            name: 'keywords',
-            content: 'motorcycle training schedule, harley davidson motorcycle class schedule, 7 day motorcycle course, 1 day motorcycle course near me, msf course schedule, motorcycle class schedule, motorcycle safety course schedule, motorcycle track training days, csn motorcycle class schedule, msf class schedule'
-        }
-    ]
+    title: `${route.meta['title']}`
 });
 </script>
 
@@ -66,7 +66,7 @@ useHead({
             <tbody v-if="formArr.length > 0">
             <tr v-for="schedule in formArr"
                 v-bind:key="schedule"
-                v-on="schedule['seats'] > 0 ? { click: () => useRouter().push(`/register/${schedule['id']}`) } : { click: () => { return false; } }">
+                v-on="schedule['seats'] > 0 ? { click: () => router.push(`/register/${schedule['id']}`) } : { click: () => { return false; } }">
                 <td>
                     {{ utilClassDate(schedule['date_from'], schedule['date_to']) }} <br>
                     <span v-if="schedule['seats'] > 0"

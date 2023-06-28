@@ -1,18 +1,18 @@
 <script lang="ts"
         setup>
-definePageMeta({ auth: false });
+const route = useRoute();
 
 const { getBusinessPhone } = useUtils();
 
+definePageMeta({
+    auth: false,
+    description: 'Remedial Motorcycle Training',
+    keywords: 'remedial motorcycle training, motorcycle, training, remedial',
+    title: 'Remedial Motorcycle Training'
+});
+
 useHead({
-    title: 'Remedial Motorcycle Training',
-    meta: [
-        { name: 'description', content: 'Remedial Motorcycle Training' },
-        {
-            name: 'keywords',
-            content: 'remedial motorcycle training'
-        }
-    ]
+    title: `${route.meta['title']}`
 });
 </script>
 

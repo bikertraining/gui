@@ -2,23 +2,33 @@
         setup>
 import { object, string } from "yup";
 
-definePageMeta({ auth: false, layout: 'authorization' });
+const { status } = useAuth();
+
+const { submitLogin } = useAuthorization();
+
+const route = useRoute();
+
+const router = useRouter();
 
 const schema = object({
     username: string().required(),
     password: string().required().min(5)
 });
 
-const { status } = useAuth();
-
-const { submitLogin } = useAuthorization();
-
 if (status.value === 'authenticated') {
-    useRouter().push({ path: '/admin/schedule' });
+    router.push({ path: '/admin/schedule' });
 }
 
-useHead({
+definePageMeta({
+    auth: false,
+    description: 'Employee Login',
+    keywords: 'login, employee login',
+    layout: 'authorization',
     title: 'Login'
+});
+
+useHead({
+    title: `${route.meta['title']}`
 });
 </script>
 

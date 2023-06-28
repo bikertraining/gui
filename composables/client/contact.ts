@@ -18,6 +18,8 @@ interface UseClientContactInterface {
 export const useClientContact = (): UseClientContactInterface => {
     const { loadingState } = usePageLoading();
 
+    const router = useRouter();
+
     const formErrors = computed(() => {
         return localContact.formErrors;
     });
@@ -54,7 +56,7 @@ export const useClientContact = (): UseClientContactInterface => {
         if (!processorSuccess.value) {
             actions.setErrors(processorErrors.value);
         } else {
-            await useRouter().push({ path: '/contact/confirmation' });
+            await router.push({ path: '/contact/confirmation' });
         }
 
         loadingState.isActive = false;

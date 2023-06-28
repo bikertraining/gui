@@ -1,15 +1,24 @@
 <script lang="ts"
         setup>
-definePageMeta({ layout: 'admin' });
-
 const { formArr, getSearch } = useAdminPrice();
+
+const route = useRoute();
+
+const router = useRouter();
+
+definePageMeta({
+    description: 'Search prices',
+    keywords: 'search prices, prices, search',
+    layout: 'admin',
+    title: 'Search Prices'
+});
 
 onMounted(() => {
     getSearch();
 });
 
 useHead({
-    title: 'Search Prices'
+    title: `${route.meta['title']}`
 });
 </script>
 
@@ -45,7 +54,7 @@ useHead({
             <tbody>
             <tr v-for="price in formArr"
                 v-bind:key="price"
-                v-on:click="useRouter().push({ path: `/admin/price/edit/${price['id']}`})">
+                v-on:click="router.push({ path: `/admin/price/edit/${price['id']}`})">
                 <td>{{ price['class_type_name'] }}</td>
                 <td>${{ price['amount'] }}</td>
                 <td>

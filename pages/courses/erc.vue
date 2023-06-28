@@ -1,22 +1,22 @@
 <script lang="ts"
         setup>
-definePageMeta({ auth: false });
-
 const { formObj, getPrices } = useClientPrice();
+
+const route = useRoute();
+
+definePageMeta({
+    auth: false,
+    description: 'Experienced Rider Course',
+    keywords: 'experienced rider course, motorcycle advanced rider training, msf experienced rider course, msf advanced rider course exercises, experienced motorcycle rider course, experienced rider course near me',
+    title: 'Experienced Rider Course'
+});
 
 onMounted(() => {
     getPrices();
 });
 
 useHead({
-    title: 'Experienced Rider Course',
-    meta: [
-        { name: 'description', content: 'Experienced Rider Course' },
-        {
-            name: 'keywords',
-            content: 'experienced rider course, motorcycle advanced rider training, msf experienced rider course, msf advanced rider course exercises, experienced motorcycle rider course, experienced rider course near me'
-        }
-    ]
+    title: `${route.meta['title']}`
 });
 </script>
 

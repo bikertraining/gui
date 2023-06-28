@@ -1,22 +1,22 @@
 <script lang="ts"
         setup>
-definePageMeta({ auth: false });
-
 const { formObj, getPrices } = useClientPrice();
+
+const route = useRoute();
+
+definePageMeta({
+    auth: false,
+    description: 'Three-Wheel Basic Rider Course',
+    keywords: '3 wheel, three wheel motorcycle class, 3 wheel motorcycle class, 3 wheel car, three wheel car, three wheel, yamaha 3 wheeler, honda three wheeler, polaris 3 wheeler, t rex 3 wheeler, vanderhall 3 wheel, spyder 3 wheeler, 3 wheel trike, slingshot 3 wheeler, harley 3 wheeler, 3 wheel car price, yamaha three wheeler, 3 wheel car for sale, three wheel spyder car, harley davidson three wheeler, 3 wheel spyder car, three wheel trike, vanderhall 3 wheel car, spider 3 wheels, polaris three wheeler, used 3 wheelers for sale near me, spyder three wheeler, bmw 3 wheeler, tri wheel car, 3 wheel can am, tvs three wheeler sale, three wheel for sale, harley three wheeler, three wheel car price, old 3 wheel car, slingshot three wheeler, slingshot 3 wheel car, t rex 3 wheeler for sale, 3 wheel drive, 3 wheel vanderhall, harley davidson 3 wheeler price, bmw three wheeler, t rex three wheeler, 3 wheel car vanderhall, small 3 wheel car, new three wheeler, 3 wheel basic rider course near me, vanderhall three wheeler, new 3 wheel car, carver 3 wheeler, t rex 3 wheeler price, spyder car 3 wheel price, venice 3 wheeler, three wheel car for sale, yamaha 3 wheeler models, 3 wheel harley davidson, 3 wheeler price, a three wheeler, ryker 3 wheeler, polaris 3 wheel car, tvs three wheel, vanderhall 3 wheeler price, slingshot 3 wheeler price, piaggio three wheeler for sale, vanderhall 3 wheel car price, tvs three wheeler for sale, tuk tuk 3 wheeler, 3 wheel car 1960s, vossen evo 3, 3 wheel honda, 3 wheel harley for sale, three tire car, bsa 3 wheeler, 2 seater 3 wheel car, three wheel trikes for sale, razor 3 wheeler, three wheel can am, bombardier 3 wheeler, 2 stock three wheel, atc three wheeler, 3 spoke alloy wheels for bullet, polaris 3 wheeler price, new honda 3 wheeler, carver three wheeler, vespa 3 wheeler, vanderhall 3 wheeler for sale, brp 3 wheeler, tri glide wheels, 4 stock three wheel, tiny 3 wheel car, tricycle car for adults, 3 wheel race car, 3 wheel slingshot for sale, small three wheel car, aero 3s t rex 3 wheel drive, ducati 3 wheeler, raptor 3 wheel car, 3 seater trike, three wheel vanderhall, new three wheel car, venice three wheeler, 2023 spyder, ferrari 3 wheel car, 3 wheel convertible car, 3 wheel motorcycle classes near me, 3 wheel harley davidson for sale, racing 3 wheeler, 2021 aero 3s t rex 3 wheel drive, used 3 wheel car for sale, three wheel harley for sale, trike 3 wheeler, 3 s alloy wheel, 3 wheel chopper, a car with 3 wheels, 3 wheel trikes for sale, 3 wheel motorcycle course, 3 wheel basic rider course book, three wheel car vanderhall, vanderhall 3 wheel price, off road 3 wheeler, 3 wheel sport car, cam 3 wheeler, nmax 3 wheels, three wheeler can am, old 3 wheel car for sale, 3 wheel vespa for sale, old three wheel car, honda 3 wheel car, yamaha 125 3 wheeler, custom three wheelers, vanderhall 3 wheel car for sale, 3 wheel sale, 3 wheel motorcycle course near me, 3 wheel motorcycle training, trike motorcycle classes near me, 3 wheel riding course, 3 wheel motorcycle safety course near me, 3 wheel basic rider course, three wheel motorcycle course, msf 3 wheel course, accelerated three wheeled motorcycle safety courses, three wheel motorcycle training class, 3 wheel motorcycle riding class, 3 wheel motorcycle safety course, three wheel motorcycle safety course, 3 wheel motorcycle training course, three wheel basic rider course, trike motorcycle safety course, 3 wheel training, three wheel motorcycle training, msf 3 wheel basic rider course',
+    title: 'Three-Wheel Basic Rider Course'
+});
 
 onMounted(() => {
     getPrices();
 });
 
 useHead({
-    title: 'Three-Wheel Basic Rider Course',
-    meta: [
-        { name: 'description', content: 'Three-Wheel Basic Rider Course' },
-        {
-            name: 'keywords',
-            content: '3 wheel, three wheel motorcycle class, 3 wheel motorcycle class, 3 wheel car, three wheel car, three wheel, yamaha 3 wheeler, honda three wheeler, polaris 3 wheeler, t rex 3 wheeler, vanderhall 3 wheel, spyder 3 wheeler, 3 wheel trike, slingshot 3 wheeler, harley 3 wheeler, 3 wheel car price, yamaha three wheeler, 3 wheel car for sale, three wheel spyder car, harley davidson three wheeler, 3 wheel spyder car, three wheel trike, vanderhall 3 wheel car, spider 3 wheels, polaris three wheeler, used 3 wheelers for sale near me, spyder three wheeler, bmw 3 wheeler, tri wheel car, 3 wheel can am, tvs three wheeler sale, three wheel for sale, harley three wheeler, three wheel car price, old 3 wheel car, slingshot three wheeler, slingshot 3 wheel car, t rex 3 wheeler for sale, 3 wheel drive, 3 wheel vanderhall, harley davidson 3 wheeler price, bmw three wheeler, t rex three wheeler, 3 wheel car vanderhall, small 3 wheel car, new three wheeler, 3 wheel basic rider course near me, vanderhall three wheeler, new 3 wheel car, carver 3 wheeler, t rex 3 wheeler price, spyder car 3 wheel price, venice 3 wheeler, three wheel car for sale, yamaha 3 wheeler models, 3 wheel harley davidson, 3 wheeler price, a three wheeler, ryker 3 wheeler, polaris 3 wheel car, tvs three wheel, vanderhall 3 wheeler price, slingshot 3 wheeler price, piaggio three wheeler for sale, vanderhall 3 wheel car price, tvs three wheeler for sale, tuk tuk 3 wheeler, 3 wheel car 1960s, vossen evo 3, 3 wheel honda, 3 wheel harley for sale, three tire car, bsa 3 wheeler, 2 seater 3 wheel car, three wheel trikes for sale, razor 3 wheeler, three wheel can am, bombardier 3 wheeler, 2 stock three wheel, atc three wheeler, 3 spoke alloy wheels for bullet, polaris 3 wheeler price, new honda 3 wheeler, carver three wheeler, vespa 3 wheeler, vanderhall 3 wheeler for sale, brp 3 wheeler, tri glide wheels, 4 stock three wheel, tiny 3 wheel car, tricycle car for adults, 3 wheel race car, 3 wheel slingshot for sale, small three wheel car, aero 3s t rex 3 wheel drive, ducati 3 wheeler, raptor 3 wheel car, 3 seater trike, three wheel vanderhall, new three wheel car, venice three wheeler, 2023 spyder, ferrari 3 wheel car, 3 wheel convertible car, 3 wheel motorcycle classes near me, 3 wheel harley davidson for sale, racing 3 wheeler, 2021 aero 3s t rex 3 wheel drive, used 3 wheel car for sale, three wheel harley for sale, trike 3 wheeler, 3 s alloy wheel, 3 wheel chopper, a car with 3 wheels, 3 wheel trikes for sale, 3 wheel motorcycle course, 3 wheel basic rider course book, three wheel car vanderhall, vanderhall 3 wheel price, off road 3 wheeler, 3 wheel sport car, cam 3 wheeler, nmax 3 wheels, three wheeler can am, old 3 wheel car for sale, 3 wheel vespa for sale, old three wheel car, honda 3 wheel car, yamaha 125 3 wheeler, custom three wheelers, vanderhall 3 wheel car for sale, 3 wheel sale, 3 wheel motorcycle course near me, 3 wheel motorcycle training, trike motorcycle classes near me, 3 wheel riding course, 3 wheel motorcycle safety course near me, 3 wheel basic rider course, three wheel motorcycle course, msf 3 wheel course, accelerated three wheeled motorcycle safety courses, three wheel motorcycle training class, 3 wheel motorcycle riding class, 3 wheel motorcycle safety course, three wheel motorcycle safety course, 3 wheel motorcycle training course, three wheel basic rider course, trike motorcycle safety course, 3 wheel training, three wheel motorcycle training, msf 3 wheel basic rider course'
-        }
-    ]
+    title: `${route.meta['title']}`
 });
 </script>
 
@@ -78,13 +78,13 @@ useHead({
                         <img alt="BRP - CanAm Spyder Training"
                              class="d-block img-fluid"
                              height="230"
-                             src="/img/BRP_CanAm_Banner_99.svg"
+                             src="/img/BRP_CanAm_Banner_199.svg"
                              width="720">
                     </NuxtLink>
 
                     <div class="mt-3 text-start mx-auto">
                         For a limited time, those that want to enroll in the 3-Wheel Basic RiderCourse on a Can-AM
-                        Spyder/Ryker can do so for only $99
+                        Spyder/Ryker can do so for only $199
                     </div>
                 </div>
 

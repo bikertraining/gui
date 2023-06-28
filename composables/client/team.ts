@@ -17,6 +17,8 @@ interface UseClientTeamInterface {
 export const useClientTeam = (): UseClientTeamInterface => {
     const { loadingState } = usePageLoading();
 
+    const router = useRouter();
+
     const formErrors = computed(() => {
         return localTeam.formErrors;
     });
@@ -52,7 +54,7 @@ export const useClientTeam = (): UseClientTeamInterface => {
         if (!processorSuccess.value) {
             actions.setErrors(processorErrors.value);
         } else {
-            await useRouter().push({ path: '/team/confirmation' });
+            await router.push({ path: '/team/confirmation' });
         }
 
         loadingState.isActive = false;

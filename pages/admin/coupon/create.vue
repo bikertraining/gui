@@ -2,9 +2,9 @@
         setup>
 import { boolean, object, string } from "yup";
 
-definePageMeta({ layout: 'admin' });
-
 const { choices, createCoupon, formObj, getChoices } = useAdminCoupon();
+
+const route = useRoute();
 
 const schema = object({
     amount: string().required(),
@@ -13,12 +13,19 @@ const schema = object({
     name: string().required()
 });
 
+definePageMeta({
+    description: 'Create coupon',
+    keywords: 'create coupon, coupon, create',
+    layout: 'admin',
+    title: 'Create Coupon'
+});
+
 onMounted(() => {
     getChoices();
 });
 
 useHead({
-    title: 'Create Coupon'
+    title: `${route.meta['title']}`
 });
 </script>
 

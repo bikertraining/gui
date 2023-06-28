@@ -1,8 +1,17 @@
 <script lang="ts"
         setup>
-definePageMeta({ layout: 'admin' });
-
 const { formArr, getSearch, utilClassDate } = useAdminSchedule();
+
+const route = useRoute();
+
+const router = useRouter();
+
+definePageMeta({
+    description: 'Search schedule',
+    keywords: 'search schedule, schedule, search',
+    layout: 'admin',
+    title: 'Search Schedule'
+});
 
 onMounted(() => {
     getSearch();
@@ -79,7 +88,7 @@ useHead({
             <tbody>
             <tr v-for="schedule in formArr"
                 v-bind:key="schedule"
-                v-on:click="useRouter().push({ path: `/admin/schedule/edit/${schedule['id']}`})">
+                v-on:click="router.push({ path: `/admin/schedule/edit/${schedule['id']}`})">
                 <td>{{ utilClassDate(schedule['date_from'], schedule['date_to']) }}</td>
                 <td>{{ schedule['day_type_name'] }}</td>
                 <td>{{ schedule['class_type_name'] }}</td>

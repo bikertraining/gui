@@ -2,8 +2,6 @@
         setup>
 import { boolean, object, string } from "yup";
 
-definePageMeta({ auth: false });
-
 const { formObj: priceObj, getPrices } = useClientPrice();
 
 const {
@@ -53,6 +51,13 @@ const schema = object({
 
 const { getBusinessEmail, getBusinessPhone } = useUtils();
 
+definePageMeta({
+    auth: false,
+    description: 'Register Online',
+    keywords: 'register online, register',
+    title: 'Register Online'
+});
+
 onMounted(() => {
     getDefaults(route.params);
 
@@ -62,14 +67,7 @@ onMounted(() => {
 });
 
 useHead({
-    title: 'Register Online',
-    meta: [
-        { name: 'description', content: 'Register Online' },
-        {
-            name: 'keywords',
-            content: 'register'
-        }
-    ]
+    title: `${route.meta['title']}`
 });
 </script>
 

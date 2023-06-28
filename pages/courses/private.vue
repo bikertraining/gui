@@ -1,18 +1,18 @@
-<script setup
-        lang="ts">
-definePageMeta({ auth: false });
+<script lang="ts"
+        setup>
+const route = useRoute();
 
 const { getBusinessPhone } = useUtils();
 
+definePageMeta({
+    auth: false,
+    description: 'Private Motorcycle Lessons',
+    keywords: 'private motorcycle class, private class, private',
+    title: 'Private Motorcycle Lessons'
+});
+
 useHead({
-    title: 'Private Motorcycle Lessons',
-    meta: [
-        { name: 'description', content: 'Private Motorcycle Lessons' },
-        {
-            name: 'keywords',
-            content: 'private motorcycle class'
-        }
-    ]
+    title: `${route.meta['title']}`
 });
 </script>
 

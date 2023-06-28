@@ -50,6 +50,8 @@ interface UseClientRegisterInterface {
 export const useClientRegister = (): UseClientRegisterInterface => {
     const { loadingState } = usePageLoading();
 
+    const router = useRouter();
+
     const formArr = computed(() => {
         return localRegister.formArr;
     });
@@ -162,7 +164,7 @@ export const useClientRegister = (): UseClientRegisterInterface => {
                 actions.setErrors(processorErrors.value);
             }
         } else {
-            await useRouter().push({ path: `/register/confirmation/${values['class_type']}` });
+            await router.push({ path: `/register/confirmation/${values['class_type']}` });
         }
 
         loadingState.isActive = false;

@@ -1,26 +1,24 @@
 <script lang="ts"
         setup>
-definePageMeta({ auth: false });
-
 const { formObj, getPrices } = useClientPrice();
 
 const route = useRoute();
 
 const { getBusinessEmail, getBusinessPhone } = useUtils();
 
+definePageMeta({
+    auth: false,
+    description: 'Payment Confirmation',
+    keywords: 'payment confirmation, pay online, payment',
+    title: 'Payment Confirmation'
+});
+
 onMounted(() => {
     getPrices();
 });
 
 useHead({
-    title: 'Payment Confirmation',
-    meta: [
-        { name: 'description', content: 'Payment Confirmation' },
-        {
-            name: 'keywords',
-            content: 'payment confirmation'
-        }
-    ]
+    title: `${route.meta['title']}`
 });
 </script>
 

@@ -2,9 +2,9 @@
         setup>
 import { object, string } from "yup";
 
-definePageMeta({ layout: 'admin' });
-
 const { createCoach, formObj } = useAdminCoach();
+
+const route = useRoute();
 
 const schema = object({
     address: string().required(),
@@ -19,8 +19,15 @@ const schema = object({
     zipcode: string().required()
 });
 
-useHead({
+definePageMeta({
+    description: 'Create coach',
+    keywords: 'create coach, coach, create',
+    layout: 'admin',
     title: 'Create Coach'
+});
+
+useHead({
+    title: `${route.meta['title']}`
 });
 </script>
 

@@ -2,11 +2,9 @@
         setup>
 import { object, string } from "yup";
 
-definePageMeta({ layout: 'admin' });
-
 const { deleteCoach, formErrors, formObj, getEdit, updateCoach } = useAdminCoach();
 
-const { params } = useRoute();
+const route = useRoute();
 
 const schema = object({
     address: string().required(),
@@ -21,12 +19,19 @@ const schema = object({
     zipcode: string().required()
 });
 
+definePageMeta({
+    description: 'Edit coach',
+    keywords: 'edit coach',
+    layout: 'admin',
+    title: 'Edit Coach'
+});
+
 onMounted(() => {
-    getEdit(params['id'].toString());
+    getEdit(route.params['id'].toString());
 });
 
 useHead({
-    title: 'Edit Coach'
+    title: `${route.meta['title']}`
 });
 </script>
 
@@ -121,7 +126,7 @@ useHead({
 
                     <ModalDelete :delete="deleteCoach"
                                  :message-error="formErrors"
-                                 :params="{ id: params['id'] }"
+                                 :params="{ id: route.params['id'] }"
                                  message-alert="Continuing will remove this coach."
                                  message-success="Coach has been removed."
                                  redirect="/admin/coach"/>

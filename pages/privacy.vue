@@ -1,15 +1,18 @@
 <script lang="ts"
         setup>
-definePageMeta({ auth: false });
+const route = useRoute();
 
 const { getBusinessEmail, getBusinessPhone } = useUtils();
 
+definePageMeta({
+    auth: false,
+    description: 'Privacy Policy',
+    keywords: 'privacy policy, privacy, policy',
+    title: 'Privacy Policy'
+});
+
 useHead({
-    title: 'Privacy Policy',
-    meta: [
-        { name: 'description', content: 'Privacy Policy' },
-        { name: 'keywords', content: 'privacy policy' }
-    ]
+    title: `${route.meta['title']}`
 });
 </script>
 

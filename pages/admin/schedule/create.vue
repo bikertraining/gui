@@ -2,9 +2,9 @@
         setup>
 import { object, string } from "yup";
 
-definePageMeta({ layout: 'admin' });
-
 const { choices, createSchedule, formObj, getChoices } = useAdminSchedule();
+
+const route = useRoute();
 
 const schema = object({
     date_from: string().required(),
@@ -14,12 +14,19 @@ const schema = object({
     seats: string().required()
 });
 
+definePageMeta({
+    description: 'Create schedule',
+    keywords: 'create schedule, schedule, create',
+    layout: 'admin',
+    title: 'Create Schedule'
+});
+
 onMounted(() => {
     getChoices();
 });
 
 useHead({
-    title: 'Create Schedule'
+    title: `${route.meta['title']}`
 });
 </script>
 

@@ -2,23 +2,28 @@
         setup>
 import { boolean, object, string } from "yup";
 
-definePageMeta({ layout: 'admin' });
-
 const { formObj, getEdit, updatePrice } = useAdminPrice();
 
-const { params } = useRoute();
+const route = useRoute();
 
 const schema = object({
     amount: string().required(),
     is_active: boolean()
 });
 
+definePageMeta({
+    description: 'Edit price',
+    keywords: 'edit price, price, edit',
+    layout: 'admin',
+    title: 'Edit Price'
+});
+
 onMounted(() => {
-    getEdit(params['id'].toString());
+    getEdit(route.params['id'].toString());
 });
 
 useHead({
-    title: 'Edit Price'
+    title: `${route.meta['title']}`
 });
 </script>
 
@@ -29,8 +34,8 @@ useHead({
                   @submit="updatePrice">
                 <div class="row g-3 col-md-6">
                     <FormHidden v-model="formObj['id']"
-                            :required="true"
-                            name="id"/>
+                                :required="true"
+                                name="id"/>
 
                     <StaticData :value="formObj['class_type_name']"
                                 name="Class Type"/>

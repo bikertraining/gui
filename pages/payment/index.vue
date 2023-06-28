@@ -2,8 +2,6 @@
         setup>
 import { object, string } from "yup";
 
-definePageMeta({ auth: false });
-
 const {
     formObj,
     nonFieldFormError,
@@ -17,6 +15,8 @@ const { formObj: priceObj, getPrices } = useClientPrice();
 const couponSchema = object({
     coupon_code: string().required()
 });
+
+const route = useRoute();
 
 const schema = object({
     address: string().required(),
@@ -38,19 +38,19 @@ const schema = object({
 
 const { getBusinessEmail, getBusinessPhone } = useUtils();
 
+definePageMeta({
+    auth: false,
+    description: 'Pay Online',
+    keywords: 'payment, pay online',
+    title: 'Pay Online'
+});
+
 onMounted(() => {
     getPrices();
 });
 
 useHead({
-    title: 'Pay Online',
-    meta: [
-        { name: 'description', content: 'Pay Online' },
-        {
-            name: 'keywords',
-            content: 'payment'
-        }
-    ]
+    title: `${route.meta['title']}`
 });
 </script>
 

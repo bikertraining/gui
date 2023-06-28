@@ -1,18 +1,18 @@
 <script lang="ts"
         setup>
-definePageMeta({ auth: false });
+const route = useRoute();
 
 const { getBusinessPhone } = useUtils();
 
+definePageMeta({
+    auth: false,
+    description: 'RiderCoach Frequently Asked Questions',
+    keywords: 'ridercoach frequently asked questions, ridercoach, rider coach, coach, instructor, faq',
+    title: 'RiderCoach FAQ'
+});
+
 useHead({
-    title: 'RiderCoach FAQ',
-    meta: [
-        { name: 'description', content: 'RiderCoach Frequently Asked Questions' },
-        {
-            name: 'keywords',
-            content: 'ridercoach frequently asked questions'
-        }
-    ]
+    title: `${route.meta['title']}`
 });
 </script>
 

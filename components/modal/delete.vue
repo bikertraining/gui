@@ -29,6 +29,8 @@ const props = defineProps({
     }
 });
 
+const router = useRouter();
+
 const modalDelete = () => {
     const can_delete = props.delete(props.params);
 
@@ -52,7 +54,7 @@ const modalDelete = () => {
                 type: 'success'
             });
 
-            useRouter().push({ path: props.redirect });
+            router.push({ path: props.redirect });
         }
     });
 };

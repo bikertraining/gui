@@ -2,9 +2,9 @@
         setup>
 import { object, string } from "yup";
 
-definePageMeta({ auth: false });
-
 const { formObj, submitContact } = useClientContact();
+
+const route = useRoute();
 
 const { getBusinessEmail, getBusinessPhone } = useUtils();
 
@@ -15,15 +15,15 @@ const schema = object({
     phone: string()
 });
 
+definePageMeta({
+    auth: false,
+    description: 'Contact Us',
+    keywords: 'contact us, contact us page, contact us page design, contact page, contact us form, contact us page generator, contact page design, contact us page template, contact us template, best contact page design, contact us at, contact us design, contact website, contact me page, website contact page, contact us text, best contact us pages, contact us on, contact us page sample, contact us website, contact us content, contact us form for website, contact us page content, contact us form design, google business profile customer service',
+    title: 'Contact Us'
+});
+
 useHead({
-    title: 'Contact Us',
-    meta: [
-        { name: 'description', content: 'Contact Us' },
-        {
-            name: 'keywords',
-            content: 'contact us, contact us page, contact us page design, contact page, contact us form, contact us page generator, contact page design, contact us page template, contact us template, best contact page design, contact us at, contact us design, contact website, contact me page, website contact page, contact us text, best contact us pages, contact us on, contact us page sample, contact us website, contact us content, contact us form for website, contact us page content, contact us form design, google business profile customer service'
-        }
-    ]
+    title: `${route.meta['title']}`
 });
 </script>
 

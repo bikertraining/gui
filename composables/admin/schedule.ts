@@ -31,6 +31,8 @@ export const useAdminSchedule = (): UseAdminScheduleInterface => {
 
     const { $event } = useNuxtApp();
 
+    const router = useRouter();
+
     const choices = computed(() => {
         return localSchedule.choices;
     });
@@ -59,7 +61,7 @@ export const useAdminSchedule = (): UseAdminScheduleInterface => {
                 type: 'success'
             });
 
-            await useRouter().push({ path: '/admin/schedule' });
+            await router.push({ path: '/admin/schedule' });
         }
 
         loadingState.isActive = false;
@@ -171,7 +173,7 @@ export const useAdminSchedule = (): UseAdminScheduleInterface => {
                 type: 'success'
             });
 
-            await useRouter().push({ path: '/admin/schedule' });
+            await router.push({ path: '/admin/schedule' });
         }
 
         loadingState.isActive = false;

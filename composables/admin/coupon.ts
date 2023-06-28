@@ -29,6 +29,8 @@ export const useAdminCoupon = (): UseAdminCouponInterface => {
 
     const { $event } = useNuxtApp();
 
+    const router = useRouter();
+
     const choices = computed(() => {
         return localCoupon.choices;
     });
@@ -52,7 +54,7 @@ export const useAdminCoupon = (): UseAdminCouponInterface => {
                 type: 'success'
             });
 
-            await useRouter().push({ path: '/admin/coupon' });
+            await router.push({ path: '/admin/coupon' });
         }
 
         loadingState.isActive = false;
@@ -157,7 +159,7 @@ export const useAdminCoupon = (): UseAdminCouponInterface => {
                 type: 'success'
             });
 
-            await useRouter().push({ path: '/admin/coupon' });
+            await router.push({ path: '/admin/coupon' });
         }
 
         loadingState.isActive = false;

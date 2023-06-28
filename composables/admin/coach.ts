@@ -34,6 +34,8 @@ export const useAdminCoach = (): UseAdminCoachInterface => {
 
     const { $event } = useNuxtApp();
 
+    const router = useRouter();
+
     const createCoach = async (values: Record<string, string>, actions: {
         setErrors: (arg0: Record<string, unknown>) => void;
     }) => {
@@ -56,7 +58,7 @@ export const useAdminCoach = (): UseAdminCoachInterface => {
                 type: 'success'
             });
 
-            await useRouter().push({ path: '/admin/coach' });
+            await router.push({ path: '/admin/coach' });
         }
 
         loadingState.isActive = false;
@@ -184,7 +186,7 @@ export const useAdminCoach = (): UseAdminCoachInterface => {
                 type: 'success'
             });
 
-            await useRouter().push({ path: '/admin/coach' });
+            await router.push({ path: '/admin/coach' });
         }
 
         loadingState.isActive = false;

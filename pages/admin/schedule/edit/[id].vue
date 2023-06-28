@@ -2,11 +2,9 @@
         setup>
 import { object, string } from "yup";
 
-definePageMeta({ layout: 'admin' });
-
 const { choices, deleteSchedule, formErrors, formObj, getChoices, getEdit, updateSchedule } = useAdminSchedule();
 
-const { params } = useRoute();
+const route = useRoute();
 
 const schema = object({
     date_from: string().required(),
@@ -16,14 +14,21 @@ const schema = object({
     seats: string().required()
 });
 
+definePageMeta({
+    description: 'Edit schedule',
+    keywords: 'edit schedule, schedule, edit',
+    layout: 'admin',
+    title: 'Edit Schedule'
+});
+
 onMounted(() => {
     getChoices();
 
-    getEdit(params['id'].toString());
+    getEdit(route.params['id'].toString());
 });
 
 useHead({
-    title: 'Edit Schedule'
+    title: `${route.meta['title']}`
 });
 </script>
 
@@ -99,7 +104,7 @@ useHead({
 
                     <ModalDelete :delete="deleteSchedule"
                                  :message-error="formErrors"
-                                 :params="{ id: params['id'].toString() }"
+                                 :params="{ id: route.params['id'].toString() }"
                                  message-alert="Continuing will remove this schedule."
                                  message-success="Schedule has been removed."
                                  redirect="/admin/schedule"/>
