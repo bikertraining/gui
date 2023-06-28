@@ -19,11 +19,12 @@ useHead({
          style="min-height: calc(100vh - 274px) !important;">
         <h1 class="fw-bold mb-4 fs-4">LEARN TO RIDE OR IMPROVE YOUR MOTORCYCLE SKILLS</h1>
 
-        <img alt="Biker Training LLC"
-             class="d-block mx-auto mb-4 img-fluid"
-             height="100"
-             src="/img/svg/bt_logo_bike_only.svg"
-             width="510.89"/>
+        <NuxtImg alt="Biker Training LLC"
+                 class="d-block mx-auto mb-4 img-fluid"
+                 loading="lazy"
+                 preload
+                 src="/img/bikertraining/logo_bike_only.png"
+                 width="510"/>
 
         <div class="fw-bold fs-5">We are the exclusive provider for all motorcycle training at Pensacola Harley-Davidson
         </div>
@@ -57,12 +58,12 @@ useHead({
             <NuxtLink class="mx-auto mt-3"
                       target="_blank"
                       to="https://learntoride3wheel.com/webreg/production/reactapp/?book=canamregister&SC=FLBKTR01&CC=3WBU">
-                <img alt="BRP - CanAm Spyder Training"
-                     class="d-block img-fluid"
-                     height="200"
-                     loading="lazy"
-                     src="/img/BRP_CanAm_Banner_199.svg"
-                     width="500">
+                <NuxtImg alt="Can-AM Learn to ride for $199"
+                         class="d-block mx-auto img-fluid bg-black"
+                         height="200"
+                         loading="lazy"
+                         preload
+                         src="/img/brp/199.jpg"/>
             </NuxtLink>
 
             <div class="mt-3 text-start mx-auto">
@@ -93,36 +94,36 @@ useHead({
             <div>
                 <NuxtLink target="_blank"
                           to="https://www.flhsmv.gov/driver-licenses-id-cards/motorcycle-rider-education-endorsements/florida-rider-training-program-courses/">
-                    <img alt="Florida Rider Training Program"
-                         class="d-block img-fluid"
-                         height="200"
+                    <NuxtImg alt="Florida Rider Training Program"
+                         class="d-block img-fluid mt-4"
+                         height="150"
                          loading="lazy"
-                         src="/img/frtp.svg"
-                         width="200">
+                         preload
+                         src="/img/frtp/logo.png"/>
                 </NuxtLink>
             </div>
 
             <div>
                 <NuxtLink target="_blank"
                           to="https://msf-usa.org/">
-                    <img alt="Motorcycle Safety Foundation"
+                    <NuxtImg alt="Motorcycle Safety Foundation"
                          class="d-block img-fluid mt-5"
                          height="100"
                          loading="lazy"
-                         src="/img/svg/msf_logo.svg"
-                         width="215.88">
+                         preload
+                         src="/img/msf/logo.png"/>
                 </NuxtLink>
             </div>
 
             <div>
                 <NuxtLink target="_blank"
                           to="https://www.pensacolaharley.com/">
-                    <img alt="Pensacola Harley-Davidson"
-                         class="d-block mx-auto mb-4 img-fluid mt-5"
+                    <NuxtImg alt="Pensacola Harley-Davidson"
+                         class="d-block img-fluid mt-5"
                          height="100"
                          loading="lazy"
-                         src="/img/svg/phd_logo.svg"
-                         width="412.66">
+                         preload
+                         src="/img/phd/logo.png"/>
                 </NuxtLink>
             </div>
         </div>

@@ -280,9 +280,13 @@ useHead({
                 </div>
 
                 <div class="mb-3">
-                    <span class="fw-bold">Protected by</span> <img alt="Let's Encrypt"
-                                                                   height="50"
-                                                                   src="/img/svg/le_logo.svg"/>
+                    <span class="fw-bold">Protected by</span>
+
+                    <NuxtImg alt="Let's Encrypt"
+                             height="50"
+                             loading="lazy"
+                             preload
+                             src="/img/le/logo.png"/>
                 </div>
 
                 <button class="w-100 btn btn-success btn-lg"
@@ -308,10 +312,12 @@ useHead({
 
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
             <div class="mb-3">
-                <img alt="Pensacola Harley-Davidson"
-                     class="d-block img-fluid mt-5"
-                     src="/img/svg/phd_logo.svg"
-                     style="height: 100px;">
+                <NuxtImg alt="Pensacola Harley-Davidson"
+                         class="d-block img-fluid mt-5"
+                         height="100"
+                         loading="lazy"
+                         preload
+                         src="/img/phd/logo.png"/>
             </div>
 
             <div class="mb-3">You can use this form to pay online for your class or give us a call at
@@ -322,6 +328,24 @@ useHead({
             <div>Please ensure the First and Last name is that of the student who is enrolled.</div>
 
             <hr class="w-100 mx-auto my-4 border-1">
+
+            <h4 class="mb-3">
+                <svg aria-hidden="true"
+                     class="text-danger"
+                     data-icon="triangle-exclamation"
+                     data-prefix="fa-solid"
+                     focusable="false"
+                     role="img"
+                     style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
+                     viewBox="0 0 512 512"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path class=""
+                          d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"
+                          fill="currentColor"/>
+                </svg>
+
+                Notice
+            </h4>
 
             <div>
                 <h6>REFUND/CANCELLATION POLICY</h6>

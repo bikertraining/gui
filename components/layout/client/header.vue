@@ -1,6 +1,6 @@
 <script lang="ts"
         setup>
-const { status  } = useAuth();
+const { status } = useAuth();
 
 const { getBusinessPhone } = useUtils();
 
@@ -15,10 +15,11 @@ const close = () => {
             <NuxtLink class="navbar-brand"
                       to="/"
                       v-on:click="close()">
-                <img alt="Biker Training LLC"
-                     height="100"
-                     src="/img/svg/bt_logo_color_white.svg"
-                     width="255.44"/>
+                <NuxtImg alt="Biker Training LLC"
+                         loading="lazy"
+                         preload
+                         src="/img/bikertraining/logo_color_white.png"
+                         width="255"/>
             </NuxtLink>
 
             <button aria-controls="navbarSupportedContent"

@@ -13,10 +13,11 @@ const close = () => {
             <NuxtLink class="navbar-brand"
                       to="/"
                       v-on:click="close()">
-                <img alt="Biker Training LLC"
-                     height="100"
-                     src="/img/svg/bt_logo_color_white.svg"
-                     width="255.44"/>
+                <NuxtImg alt="Biker Training LLC"
+                         loading="lazy"
+                         preload
+                         src="/img/bikertraining/logo_color_white.png"
+                         width="255"/>
             </NuxtLink>
 
             <button aria-controls="navbarSupportedContent"
@@ -196,7 +197,7 @@ const close = () => {
 
                 <div class="d-flex me-5 fs-5 fw-bold d-none d-lg-flex">
                     <NuxtLink class="nav-link fw-bold text-danger"
-                                  to="/admin/auth/logout">
+                              to="/admin/auth/logout">
                         <svg aria-hidden="true"
                              data-icon="right-from-bracket"
                              data-prefix="fa-solid"

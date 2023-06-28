@@ -63,6 +63,14 @@ const { meta } = useField(name, undefined, {
                    @blur="handleBlur"
                    @input="handleChange">
 
+            <NuxtImg v-if="name === 'credit_card_number'"
+                     alt="Credit Card Types"
+                     class="mt-2"
+                     height="30"
+                     loading="lazy"
+                     preload
+                     src="/img/cc_types.png"/>
+
             <div v-if="helpText"
                  class="form-text">{{ helpText }}
             </div>
