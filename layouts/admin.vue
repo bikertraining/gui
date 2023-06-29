@@ -23,7 +23,7 @@ useHead({
     titleTemplate: (titleChunk) => {
         return titleChunk ? `${titleChunk} - ${getApiTitle()}` : `${getApiTitle()}`;
     }
-})
+});
 </script>
 
 <template>
