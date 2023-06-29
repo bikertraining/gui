@@ -4,13 +4,23 @@ export default defineNuxtConfig({
         head: {
             link: [
                 {
+                    rel: 'preload',
+                    href: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css',
+                    as: 'style'
+                },
+                {
                     rel: 'stylesheet',
                     href: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css'
                 }
             ],
             script: [
                 {
+                    rel: 'preload',
                     src: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js'
+                },
+                {
+                    src: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js',
+                    defer: true
                 }
             ]
         }
@@ -48,7 +58,8 @@ export default defineNuxtConfig({
         enabled: true
     },
     gtag: {
-        id: process.env.NUXT_PUBLIC_GOOGLE_TAG
+        id: process.env.NUXT_PUBLIC_GOOGLE_TAG,
+        loadingStrategy: 'defer'
     },
     modules: [
         '@nuxtjs/robots',
