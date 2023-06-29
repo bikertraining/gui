@@ -282,11 +282,11 @@ useHead({
                 <div class="mb-3">
                     <span class="fw-bold">Protected by</span>
 
-                    <NuxtImg alt="Let's Encrypt"
-                             height="50"
-                             loading="lazy"
-                             preload
-                             src="/img/le/logo.png"/>
+                    <ImageLoad alt="Let's Encrypt"
+                               height="50"
+                               loading="lazy"
+                               src="le/logo.webp"
+                               width="169"/>
                 </div>
 
                 <button class="w-100 btn btn-success btn-lg"
@@ -312,12 +312,12 @@ useHead({
 
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
             <div class="mb-3">
-                <NuxtImg alt="Pensacola Harley-Davidson"
-                         class="d-block img-fluid mt-5"
-                         height="100"
-                         loading="lazy"
-                         preload
-                         src="/img/phd/logo.png"/>
+                <ImageLoad alt="Pensacola Harley-Davidson"
+                           class="d-block img-fluid mt-5"
+                           height="97"
+                           loading="lazy"
+                           src="phd/logo.webp"
+                           width="400"/>
             </div>
 
             <div class="mb-3">You can use this form to pay online for your class or give us a call at

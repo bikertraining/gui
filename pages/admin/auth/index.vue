@@ -38,11 +38,10 @@ useHead({
             <div class="content">
                 <div class="d-flex justify-content-center">
                     <NuxtLink to="/">
-                        <NuxtImg alt="Login"
-                                 loading="lazy"
-                                 preload
-                                 src="/img/bikertraining/logo_llc_color.png"
-                                 width="255"/>
+                        <ImageLoad alt="Login"
+                                   height="100"
+                                   src="bikertraining/logo_llc_color.webp"
+                                   width="255"/>
                     </NuxtLink>
                 </div>
 

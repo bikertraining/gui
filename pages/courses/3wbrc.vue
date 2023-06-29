@@ -75,12 +75,12 @@ useHead({
                     <NuxtLink class="mx-auto mt-3"
                               target="_blank"
                               to="https://learntoride3wheel.com/webreg/production/reactapp/?book=canamregister&SC=FLBKTR01&CC=3WBU">
-                        <NuxtImg alt="Can-AM Learn to ride for $199"
-                                 class="d-block mx-auto img-fluid bg-black"
-                                 height="230"
-                                 loading="lazy"
-                                 preload
-                                 src="/img/brp/199.jpg"/>
+                        <ImageLoad alt="Can-AM Learn to ride for $199"
+                                   class="d-block mx-auto img-fluid bg-black"
+                                   height="175"
+                                   loading="lazy"
+                                   src="brp/199.webp"
+                                   width="400"/>
                     </NuxtLink>
 
                     <div class="mt-3 text-start mx-auto">

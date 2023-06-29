@@ -444,11 +444,11 @@ useHead({
                 <div class="mb-3">
                     <span class="fw-bold">Protected by</span>
 
-                    <NuxtImg alt="Let's Encrypt"
-                             height="50"
-                             loading="lazy"
-                             preload
-                             src="/img/le/logo.png"/>
+                    <ImageLoad alt="Let's Encrypt"
+                               height="50"
+                               loading="lazy"
+                               src="le/logo.webp"
+                               width="169"/>
                 </div>
 
                 <button class="w-100 btn btn-success btn-lg"
