@@ -19,7 +19,7 @@ html, body {
 }
 
 body {
-  background-color: #F8F9FA;
+  background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
 }
