@@ -172,7 +172,7 @@ const close = () => {
                     </li>
                     <!-- End RC -->
 
-                    <!-- Start Phone -->
+                    <!-- Start Minimized Phone -->
                     <li class="nav-item d-lg-none"
                         v-on:click="close()">
                         <a class="nav-link fw-bold"
@@ -193,7 +193,7 @@ const close = () => {
 
                             {{ getBusinessPhone(false) }}</a>
                     </li>
-                    <!-- End Phone -->
+                    <!-- End Minimized Phone -->
 
                     <!-- Start Admin -->
                     <li v-if="status === 'authenticated'"
@@ -221,7 +221,7 @@ const close = () => {
                     <!-- End Admin -->
                 </ul>
 
-                <!-- Start Minimized Phone -->
+                <!-- Start Phone -->
                 <div class="d-flex me-5 fs-5 fw-bold d-none d-lg-flex">
                     <a class="nav-link fw-bold text-white"
                        v-bind:href="'tel:' + getBusinessPhone(true)">
@@ -241,7 +241,7 @@ const close = () => {
 
                         {{ getBusinessPhone(false) }}</a>
                 </div>
-                <!-- End Minimized Phone -->
+                <!-- End Phone -->
             </div>
         </div>
     </nav>

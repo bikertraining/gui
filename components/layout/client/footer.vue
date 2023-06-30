@@ -8,43 +8,43 @@
         <div class="container">
             <ul class="nav justify-content-center pb-3">
                 <li class="nav-item">
-                    <NuxtLink to="/register"
-                                 class="nav-link px-2">
+                    <NuxtLink class="nav-link px-2"
+                              to="/register">
                         Sign Up Here
                     </NuxtLink>
                 </li>
 
                 <li class="nav-item">
-                    <NuxtLink to="/schedule"
-                                 class="nav-link px-2">
+                    <NuxtLink class="nav-link px-2"
+                              to="/schedule">
                         Schedule
                     </NuxtLink>
                 </li>
 
                 <li class="nav-item">
-                    <NuxtLink to="/courses"
-                                 class="nav-link px-2">
+                    <NuxtLink class="nav-link px-2"
+                              to="/courses">
                         Courses
                     </NuxtLink>
                 </li>
 
                 <li class="nav-item">
-                    <NuxtLink to="/faq"
-                                 class="nav-link px-2">
+                    <NuxtLink class="nav-link px-2"
+                              to="/faq">
                         FAQs
                     </NuxtLink>
                 </li>
 
                 <li class="nav-item">
-                    <NuxtLink to="/contact"
-                                 class="nav-link px-2">
+                    <NuxtLink class="nav-link px-2"
+                              to="/contact">
                         Contact Us
                     </NuxtLink>
                 </li>
 
                 <li class="nav-item">
-                    <NuxtLink to="/team"
-                                 class="nav-link px-2">
+                    <NuxtLink class="nav-link px-2"
+                              to="/team">
                         Join our Team
                     </NuxtLink>
                 </li>
@@ -54,15 +54,15 @@
 
             <ul class="nav justify-content-center pb-3">
                 <li class="nav-item">
-                    <NuxtLink to="/privacy"
-                                 class="nav-link px-2">
+                    <NuxtLink class="nav-link px-2"
+                              to="/privacy">
                         Privacy Policy
                     </NuxtLink>
                 </li>
 
                 <li class="nav-item">
-                    <NuxtLink to="/tos"
-                                 class="nav-link px-2">
+                    <NuxtLink class="nav-link px-2"
+                              to="/tos">
                         Terms of Service
                     </NuxtLink>
                 </li>

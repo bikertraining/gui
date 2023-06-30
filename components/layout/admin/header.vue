@@ -11,7 +11,7 @@ const close = () => {
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-print-none">
         <div class="container-fluid">
             <NuxtLink class="navbar-brand"
-                      to="/"
+                      to="/admin/schedule"
                       v-on:click="close()">
                 <ImageLoad alt="Biker Training LLC"
                            height="100"
@@ -170,7 +170,7 @@ const close = () => {
                     </li>
                     <!-- End eCourse -->
 
-                    <!-- Start Logout -->
+                    <!-- Start Minimized Logout -->
                     <li class="nav-item d-lg-none"
                         v-on:click="close()">
                         <NuxtLink class="nav-link fw-bold text-danger"
@@ -191,9 +191,10 @@ const close = () => {
                             Logout
                         </NuxtLink>
                     </li>
-                    <!-- End Logout -->
+                    <!-- End Minimized Logout -->
                 </ul>
 
+                <!-- Start Logout -->
                 <div class="d-flex me-5 fs-5 fw-bold d-none d-lg-flex">
                     <NuxtLink class="nav-link fw-bold text-danger"
                               to="/admin/auth/logout">
@@ -213,6 +214,7 @@ const close = () => {
                         Logout
                     </NuxtLink>
                 </div>
+                <!-- End Logout -->
             </div>
         </div>
     </nav>

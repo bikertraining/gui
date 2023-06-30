@@ -20,7 +20,6 @@ export default defineNuxtConfig({
                 },
                 {
                     src: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js',
-                    defer: true
                 }
             ]
         }
@@ -45,7 +44,7 @@ export default defineNuxtConfig({
                 headerName: 'Authorization',
                 maxAgeInSeconds: 3600,
                 signInResponseTokenPointer: '/token/key',
-                type: 'Token',
+                type: 'Token'
             },
             type: 'local'
         },

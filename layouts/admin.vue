@@ -35,8 +35,6 @@ useHead({
         <div class="container-fluid mb-3">
             <slot/>
         </div>
-
-        <LayoutAdminFooter/>
     </div>
 </template>
 
