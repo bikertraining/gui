@@ -17,8 +17,8 @@
   "dependencies": {
     "@nuxtjs/robots": "^3.0.0",
     "@sidebase/nuxt-auth": "^0.6.0-beta.3",
-    "@vee-validate/nuxt": "^4.10.2",
-    "@vee-validate/yup": "^4.10.2",
+    "@vee-validate/nuxt": "^4.10.3",
+    "@vee-validate/yup": "^4.10.3",
     "@vuepic/vue-datepicker": "^5.3.0",
     "dayjs-nuxt": "^1.1.2",
     "mitt": "^3.0.0",
