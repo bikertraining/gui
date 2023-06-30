@@ -29,7 +29,7 @@ useHead({
 
 <template>
     <div class="py-5 pt-3">
-        <h3 class="d-flex flex-row fw-bold">
+        <h1 class="d-flex flex-row fw-bold fs-4">
             <svg aria-hidden="true"
                  class="text-dark me-2 mt-1 mb-3"
                  data-icon="book-open-reader"
@@ -45,7 +45,7 @@ useHead({
             </svg>
 
             Join our Team
-        </h3>
+        </h1>
 
         <div class="d-flex flex-row mb-3">
             Are you interested in becoming a RiderCoach or are you already a RiderCoach? We should talk!

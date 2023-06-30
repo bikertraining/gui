@@ -24,7 +24,7 @@ useHead({
     <div class="py-5 pt-3">
         <div class="card mb-4 rounded-3 shadow-sm">
             <div class="card-header py-3">
-                <h4 class="my-0 fw-normal">Experienced RiderCourse (BRCu2)</h4>
+                <h1 class="my-0 fw-normal fs-4">Experienced RiderCourse (BRCu2)</h1>
             </div>
 
             <div class="card-body">

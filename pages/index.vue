@@ -25,7 +25,8 @@ useHead({
                    src="bikertraining/logo_bike_only.webp"
                    width="510"/>
 
-        <div class="fw-bold fs-5">We are the exclusive provider for all motorcycle training at Pensacola Harley-Davidson
+        <div class="fw-bold fs-5">
+            We are the exclusive provider for all motorcycle training at Pensacola Harley-Davidson
         </div>
 
         <div class="col-lg-6 mx-auto mt-4 lead fs-5">

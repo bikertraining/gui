@@ -89,7 +89,7 @@ useHead({
     <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col d-flex align-items-start">
             <div>
-                <h3>
+                <div class="fs-3 fw-semibold mb-3">
                     <svg aria-hidden="true"
                          class="text-black me-1 fs-4"
                          data-icon="clock"
@@ -105,7 +105,7 @@ useHead({
                     </svg>
 
                     Class Times
-                </h3>
+                </div>
 
                 <p><span class="fw-bold">Basic RiderCourse</span> - <span class="fw-bold">Saturday & Sunday</span> or
                     <span class="fw-bold">Monday & Tuesday</span> 7:00 AM to 4:00 PM</p>
@@ -120,7 +120,7 @@ useHead({
 
         <div class="col d-flex align-items-start">
             <div class="flex-grow-1">
-                <h3>
+                <div class="fs-3 fw-semibold mb-3">
                     <svg aria-hidden="true"
                          class="text-black me-1 fs-4"
                          data-icon="map"
@@ -136,19 +136,20 @@ useHead({
                     </svg>
 
                     Training Location
-                </h3>
+                </div>
 
                 <div class="mt-0">Pensacola Harley-Davidson</div>
                 <div class="mt-0">6385 Pensacola Blvd</div>
                 <div class="mb-3">Pensacola, Florida, 32505</div>
 
-                <div class="ratio ratio-21x9">
+                <div class="google-map">
                     <iframe allowfullscreen=""
                             height="450"
                             loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3438.483238630305!2d-87.25632568455873!3d30.479071804863718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8890bfc8ff1757f1%3A0x3fbb458075146bc2!2s6385%20Pensacola%20Blvd%2C%20Pensacola%2C%20FL%2032505!5e0!3m2!1sen!2sus!4v1650728339732!5m2!1sen!2sus"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3438.483493187533!2d-87.25672752386812!3d30.479064597846907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8890bfc8ff1757f1%3A0x3fbb458075146bc2!2s6385%20Pensacola%20Blvd%2C%20Pensacola%2C%20FL%2032505!5e0!3m2!1sen!2sus!4v1688132572004!5m2!1sen!2sus"
                             style="border:0;"
+                            title="Google Map"
                             width="600"/>
                 </div>
             </div>
@@ -157,5 +158,16 @@ useHead({
 </template>
 
 <style scoped>
+.google-map {
+    padding-bottom: 50%;
+    position: relative;
+}
 
+.google-map iframe {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+}
 </style>

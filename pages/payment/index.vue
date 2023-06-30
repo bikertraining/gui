@@ -64,7 +64,7 @@ useHead({
                             name="coupon_code"
                             type="hidden"/>
 
-                <h4 class="mb-3">
+                <h1 class="mb-3 fs-4">
                     <svg aria-hidden="true"
                          class="text-dark"
                          data-icon="credit-card"
@@ -80,7 +80,7 @@ useHead({
                     </svg>
 
                     Payment
-                </h4>
+                </h1>
 
                 <div class="row g-3">
                     <div class="col-md-6">
@@ -188,7 +188,7 @@ useHead({
                                   type="tel"/>
                     </div>
 
-                    <h4 class="mb-3">
+                    <h2 class="mb-3 fs-4">
                         <svg aria-hidden="true"
                              class="text-dark"
                              data-icon="user-plus"
@@ -204,7 +204,7 @@ useHead({
                         </svg>
 
                         Student Information
-                    </h4>
+                    </h2>
 
                     <div class="col-md-6">
                         <FormText v-model="formObj['first_name']"
@@ -329,7 +329,7 @@ useHead({
 
             <hr class="w-100 mx-auto my-4 border-1">
 
-            <h4 class="mb-3">
+            <h3 class="mb-3 fs-4">
                 <svg aria-hidden="true"
                      class="text-danger"
                      data-icon="triangle-exclamation"
@@ -345,10 +345,10 @@ useHead({
                 </svg>
 
                 Notice
-            </h4>
+            </h3>
 
             <div>
-                <h6>REFUND/CANCELLATION POLICY</h6>
+                <div class="fw-bold mb-3">REFUND / CANCELLATION POLICY</div>
 
                 <div class="mb-3">When enrolling, you are purchasing a seat in the class of your choice. Once purchased,
                     that seat is set aside for only your use. Please select the date that will ensure you can attend

@@ -25,7 +25,7 @@ useHead({
          style="min-height: calc(100vh - 270px) !important;">
         <div class="card mb-4 rounded-3 shadow-sm">
             <div class="card-header py-3">
-                <h4 class="my-0 fw-normal">3-Wheel Basic RiderCourse (3WBRCu)</h4>
+                <h1 class="my-0 fw-normal fs-4">3-Wheel Basic RiderCourse (3WBRCu)</h1>
             </div>
 
             <div class="card-body">

@@ -27,11 +27,13 @@ useHead({
         <div class="col mb-3">
             <div class="card rounded-3 shadow-sm h-100">
                 <div class="card-header py-3">
-                    <h4 class="my-0 fw-normal">Basic RiderCourse (BRCu)</h4>
+                    <h1 class="my-0 fw-normal fs-4">Basic RiderCourse (BRCu)</h1>
                 </div>
 
                 <div class="card-body">
-                    <h1 class="card-title">${{ formObj['brc']['amount'].slice(0, -3) }}</h1>
+                    <div class="card-title fw-semibold fs-1">
+                        ${{ formObj['brc']['amount'].slice(0, -3) }}
+                    </div>
 
                     <ul class="list-unstyled mt-3 mb-4 text-start">
                         <li>This course meets the State of Florida license endorsement requirement. This course is for
@@ -88,11 +90,13 @@ useHead({
         <div class="col mb-3">
             <div class="card rounded-3 shadow-sm h-100">
                 <div class="card-header py-3">
-                    <h4 class="my-0 fw-normal">Experienced RiderCourse (BRCu2)</h4>
+                    <h2 class="my-0 fw-normal fs-4">Experienced RiderCourse (BRCu2)</h2>
                 </div>
 
                 <div class="card-body">
-                    <h1 class="card-title">${{ formObj['erc']['amount'].slice(0, -3) }}</h1>
+                    <div class="card-title fw-semibold fs-1">
+                        ${{ formObj['erc']['amount'].slice(0, -3) }}
+                    </div>
 
                     <ul class="list-unstyled mt-3 mb-4 text-start">
                         <li>For those that already ride and have their motorcycle endorsement but want to be better.
@@ -149,11 +153,13 @@ useHead({
         <div class="col mb-3">
             <div class="card rounded-3 shadow-sm h-100">
                 <div class="card-header py-3">
-                    <h4 class="my-0 fw-normal">3-Wheel Basic RiderCourse (3WBRCu)</h4>
+                    <h3 class="my-0 fw-normal fs-4">3-Wheel Basic RiderCourse (3WBRCu)</h3>
                 </div>
 
                 <div class="card-body">
-                    <h1 class="card-title">${{ formObj['3wbrc']['amount'].slice(0, -3) }}</h1>
+                    <div class="card-title fw-semibold fs-1">
+                        ${{ formObj['3wbrc']['amount'].slice(0, -3) }}
+                    </div>
 
                     <ul class="list-unstyled mt-3 mb-4 text-start">
                         <li>This course meets the State of Florida license endorsement requirement. This course is for
@@ -210,11 +216,13 @@ useHead({
         <div class="col mb-3">
             <div class="card rounded-3 shadow-sm h-100">
                 <div class="card-header py-3">
-                    <h4 class="my-0 fw-normal">Kickstart</h4>
+                    <h4 class="my-0 fw-normal fs-4">Kickstart</h4>
                 </div>
 
                 <div class="card-body">
-                    <h1 class="card-title">${{ formObj['ime']['amount'].slice(0, -3) }}</h1>
+                    <div class="card-title fw-semibold fs-1">
+                        ${{ formObj['ime']['amount'].slice(0, -3) }}
+                    </div>
 
                     <ul class="list-unstyled mt-3 mb-4 text-start">
                         <li>The KickStart Course is for students that have not reached a level of comfort that will
@@ -273,15 +281,17 @@ useHead({
         <div class="col mb-3">
             <div class="card rounded-3 shadow-sm h-100">
                 <div class="card-header py-3">
-                    <h4 class="my-0 fw-normal">Private Lessons</h4>
+                    <h5 class="my-0 fw-normal fs-4">Private Lessons</h5>
                 </div>
 
                 <div class="card-body">
-                    <h1 class="card-title">${{ formObj['private']['amount'].slice(0, -3) }} <small>/ per hour</small>
-                    </h1>
+                    <div class="card-title fw-semibold fs-1">
+                        ${{ formObj['private']['amount'].slice(0, -3) }} <small>/ per hour</small>
+                    </div>
 
                     <ul class="list-unstyled mt-3 mb-4 text-start">
-                        <li>Private instruction is available for riders of all skill levels from beginners to advanced.
+                        <li>
+                            Private instruction is available for riders of all skill levels from beginners to advanced.
                         </li>
                     </ul>
                 </div>

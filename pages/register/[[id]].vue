@@ -84,7 +84,7 @@ useHead({
                             :required="false"
                             name="coupon_code"/>
 
-                <h4 class="mb-3">
+                <h1 class="mb-3 fs-4">
                     <svg aria-hidden="true"
                          class="text-dark"
                          data-icon="calendar-days"
@@ -100,7 +100,7 @@ useHead({
                     </svg>
 
                     Available Classes
-                </h4>
+                </h1>
 
                 <div class="row g-3">
                     <div class="col-md-12">
@@ -177,7 +177,7 @@ useHead({
 
                 <hr class="my-4">
 
-                <h4 class="mb-3">
+                <h2 class="mb-3 fs-4">
                     <svg aria-hidden="true"
                          class="text-dark"
                          data-icon="user-plus"
@@ -193,7 +193,7 @@ useHead({
                     </svg>
 
                     Student Enrollment
-                </h4>
+                </h2>
 
                 <div class="row g-3">
                     <div class="col-md-6">
@@ -287,7 +287,7 @@ useHead({
 
                 <hr class="my-4 mt-0">
 
-                <h4 class="mb-3">
+                <h3 class="mb-3 fs-4">
                     <svg aria-hidden="true"
                          class="text-dark"
                          data-icon="motorcycle"
@@ -303,7 +303,7 @@ useHead({
                     </svg>
 
                     Optional Information
-                </h4>
+                </h3>
 
                 <div class="row g-3">
                     <div class="col-md-6">
@@ -340,7 +340,7 @@ useHead({
 
                 <hr class="my-4 mt-0">
 
-                <h4 class="mb-3">
+                <h4 class="mb-3 fs-4">
                     <svg aria-hidden="true"
                          class="text-dark"
                          data-icon="credit-card"
@@ -473,7 +473,7 @@ useHead({
         </div>
 
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
-            <h4 class="mb-3">
+            <h5 class="mb-3 fs-4">
                 <svg aria-hidden="true"
                      class="text-danger"
                      data-icon="triangle-exclamation"
@@ -489,7 +489,7 @@ useHead({
                 </svg>
 
                 Notice
-            </h4>
+            </h5>
 
             <div class="mb-3">After submitting your application, you will receive an email by the next business day (or
                 before your class starts) confirming your enrollment and providing all details about your specific
@@ -499,7 +499,7 @@ useHead({
             </div>
 
             <div>
-                <h6>REFUND/CANCELLATION POLICY</h6>
+                <div class="fw-bold mb-3">REFUND / CANCELLATION POLICY</div>
 
                 <div class="mb-3">When enrolling, you are purchasing a seat in the class of your choice. Once purchased,
                     that seat is set aside for only your use. Please select the date that will ensure you can attend

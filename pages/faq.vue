@@ -27,8 +27,8 @@ useHead({
         <div id="accordionFaq"
              class="accordion">
             <div class="accordion-item">
-                <h2 id="heading1"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading1"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse1"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -37,7 +37,7 @@ useHead({
                             type="button">
                         How do I register for the course?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse1"
                      aria-labelledby="heading1"
@@ -46,19 +46,21 @@ useHead({
                     <div class="accordion-body p-3">
                         There are several ways to register for the course.
 
+                        You can
                         <NuxtLink class="text-decoration-none"
-                                  to="/register">Click here
+                                  to="/register">register online
                         </NuxtLink>
-                        to register online <span class="fw-bold">OR</span> call us at
-                        <a class="text-dark text-decoration-none"
-                           v-bind:href="'tel:' + getBusinessPhone(true)">{{ getBusinessPhone(false) }}</a>
+                        <span class="fw-bold">OR</span> call us at <a class="text-dark text-decoration-none"
+                                                                      v-bind:href="'tel:' + getBusinessPhone(true)">{{
+                            getBusinessPhone(false)
+                        }}</a>
                     </div>
                 </div>
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading2"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading2"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse2"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -67,7 +69,7 @@ useHead({
                             type="button">
                         Where are the classes taught?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse2"
                      aria-labelledby="heading2"
@@ -80,8 +82,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading3"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading3"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse3"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -90,7 +92,7 @@ useHead({
                             type="button">
                         How much are the courses?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse3"
                      aria-labelledby="heading3"
@@ -107,8 +109,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading4"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading4"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse4"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -117,7 +119,7 @@ useHead({
                             type="button">
                         Can I talk to someone about the courses you offer?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse4"
                      aria-labelledby="heading4"
@@ -132,8 +134,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading5"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading5"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse5"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -142,7 +144,7 @@ useHead({
                             type="button">
                         What type of equipment am I required to bring?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse5"
                      aria-labelledby="heading5"
@@ -184,8 +186,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading6"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading6"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse6"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -194,7 +196,7 @@ useHead({
                             type="button">
                         Will the class be cancelled if it rains?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse6"
                      aria-labelledby="heading6"
@@ -207,8 +209,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading7"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading7"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse7"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -217,7 +219,7 @@ useHead({
                             type="button">
                         How old do I have to be?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse7"
                      aria-labelledby="heading7"
@@ -232,8 +234,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading8"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading8"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse8"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -242,7 +244,7 @@ useHead({
                             type="button">
                         What type of motorcycle do you use?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse8"
                      aria-labelledby="heading8"
@@ -255,8 +257,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading9"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading9"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse9"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -265,7 +267,7 @@ useHead({
                             type="button">
                         I'm concerned about my height and/or weight.
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse9"
                      aria-labelledby="heading9"
@@ -280,8 +282,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading10"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading10"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse10"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -290,7 +292,7 @@ useHead({
                             type="button">
                         Can I use my own motorcycle in the course?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse10"
                      aria-labelledby="heading10"
@@ -305,8 +307,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading11"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading11"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse11"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -315,7 +317,7 @@ useHead({
                             type="button">
                         I don't have a 3-Wheeled motorcycle, can one be provided?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse11"
                      aria-labelledby="heading11"
@@ -328,8 +330,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading12"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading12"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse12"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -338,7 +340,7 @@ useHead({
                             type="button">
                         What defines a 3-Wheeled motorcycle?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse12"
                      aria-labelledby="heading12"
@@ -384,8 +386,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading13"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading13"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse13"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -394,7 +396,7 @@ useHead({
                             type="button">
                         How do you get the motorcycle endorsement on my drivers license after the class?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse13"
                      aria-labelledby="heading13"
@@ -409,8 +411,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading14"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading14"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse14"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -419,7 +421,7 @@ useHead({
                             type="button">
                         What is the refund policy?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse14"
                      aria-labelledby="heading14"
@@ -434,8 +436,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading15"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading15"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse15"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -444,7 +446,7 @@ useHead({
                             type="button">
                         What is the cancellation policy?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse15"
                      aria-labelledby="heading15"
@@ -475,8 +477,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading16"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading16"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse16"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -485,7 +487,7 @@ useHead({
                             type="button">
                         How can I postpone my class?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse16"
                      aria-labelledby="heading16"
@@ -508,8 +510,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading17"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading17"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse17"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -518,7 +520,7 @@ useHead({
                             type="button">
                         What if I am late or miss part of the class?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse17"
                      aria-labelledby="heading17"
@@ -534,8 +536,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading18"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading18"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse18"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -544,7 +546,7 @@ useHead({
                             type="button">
                         Is there any pre-course material?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse18"
                      aria-labelledby="heading18"
@@ -567,8 +569,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading19"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading19"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse19"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -577,7 +579,7 @@ useHead({
                             type="button">
                         What is the eCourse?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse19"
                      aria-labelledby="heading19"
@@ -594,8 +596,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading20"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading20"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse20"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -604,7 +606,7 @@ useHead({
                             type="button">
                         How long is the endorsement certificate we receive good for?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse20"
                      aria-labelledby="heading20"

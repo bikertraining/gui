@@ -21,8 +21,8 @@ useHead({
         <div id="accordionFaq"
              class="accordion">
             <div class="accordion-item">
-                <h2 id="heading1"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading1"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse1"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -31,7 +31,7 @@ useHead({
                             type="button">
                         What are the requirements to become a RiderCoach?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse1"
                      aria-labelledby="heading1"
@@ -69,8 +69,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading2"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading2"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse2"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -79,7 +79,7 @@ useHead({
                             type="button">
                         RiderCoach Prep Course (RCP)
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse2"
                      aria-labelledby="heading2"
@@ -96,8 +96,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading3"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading3"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse3"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -106,7 +106,7 @@ useHead({
                             type="button">
                         What information will I be required to know?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse3"
                      aria-labelledby="heading3"
@@ -143,8 +143,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading4"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading4"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse4"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -153,7 +153,7 @@ useHead({
                             type="button">
                         What is Demo Boot Camp?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse4"
                      aria-labelledby="heading4"
@@ -174,8 +174,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading5"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading5"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse5"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -184,7 +184,7 @@ useHead({
                             type="button">
                         What type of equipment am I required to bring?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse5"
                      aria-labelledby="heading5"
@@ -226,8 +226,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading6"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading6"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse6"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -236,7 +236,7 @@ useHead({
                             type="button">
                         I have a job already but would like to do this part time
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse6"
                      aria-labelledby="heading6"
@@ -250,8 +250,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading7"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading7"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse7"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -260,7 +260,7 @@ useHead({
                             type="button">
                         How long does it normally take to become a RiderCoach?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse7"
                      aria-labelledby="heading7"
@@ -274,8 +274,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading8"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading8"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse8"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -284,7 +284,7 @@ useHead({
                             type="button">
                         Are there any costs involved?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse8"
                      aria-labelledby="heading8"
@@ -298,8 +298,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading9"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading9"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse9"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -308,7 +308,7 @@ useHead({
                             type="button">
                         I'm already a certified MSF RiderCoach
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse9"
                      aria-labelledby="heading9"
@@ -329,8 +329,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading10"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading10"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse10"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -339,7 +339,7 @@ useHead({
                             type="button">
                         Do we get paid?
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse10"
                      aria-labelledby="heading10"
@@ -352,8 +352,8 @@ useHead({
             </div>
 
             <div class="accordion-item">
-                <h2 id="heading11"
-                    class="accordion-header border-bottom border-white">
+                <div id="heading11"
+                     class="accordion-header border-bottom border-white">
                     <button aria-controls="collapse11"
                             aria-expanded="false"
                             class="accordion-button collapsed"
@@ -362,17 +362,18 @@ useHead({
                             type="button">
                         I have more questions!
                     </button>
-                </h2>
+                </div>
 
                 <div id="collapse11"
                      aria-labelledby="heading11"
                      class="accordion-collapse collapse"
                      data-bs-parent="#accordionFaq">
                     <div class="accordion-body p-3">
-                        We have answers! Use the contact information found
+                        We have answers! Use the
                         <NuxtLink class="text-decoration-none"
-                                  to="/team">here
+                                  to="/team">contact page
                         </NuxtLink>
+                        to reach out.
                     </div>
                 </div>
             </div>

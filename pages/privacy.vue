@@ -18,7 +18,7 @@ useHead({
 
 <template>
     <div class="px-4 py-5 pb-3 my-1">
-        <h4 class="text-center">ONLINE PRIVACY POLICY AGREEMENT</h4>
+        <h1 class="text-center fs-4">ONLINE PRIVACY POLICY AGREEMENT</h1>
 
         <p>June 1, 2022</p>
 

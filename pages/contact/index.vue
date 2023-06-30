@@ -29,7 +29,7 @@ useHead({
 
 <template>
     <div class="py-5 pt-3">
-        <h3 class="d-flex flex-row fw-bold">
+        <h1 class="d-flex flex-row fw-bold fs-3">
             <svg aria-hidden="true"
                  class="text-dark me-2 mt-1 mb-3"
                  data-icon="envelope"
@@ -45,7 +45,7 @@ useHead({
             </svg>
 
             Contact Us
-        </h3>
+        </h1>
 
         <div class="d-flex flex-row mb-3">
             If you have any questions / concerns please let us know.

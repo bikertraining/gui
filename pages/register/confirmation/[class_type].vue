@@ -25,7 +25,7 @@ useHead({
 <template>
     <div class="py-5"
          style="min-height: calc(100vh - 270px) !important;">
-        <h4 class="mb-3">
+        <h1 class="mb-3 fs-4">
             <svg aria-hidden="true"
                  class="text-dark me-1"
                  data-icon="motorcycle"
@@ -41,7 +41,7 @@ useHead({
             </svg>
 
             Registration Confirmation
-        </h4>
+        </h1>
 
         <div class="mb-3">Thank you for registering for one of our motorcycle courses.</div>
 
@@ -80,7 +80,7 @@ useHead({
         </div>
 
         <div>
-            <h6 class="mb-3 fw-bold">REFUND/CANCELLATION POLICY</h6>
+            <div class="fw-bold mb-3">REFUND / CANCELLATION POLICY</div>
 
             <div class="mb-3">When enrolling, you are purchasing a seat in the class of your choice. Once purchased,
                 that seat is set aside for only your use. Please select the date that will ensure you can attend each
