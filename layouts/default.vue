@@ -1,8 +1,20 @@
 <script lang="ts"
         setup>
-const { getApiTitle, getGuiUrl } = useUtils();
+const req = useRequestURL();
 
 const route = useRoute();
+
+const { getApiTitle, getGuiUrl } = useUtils();
+
+const getFacebookVerification = () => {
+    if (req.hostname === 'bikertraining.com' || req.hostname === 'www.bikertraining.com') {
+        return 'd0zh091aevzsgs08sqg7c98drg6x9g';
+    } else if (req.hostname === 'bikertraining.net' || req.hostname === 'www.bikertraining.net') {
+        return 'b2oyhburirbsx19ksag8s6y5ejcyr3';
+    } else if (req.hostname === 'bikertraining.org' || req.hostname === 'www.bikertraining.org') {
+        return 'jpiadizntdmc8n008xxpr9fas4b5o7';
+    }
+};
 
 useHead({
     htmlAttrs: {
@@ -15,6 +27,7 @@ useHead({
     meta: [
         { name: 'description', content: `${route.meta['description']}` },
         { name: 'keywords', content: `${route.meta['keywords']}` },
+        { name: 'facebook-domain-verification', content: getFacebookVerification() },
         { property: 'og:locale', content: 'en_US' },
         { property: 'og:description', content: `${route.meta['description']}` },
         { property: 'og:url', content: `${getGuiUrl()}${route.path}` },

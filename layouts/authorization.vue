@@ -1,8 +1,8 @@
 <script lang="ts"
         setup>
-const { getApiTitle, getGuiUrl } = useUtils();
-
 const route = useRoute();
+
+const { getApiTitle, getGuiUrl } = useUtils();
 
 useHead({
     htmlAttrs: {
