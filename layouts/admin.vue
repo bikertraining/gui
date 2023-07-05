@@ -17,7 +17,7 @@ useHead({
         { property: 'og:locale', content: 'en_US' },
         { property: 'og:description', content: `${route.meta['description']}` },
         { property: 'og:url', content: `${getGuiUrl()}${route.path}` },
-        { property: 'og:title', content: `${route.meta['title']}` },
+        { property: 'og:title', content: `${route.meta['title']} - ${getApiTitle()}` },
         { property: 'og:type', content: 'website' }
     ],
     titleTemplate: (titleChunk) => {
