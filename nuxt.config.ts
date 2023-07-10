@@ -77,14 +77,19 @@ export default defineNuxtConfig({
             gui_url: process.env.NUXT_PUBLIC_GUI_URL
         }
     },
+    site: {
+        url: process.env.NUXT_PUBLIC_GUI_URL
+    },
     sitemap: {
+        credits: false,
         exclude: [
             '/admin/**',
             '/contact/confirmation',
+            '/contact/unsubscribe/confirmation',
             '/payment/**',
             '/team/confirmation'
         ],
-        siteUrl: process.env.NUXT_PUBLIC_GUI_URL,
-        xsl: false
+        sitemapName: 'sitemap.xml',
+        xslTips: false
     }
 });
