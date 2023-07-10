@@ -4,9 +4,6 @@ import { toRef } from 'vue';
 import { useField } from 'vee-validate';
 
 const props = defineProps({
-    country: {
-        required: true
-    },
     helpText: {
         type: String,
         required: false
@@ -18,10 +15,6 @@ const props = defineProps({
     name: {
         type: String,
         required: true
-    },
-    region: {
-        type: String,
-        required: false
     },
     required: {
         type: Boolean,
@@ -41,7 +34,7 @@ const name = toRef(props, 'name');
 // we don't provide any rules here because we are using form-level validation
 // https://vee-validate.logaretm.com/v4/guide/validation#form-level-validation
 const { meta } = useField(name, undefined, {
-    initialValue: props.value,
+    initialValue: props.value
 });
 </script>
 

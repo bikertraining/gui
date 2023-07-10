@@ -1,6 +1,7 @@
 import { computed, ComputedRef, reactive, UnwrapNestedRefs } from "vue";
 
 interface UseClientContactInterface {
+    deleteContact: (email: string) => void;
     formErrors: ComputedRef<Record<string, unknown>>;
     formObj: ComputedRef<{
         can_email: boolean;
@@ -19,6 +20,20 @@ export const useClientContact = (): UseClientContactInterface => {
     const { loadingState } = usePageLoading();
 
     const router = useRouter();
+
+    const deleteContact = async (email: string) => {
+        loadingState.isActive = true;
+
+        const { doProcess, processorSuccess } = await useProcessor();
+
+        await doProcess(`client/contact/unsubscribe/${email}`, 'DELETE', null);
+
+        localContact.formSuccess = true;
+
+        loadingState.isActive = false;
+
+        await router.push({ path: '/contact/unsubscribe/confirmation' });
+    };
 
     const formErrors = computed(() => {
         return localContact.formErrors;
@@ -63,6 +78,7 @@ export const useClientContact = (): UseClientContactInterface => {
     }
 
     return {
+        deleteContact,
         formErrors,
         formObj,
         formSuccess,

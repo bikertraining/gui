@@ -1,4 +1,11 @@
-import { useAdminCoach, useAdminCoupon, useAdminEcourse, useAdminPrice, useAdminSchedule } from "@/composables/admin";
+import {
+    useAdminCoach,
+    useAdminContact,
+    useAdminCoupon,
+    useAdminEcourse,
+    useAdminPrice,
+    useAdminSchedule
+} from "@/composables/admin";
 
 import {
     useClientContact,
@@ -12,6 +19,7 @@ import {
 
 export {
     useAdminCoach,
+    useAdminContact,
     useAdminCoupon,
     useAdminEcourse,
     useAdminPrice,

@@ -174,7 +174,6 @@ useHead({
                     <div class="col-md-4">
                         <FormSelectState v-model="formObj['state']"
                                          :required="true"
-                                         country="US"
                                          label="State"
                                          name="state"/>
                     </div>
