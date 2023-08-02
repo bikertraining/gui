@@ -153,5 +153,12 @@ useHead({
 </template>
 
 <style scoped>
+.card {
+    border-color: #212529 !important;
+}
 
+.card-header {
+    background-color: #212529;
+    color: #FFFFFF;
+}
 </style>

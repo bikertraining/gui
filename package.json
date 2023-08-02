@@ -13,16 +13,16 @@
     "@nuxtjs/robots": "^3.0.0",
     "@sidebase/nuxt-auth": "^0.6.0-beta.3",
     "@types/node": "^20",
-    "@vee-validate/nuxt": "^4.10.6",
-    "@vee-validate/yup": "^4.10.6",
+    "@vee-validate/nuxt": "^4.11.1",
+    "@vee-validate/yup": "^4.11.1",
     "@vuepic/vue-datepicker": "^5.4.0",
     "dayjs-nuxt": "^1.1.2",
     "mitt": "^3.0.1",
-    "npm-check-updates": "^16.10.15",
-    "nuxt": "^3.6.2",
+    "npm-check-updates": "^16.10.17",
+    "nuxt": "^3.6.5",
     "nuxt-gtag": "^0.5.7",
-    "nuxt-simple-sitemap": "^3.0.8",
-    "sass": "^1.63.6"
+    "nuxt-simple-sitemap": "^3.1.4",
+    "sass": "^1.64.2"
   },
   "dependencies": {}
 }

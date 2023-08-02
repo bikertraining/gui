@@ -72,5 +72,19 @@
 </template>
 
 <style scoped>
+.nav .nav-item .nav-link {
+    color: #F8F9FA;
+}
 
+.nav .nav-item .nav-link:hover {
+    color: #FE541F;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #F8F9FA;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #FE541F;
+}
 </style>

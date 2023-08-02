@@ -1,7 +1,7 @@
 <script lang="ts"
         setup>
-import { toRef } from 'vue';
-import { useField } from 'vee-validate';
+import { toRef } from "vue";
+import { useField } from "vee-validate";
 
 const props = defineProps({
     className: {
@@ -75,6 +75,16 @@ const { meta } = useField(name, undefined, {
     </Field>
 </template>
 
-<style scoped>
+<style lang="css">
+.help-message {
+    left: 0;
+    margin: 4px 0 0 0;
+    font-size: 14px;
+}
 
+label {
+    display: block;
+    margin-bottom: 4px;
+    width: 100%;
+}
 </style>

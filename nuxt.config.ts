@@ -1,31 +1,26 @@
 export default defineNuxtConfig({
-    // @ts-ignore
     app: {
         head: {
             link: [
                 {
                     rel: 'preload',
-                    href: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css',
+                    href: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css',
                     as: 'style'
                 },
                 {
                     rel: 'stylesheet',
-                    href: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css'
+                    href: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css'
                 }
             ],
             script: [
                 {
-                    rel: 'preload',
-                    src: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js'
-                },
-                {
-                    src: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js'
+                    src: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.bundle.min.js'
                 }
             ]
         }
     },
     auth: {
-        baseURL: `${process.env.NUXT_PUBLIC_API_URL}dj-rest-auth/`,
+        baseURL: process.env.NUXT_PUBLIC_API_URL,
         globalAppMiddleware: {
             allow404WithoutAuth: true,
             isEnabled: true
@@ -33,9 +28,9 @@ export default defineNuxtConfig({
         isEnabled: true,
         provider: {
             endpoints: {
-                getSession: { path: '/user/', method: 'get' },
-                signIn: { path: '/api-token-auth/', method: 'post' },
-                signOut: { path: '/logout/', method: 'post' }
+                getSession: { path: 'dj-rest-auth/user/', method: 'get' },
+                signIn: { path: 'dj-rest-auth/api-token-auth/', method: 'post' },
+                signOut: { path: 'dj-rest-auth/logout/', method: 'post' }
             },
             pages: {
                 login: '/admin/auth'
@@ -78,9 +73,11 @@ export default defineNuxtConfig({
         }
     },
     site: {
+        gzip: true,
         url: process.env.NUXT_PUBLIC_GUI_URL
     },
     sitemap: {
+        autoLastmod: true,
         credits: false,
         exclude: [
             '/admin/**',

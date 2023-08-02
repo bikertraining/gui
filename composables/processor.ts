@@ -1,14 +1,14 @@
 import { computed, ComputedRef, reactive, UnwrapNestedRefs } from "vue";
 
 interface UseProcessorInterface {
-    doProcess: (url: string, method: "DELETE" | "GET" | "PATCH" | "POST" | "PUT", values: any) => void;
+    doProcess: (url: string, method: "DELETE" | "GET" | "PATCH" | "POST" | "PUT", values: any) => Promise<void>;
     processorArr: ComputedRef<string[]>;
     processorErrors: ComputedRef<Record<string, any>>;
     processorObj: ComputedRef<Record<string, any>>;
     processorSuccess: ComputedRef<boolean>;
 }
 
-export const useProcessor = (): UseProcessorInterface => {
+export const useProcessor = async (): Promise<UseProcessorInterface> => {
     const processorArr = computed(() => {
         return localProcessor.processorArr;
     });

@@ -85,18 +85,8 @@ useHead({
                             name="coupon_code"/>
 
                 <h1 class="mb-3 fs-4">
-                    <svg aria-hidden="true"
-                         class="text-dark"
-                         data-icon="calendar-days"
-                         data-prefix="fa-solid"
-                         focusable="false"
-                         role="img"
-                         style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
-                         viewBox="0 0 448 512"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path class=""
-                              d="M160 32V64H288V32C288 14.33 302.3 0 320 0C337.7 0 352 14.33 352 32V64H400C426.5 64 448 85.49 448 112V160H0V112C0 85.49 21.49 64 48 64H96V32C96 14.33 110.3 0 128 0C145.7 0 160 14.33 160 32zM0 192H448V464C448 490.5 426.5 512 400 512H48C21.49 512 0 490.5 0 464V192zM64 304C64 312.8 71.16 320 80 320H112C120.8 320 128 312.8 128 304V272C128 263.2 120.8 256 112 256H80C71.16 256 64 263.2 64 272V304zM192 304C192 312.8 199.2 320 208 320H240C248.8 320 256 312.8 256 304V272C256 263.2 248.8 256 240 256H208C199.2 256 192 263.2 192 272V304zM336 256C327.2 256 320 263.2 320 272V304C320 312.8 327.2 320 336 320H368C376.8 320 384 312.8 384 304V272C384 263.2 376.8 256 368 256H336zM64 432C64 440.8 71.16 448 80 448H112C120.8 448 128 440.8 128 432V400C128 391.2 120.8 384 112 384H80C71.16 384 64 391.2 64 400V432zM208 384C199.2 384 192 391.2 192 400V432C192 440.8 199.2 448 208 448H240C248.8 448 256 440.8 256 432V400C256 391.2 248.8 384 240 384H208zM320 432C320 440.8 327.2 448 336 448H368C376.8 448 384 440.8 384 432V400C384 391.2 376.8 384 368 384H336C327.2 384 320 391.2 320 400V432z"
-                              fill="currentColor"/>
+                    <svg class="bi">
+                        <use xlink:href="#calendar-days"/>
                     </svg>
 
                     Available Classes
@@ -124,18 +114,8 @@ useHead({
 
                             <button class="w-100 btn btn-primary btn-sm"
                                     type="submit">
-                                <svg aria-hidden="true"
-                                     class="text-white"
-                                     data-icon="tag"
-                                     data-prefix="fa-solid"
-                                     focusable="false"
-                                     role="img"
-                                     style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
-                                     viewBox="0 0 448 512"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path class=""
-                                          d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"
-                                          fill="currentColor"/>
+                                <svg class="bi-tag">
+                                    <use xlink:href="#tag"/>
                                 </svg>
 
                                 Apply
@@ -178,18 +158,8 @@ useHead({
                 <hr class="my-4">
 
                 <h2 class="mb-3 fs-4">
-                    <svg aria-hidden="true"
-                         class="text-dark"
-                         data-icon="user-plus"
-                         data-prefix="fa-solid"
-                         focusable="false"
-                         role="img"
-                         style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
-                         viewBox="0 0 640 512"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path class=""
-                              d="M224 256c70.7 0 128-57.31 128-128S294.7 0 224 0C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3C0 496.5 15.52 512 34.66 512h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304zM616 200h-48v-48C568 138.8 557.3 128 544 128s-24 10.75-24 24v48h-48C458.8 200 448 210.8 448 224s10.75 24 24 24h48v48C520 309.3 530.8 320 544 320s24-10.75 24-24v-48h48C629.3 248 640 237.3 640 224S629.3 200 616 200z"
-                              fill="currentColor"/>
+                    <svg class="bi">
+                        <use xlink:href="#user-plus"/>
                     </svg>
 
                     Student Enrollment
@@ -287,18 +257,8 @@ useHead({
                 <hr class="my-4 mt-0">
 
                 <h3 class="mb-3 fs-4">
-                    <svg aria-hidden="true"
-                         class="text-dark"
-                         data-icon="motorcycle"
-                         data-prefix="fa-solid"
-                         focusable="false"
-                         role="img"
-                         style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
-                         viewBox="0 0 640 512"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path class=""
-                              d="M342.5 32C357.2 32 370.7 40.05 377.6 52.98L391.7 78.93L439.1 39.42C444.9 34.62 452.1 32 459.6 32H480C497.7 32 512 46.33 512 64V96C512 113.7 497.7 128 480 128H418.2L473.3 229.1C485.5 226.1 498.5 224 512 224C582.7 224 640 281.3 640 352C640 422.7 582.7 480 512 480C441.3 480 384 422.7 384 352C384 311.1 402.4 276.3 431.1 252.8L415.7 224.2C376.1 253.4 352 299.8 352 352C352 362.1 353.1 373.7 355.2 384H284.8C286.9 373.7 287.1 362.1 287.1 352C287.1 263.6 216.4 192 127.1 192H31.1V160C31.1 142.3 46.33 128 63.1 128H165.5C182.5 128 198.7 134.7 210.7 146.7L255.1 192L354.1 110.3L337.7 80H279.1C266.7 80 255.1 69.25 255.1 56C255.1 42.75 266.7 32 279.1 32L342.5 32zM448 352C448 387.3 476.7 416 512 416C547.3 416 576 387.3 576 352C576 316.7 547.3 288 512 288C509.6 288 507.2 288.1 504.9 288.4L533.1 340.6C539.4 352.2 535.1 366.8 523.4 373.1C511.8 379.4 497.2 375.1 490.9 363.4L462.7 311.2C453.5 322.3 448 336.5 448 352V352zM253.8 376C242.5 435.2 190.5 480 128 480C57.31 480 0 422.7 0 352C0 281.3 57.31 224 128 224C190.5 224 242.5 268.8 253.8 328H187.3C177.9 304.5 154.9 288 128 288C92.65 288 64 316.7 64 352C64 387.3 92.65 416 128 416C154.9 416 177.9 399.5 187.3 376H253.8zM96 352C96 334.3 110.3 320 128 320C145.7 320 160 334.3 160 352C160 369.7 145.7 384 128 384C110.3 384 96 369.7 96 352z"
-                              fill="currentColor"/>
+                    <svg class="bi">
+                        <use xlink:href="#motorcycle"/>
                     </svg>
 
                     Optional Information
@@ -340,18 +300,8 @@ useHead({
                 <hr class="my-4 mt-0">
 
                 <h4 class="mb-3 fs-4">
-                    <svg aria-hidden="true"
-                         class="text-dark"
-                         data-icon="credit-card"
-                         data-prefix="fa-solid"
-                         focusable="false"
-                         role="img"
-                         style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
-                         viewBox="0 0 576 512"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path class=""
-                              d="M512 32C547.3 32 576 60.65 576 96V128H0V96C0 60.65 28.65 32 64 32H512zM576 416C576 451.3 547.3 480 512 480H64C28.65 480 0 451.3 0 416V224H576V416zM112 352C103.2 352 96 359.2 96 368C96 376.8 103.2 384 112 384H176C184.8 384 192 376.8 192 368C192 359.2 184.8 352 176 352H112zM240 384H368C376.8 384 384 376.8 384 368C384 359.2 376.8 352 368 352H240C231.2 352 224 359.2 224 368C224 376.8 231.2 384 240 384z"
-                              fill="currentColor"/>
+                    <svg class="bi">
+                        <use xlink:href="#credit-card"/>
                     </svg>
 
                     Payment
@@ -452,18 +402,8 @@ useHead({
 
                 <button class="w-100 btn btn-success btn-lg"
                         type="submit">
-                    <svg aria-hidden="true"
-                         class="text-white"
-                         data-icon="lock"
-                         data-prefix="fa-solid"
-                         focusable="false"
-                         role="img"
-                         style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
-                         viewBox="0 0 448 512"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path class=""
-                              d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z"
-                              fill="currentColor"/>
+                    <svg class="bi-lock">
+                        <use xlink:href="#lock"/>
                     </svg>
 
                     Register
@@ -473,18 +413,8 @@ useHead({
 
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
             <h5 class="mb-3 fs-4">
-                <svg aria-hidden="true"
-                     class="text-danger"
-                     data-icon="triangle-exclamation"
-                     data-prefix="fa-solid"
-                     focusable="false"
-                     role="img"
-                     style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
-                     viewBox="0 0 512 512"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path class=""
-                          d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"
-                          fill="currentColor"/>
+                <svg class="bi text-danger">
+                    <use xlink:href="#triangle-exclamation"/>
                 </svg>
 
                 Notice
@@ -556,5 +486,27 @@ useHead({
 </template>
 
 <style scoped>
+.bi {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    vertical-align: -.125em;
+    overflow: visible;
+}
 
+.bi-lock {
+    display: inline-block;
+    width: 1.3rem;
+    height: 1.3rem;
+    vertical-align: -.125em;
+    overflow: visible;
+}
+
+.bi-tag {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    vertical-align: -.125em;
+    overflow: visible;
+}
 </style>

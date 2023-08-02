@@ -24,7 +24,7 @@ export const useClientContact = (): UseClientContactInterface => {
     const deleteContact = async (email: string) => {
         loadingState.isActive = true;
 
-        const { doProcess, processorSuccess } = await useProcessor();
+        const { doProcess } = await useProcessor();
 
         await doProcess(`client/contact/unsubscribe/${email}`, 'DELETE', null);
 

@@ -88,6 +88,25 @@ const format = (date: any) => {
     </Field>
 </template>
 
-<style scoped>
+<style lang="css">
+.required label:after {
+    content: "*";
+    color: #FF0000;
+    font-size: 20px;
+    line-height: 22px;
+    vertical-align: middle;
+    padding-left: 3px;
+}
 
+label {
+    display: block;
+    margin-bottom: 4px;
+    width: 100%;
+}
+
+.help-message {
+    left: 0;
+    margin: 4px 0 0 0;
+    font-size: 14px;
+}
 </style>

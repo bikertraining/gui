@@ -1,7 +1,7 @@
 <script lang="ts"
         setup>
-import { toRef } from 'vue';
-import { useField } from 'vee-validate';
+import { toRef } from "vue";
+import { useField } from "vee-validate";
 
 const props = defineProps({
     maxLength: {

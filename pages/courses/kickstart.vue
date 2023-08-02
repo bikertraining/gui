@@ -55,17 +55,8 @@ useHead({
                            v-bind:href="'tel:' + getBusinessPhone(true)">
                             <button class="w-50 btn btn-lg btn-outline-success"
                                     type="button">
-                                <svg aria-hidden="true"
-                                     data-icon="phone"
-                                     data-prefix="fa-solid"
-                                     focusable="false"
-                                     role="img"
-                                     style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
-                                     viewBox="0 0 512 512"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path class=""
-                                          d="M511.2 387l-23.25 100.8c-3.266 14.25-15.79 24.22-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.969-27.2 24.22-30.45l100.8-23.25C139.7-2.602 154.7 5.018 160.8 18.92l46.52 108.5c5.438 12.78 1.77 27.67-8.98 36.45L144.5 207.1c33.98 69.22 90.26 125.5 159.5 159.5l44.08-53.8c8.688-10.78 23.69-14.51 36.47-8.975l108.5 46.51C506.1 357.2 514.6 372.4 511.2 387z"
-                                          fill="currentColor"/>
+                                <svg class="bi">
+                                    <use xlink:href="#phone"/>
                                 </svg>
 
                                 Call us at {{ getBusinessPhone(false) }}
@@ -79,5 +70,20 @@ useHead({
 </template>
 
 <style scoped>
+.bi {
+    display: inline-block;
+    width: 1.3rem;
+    height: 1.3rem;
+    vertical-align: -.125em;
+    overflow: visible;
+}
 
+.card {
+    border-color: #212529 !important;
+}
+
+.card-header {
+    background-color: #212529;
+    color: #FFFFFF;
+}
 </style>

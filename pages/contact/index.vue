@@ -30,18 +30,8 @@ useHead({
 <template>
     <div class="py-5 pt-3">
         <h1 class="d-flex flex-row fw-bold fs-3">
-            <svg aria-hidden="true"
-                 class="text-dark me-2 mt-1 mb-3"
-                 data-icon="envelope"
-                 data-prefix="fa-solid"
-                 focusable="false"
-                 role="img"
-                 style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
-                 viewBox="0 0 512 512"
-                 xmlns="http://www.w3.org/2000/svg">
-                <path class=""
-                      d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z"
-                      fill="currentColor"/>
+            <svg class="bi me-2 mt-1">
+                <use xlink:href="#envelope"/>
             </svg>
 
             Contact Us
@@ -113,18 +103,8 @@ useHead({
 
                 <button class="w-100 btn btn-success btn-lg"
                         type="submit">
-                    <svg aria-hidden="true"
-                         class="text-white"
-                         data-icon="comment"
-                         data-prefix="fa-solid"
-                         focusable="false"
-                         role="img"
-                         style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
-                         viewBox="0 0 512 512"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path class=""
-                              d="M256 32C114.6 32 .0272 125.1 .0272 240c0 49.63 21.35 94.98 56.97 130.7c-12.5 50.37-54.27 95.27-54.77 95.77c-2.25 2.25-2.875 5.734-1.5 8.734C1.979 478.2 4.75 480 8 480c66.25 0 115.1-31.76 140.6-51.39C181.2 440.9 217.6 448 256 448c141.4 0 255.1-93.13 255.1-208S397.4 32 256 32z"
-                              fill="currentColor"/>
+                    <svg class="bi">
+                        <use xlink:href="#comment"/>
                     </svg>
 
                     Submit
@@ -135,5 +115,11 @@ useHead({
 </template>
 
 <style scoped>
-
+.bi {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    vertical-align: -.125em;
+    overflow: visible;
+}
 </style>

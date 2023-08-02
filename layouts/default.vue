@@ -41,15 +41,15 @@ useHead({
 </script>
 
 <template>
-    <div>
-        <LayoutClientHeader/>
+    <SvgLoad/>
 
-        <div class="container-fluid mb-3">
-            <slot/>
-        </div>
+    <LayoutClientHeader/>
 
-        <LayoutClientFooter/>
+    <div class="container-fluid mb-3">
+        <slot/>
     </div>
+
+    <LayoutClientFooter/>
 </template>
 
 <style scoped>

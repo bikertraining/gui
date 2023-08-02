@@ -27,14 +27,14 @@ useHead({
 </script>
 
 <template>
-    <div>
-        <LayoutAdminHeader/>
+    <SvgLoad/>
 
-        <Alert/>
+    <LayoutAdminHeader/>
 
-        <div class="container-fluid mb-3">
-            <slot/>
-        </div>
+    <Alert/>
+
+    <div class="container-fluid mb-3">
+        <slot/>
     </div>
 </template>
 

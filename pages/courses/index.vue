@@ -47,17 +47,8 @@ useHead({
                     <NuxtLink to="/register">
                         <button class="w-100 btn btn-lg btn-outline-success"
                                 type="button">
-                            <svg aria-hidden="true"
-                                 data-icon="user-plus"
-                                 data-prefix="fa-solid"
-                                 focusable="false"
-                                 role="img"
-                                 style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
-                                 viewBox="0 0 640 512"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path class=""
-                                      d="M224 256c70.7 0 128-57.31 128-128S294.7 0 224 0C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3C0 496.5 15.52 512 34.66 512h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304zM616 200h-48v-48C568 138.8 557.3 128 544 128s-24 10.75-24 24v48h-48C458.8 200 448 210.8 448 224s10.75 24 24 24h48v48C520 309.3 530.8 320 544 320s24-10.75 24-24v-48h48C629.3 248 640 237.3 640 224S629.3 200 616 200z"
-                                      fill="currentColor"/>
+                            <svg class="bi">
+                                <use xlink:href="#user-plus"/>
                             </svg>
 
                             Sign up
@@ -67,17 +58,8 @@ useHead({
                     <NuxtLink to="/courses/brc">
                         <button class="w-100 btn btn-lg btn-outline-primary mt-3"
                                 type="button">
-                            <svg aria-hidden="true"
-                                 data-icon="circle-info"
-                                 data-prefix="fa-solid"
-                                 focusable="false"
-                                 role="img"
-                                 style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
-                                 viewBox="0 0 512 512"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path class=""
-                                      d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c17.67 0 32 14.33 32 32c0 17.67-14.33 32-32 32S224 177.7 224 160C224 142.3 238.3 128 256 128zM296 384h-80C202.8 384 192 373.3 192 360s10.75-24 24-24h16v-64H224c-13.25 0-24-10.75-24-24S210.8 224 224 224h32c13.25 0 24 10.75 24 24v88h16c13.25 0 24 10.75 24 24S309.3 384 296 384z"
-                                      fill="currentColor"/>
+                            <svg class="bi">
+                                <use xlink:href="#circle-info"/>
                             </svg>
 
                             More information
@@ -110,17 +92,8 @@ useHead({
                     <NuxtLink to="/register">
                         <button class="w-100 btn btn-lg btn-outline-success"
                                 type="button">
-                            <svg aria-hidden="true"
-                                 data-icon="user-plus"
-                                 data-prefix="fa-solid"
-                                 focusable="false"
-                                 role="img"
-                                 style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
-                                 viewBox="0 0 640 512"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path class=""
-                                      d="M224 256c70.7 0 128-57.31 128-128S294.7 0 224 0C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3C0 496.5 15.52 512 34.66 512h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304zM616 200h-48v-48C568 138.8 557.3 128 544 128s-24 10.75-24 24v48h-48C458.8 200 448 210.8 448 224s10.75 24 24 24h48v48C520 309.3 530.8 320 544 320s24-10.75 24-24v-48h48C629.3 248 640 237.3 640 224S629.3 200 616 200z"
-                                      fill="currentColor"/>
+                            <svg class="bi">
+                                <use xlink:href="#user-plus"/>
                             </svg>
 
                             Sign up
@@ -130,17 +103,8 @@ useHead({
                     <NuxtLink to="/courses/erc">
                         <button class="w-100 btn btn-lg btn-outline-primary mt-3"
                                 type="button">
-                            <svg aria-hidden="true"
-                                 data-icon="circle-info"
-                                 data-prefix="fa-solid"
-                                 focusable="false"
-                                 role="img"
-                                 style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
-                                 viewBox="0 0 512 512"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path class=""
-                                      d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c17.67 0 32 14.33 32 32c0 17.67-14.33 32-32 32S224 177.7 224 160C224 142.3 238.3 128 256 128zM296 384h-80C202.8 384 192 373.3 192 360s10.75-24 24-24h16v-64H224c-13.25 0-24-10.75-24-24S210.8 224 224 224h32c13.25 0 24 10.75 24 24v88h16c13.25 0 24 10.75 24 24S309.3 384 296 384z"
-                                      fill="currentColor"/>
+                            <svg class="bi">
+                                <use xlink:href="#circle-info"/>
                             </svg>
 
                             More information
@@ -173,17 +137,8 @@ useHead({
                     <NuxtLink to="/register">
                         <button class="w-100 btn btn-lg btn-outline-success"
                                 type="button">
-                            <svg aria-hidden="true"
-                                 data-icon="user-plus"
-                                 data-prefix="fa-solid"
-                                 focusable="false"
-                                 role="img"
-                                 style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
-                                 viewBox="0 0 640 512"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path class=""
-                                      d="M224 256c70.7 0 128-57.31 128-128S294.7 0 224 0C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3C0 496.5 15.52 512 34.66 512h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304zM616 200h-48v-48C568 138.8 557.3 128 544 128s-24 10.75-24 24v48h-48C458.8 200 448 210.8 448 224s10.75 24 24 24h48v48C520 309.3 530.8 320 544 320s24-10.75 24-24v-48h48C629.3 248 640 237.3 640 224S629.3 200 616 200z"
-                                      fill="currentColor"/>
+                            <svg class="bi">
+                                <use xlink:href="#user-plus"/>
                             </svg>
 
                             Sign up
@@ -193,17 +148,8 @@ useHead({
                     <NuxtLink to="/courses/3wbrc">
                         <button class="w-100 btn btn-lg btn-outline-primary mt-3"
                                 type="button">
-                            <svg aria-hidden="true"
-                                 data-icon="circle-info"
-                                 data-prefix="fa-solid"
-                                 focusable="false"
-                                 role="img"
-                                 style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
-                                 viewBox="0 0 512 512"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path class=""
-                                      d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c17.67 0 32 14.33 32 32c0 17.67-14.33 32-32 32S224 177.7 224 160C224 142.3 238.3 128 256 128zM296 384h-80C202.8 384 192 373.3 192 360s10.75-24 24-24h16v-64H224c-13.25 0-24-10.75-24-24S210.8 224 224 224h32c13.25 0 24 10.75 24 24v88h16c13.25 0 24 10.75 24 24S309.3 384 296 384z"
-                                      fill="currentColor"/>
+                            <svg class="bi">
+                                <use xlink:href="#circle-info"/>
                             </svg>
 
                             More information
@@ -238,17 +184,8 @@ useHead({
                        v-bind:href="'tel:' + getBusinessPhone(true)">
                         <button class="w-100 btn btn-lg btn-outline-danger"
                                 type="button">
-                            <svg aria-hidden="true"
-                                 data-icon="phone"
-                                 data-prefix="fa-solid"
-                                 focusable="false"
-                                 role="img"
-                                 style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
-                                 viewBox="0 0 512 512"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path class=""
-                                      d="M511.2 387l-23.25 100.8c-3.266 14.25-15.79 24.22-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.969-27.2 24.22-30.45l100.8-23.25C139.7-2.602 154.7 5.018 160.8 18.92l46.52 108.5c5.438 12.78 1.77 27.67-8.98 36.45L144.5 207.1c33.98 69.22 90.26 125.5 159.5 159.5l44.08-53.8c8.688-10.78 23.69-14.51 36.47-8.975l108.5 46.51C506.1 357.2 514.6 372.4 511.2 387z"
-                                      fill="currentColor"/>
+                            <svg class="bi">
+                                <use xlink:href="#phone"/>
                             </svg>
 
                             Call us at {{ getBusinessPhone(false) }}
@@ -258,17 +195,8 @@ useHead({
                     <NuxtLink to="/courses/kickstart">
                         <button class="w-100 btn btn-lg btn-outline-primary mt-3"
                                 type="button">
-                            <svg aria-hidden="true"
-                                 data-icon="circle-info"
-                                 data-prefix="fa-solid"
-                                 focusable="false"
-                                 role="img"
-                                 style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
-                                 viewBox="0 0 512 512"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path class=""
-                                      d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c17.67 0 32 14.33 32 32c0 17.67-14.33 32-32 32S224 177.7 224 160C224 142.3 238.3 128 256 128zM296 384h-80C202.8 384 192 373.3 192 360s10.75-24 24-24h16v-64H224c-13.25 0-24-10.75-24-24S210.8 224 224 224h32c13.25 0 24 10.75 24 24v88h16c13.25 0 24 10.75 24 24S309.3 384 296 384z"
-                                      fill="currentColor"/>
+                            <svg class="bi">
+                                <use xlink:href="#circle-info"/>
                             </svg>
 
                             More information
@@ -301,17 +229,8 @@ useHead({
                        v-bind:href="'tel:' + getBusinessPhone(true)">
                         <button class="w-100 btn btn-lg btn-outline-danger"
                                 type="button">
-                            <svg aria-hidden="true"
-                                 data-icon="phone"
-                                 data-prefix="fa-solid"
-                                 focusable="false"
-                                 role="img"
-                                 style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
-                                 viewBox="0 0 512 512"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path class=""
-                                      d="M511.2 387l-23.25 100.8c-3.266 14.25-15.79 24.22-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.969-27.2 24.22-30.45l100.8-23.25C139.7-2.602 154.7 5.018 160.8 18.92l46.52 108.5c5.438 12.78 1.77 27.67-8.98 36.45L144.5 207.1c33.98 69.22 90.26 125.5 159.5 159.5l44.08-53.8c8.688-10.78 23.69-14.51 36.47-8.975l108.5 46.51C506.1 357.2 514.6 372.4 511.2 387z"
-                                      fill="currentColor"/>
+                            <svg class="bi">
+                                <use xlink:href="#phone"/>
                             </svg>
 
                             Call us at {{ getBusinessPhone(false) }}
@@ -321,17 +240,8 @@ useHead({
                     <NuxtLink to="/courses/private">
                         <button class="w-100 btn btn-lg btn-outline-primary mt-3"
                                 type="button">
-                            <svg aria-hidden="true"
-                                 data-icon="circle-info"
-                                 data-prefix="fa-solid"
-                                 focusable="false"
-                                 role="img"
-                                 style="display: inline-block; height: 1em; overflow: visible; vertical-align: -.125em"
-                                 viewBox="0 0 512 512"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path class=""
-                                      d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c17.67 0 32 14.33 32 32c0 17.67-14.33 32-32 32S224 177.7 224 160C224 142.3 238.3 128 256 128zM296 384h-80C202.8 384 192 373.3 192 360s10.75-24 24-24h16v-64H224c-13.25 0-24-10.75-24-24S210.8 224 224 224h32c13.25 0 24 10.75 24 24v88h16c13.25 0 24 10.75 24 24S309.3 384 296 384z"
-                                      fill="currentColor"/>
+                            <svg class="bi">
+                                <use xlink:href="#circle-info"/>
                             </svg>
 
                             More information
@@ -344,5 +254,20 @@ useHead({
 </template>
 
 <style scoped>
+.bi {
+    display: inline-block;
+    width: 1.3rem;
+    height: 1.3rem;
+    vertical-align: -.125em;
+    overflow: visible;
+}
 
+.card {
+    border-color: #212529 !important;
+}
+
+.card-header {
+    background-color: #212529;
+    color: #FFFFFF;
+}
 </style>
