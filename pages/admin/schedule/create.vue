@@ -21,8 +21,8 @@ definePageMeta({
     title: 'Create Schedule'
 });
 
-onMounted(() => {
-    getChoices();
+onMounted(async () => {
+    await getChoices();
 });
 
 useHead({

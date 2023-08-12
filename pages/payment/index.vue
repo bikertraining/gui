@@ -4,6 +4,7 @@ import { object, string } from "yup";
 
 const {
     formObj,
+    getIpaddress,
     nonFieldFormError,
     nonFieldFormMessage,
     submitPayment,
@@ -30,6 +31,7 @@ const schema = object({
     credit_card_year: string().required().length(4),
     email: string().required().email(),
     first_name: string().required(),
+    ipaddress: string(),
     last_name: string().required(),
     phone: string().required(),
     state: string().required(),
@@ -45,8 +47,10 @@ definePageMeta({
     title: 'Pay Online'
 });
 
-onMounted(() => {
-    getPrices();
+onMounted(async () => {
+    await getIpaddress();
+
+    await getPrices();
 });
 
 useHead({
@@ -62,6 +66,11 @@ useHead({
                 <FormHidden v-model="formObj['coupon_code']"
                             :required="false"
                             name="coupon_code"
+                            type="hidden"/>
+
+                <FormHidden v-model="formObj['ipaddress']"
+                            :required="false"
+                            name="ipaddress"
                             type="hidden"/>
 
                 <h1 class="mb-3 fs-4">

@@ -13,8 +13,8 @@ definePageMeta({
     title: 'Search Contacts'
 });
 
-onMounted(() => {
-    getSearch();
+onMounted(async () => {
+    await getSearch();
 });
 
 useHead({

@@ -11,8 +11,8 @@ definePageMeta({
     title: 'Three-Wheel Basic Rider Course'
 });
 
-onMounted(() => {
-    getPrices();
+onMounted(async () => {
+    await getPrices();
 });
 
 useHead({

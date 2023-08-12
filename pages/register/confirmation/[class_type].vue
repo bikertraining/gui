@@ -13,8 +13,8 @@ definePageMeta({
     title: 'Registration Confirmation'
 });
 
-onMounted(() => {
-    getPrices();
+onMounted(async () => {
+    await getPrices();
 });
 
 useHead({

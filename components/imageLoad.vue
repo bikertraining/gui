@@ -86,8 +86,8 @@ const getImage = async () => {
     return image.value;
 };
 
-onMounted(() => {
-    getImage();
+onMounted(async () => {
+    await getImage();
 });
 
 useHead({

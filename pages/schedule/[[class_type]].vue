@@ -13,8 +13,8 @@ definePageMeta({
     title: 'Schedule'
 });
 
-onMounted(() => {
-    getSearch(route.params['class_type']);
+onMounted(async () => {
+    await getSearch(route.params['class_type']);
 });
 
 useHead({

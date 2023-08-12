@@ -16,12 +16,14 @@ interface UseClientPaymentInterface {
         credit_card_year: string;
         email: string;
         first_name: string;
+        ipaddress: string;
         last_name: string;
         phone: string;
         state: string;
         zipcode: string;
     }>;
     formSuccess: ComputedRef<boolean>;
+    getIpaddress:  () => Promise<void>;
     nonFieldFormError: ComputedRef<boolean>;
     nonFieldFormMessage: ComputedRef<string>;
     submitPayment: (values: Record<string, unknown>, actions: {
@@ -49,6 +51,14 @@ export const useClientPayment = (): UseClientPaymentInterface => {
         return localPayment.formSuccess;
     });
 
+    const getIpaddress = async () => {
+        const { doProcess, processorObj } = await useProcessor();
+
+        await doProcess('client/whatsmyip', 'GET', null);
+
+        localPayment.formObj['ipaddress'] = processorObj.value;
+    };
+
     const localPayment: UnwrapNestedRefs<any> = reactive({
         formErrors: {},
         formObj: {
@@ -65,6 +75,7 @@ export const useClientPayment = (): UseClientPaymentInterface => {
             credit_card_year: '',
             email: '',
             first_name: '',
+            ipaddress: '',
             last_name: '',
             phone: '',
             state: '',
@@ -135,6 +146,7 @@ export const useClientPayment = (): UseClientPaymentInterface => {
         formErrors,
         formObj,
         formSuccess,
+        getIpaddress,
         nonFieldFormError,
         nonFieldFormMessage,
         submitPayment,

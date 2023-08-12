@@ -11,8 +11,8 @@ definePageMeta({
     title: 'Basic Rider Course'
 });
 
-onMounted(() => {
-    getPrices();
+onMounted(async () => {
+    await getPrices();
 });
 
 useHead({

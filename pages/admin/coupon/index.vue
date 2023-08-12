@@ -13,8 +13,8 @@ definePageMeta({
     title: 'Search Coupons'
 });
 
-onMounted(() => {
-    getSearch();
+onMounted(async () => {
+    await getSearch();
 });
 
 useHead({

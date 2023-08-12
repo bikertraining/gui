@@ -23,6 +23,7 @@ interface UseClientRegisterInterface {
         dob: string;
         email: string;
         first_name: string;
+        ipaddress: string;
         last_name: string;
         phone: string;
         schedule: string;
@@ -32,6 +33,7 @@ interface UseClientRegisterInterface {
     }>;
     formSuccess: ComputedRef<boolean>;
     getDefaults: (routeParams: any) => void;
+    getIpaddress: () => Promise<void>;
     getPrice: (id: number | string | string[]) => void;
     getSchedule: () => Promise<void>;
     nonFieldFormError: ComputedRef<boolean>;
@@ -77,6 +79,14 @@ export const useClientRegister = (): UseClientRegisterInterface => {
 
         localRegister.formObj['xpl'] = 'none';
     }
+
+    const getIpaddress = async () => {
+        const { doProcess, processorObj } = await useProcessor();
+
+        await doProcess('client/whatsmyip', 'GET', null);
+
+        localRegister.formObj['ipaddress'] = processorObj.value;
+    };
 
     const getPrice = async (id: number | string | string[]) => {
         loadingState.isActive = true;
@@ -126,6 +136,7 @@ export const useClientRegister = (): UseClientRegisterInterface => {
             dob: '',
             email: '',
             first_name: '',
+            ipaddress: '',
             last_name: '',
             phone: '',
             schedule: '',
@@ -256,6 +267,7 @@ export const useClientRegister = (): UseClientRegisterInterface => {
         formObj,
         formSuccess,
         getDefaults,
+        getIpaddress,
         getPrice,
         getSchedule,
         nonFieldFormError,

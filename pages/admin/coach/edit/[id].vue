@@ -26,8 +26,8 @@ definePageMeta({
     title: 'Edit Coach'
 });
 
-onMounted(() => {
-    getEdit(route.params['id'].toString());
+onMounted(async () => {
+    await getEdit(route.params['id'].toString());
 });
 
 useHead({

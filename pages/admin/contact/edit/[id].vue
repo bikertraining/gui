@@ -18,8 +18,8 @@ definePageMeta({
     title: 'Edit Contact'
 });
 
-onMounted(() => {
-    getEdit(route.params['id'].toString());
+onMounted(async () => {
+    await getEdit(route.params['id'].toString());
 });
 
 useHead({

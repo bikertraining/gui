@@ -11,8 +11,8 @@ definePageMeta({
     title: 'Experienced Rider Course'
 });
 
-onMounted(() => {
-    getPrices();
+onMounted(async () => {
+    await getPrices();
 });
 
 useHead({

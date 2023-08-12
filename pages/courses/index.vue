@@ -13,8 +13,8 @@ definePageMeta({
     title: 'Motorcycle Courses'
 });
 
-onMounted(() => {
-    getPrices();
+onMounted(async () => {
+    await getPrices();
 });
 
 useHead({

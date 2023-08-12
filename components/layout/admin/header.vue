@@ -4,7 +4,7 @@ const { getBusinessPhone } = useUtils();
 
 const close = () => {
     (document.getElementById("navbarSupportedContent") as HTMLElement).classList.remove('show');
-}
+};
 </script>
 
 <template>

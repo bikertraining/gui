@@ -18,8 +18,8 @@ definePageMeta({
     title: 'eCourse Links'
 });
 
-onMounted(() => {
-    getEdit();
+onMounted(async () => {
+    await getEdit();
 });
 
 useHead({

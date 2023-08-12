@@ -8,6 +8,7 @@ const {
     formArr,
     formObj,
     getDefaults,
+    getIpaddress,
     getSchedule,
     nonFieldFormError,
     nonFieldFormMessage,
@@ -41,6 +42,7 @@ const schema = object({
     dob: string().required(),
     email: string().required().email(),
     first_name: string().required(),
+    ipaddress: string(),
     last_name: string().required(),
     phone: string().required(),
     schedule: string().required(),
@@ -58,12 +60,14 @@ definePageMeta({
     title: 'Register Online'
 });
 
-onMounted(() => {
+onMounted(async () => {
     getDefaults(route.params);
 
-    getPrices();
+    await getIpaddress();
 
-    getSchedule();
+    await getPrices();
+
+    await getSchedule();
 });
 
 useHead({
@@ -83,6 +87,11 @@ useHead({
                 <FormHidden v-model="formObj['coupon_code']"
                             :required="false"
                             name="coupon_code"/>
+
+                <FormHidden v-model="formObj['ipaddress']"
+                            :required="false"
+                            name="ipaddress"
+                            type="hidden"/>
 
                 <h1 class="mb-3 fs-4">
                     <svg class="bi">

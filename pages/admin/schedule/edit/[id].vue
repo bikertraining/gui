@@ -21,10 +21,10 @@ definePageMeta({
     title: 'Edit Schedule'
 });
 
-onMounted(() => {
-    getChoices();
+onMounted(async () => {
+    await getChoices();
 
-    getEdit(route.params['id'].toString());
+    await getEdit(route.params['id'].toString());
 });
 
 useHead({

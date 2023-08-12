@@ -13,8 +13,8 @@ definePageMeta({
     title: 'FAQ'
 });
 
-onMounted(() => {
-    getPrices();
+onMounted(async () => {
+    await getPrices();
 });
 
 useHead({

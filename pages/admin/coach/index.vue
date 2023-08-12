@@ -13,8 +13,8 @@ definePageMeta({
     title: 'Search Coaches'
 });
 
-onMounted(() => {
-    getSearch();
+onMounted(async () => {
+    await getSearch();
 });
 
 useHead({

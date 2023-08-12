@@ -13,8 +13,8 @@ definePageMeta({
     title: 'Search Prices'
 });
 
-onMounted(() => {
-    getSearch();
+onMounted(async () => {
+    await getSearch();
 });
 
 useHead({

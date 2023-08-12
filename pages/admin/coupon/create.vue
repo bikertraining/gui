@@ -20,8 +20,8 @@ definePageMeta({
     title: 'Create Coupon'
 });
 
-onMounted(() => {
-    getChoices();
+onMounted(async () => {
+    await getChoices();
 });
 
 useHead({

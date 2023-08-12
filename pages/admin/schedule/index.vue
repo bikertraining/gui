@@ -1,5 +1,6 @@
 <script lang="ts"
         setup>
+
 const { formArr, getSearch, utilClassDate } = useAdminSchedule();
 
 const route = useRoute();
@@ -13,8 +14,8 @@ definePageMeta({
     title: 'Search Schedule'
 });
 
-onMounted(() => {
-    getSearch();
+onMounted(async () => {
+    await getSearch();
 });
 
 useHead({

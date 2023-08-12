@@ -11,8 +11,8 @@ definePageMeta({
     title: 'eCourse'
 });
 
-onMounted(() => {
-    getEcourseLink();
+onMounted(async () => {
+    await getEcourseLink();
 });
 
 useHead({
