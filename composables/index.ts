@@ -3,6 +3,7 @@ import {
     useAdminContact,
     useAdminCoupon,
     useAdminEcourse,
+    useAdminFraud,
     useAdminPrice,
     useAdminSchedule
 } from "@/composables/admin";
@@ -10,6 +11,7 @@ import {
 import {
     useClientContact,
     useClientEcourse,
+    useClientFraud,
     useClientPayment,
     useClientPrice,
     useClientRegister,
@@ -22,10 +24,12 @@ export {
     useAdminContact,
     useAdminCoupon,
     useAdminEcourse,
+    useAdminFraud,
     useAdminPrice,
     useAdminSchedule,
     useClientContact,
     useClientEcourse,
+    useClientFraud,
     useClientPayment,
     useClientPrice,
     useClientRegister,

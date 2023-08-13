@@ -52,6 +52,8 @@ interface UseClientRegisterInterface {
 export const useClientRegister = (): UseClientRegisterInterface => {
     const { loadingState } = usePageLoading();
 
+    const { getFraud } = useClientFraud();
+
     const router = useRouter();
 
     const formArr = computed(() => {
@@ -161,6 +163,10 @@ export const useClientRegister = (): UseClientRegisterInterface => {
         setErrors: (arg0: Record<string, unknown>) => void;
     }) => {
         loadingState.isActive = true;
+
+        // Check for fraud before processing the payment, if found then redirect to another page.
+        // @ts-ignore
+        await getFraud(values);
 
         const { doProcess, processorErrors, processorSuccess } = await useProcessor();
 

@@ -23,7 +23,7 @@ interface UseClientPaymentInterface {
         zipcode: string;
     }>;
     formSuccess: ComputedRef<boolean>;
-    getIpaddress:  () => Promise<void>;
+    getIpaddress: () => Promise<void>;
     nonFieldFormError: ComputedRef<boolean>;
     nonFieldFormMessage: ComputedRef<string>;
     submitPayment: (values: Record<string, unknown>, actions: {
@@ -36,6 +36,8 @@ interface UseClientPaymentInterface {
 
 export const useClientPayment = (): UseClientPaymentInterface => {
     const { loadingState } = usePageLoading();
+
+    const { getFraud } = useClientFraud();
 
     const router = useRouter();
 
@@ -98,6 +100,10 @@ export const useClientPayment = (): UseClientPaymentInterface => {
         setErrors: (arg0: Record<string, unknown>) => void;
     }) => {
         loadingState.isActive = true;
+
+        // Check for fraud before processing the payment, if found then redirect to another page.
+        // @ts-ignore
+        await getFraud(values);
 
         const { doProcess, processorErrors, processorSuccess } = await useProcessor();
 

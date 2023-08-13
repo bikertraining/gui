@@ -130,6 +130,20 @@ const close = () => {
                     </li>
                     <!-- End Contact -->
 
+                    <!-- Start Fraud -->
+                    <li class="nav-item me-1"
+                        v-on:click="close()">
+                        <NuxtLink class="nav-link fw-bold"
+                                  to="/admin/fraud">
+                            <svg class="bi">
+                                <use xlink:href="#crow"/>
+                            </svg>
+
+                            Fraud Strings
+                        </NuxtLink>
+                    </li>
+                    <!-- End Fraud -->
+
                     <!-- Start Minimized Logout -->
                     <li class="nav-item d-lg-none"
                         v-on:click="close()">
