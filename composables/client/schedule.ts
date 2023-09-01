@@ -18,7 +18,15 @@ export const useClientSchedule = (): UseClientScheduleInterface => {
 
         const { doProcess, processorArr } = await useProcessor();
 
-        await doProcess((class_type === '3wbrc') ? 'client/schedule/search/3wbrc' : 'client/schedule/search', 'GET', null);
+        if (class_type === '3wbrc') {
+            await doProcess('client/schedule/search/3wbrc', 'GET', null);
+        } else if (class_type === 'brc') {
+            await doProcess('client/schedule/search/brc', 'GET', null);
+        } else if (class_type === 'erc') {
+            await doProcess('client/schedule/search/erc', 'GET', null);
+        } else {
+            await doProcess('client/schedule/search', 'GET', null);
+        }
 
         localSchedule.formArr = processorArr.value;
 

@@ -66,6 +66,10 @@ const images: any = {
         'https://s6.imgcdn.dev/vPm8L.webp',
         'phd/logo.webp'
     ],
+    'phd/hdsrc.png': [
+        'https://s6.imgcdn.dev/AkLyK.webp',
+        'phd/hdsrc.webp'
+    ],
     'cc_types.webp': [
         'https://s6.imgcdn.dev/vPFka.webp',
         'cc_types.webp'

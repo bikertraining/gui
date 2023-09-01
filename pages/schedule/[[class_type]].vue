@@ -72,7 +72,19 @@ useHead({
 
             <tbody v-if="formArr.length === 0 && route.params['class_type'] === '3wbrc'"
                    class="text-danger fw-bold text-center">
-            Sorry but there are no available 3-Wheel classes.
+            Sorry but there are no available 3-Wheel classes. However, if you had a group of at least 2 students we can
+            add a private class. Call us for more information.
+            </tbody>
+
+            <tbody v-if="formArr.length === 0 && route.params['class_type'] === 'brc'"
+                   class="text-danger fw-bold text-center">
+            Sorry but there are no available Basic Rider classes.
+            </tbody>
+
+            <tbody v-if="formArr.length === 0 && route.params['class_type'] === 'erc'"
+                   class="text-danger fw-bold text-center">
+            Sorry but there are no available Experienced Rider classes. However, if you had a group of at least 4
+            students we can add a private class. Call us for more information.
             </tbody>
         </table>
     </div>
@@ -159,11 +171,11 @@ useHead({
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-  background-color: #198754;
-  color: #FFFFFF;
+    background-color: #198754;
+    color: #FFFFFF;
 }
 
 .table tbody > tr:nth-last-child(1) {
-  border-color: #FFFFFF;
+    border-color: #FFFFFF;
 }
 </style>
