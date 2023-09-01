@@ -75,17 +75,17 @@ useHead({
                     <NuxtLink class="mx-auto mt-3"
                               target="_blank"
                               to="https://learntoride3wheel.com/webreg/production/reactapp/?book=canamregister&SC=FLBKTR01&CC=3WBU">
-                        <ImageLoad alt="Can-AM Learn to ride for $199"
+                        <ImageLoad alt="Can-AM Learn to ride for $99"
                                    class="d-block mx-auto img-fluid bg-black"
                                    height="175"
                                    loading="lazy"
-                                   src="brp/199.webp"
+                                   src="brp/99.webp"
                                    width="400"/>
                     </NuxtLink>
 
                     <div class="mt-3 text-start mx-auto">
                         For a limited time, those that want to enroll in the 3-Wheel Basic RiderCourse on a Can-AM
-                        Spyder/Ryker can do so for only $199
+                        Spyder/Ryker can do so for only $99
                     </div>
                 </div>
 
