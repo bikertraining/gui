@@ -81,6 +81,7 @@ export default defineNuxtConfig({
         credits: false,
         exclude: [
             '/admin/**',
+            '/callus',
             '/contact/confirmation',
             '/contact/unsubscribe/confirmation',
             '/payment/**',
