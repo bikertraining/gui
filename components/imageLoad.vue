@@ -66,7 +66,7 @@ const images: any = {
         'https://s6.imgcdn.dev/vPm8L.webp',
         'phd/logo.webp'
     ],
-    'phd/hdsrc.png': [
+    'phd/hdsrc.webp': [
         'https://s6.imgcdn.dev/AkLyK.webp',
         'phd/hdsrc.webp'
     ],
@@ -81,7 +81,7 @@ const image = ref(images[props.src][0]);
 const getImage = async () => {
     const response = await fetch(`${images[props.src][0]}`);
 
-    if (response.ok) {
+    if (response['status'] === 200) {
         image.value = images[props.src][0];
     } else {
         image.value = `/img/${images[props.src][1]}`;

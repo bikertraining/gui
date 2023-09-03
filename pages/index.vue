@@ -166,7 +166,7 @@ useHead({
                                                class="d-block mx-auto img-fluid bg-black"
                                                height="175"
                                                loading="lazy"
-                                               src="phd/hdsrc.png"
+                                               src="phd/hdsrc.webp"
                                                width="400"/>
                                 </NuxtLink>
                                 <div class="card-body">
