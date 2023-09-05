@@ -79,13 +79,15 @@ const images: any = {
 const image = ref(images[props.src][0]);
 
 const getImage = async () => {
-    const response = await fetch(`${images[props.src][0]}`);
+    /*const response = await fetch(`${images[props.src][0]}`);
 
     if (response['status'] === 200) {
         image.value = images[props.src][0];
     } else {
         image.value = `/img/${images[props.src][1]}`;
-    }
+    }*/
+
+    image.value = `/img/${images[props.src][1]}`;
 
     return image.value;
 };
