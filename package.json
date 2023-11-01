@@ -25,6 +25,5 @@
     "sass": "^1.69.5"
   },
   "dependencies": {
-    "@nuxt/image": "npm:@nuxt/image-edge@latest"
   }
 }

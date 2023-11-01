@@ -10,13 +10,6 @@
                 <li class="nav-item">
                     <NuxtLink class="nav-link px-2"
                               to="/schedule">
-                        Sign Up Here
-                    </NuxtLink>
-                </li>
-
-                <li class="nav-item">
-                    <NuxtLink class="nav-link px-2"
-                              to="/schedule">
                         Schedule
                     </NuxtLink>
                 </li>

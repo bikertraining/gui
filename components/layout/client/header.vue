@@ -34,20 +34,6 @@ const close = () => {
             <div id="navbarSupportedContent"
                  class="collapse navbar-collapse">
                 <ul class="navbar-nav mb-2 mb-lg-0 me-auto px-4">
-                    <!-- Start Registration -->
-                    <li class="nav-item me-2"
-                        v-on:click="close()">
-                        <NuxtLink class="nav-link fw-bold"
-                                  to="/schedule">
-                            <svg class="bi">
-                                <use xlink:href="#user-graduate"/>
-                            </svg>
-
-                            Sign Up Here
-                        </NuxtLink>
-                    </li>
-                    <!-- End Registration -->
-
                     <!-- Start Schedule -->
                     <li class="nav-item me-2"
                         v-on:click="close()">
