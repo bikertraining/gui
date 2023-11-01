@@ -19,11 +19,11 @@ useHead({
          style="min-height: calc(100vh - 274px) !important;">
         <h1 class="fw-bold mb-4 fs-4">LEARN TO RIDE OR IMPROVE YOUR MOTORCYCLE SKILLS</h1>
 
-        <ImageLoad alt="Biker Training LLC"
-                   class="d-block mx-auto mb-4 img-fluid"
-                   height="200"
-                   src="bikertraining/logo_bike_only.webp"
-                   width="510"/>
+        <img alt="Biker Training LLC"
+                 class="d-block mx-auto mb-4 img-fluid"
+                 height="200"
+                 src="/img/bikertraining/logo_bike_only.webp"
+                 width="510"/>
 
         <div class="fw-bold fs-5">
             We are the exclusive provider for all motorcycle training at Pensacola Harley-Davidson
@@ -34,75 +34,18 @@ useHead({
             meet your needs. Our Basic RiderCourse meets the state of Florida license endorsement requirement.
 
             <span class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
-                <NuxtLink to="/register">
-                    <button class="btn btn-success btn-lg px-4 gap-3"
-                            type="button">
-                        <svg class="bi-button">
-                            <use xlink:href="#user-graduate"/>
-                        </svg>
-
-                        Sign Up Here
-                    </button>
-                </NuxtLink>
-
                 <NuxtLink to="/schedule">
-                    <button class="btn btn-outline-success btn-lg px-4"
+                    <button class="btn btn-success btn-lg px-4"
                             type="button">
                         <svg class="bi-button">
                             <use xlink:href="#calendar-days"/>
                         </svg>
 
-                        Schedule
+                        Basic RiderCourse Schedule
                     </button>
                 </NuxtLink>
             </span>
         </div>
-
-        <!--<hr class="w-75 mx-auto mt-4 border-1">
-
-        <div class="d-flex flex-column">
-            <h2 class="fw-bold fs-5">3-Wheel Motorcycle Training</h2>
-
-            <NuxtLink class="mx-auto mt-3"
-                      target="_blank"
-                      to="https://learntoride3wheel.com/webreg/production/reactapp/?book=canamregister&SC=FLBKTR01&CC=3WBU">
-                <ImageLoad alt="Can-AM Learn to ride for $99"
-                           class="d-block mx-auto img-fluid bg-black"
-                           height="175"
-                           loading="lazy"
-                           src="brp/99.webp"
-                           width="400"/>
-            </NuxtLink>
-
-            <div class="mt-3 text-start mx-auto">
-                For a limited time, those that want to enroll in the 3-Wheel Basic RiderCourse on a Can-AM Spyder/Ryker
-                can do so for only $99
-            </div>
-
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-3">
-                <NuxtLink to="/register">
-                    <button class="btn btn-success btn-lg px-4 gap-3"
-                            type="button">
-                        <svg class="bi-button">
-                            <use xlink:href="#user-graduate"/>
-                        </svg>
-
-                        Sign Up Here
-                    </button>
-                </NuxtLink>
-
-                <NuxtLink to="/schedule/3wbrc">
-                    <button class="btn btn-outline-success btn-lg px-4"
-                            type="button">
-                        <svg class="bi-button">
-                            <use xlink:href="#calendar-days"/>
-                        </svg>
-
-                        Schedule
-                    </button>
-                </NuxtLink>
-            </div>
-        </div>-->
 
         <hr class="w-75 mx-auto mt-4 border-1">
 
@@ -117,38 +60,28 @@ useHead({
                                 <NuxtLink class="mx-auto mt-3"
                                           target="_blank"
                                           to="https://learntoride3wheel.com/webreg/production/reactapp/?book=canamregister&SC=FLBKTR01&CC=3WBU">
-                                    <ImageLoad alt="Can-AM Learn to ride for $99"
-                                               class="d-block mx-auto img-fluid bg-black"
-                                               height="175"
-                                               loading="lazy"
-                                               src="brp/99.webp"
-                                               width="400"/>
+                                    <img alt="Can-AM Learn to ride for $199"
+                                             class="d-block mx-auto img-fluid bg-black"
+                                             height="175"
+                                             loading="lazy"
+                                             src="/img/brp/199.webp"
+                                             width="340"/>
                                 </NuxtLink>
 
                                 <div class="card-body">
                                     <p class="card-text">For a limited time, those that want to enroll in the 3-Wheel
-                                        Basic RiderCourse on a Can-AM Spyder/Ryker can do so for only $99</p>
+                                                         Basic RiderCourse on a Can-AM Spyder/Ryker can do so for only
+                                                         $199</p>
 
                                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
-                                        <NuxtLink to="/register">
-                                            <button class="btn btn-success btn-lg px-4 gap-3"
-                                                    type="button">
-                                                <svg class="bi-button">
-                                                    <use xlink:href="#user-graduate"/>
-                                                </svg>
-
-                                                Sign Up Here
-                                            </button>
-                                        </NuxtLink>
-
                                         <NuxtLink to="/schedule/3wbrc">
-                                            <button class="btn btn-outline-success btn-lg px-4"
+                                            <button class="btn btn-success btn-lg px-4"
                                                     type="button">
                                                 <svg class="bi-button">
                                                     <use xlink:href="#calendar-days"/>
                                                 </svg>
 
-                                                Schedule
+                                                3-Wheel RiderCourse Schedule
                                             </button>
                                         </NuxtLink>
                                     </div>
@@ -157,43 +90,33 @@ useHead({
                         </div>
 
                         <div class="col">
-                            <h3 class="fw-bold fs-5">Experienced Rider Training</h3>
+                            <h3 class="fw-bold fs-5">Skilled Rider Training</h3>
 
                             <div class="card border-0">
-                                <NuxtLink class="mx-auto mt-3"
+                                <NuxtLink class="mx-auto mt-4"
                                           to="/schedule/erc">
-                                    <ImageLoad alt="Experienced Rider Course"
-                                               class="d-block mx-auto img-fluid bg-black"
-                                               height="175"
-                                               loading="lazy"
-                                               src="phd/hdsrc.webp"
-                                               width="400"/>
+                                    <img alt="Experienced Rider Course"
+                                             class="d-block mx-auto img-fluid bg-black"
+                                             height="150"
+                                             loading="lazy"
+                                             src="/img/erc/hdsrc.webp"
+                                             width="500"/>
                                 </NuxtLink>
+
                                 <div class="card-body">
                                     <p class="card-text mt-3">Have your motorcycle endorsement already but need extra
-                                        training or Active-Duty military to continue operating your motorcycle on a
-                                        military installation?</p>
+                                                              training or Active-Duty military to continue operating
+                                                              your motorcycle on a military installation?</p>
 
                                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-3">
-                                        <NuxtLink to="/register">
-                                            <button class="btn btn-success btn-lg px-4 gap-3"
-                                                    type="button">
-                                                <svg class="bi-button">
-                                                    <use xlink:href="#user-graduate"/>
-                                                </svg>
-
-                                                Sign Up Here
-                                            </button>
-                                        </NuxtLink>
-
                                         <NuxtLink to="/schedule/erc">
-                                            <button class="btn btn-outline-success btn-lg px-4"
+                                            <button class="btn btn-success btn-lg px-4"
                                                     type="button">
                                                 <svg class="bi-button">
                                                     <use xlink:href="#calendar-days"/>
                                                 </svg>
 
-                                                Schedule
+                                                Skilled RiderCourse Schedule
                                             </button>
                                         </NuxtLink>
                                     </div>
@@ -249,36 +172,36 @@ useHead({
             <div>
                 <NuxtLink target="_blank"
                           to="https://www.flhsmv.gov/driver-licenses-id-cards/motorcycle-rider-education-endorsements/florida-rider-training-program-courses/">
-                    <ImageLoad alt="Florida Rider Training Program"
-                               class="d-block img-fluid mt-4"
-                               height="138"
-                               loading="lazy"
-                               src="frtp/logo.webp"
-                               width="200"/>
+                    <img alt="Florida Rider Training Program"
+                             class="d-block img-fluid mt-4"
+                             height="138"
+                             loading="lazy"
+                             src="/img/frtp/logo.webp"
+                             width="200"/>
                 </NuxtLink>
             </div>
 
             <div>
                 <NuxtLink target="_blank"
                           to="https://msf-usa.org/">
-                    <ImageLoad alt="Motorcycle Safety Foundation"
-                               class="d-block img-fluid mt-5"
-                               height="93"
-                               loading="lazy"
-                               src="msf/logo.webp"
-                               width="200"/>
+                    <img alt="Motorcycle Safety Foundation"
+                             class="d-block img-fluid mt-5"
+                             height="93"
+                             loading="lazy"
+                             src="/img/msf/logo.webp"
+                             width="200"/>
                 </NuxtLink>
             </div>
 
             <div>
                 <NuxtLink target="_blank"
                           to="https://www.pensacolaharley.com/">
-                    <ImageLoad alt="Pensacola Harley-Davidson"
-                               class="d-block img-fluid mt-5"
-                               height="97"
-                               loading="lazy"
-                               src="phd/logo.webp"
-                               width="400"/>
+                    <img alt="Pensacola Harley-Davidson"
+                             class="d-block img-fluid mt-5"
+                             height="97"
+                             loading="lazy"
+                             src="/img/phd/logo.webp"
+                             width="400"/>
                 </NuxtLink>
             </div>
         </div>

@@ -44,14 +44,14 @@ useHead({
                 </div>
 
                 <div class="card-footer bg-white border-0">
-                    <NuxtLink to="/register">
+                    <NuxtLink to="/schedule/brc">
                         <button class="w-100 btn btn-lg btn-outline-success"
                                 type="button">
                             <svg class="bi">
                                 <use xlink:href="#user-plus"/>
                             </svg>
 
-                            Sign up
+                            Schedule
                         </button>
                     </NuxtLink>
 
@@ -72,7 +72,7 @@ useHead({
         <div class="col mb-3">
             <div class="card rounded-3 shadow-sm h-100">
                 <div class="card-header py-3">
-                    <h2 class="my-0 fw-normal fs-4">Experienced RiderCourse (BRCu2)</h2>
+                    <h2 class="my-0 fw-normal fs-4">Skilled RiderCourse (BRCu2)</h2>
                 </div>
 
                 <div class="card-body">
@@ -89,14 +89,14 @@ useHead({
                 </div>
 
                 <div class="card-footer bg-white border-0">
-                    <NuxtLink to="/register">
+                    <NuxtLink to="/schedule/erc">
                         <button class="w-100 btn btn-lg btn-outline-success"
                                 type="button">
                             <svg class="bi">
                                 <use xlink:href="#user-plus"/>
                             </svg>
 
-                            Sign up
+                            Schedule
                         </button>
                     </NuxtLink>
 
@@ -134,14 +134,14 @@ useHead({
                 </div>
 
                 <div class="card-footer bg-white border-0">
-                    <NuxtLink to="/register">
+                    <NuxtLink to="/schedule/3wbrc">
                         <button class="w-100 btn btn-lg btn-outline-success"
                                 type="button">
                             <svg class="bi">
                                 <use xlink:href="#user-plus"/>
                             </svg>
 
-                            Sign up
+                            Schedule
                         </button>
                     </NuxtLink>
 

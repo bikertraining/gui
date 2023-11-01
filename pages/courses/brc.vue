@@ -67,14 +67,14 @@ useHead({
                 </ul>
 
                 <div class="row text-center">
-                    <NuxtLink to="/register">
+                    <NuxtLink to="/schedule/brc">
                         <button class="w-50 btn btn-lg btn-outline-success"
                                 type="button">
                             <svg class="bi">
                                 <use xlink:href="#user-plus"/>
                             </svg>
 
-                            Sign up
+                            Schedule
                         </button>
                     </NuxtLink>
                 </div>

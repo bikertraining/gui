@@ -63,13 +63,13 @@ const { meta } = useField(name, undefined, {
                    @blur="handleBlur"
                    @input="handleChange">
 
-            <ImageLoad v-if="name === 'credit_card_number'"
-                       alt="Credit Card Types"
-                       class="mt-2"
-                       height="30"
-                       loading="lazy"
-                       src="cc_types.webp"
-                       width="215"/>
+            <img v-if="name === 'credit_card_number'"
+                     alt="Credit Card Types"
+                     class="mt-2"
+                     height="30"
+                     loading="lazy"
+                     src="/img/cc_types.webp"
+                     width="215"/>
 
             <div v-if="helpText"
                  class="form-text">{{ helpText }}

@@ -83,7 +83,7 @@ useHead({
 
             <tbody v-if="formArr.length === 0 && route.params['class_type'] === 'erc'"
                    class="text-danger fw-bold text-center">
-            Sorry but there are no available Experienced Rider classes. However, if you had a group of at least 4
+            Sorry but there are no available Skilled Rider classes. However, if you had a group of at least 4
             students we can add a private class. Call us for more information.
             </tbody>
         </table>

@@ -24,7 +24,7 @@ useHead({
     <div class="py-5 pt-3">
         <div class="card mb-4 rounded-3 shadow-sm">
             <div class="card-header py-3">
-                <h1 class="my-0 fw-normal fs-4">Experienced RiderCourse (BRCu2)</h1>
+                <h1 class="my-0 fw-normal fs-4">Skilled RiderCourse (BRCu2)</h1>
             </div>
 
             <div class="card-body">
@@ -42,7 +42,7 @@ useHead({
                     <li class="mt-3">This one day course, typically held on Sundays, is for riders who already own and
                         ride a motorcycle and are interested in state-of-the-art motorcycle handling techniques or for
                         brushing up on their safe street riding skills. Increasing numbers of seasoned riders are coming
-                        to the Experienced RiderCourse to fine-tune their riding and mental skills needed for survival
+                        to the Skilled RiderCourse to fine-tune their riding and mental skills needed for survival
                         in traffic.
                     </li>
 
@@ -70,7 +70,7 @@ useHead({
 
                     <li class="mt-3 fw-bold">All students must wear the required protective gear.</li>
 
-                    <li class="mt-3">Upon completion of the Experienced RiderCourse, a graduate may receive an insurance
+                    <li class="mt-3">Upon completion of the Skilled RiderCourse, a graduate may receive an insurance
                         discount from participating companies.
                     </li>
 
@@ -83,14 +83,14 @@ useHead({
                 </ul>
 
                 <div class="row text-center">
-                    <NuxtLink to="/register">
+                    <NuxtLink to="/schedule/erc">
                         <button class="w-50 btn btn-lg btn-outline-success"
                                 type="button">
                             <svg class="bi">
                                 <use xlink:href="#user-plus"/>
                             </svg>
 
-                            Sign up
+                            Schedule
                         </button>
                     </NuxtLink>
                 </div>

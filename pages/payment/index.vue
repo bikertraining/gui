@@ -250,7 +250,7 @@ useHead({
                     </div>
                 </client-only>
 
-                <div class="col-md-4 fw-bolder mt-0 mb-3">Total ${{ formObj['amount'] }}</div>
+                <div class="col-md-4 fw-bolder mt-0">Total ${{ formObj['amount'] }}</div>
 
                 <div v-if="nonFieldFormError"
                      class="text-danger my-3 fs-5 border border-danger border-2 rounded-3">
@@ -260,11 +260,11 @@ useHead({
                 <div class="mb-3">
                     <span class="fw-bold">Protected by</span>
 
-                    <ImageLoad alt="Let's Encrypt"
-                               height="50"
-                               loading="lazy"
-                               src="le/logo.webp"
-                               width="169"/>
+                    <img alt="Let's Encrypt"
+                             height="50"
+                             loading="lazy"
+                             src="/img/le/logo.webp"
+                             width="169"/>
                 </div>
 
                 <button class="w-100 btn btn-success btn-lg"
@@ -280,12 +280,12 @@ useHead({
 
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
             <div class="mb-3">
-                <ImageLoad alt="Pensacola Harley-Davidson"
-                           class="d-block img-fluid mt-5"
-                           height="97"
-                           loading="lazy"
-                           src="phd/logo.webp"
-                           width="400"/>
+                <img alt="Pensacola Harley-Davidson"
+                         class="d-block img-fluid mt-5"
+                         height="97"
+                         loading="lazy"
+                         src="/img/phd/logo.webp"
+                         width="400"/>
             </div>
 
             <div class="mb-3">You can use this form to pay online for your class or give us a call at
@@ -309,38 +309,55 @@ useHead({
                 <div class="fw-bold mb-3">REFUND / CANCELLATION POLICY</div>
 
                 <div class="mb-3">When enrolling, you are purchasing a seat in the class of your choice. Once purchased,
-                    that seat is set aside for only your use. Please select the date that will ensure you can attend
-                    each day for the times indicated. You must attend all class/range sessions.
+                                  that seat is set aside for only your use. Please select the date that will ensure you
+                                  can attend
+                                  each day for the times indicated. You must attend all class/range sessions.
                 </div>
 
                 <div class="mb-3"><span class="fw-bold">Cancellation:</span> All fees are nonrefundable unless students
-                    call <a class="text-dark text-decoration-none"
+                                                                             call <a
+                            class="text-dark text-decoration-none"
                             v-bind:href="'tel:' + getBusinessPhone(true)">{{ getBusinessPhone(false) }}</a> or email
                     <a v-bind:href="'mailto:' + getBusinessEmail()">{{ getBusinessEmail() }}</a> 6 days prior to their
-                    scheduled class to obtain a partial refund. A partial refund is full tuition minus a
-                    ${{ priceObj['brc']['process_amount'].slice(0, -3) }} processing fee.
+                                                                             scheduled class to obtain a partial refund.
+                                                                             A partial refund is full tuition minus a
+                                                                             ${{
+                        priceObj['brc']['process_amount'].slice(0, -3)
+                                                                             }} processing fee.
                 </div>
 
                 <div class="mb-3">There is a minimum of four students per class. If minimum is not met, student has
-                    option to move to any future class or receive a full refund.
+                                  option to move to any future class or receive a full refund.
                 </div>
 
                 <div class="mb-3"><span class="fw-bold">Postponement:</span> There is no charge for postponement
-                    provided the student calls or emails at least 48 hours prior to the start of their scheduled class.
-                    If less than 48 hours prior or if a student does not complete the entire class, a seat in a
-                    subsequent class may be purchased.
+                                                                             provided the student calls or emails at
+                                                                             least 48 hours prior to the start of their
+                                                                             scheduled class.
+                                                                             If less than 48 hours prior or if a student
+                                                                             does not complete the entire class, a seat
+                                                                             in a
+                                                                             subsequent class may be purchased.
                 </div>
 
                 <div class="mb-3"><span class="fw-bold">Late Arrivals:</span> Learning to ride a motorcycle requires
-                    skill progression. This progression begins with small tasks and builds to larger, more complex
-                    tasks. It is critical that students arrive on time. Preferably, come early! If you miss a class or
-                    range session, you will not be allowed to complete the course and will have to purchase another seat
-                    in a later class.
+                                                                              skill progression. This progression begins
+                                                                              with small tasks and builds to larger,
+                                                                              more complex
+                                                                              tasks. It is critical that students arrive
+                                                                              on time. Preferably, come early! If you
+                                                                              miss a class or
+                                                                              range session, you will not be allowed to
+                                                                              complete the course and will have to
+                                                                              purchase another seat
+                                                                              in a later class.
                 </div>
 
                 <div class="mb-3"><span class="fw-bold">eCourse:</span> The eCourse is a national requirement for
-                    motorcycle training. You will be emailed a unique link to complete the eCourse before attending
-                    class.
+                                                                        motorcycle training. You will be emailed a
+                                                                        unique link to complete the eCourse before
+                                                                        attending
+                                                                        class.
                 </div>
             </div>
         </div>

@@ -9,12 +9,10 @@ const {
     formObj,
     getDefaults,
     getIpaddress,
-    getSchedule,
     nonFieldFormError,
     nonFieldFormMessage,
     submitRegistration,
-    utilGetSchedule,
-    utilUpdatePrice,
+    utilClassDate,
     utilValidateCoupon
 } = useClientRegister();
 
@@ -66,8 +64,6 @@ onMounted(async () => {
     await getIpaddress();
 
     await getPrices();
-
-    await getSchedule();
 });
 
 useHead({
@@ -93,53 +89,34 @@ useHead({
                             name="ipaddress"
                             type="hidden"/>
 
+                <FormHidden v-model="route.params['id']"
+                            :required="false"
+                            name="schedule"
+                            type="hidden"/>
+
                 <h1 class="mb-3 fs-4">
                     <svg class="bi">
                         <use xlink:href="#calendar-days"/>
                     </svg>
 
-                    Available Classes
+                    Schedule Details
                 </h1>
 
                 <div class="row g-3">
-                    <div class="col-md-12">
-                        <FormSelectSchedule v-model="formObj['schedule']"
-                                            :options="utilGetSchedule(formArr)"
-                                            :required="true"
-                                            help-text="Date of class you are signing up for"
-                                            label="Schedule"
-                                            name="schedule"
-                                            v-on:change="utilUpdatePrice(formObj['schedule'])"/>
-                    </div>
-
-                    <div v-if="formObj['schedule'] && !formObj['coupon_is_active']"
-                         class="col-md-6 fw-bolder mt-0 mb-3">
-                        <Form :validation-schema="couponSchema"
-                              @submit="utilValidateCoupon">
-                            <FormText v-model="formObj['coupon_code']"
-                                      :required="false"
-                                      label="Coupon Code"
-                                      name="coupon_code"/>
-
-                            <button class="w-100 btn btn-primary btn-sm"
-                                    type="submit">
-                                <svg class="bi-tag">
-                                    <use xlink:href="#tag"/>
-                                </svg>
-
-                                Apply
-                            </button>
-                        </form>
-                    </div>
-
-                    <div class="col-md-12 fw-bolder mt-0">Total ${{ formObj['amount'] }}</div>
-
                     <div v-if="formObj['class_type'] === '3wbrc'"
                          class="col-md-12 fw-bolder mt-3">
-                        <div class="mb-3">Class times are Sunday 1:00 PM to 4:00 PM and Monday 7:00 AM to 3:00 PM.</div>
+                        <div class="mb-1">{{ formObj['schedule_details']['class_type_name'] }}</div>
+
+                        <div class="mb-1">
+                            {{
+                                utilClassDate(formObj['schedule_details']['date_from'], formObj['schedule_details']['date_to'])
+                            }} / {{ formObj['schedule_details']['day_type_name'] }}
+                        </div>
+
+                        <div class="mb-3">Class times are Sunday 1:00 PM to 4:00 PM and Monday 7:00 AM to 3:00 PM</div>
 
                         <div class="mb-3">For those who are not registering for the Can-AM Spyder program, you must
-                            bring your own 3-wheel motorcycle for training purposes.
+                                          bring your own 3-wheel motorcycle for training purposes.
                         </div>
 
                         <span class="text-danger mt-3">If you are looking for the Can-AM Spyder Training</span>&nbsp;
@@ -155,12 +132,28 @@ useHead({
 
                     <div v-if="formObj['class_type'] === 'brc'"
                          class="col-md-12 fw-bolder mt-3">
-                        Class times are from 7:00 AM to 4:00 PM each day.
+                        <div class="mb-1">{{ formObj['schedule_details']['class_type_name'] }}</div>
+
+                        <div class="mb-1">
+                            {{
+                                utilClassDate(formObj['schedule_details']['date_from'], formObj['schedule_details']['date_to'])
+                            }} / {{ formObj['schedule_details']['day_type_name'] }}
+                        </div>
+
+                        <div>Class times are from 7:00 AM to 4:00 PM each day</div>
                     </div>
 
                     <div v-if="formObj['class_type'] === 'erc'"
                          class="col-md-12 fw-bolder mt-3">
-                        Class times are from 12:00 PM (Noon) to 5:30 PM.
+                        <div class="mb-1">{{ formObj['schedule_details']['class_type_name'] }}</div>
+
+                        <div class="mb-1">
+                            {{
+                                utilClassDate(formObj['schedule_details']['date_from'], formObj['schedule_details']['date_to'])
+                            }} / {{ formObj['schedule_details']['day_type_name'] }}
+                        </div>
+
+                        <div>Class times are from 12:00 PM (Noon) to 5:30 PM</div>
                     </div>
                 </div>
 
@@ -328,11 +321,11 @@ useHead({
                     <div class="col-md-6">
                         <FormText
 
-                            v-model="formObj['credit_card_last_name']"
-                            :required="true"
-                            help-text="Last name as displayed on card"
-                            label="Last Name"
-                            name="credit_card_last_name"/>
+                                v-model="formObj['credit_card_last_name']"
+                                :required="true"
+                                help-text="Last name as displayed on card"
+                                label="Last Name"
+                                name="credit_card_last_name"/>
                     </div>
 
                     <div class="col-md-6">
@@ -394,6 +387,28 @@ useHead({
                     </div>
                 </div>
 
+                <div v-if="formObj['schedule'] && !formObj['coupon_is_active']"
+                     class="col-md-6 fw-bolder mt-0 mb-3">
+                    <Form :validation-schema="couponSchema"
+                          @submit="utilValidateCoupon">
+                        <FormText v-model="formObj['coupon_code']"
+                                  :required="false"
+                                  label="Coupon Code"
+                                  name="coupon_code"/>
+
+                        <button class="w-100 btn btn-primary btn-sm"
+                                type="submit">
+                            <svg class="bi-tag">
+                                <use xlink:href="#tag"/>
+                            </svg>
+
+                            Apply
+                        </button>
+                    </form>
+                </div>
+
+                <div class="col-md-12 fw-bolder mt-0">Total ${{ formObj['amount'] }}</div>
+
                 <div v-if="nonFieldFormError"
                      class="text-danger my-3 fs-5 border border-danger border-2 rounded-3">
                     <span class="mx-2">{{ nonFieldFormMessage }}</span>
@@ -402,11 +417,11 @@ useHead({
                 <div class="mb-3">
                     <span class="fw-bold">Protected by</span>
 
-                    <ImageLoad alt="Let's Encrypt"
-                               height="50"
-                               loading="lazy"
-                               src="le/logo.webp"
-                               width="169"/>
+                    <img alt="Let's Encrypt"
+                         height="50"
+                         loading="lazy"
+                         src="/img/le/logo.webp"
+                         width="169"/>
                 </div>
 
                 <button class="w-100 btn btn-success btn-lg"
@@ -430,8 +445,9 @@ useHead({
             </h5>
 
             <div class="mb-3">After submitting your application, you will receive an email by the next business day (or
-                before your class starts) confirming your enrollment and providing all details about your specific
-                class. If you’d prefer to enroll on the phone, give us a call at
+                              before your class starts) confirming your enrollment and providing all details about your
+                              specific
+                              class. If you’d prefer to enroll on the phone, give us a call at
                 <a class="text-dark text-decoration-none"
                    v-bind:href="'tel:' + getBusinessPhone(true)">{{ getBusinessPhone(false) }}</a>.
             </div>
@@ -440,54 +456,70 @@ useHead({
                 <div class="fw-bold mb-3">REFUND / CANCELLATION POLICY</div>
 
                 <div class="mb-3">When enrolling, you are purchasing a seat in the class of your choice. Once purchased,
-                    that seat is set aside for only your use. Please select the date that will ensure you can attend
-                    each day for the times indicated. You must attend all class/range sessions.
+                                  that seat is set aside for only your use. Please select the date that will ensure you
+                                  can attend
+                                  each day for the times indicated. You must attend all class/range sessions.
                 </div>
 
                 <div class="mb-3"><span class="fw-bold">Cancellation:</span> All fees are nonrefundable unless students
-                    call <a class="text-dark text-decoration-none"
+                                                                             call <a
+                            class="text-dark text-decoration-none"
                             v-bind:href="'tel:' + getBusinessPhone(true)">{{ getBusinessPhone(false) }}</a> or email
                     <a v-bind:href="'mailto:' + getBusinessEmail()"> {{ getBusinessEmail() }}</a> 6 days prior to their
-                    scheduled class to obtain a partial refund. A partial refund is full tuition minus a processing fee.
+                                                                             scheduled class to obtain a partial refund.
+                                                                             A partial refund is full tuition minus a
+                                                                             processing fee.
 
                     <ol class="list-group-numbered list-group-flush mt-3">
                         <li class="list-group-item">Basic RiderCourse ${{
                                 priceObj['brc']['process_amount'].slice(0, -3)
-                            }}
+                                                    }}
                         </li>
 
                         <li class="list-group-item">3-Wheel RiderCourse ${{
                                 priceObj['3wbrc']['process_amount'].slice(0, -3)
-                            }}
+                                                    }}
                         </li>
 
-                        <li class="list-group-item">Experienced RiderCourse ${{
+                        <li class="list-group-item">Skilled RiderCourse ${{
                                 priceObj['erc']['process_amount'].slice(0, -3)
-                            }}
+                                                    }}
                         </li>
                     </ol>
                 </div>
 
                 <div class="mb-3">There is a minimum of four students per class. If minimum is not met, student has
-                    option to move to any future class or receive a full refund.
+                                  option to move to any future class or receive a full refund.
                 </div>
 
                 <div class="mb-3"><span class="fw-bold">Postponement:</span> There is no charge for postponement
-                    provided the student calls or emails at least 48 hours prior to the start of their scheduled class.
-                    If less than 48 hours prior or if a student does not complete the entire class, a seat in a
-                    subsequent class may be purchased.
+                                                                             provided the student calls or emails at
+                                                                             least 48 hours prior to the start of their
+                                                                             scheduled class.
+                                                                             If less than 48 hours prior or if a student
+                                                                             does not complete the entire class, a seat
+                                                                             in a
+                                                                             subsequent class may be purchased.
                 </div>
 
                 <div class="mb-3"><span class="fw-bold">Late Arrivals:</span> Learning to ride a motorcycle requires
-                    skill progression. This progression begins with small tasks and builds to larger, more complex
-                    tasks. It is critical that students arrive on time. Preferably, come early! If you miss a class or
-                    range session, you will not be allowed to complete the course and will have to purchase another seat
-                    in a later class.
+                                                                              skill progression. This progression begins
+                                                                              with small tasks and builds to larger,
+                                                                              more complex
+                                                                              tasks. It is critical that students arrive
+                                                                              on time. Preferably, come early! If you
+                                                                              miss a class or
+                                                                              range session, you will not be allowed to
+                                                                              complete the course and will have to
+                                                                              purchase another seat
+                                                                              in a later class.
                 </div>
 
                 <div class="mb-3"><span class="fw-bold">eCourse:</span> The eCourse is a national requirement for
-                    motorcycle training. You will be emailed a unique link to complete the eCourse before attending
-                    class.
+                                                                        motorcycle training. You will be emailed a
+                                                                        unique link to complete the eCourse before
+                                                                        attending
+                                                                        class.
                 </div>
             </div>
         </div>

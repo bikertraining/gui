@@ -1,4 +1,4 @@
-import { ComputedRef, UnwrapNestedRefs } from "vue";
+import { type ComputedRef, type UnwrapNestedRefs } from "vue";
 
 interface UseAdminScheduleInterface {
     choices: ComputedRef<Record<string, string>>;

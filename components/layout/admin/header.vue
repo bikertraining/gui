@@ -13,10 +13,10 @@ const close = () => {
             <NuxtLink class="navbar-brand"
                       to="/admin/schedule"
                       v-on:click="close()">
-                <ImageLoad alt="Biker Training LLC"
-                           height="100"
-                           src="bikertraining/logo_color_white.webp"
-                           width="255"/>
+                <img alt="Biker Training LLC"
+                         height="100"
+                         src="/img/bikertraining/logo_color_white.webp"
+                         width="255"/>
             </NuxtLink>
 
             <button aria-controls="navbarSupportedContent"

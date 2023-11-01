@@ -1,4 +1,4 @@
-import { ComputedRef, UnwrapNestedRefs } from "vue";
+import { type ComputedRef, type UnwrapNestedRefs } from "vue";
 
 interface UseClientTeamInterface {
     formErrors: ComputedRef<Record<string, unknown>>;

@@ -1,4 +1,4 @@
-import { ComputedRef, UnwrapNestedRefs } from "vue";
+import { type ComputedRef, type UnwrapNestedRefs } from "vue";
 
 interface UseAdminCoachInterface {
     createCoach: (values: Record<string, string>, actions: {

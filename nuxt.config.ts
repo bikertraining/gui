@@ -55,7 +55,13 @@ export default defineNuxtConfig({
         id: process.env.NUXT_PUBLIC_GOOGLE_TAG,
         loadingStrategy: 'defer'
     },
+    /*image: {
+        dir: 'public/img',
+        provider: 'ipx',
+        //quality: 80
+    },*/
     modules: [
+        '@nuxt/image',
         '@nuxtjs/robots',
         '@sidebase/nuxt-auth',
         '@vee-validate/nuxt',
@@ -63,6 +69,12 @@ export default defineNuxtConfig({
         'nuxt-gtag',
         'nuxt-simple-sitemap'
     ],
+    /*routeRules: {
+        '/': { prerender: true },
+        '/register': { prerender: true },
+        '/payment': { prerender: true },
+        '/admin/auth': { prerender: true }
+    },*/
     runtimeConfig: {
         public: {
             api_title: process.env.NUXT_PUBLIC_API_TITLE,

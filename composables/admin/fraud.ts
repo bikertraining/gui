@@ -1,4 +1,4 @@
-import { ComputedRef, UnwrapNestedRefs } from "vue";
+import { type ComputedRef, type UnwrapNestedRefs } from "vue";
 
 /**
  * UseAdminFraudInterface represents the interface for managing frauds in the admin app.

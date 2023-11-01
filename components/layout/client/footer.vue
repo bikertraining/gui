@@ -9,7 +9,7 @@
             <ul class="nav justify-content-center pb-3">
                 <li class="nav-item">
                     <NuxtLink class="nav-link px-2"
-                              to="/register">
+                              to="/schedule">
                         Sign Up Here
                     </NuxtLink>
                 </li>

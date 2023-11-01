@@ -48,7 +48,7 @@ useHead({
 
                         You can
                         <NuxtLink class="text-decoration-none"
-                                  to="/register">register online
+                                  to="/schedule">register online
                         </NuxtLink>
                         <span class="fw-bold">OR</span> call us at <a class="text-dark text-decoration-none"
                                                                       v-bind:href="'tel:' + getBusinessPhone(true)">{{
@@ -300,7 +300,7 @@ useHead({
                      data-bs-parent="#accordionFaq">
                     <div class="accordion-body p-3">
                         For the Basic RiderCourse and Kickstart course, students will use our training motorcycles. For
-                        the 3-Wheeled Basic RiderCourse and the Experienced RiderCourse students can use their own
+                        the 3-Wheeled Basic RiderCourse and the Skilled RiderCourse students can use their own
                         motorcycles.
                     </div>
                 </div>
@@ -467,7 +467,7 @@ useHead({
                                 }}
                             </li>
 
-                            <li class="list-group-item">Experienced RiderCourse ${{
+                            <li class="list-group-item">Skilled RiderCourse ${{
                                     formObj['erc']['process_amount']
                                 }}
                             </li>
@@ -503,7 +503,7 @@ useHead({
 
                             <li class="list-group-item">3-Wheel RiderCourse ${{ formObj['3wbrc']['re_amount'] }}</li>
 
-                            <li class="list-group-item">Experienced RiderCourse ${{ formObj['erc']['re_amount'] }}</li>
+                            <li class="list-group-item">Skilled RiderCourse ${{ formObj['erc']['re_amount'] }}</li>
                         </ol>
                     </div>
                 </div>

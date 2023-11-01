@@ -1,4 +1,4 @@
-import { computed, ComputedRef, reactive, UnwrapNestedRefs } from "vue";
+import { computed, type ComputedRef, reactive, type UnwrapNestedRefs } from "vue";
 
 interface UseProcessorInterface {
     doProcess: (url: string, method: "DELETE" | "GET" | "PATCH" | "POST" | "PUT", values: any) => Promise<void>;

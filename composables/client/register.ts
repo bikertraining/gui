@@ -1,4 +1,4 @@
-import { ComputedRef, UnwrapNestedRefs } from "vue";
+import { type ComputedRef, type UnwrapNestedRefs } from "vue";
 
 interface UseClientRegisterInterface {
     formArr: ComputedRef<string[]>;
@@ -27,6 +27,7 @@ interface UseClientRegisterInterface {
         last_name: string;
         phone: string;
         schedule: string;
+        schedule_details: object;
         state: string;
         xpl: string;
         zipcode: string;
@@ -35,15 +36,13 @@ interface UseClientRegisterInterface {
     getDefaults: (routeParams: any) => void;
     getIpaddress: () => Promise<void>;
     getPrice: (id: number | string | string[]) => void;
-    getSchedule: () => Promise<void>;
+    getSchedule: (id: number | string | string[]) => Promise<void>;
     nonFieldFormError: ComputedRef<boolean>;
     nonFieldFormMessage: ComputedRef<string>;
     submitRegistration: (values: Record<string, unknown>, actions: {
         setErrors: (arg0: Record<string, unknown>) => void
     }) => Promise<void>;
     utilClassDate: (date_from: string, date_to: string) => string;
-    utilGetSchedule: (values: any) => any;
-    utilUpdatePrice: (id: number | string | string[]) => Promise<void>;
     utilValidateCoupon: (values: Record<string, unknown>, actions: {
         setErrors: (arg0: Record<string, unknown>) => void
     }) => Promise<void>;
@@ -73,11 +72,11 @@ export const useClientRegister = (): UseClientRegisterInterface => {
     });
 
     const getDefaults = async (routeParams: any) => {
-        if (routeParams['id']) {
-            await getPrice(routeParams['id'].toString());
+        await getPrice(routeParams['id'].toString());
 
-            localRegister.formObj['schedule'] = routeParams['id'].toString();
-        }
+        await getSchedule(routeParams['id'].toString());
+
+        localRegister.formObj['schedule'] = routeParams['id'].toString();
 
         localRegister.formObj['xpl'] = 'none';
     }
@@ -103,14 +102,14 @@ export const useClientRegister = (): UseClientRegisterInterface => {
         loadingState.isActive = false;
     };
 
-    const getSchedule = async () => {
+    const getSchedule = async (id: number | string | string[]) => {
         loadingState.isActive = true;
 
-        const { doProcess, processorArr } = await useProcessor();
+        const { doProcess, processorObj } = await useProcessor();
 
-        await doProcess('client/schedule/search', 'GET', null);
+        await doProcess(`client/schedule/${id}`, 'GET', null);
 
-        localRegister.formArr = processorArr.value;
+        localRegister.formObj['schedule_details'] = processorObj.value;
 
         loadingState.isActive = false;
     };
@@ -142,6 +141,7 @@ export const useClientRegister = (): UseClientRegisterInterface => {
             last_name: '',
             phone: '',
             schedule: '',
+            schedule_details: {},
             state: '',
             xpl: '',
             zipcode: ''
@@ -210,39 +210,6 @@ export const useClientRegister = (): UseClientRegisterInterface => {
         }
     }
 
-    const utilGetSchedule = (values: any) => {
-        const schedule: { [index: string]: any; } = {};
-
-        values.forEach((val: any) => {
-            if (val['seats'] > 0) {
-                const class_type = val['class_type_name'];
-
-                const dates = utilClassDate(val['date_from'], val['date_to']);
-
-                const day_type = val['day_type_name'];
-
-                schedule[val['id']] = dates + ' | ' + day_type + ' | ' + class_type;
-            }
-        });
-
-        return schedule;
-    }
-
-    const utilUpdatePrice = async (id: number | string | string[]) => {
-        loadingState.isActive = true;
-
-        localRegister.formObj['coupon_is_active'] = false;
-
-        const { doProcess, processorObj } = await useProcessor();
-
-        await doProcess(`client/register/price/${id}`, 'GET', null);
-
-        localRegister.formObj['amount'] = processorObj.value['amount'];
-        localRegister.formObj['class_type'] = processorObj.value['class_type'];
-
-        loadingState.isActive = false;
-    }
-
     const utilValidateCoupon = async (values: Record<string, any>, actions: {
         setErrors: (arg0: Record<string, unknown>) => void;
     }) => {
@@ -280,8 +247,6 @@ export const useClientRegister = (): UseClientRegisterInterface => {
         nonFieldFormMessage,
         submitRegistration,
         utilClassDate,
-        utilGetSchedule,
-        utilUpdatePrice,
         utilValidateCoupon
     };
 };
