@@ -20,10 +20,10 @@ useHead({
         <h1 class="fw-bold mb-4 fs-4">LEARN TO RIDE OR IMPROVE YOUR MOTORCYCLE SKILLS</h1>
 
         <img alt="Biker Training LLC"
-                 class="d-block mx-auto mb-4 img-fluid"
-                 height="200"
-                 src="/img/bikertraining/logo_bike_only.webp"
-                 width="510"/>
+             class="d-block mx-auto mb-4 img-fluid"
+             height="200"
+             src="/img/bikertraining/logo_bike_only.webp"
+             width="510"/>
 
         <div class="fw-bold fs-5">
             We are the exclusive provider for all motorcycle training at Pensacola Harley-Davidson
@@ -61,11 +61,11 @@ useHead({
                                           target="_blank"
                                           to="https://learntoride3wheel.com/webreg/production/reactapp/?book=canamregister&SC=FLBKTR01&CC=3WBU">
                                     <img alt="Can-AM Learn to ride for $199"
-                                             class="d-block mx-auto img-fluid bg-black"
-                                             height="175"
-                                             loading="lazy"
-                                             src="/img/brp/199.webp"
-                                             width="340"/>
+                                         class="d-block mx-auto img-fluid bg-black"
+                                         height="175"
+                                         loading="lazy"
+                                         src="/img/brp/199.webp"
+                                         width="340"/>
                                 </NuxtLink>
 
                                 <div class="card-body">
@@ -95,12 +95,12 @@ useHead({
                             <div class="card border-0">
                                 <NuxtLink class="mx-auto mt-4"
                                           to="/schedule/erc">
-                                    <img alt="Experienced Rider Course"
-                                             class="d-block mx-auto img-fluid bg-black"
-                                             height="150"
-                                             loading="lazy"
-                                             src="/img/erc/hdsrc.webp"
-                                             width="500"/>
+                                    <img alt="Skilled Rider Course"
+                                         class="d-block mx-auto img-fluid bg-black"
+                                         height="150"
+                                         loading="lazy"
+                                         src="/img/erc/hdsrc.webp"
+                                         width="500"/>
                                 </NuxtLink>
 
                                 <div class="card-body">
@@ -173,11 +173,11 @@ useHead({
                 <NuxtLink target="_blank"
                           to="https://www.flhsmv.gov/driver-licenses-id-cards/motorcycle-rider-education-endorsements/florida-rider-training-program-courses/">
                     <img alt="Florida Rider Training Program"
-                             class="d-block img-fluid mt-4"
-                             height="138"
-                             loading="lazy"
-                             src="/img/frtp/logo.webp"
-                             width="200"/>
+                         class="d-block img-fluid mt-4"
+                         height="138"
+                         loading="lazy"
+                         src="/img/frtp/logo.webp"
+                         width="200"/>
                 </NuxtLink>
             </div>
 
@@ -185,11 +185,11 @@ useHead({
                 <NuxtLink target="_blank"
                           to="https://msf-usa.org/">
                     <img alt="Motorcycle Safety Foundation"
-                             class="d-block img-fluid mt-5"
-                             height="93"
-                             loading="lazy"
-                             src="/img/msf/logo.webp"
-                             width="200"/>
+                         class="d-block img-fluid mt-5"
+                         height="93"
+                         loading="lazy"
+                         src="/img/msf/logo.webp"
+                         width="200"/>
                 </NuxtLink>
             </div>
 
@@ -197,11 +197,11 @@ useHead({
                 <NuxtLink target="_blank"
                           to="https://www.pensacolaharley.com/">
                     <img alt="Pensacola Harley-Davidson"
-                             class="d-block img-fluid mt-5"
-                             height="97"
-                             loading="lazy"
-                             src="/img/phd/logo.webp"
-                             width="400"/>
+                         class="d-block img-fluid mt-5"
+                         height="97"
+                         loading="lazy"
+                         src="/img/phd/logo.webp"
+                         width="400"/>
                 </NuxtLink>
             </div>
         </div>

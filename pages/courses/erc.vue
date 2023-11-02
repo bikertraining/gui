@@ -6,9 +6,9 @@ const route = useRoute();
 
 definePageMeta({
     auth: false,
-    description: 'Experienced Rider Course',
-    keywords: 'experienced rider course, motorcycle advanced rider training, msf experienced rider course, msf advanced rider course exercises, experienced motorcycle rider course, experienced rider course near me',
-    title: 'Experienced Rider Course'
+    description: 'Skilled Rider Course',
+    keywords: 'skilled, skilled rider course, experienced rider course, motorcycle advanced rider training, msf experienced rider course, msf advanced rider course exercises, experienced motorcycle rider course, experienced rider course near me',
+    title: 'Skilled Rider Course'
 });
 
 onMounted(async () => {

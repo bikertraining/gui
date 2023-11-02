@@ -103,11 +103,12 @@ useHead({
                 <p><span class="fw-bold">Basic RiderCourse</span> - <span class="fw-bold">Saturday & Sunday</span> or
                     <span class="fw-bold">Monday & Tuesday</span> 7:00 AM to 4:00 PM</p>
 
-                <p><span class="fw-bold">Experienced RiderCourse</span> - <span class="fw-bold">Sunday</span> 12:00 PM
-                    (Noon) to 5:30 PM</p>
+                <p><span class="fw-bold">Skilled RiderCourse</span> - <span class="fw-bold">Sunday</span> 12:00 PM
+                                                                    (Noon) to 5:30 PM</p>
 
                 <p><span class="fw-bold">3-Wheel Basic RiderCourse</span> - <span class="fw-bold">Sunday</span> 1:00 PM
-                    to 4:00 PM and <span class="fw-bold">Monday</span> 7:00 AM to 3:00 PM</p>
+                                                                          to 4:00 PM and <span
+                            class="fw-bold">Monday</span> 7:00 AM to 3:00 PM</p>
             </div>
         </div>
 
