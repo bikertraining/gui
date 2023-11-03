@@ -2,6 +2,8 @@
         setup>
 const { formObj, getPrices } = useClientPrice();
 
+const { loadingState } = usePageLoading();
+
 const route = useRoute();
 
 definePageMeta({
@@ -12,7 +14,11 @@ definePageMeta({
 });
 
 onMounted(async () => {
+    loadingState.isActive = true;
+
     await getPrices();
+
+    loadingState.isActive = false;
 });
 
 useHead({
@@ -40,29 +46,39 @@ useHead({
                     <li class="mt-3 fw-bold">You must be able to ride a two-wheeled bicycle to enroll in the BRC.</li>
 
                     <li class="mt-3">You will learn about different types of motorcycles, their controls, and how they
-                        operate. The Rider Coaches, all experienced professionals, will advise you on the proper riding
-                        gear to ensure comfort and protection. You will also learn how alcohol and other drugs affect
-                        your ability to ride safely.
+                                     operate. The Rider Coaches, all experienced professionals, will advise you on the
+                                     proper riding
+                                     gear to ensure comfort and protection. You will also learn how alcohol and other
+                                     drugs affect
+                                     your ability to ride safely.
                     </li>
 
                     <li class="mt-3">The range is a controlled, off-street, pedestrian-free environment. Students use
-                        motorcycles provided by the school to learn and practice safely and correctly the various
-                        maneuvers and demanding situations encountered in street riding. Riders must pass both a written
-                        test and a riding skills test in order to complete the course. Upon successful completion, you
-                        will be exempt from any requirement to take the State test for your motorcycle endorsement at
-                        the driver's license office.
+                                     motorcycles provided by the school to learn and practice safely and correctly the
+                                     various
+                                     maneuvers and demanding situations encountered in street riding. Riders must pass
+                                     both a written
+                                     test and a riding skills test in order to complete the course. Upon successful
+                                     completion, you
+                                     will be exempt from any requirement to take the State test for your motorcycle
+                                     endorsement at
+                                     the driver's license office.
                     </li>
 
                     <li class="mt-3 fw-bold">This course meets the State of Florida requirement for obtaining a
-                        motorcycle endorsement on your driver’s license. All students must wear the required protective
-                        gear.
+                                             motorcycle endorsement on your driver’s license. All students must wear the
+                                             required protective
+                                             gear.
                     </li>
 
                     <li class="mt-3 fw-bold">Important: You are purchasing a seat in the class of your choice. After you
-                        select and confirm the date of the class that best fits your schedule, fees are nonrefundable.
-                        You must attend all class/range sessions. If you miss a class or range session or for any reason
-                        do not fully complete your class, you can purchase a seat in a subsequent class for
-                        ${{ formObj['brc']['re_amount'] }}.
+                                             select and confirm the date of the class that best fits your schedule, fees
+                                             are nonrefundable.
+                                             You must attend all class/range sessions. If you miss a class or range
+                                             session or for any reason
+                                             do not fully complete your class, you can purchase a seat in a subsequent
+                                             class for
+                                             ${{ formObj['brc']['re_amount'] }}.
                     </li>
                 </ul>
 

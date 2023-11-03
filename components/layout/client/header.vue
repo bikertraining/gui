@@ -16,9 +16,9 @@ const close = () => {
                       to="/"
                       v-on:click="close()">
                 <img alt="Biker Training LLC"
-                         height="100"
-                         src="/img/bikertraining/logo_color_white.webp"
-                         width="255"/>
+                     height="100"
+                     src="/img/bikertraining/logo_color_white.webp"
+                     width="255"/>
             </NuxtLink>
 
             <button aria-controls="navbarSupportedContent"

@@ -3,6 +3,8 @@
 
 const { formArr, getSearch, utilClassDate } = useAdminSchedule();
 
+const { loadingState } = usePageLoading();
+
 const route = useRoute();
 
 const router = useRouter();
@@ -15,7 +17,11 @@ definePageMeta({
 });
 
 onMounted(async () => {
+    loadingState.isActive = true;
+
     await getSearch();
+
+    loadingState.isActive = false;
 });
 
 useHead({
@@ -69,7 +75,7 @@ useHead({
             <tbody>
             <tr v-for="schedule in formArr"
                 v-bind:key="schedule"
-                v-on:click="router.push({ path: `/admin/schedule/edit/${schedule['id']}`})">
+                v-on:click="router.push({ path: `/admin/schedule/${schedule['id']}/edit`})">
                 <td>{{ utilClassDate(schedule['date_from'], schedule['date_to']) }}</td>
                 <td>{{ schedule['day_type_name'] }}</td>
                 <td>{{ schedule['class_type_name'] }}</td>

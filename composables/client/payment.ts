@@ -6,6 +6,7 @@ interface UseClientPaymentInterface {
         amount: string;
         address: string;
         city: string;
+        class_type: string;
         coupon_code: string;
         coupon_is_active: boolean;
         credit_card_cvv2: string;
@@ -19,11 +20,12 @@ interface UseClientPaymentInterface {
         ipaddress: string;
         last_name: string;
         phone: string;
+        process_amount: string;
         state: string;
         zipcode: string;
     }>;
-    formSuccess: ComputedRef<boolean>;
     getIpaddress: () => Promise<void>;
+    getPrice: (class_type: string | string[]) => Promise<void>;
     nonFieldFormError: ComputedRef<boolean>;
     nonFieldFormMessage: ComputedRef<string>;
     submitPayment: (values: Record<string, unknown>, actions: {
@@ -35,9 +37,9 @@ interface UseClientPaymentInterface {
 }
 
 export const useClientPayment = (): UseClientPaymentInterface => {
-    const { loadingState } = usePageLoading();
-
     const { getFraud } = useClientFraud();
+
+    const { loadingState } = usePageLoading();
 
     const router = useRouter();
 
@@ -49,24 +51,31 @@ export const useClientPayment = (): UseClientPaymentInterface => {
         return localPayment.formObj;
     });
 
-    const formSuccess = computed(() => {
-        return localPayment.formSuccess;
-    });
-
     const getIpaddress = async () => {
         const { doProcess, processorObj } = await useProcessor();
 
-        await doProcess('client/whatsmyip', 'GET', null);
+        await doProcess('client/whatsmyip/', 'GET', null);
 
         localPayment.formObj['ipaddress'] = processorObj.value;
+    };
+
+    const getPrice = async (class_type: string | string[]) => {
+        const { doProcess, processorObj } = await useProcessor();
+
+        await doProcess(`client/payment/${class_type}/price`, 'GET', null);
+
+        localPayment.formObj['amount'] = processorObj.value['amount'];
+        localPayment.formObj['class_type'] = processorObj.value['class_type'];
+        localPayment.formObj['process_amount'] = processorObj.value['process_amount'];
     };
 
     const localPayment: UnwrapNestedRefs<any> = reactive({
         formErrors: {},
         formObj: {
             address: '',
-            amount: '349.00',
+            amount: '0.00',
             city: '',
+            class_type: '',
             coupon_code: '',
             coupon_is_active: false,
             credit_card_cvv2: '',
@@ -80,10 +89,10 @@ export const useClientPayment = (): UseClientPaymentInterface => {
             ipaddress: '',
             last_name: '',
             phone: '',
+            process_amount: '0.00',
             state: '',
             zipcode: ''
         },
-        formSuccess: false,
         nonFieldFormError: false,
         nonFieldFormMessage: ''
     });
@@ -107,18 +116,20 @@ export const useClientPayment = (): UseClientPaymentInterface => {
 
         const { doProcess, processorErrors, processorSuccess } = await useProcessor();
 
-        await doProcess('client/payment/index', 'POST', values);
+        await doProcess('client/payment/', 'POST', values);
 
         if (!processorSuccess.value) {
             if ('non_field_errors' in processorErrors.value) {
                 localPayment.nonFieldFormError = true;
 
                 localPayment.nonFieldFormMessage = processorErrors.value['non_field_errors'];
+
+                await router.push({ path: `/payment/failed/${values['class_type']}/${processorErrors.value['non_field_errors']}` });
             } else {
                 actions.setErrors(processorErrors.value);
             }
         } else {
-            await router.push({ path: '/payment/confirmation/brc' });
+            await router.push({ path: `/payment/${values['class_type']}/confirmation` });
         }
 
         loadingState.isActive = false;
@@ -127,9 +138,11 @@ export const useClientPayment = (): UseClientPaymentInterface => {
     const utilValidateCoupon = async (values: Record<string, any>, actions: {
         setErrors: (arg0: Record<string, unknown>) => void;
     }) => {
+        loadingState.isActive = true;
+
         const { doProcess, processorObj } = await useProcessor();
 
-        await doProcess(`client/coupon/validate/${values['coupon_code'].toLowerCase()}/brc`, 'GET', null);
+        await doProcess(`client/coupon/validate/${values['coupon_code'].toLowerCase()}/${values['class_type']}`, 'GET', null);
 
         if (processorObj.value['error']) {
             actions.setErrors(processorObj.value['errors']);
@@ -146,13 +159,15 @@ export const useClientPayment = (): UseClientPaymentInterface => {
 
             localPayment.formObj['coupon_code'] = values['coupon_code'].toLowerCase();
         }
+
+        loadingState.isActive = false;
     }
 
     return {
         formErrors,
         formObj,
-        formSuccess,
         getIpaddress,
+        getPrice,
         nonFieldFormError,
         nonFieldFormMessage,
         submitPayment,

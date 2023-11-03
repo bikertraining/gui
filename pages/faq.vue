@@ -53,7 +53,7 @@ useHead({
                         <span class="fw-bold">OR</span> call us at <a class="text-dark text-decoration-none"
                                                                       v-bind:href="'tel:' + getBusinessPhone(true)">{{
                             getBusinessPhone(false)
-                        }}</a>
+                                                                                                                    }}</a>
                     </div>
                 </div>
             </div>
@@ -156,29 +156,37 @@ useHead({
                         <ol class="list-group-numbered list-group-flush">
                             <li class="list-group-item">
                                 <span class="fw-bold">Over the ankle sturdy footwear</span>. It's recommended you wear a
-                                shoe that allows you to feel the foot controls. Shoes or boots with a large heel or
-                                steel toe make it increasingly difficult to shift, especially for women.
+                                                                                           shoe that allows you to feel
+                                                                                           the foot controls. Shoes or
+                                                                                           boots with a large heel or
+                                                                                           steel toe make it
+                                                                                           increasingly difficult to
+                                                                                           shift, especially for women.
                             </li>
 
-                            <li class="list-group-item">Long pants made out of sturdy materials. No spandex or
-                                sweatpants.
+                            <li class="list-group-item">
+                                Long pants made out of sturdy materials. No spandex or sweatpants.
                             </li>
 
-                            <li class="list-group-item">Long sleeve shirt or jacket. Light colors work best when it's
-                                hot outside.
+                            <li class="list-group-item">
+                                Long sleeve shirt or jacket. Light colors work best when it's hot outside.
                             </li>
 
-                            <li class="list-group-item"><span class="fw-bold">Full fingered</span> gloves.
+                            <li class="list-group-item">
+                                <span class="fw-bold">Full fingered</span> gloves.
                             </li>
 
-                            <li class="list-group-item"><span class="fw-bold">D.O.T</span> helmet</li>
-
-                            <li class="list-group-item">Eye protection. Glasses are considered eye protection for the
-                                purpose of this course.
+                            <li class="list-group-item">
+                                <span class="fw-bold">D.O.T</span> helmet
                             </li>
 
-                            <li class="list-group-item">As it may rain, it's recommended to have motorcycle rain gear or
-                                consider bringing a change of clothes.
+                            <li class="list-group-item">
+                                Eye protection. Glasses are considered eye protection for the purpose of this course.
+                            </li>
+
+                            <li class="list-group-item">
+                                As it may rain, it's recommended to have motorcycle rain gear or consider bringing a
+                                change of clothes.
                             </li>
                         </ol>
                     </div>
@@ -348,36 +356,39 @@ useHead({
                      data-bs-parent="#accordionFaq">
                     <div class="accordion-body p-3">
                         <div class="accordion-body p-3">
-                            <p>A 3-Wheel motorcycle <span class="fw-bold">must</span> meet the following requirements:
+                            <p>
+                                A 3-Wheel motorcycle <span class="fw-bold">must</span> meet the following requirements:
                             </p>
 
                             <ol class="list-group-numbered list-group-flush">
-                                <li class="list-group-item">Three-track wheel orientation (leaves three separate tracks
-                                    during straight-line operation). Dual wheels may be in the front or rear.
+                                <li class="list-group-item">
+                                    Three-track wheel orientation (leaves three separate tracks during straight-line
+                                    operation). Dual wheels may be in the front or rear.
                                 </li>
 
-                                <li class="list-group-item">Motorcycle-based conversion or design. Handlebar steering
-                                    Motorcycle-type controls arranged with the standard convention (convenience
-                                    alterations such as a single brake pedal or lever control, automatic clutch, or
-                                    automatic transmission are allowed), Saddle seating, Seating causes rider/passenger
-                                    to straddle vehicle. If designed for a passenger, passenger must be seated behind
-                                    operator.
+                                <li class="list-group-item">
+                                    Motorcycle-based conversion or design. Handlebar steering Motorcycle-type controls
+                                    arranged with the standard convention (convenience alterations such as a single
+                                    brake pedal or lever control, automatic clutch, or automatic transmission are
+                                    allowed), Saddle seating, Seating causes rider/passenger to straddle vehicle. If
+                                    designed for a passenger, passenger must be seated behind operator.
                                 </li>
 
-                                <li class="list-group-item">Turning diameter of the vehicle at its widest point must be
-                                    less than 40 feet.
+                                <li class="list-group-item">
+                                    Turning diameter of the vehicle at its widest point must be less than 40 feet.
                                 </li>
 
-                                <li class="list-group-item">The vehicle must meet all applicable federal/state on-road
-                                    vehicle standards.
+                                <li class="list-group-item">
+                                    The vehicle must meet all applicable federal/state on-road vehicle standards.
                                 </li>
 
-                                <li class="list-group-item">Under no circumstances will vehicles with the following
-                                    designs characteristics be allowed in the 3WBRC: Automotive hybrids or automotive
-                                    conversions, vehicles with automotive controls or seating, vehicles with rear or
-                                    front mounted engines (engines must be mounted midframe below the rider), vehicles
-                                    with enclosed or semi-enclosed riding compartments, any other significant departure
-                                    from the standard motorcycle design.
+                                <li class="list-group-item">
+                                    Under no circumstances will vehicles with the following designs characteristics be
+                                    allowed in the 3WBRC: Automotive hybrids or automotive conversions, vehicles with
+                                    automotive controls or seating, vehicles with rear or front mounted engines (engines
+                                    must be mounted midframe below the rider), vehicles with enclosed or semi-enclosed
+                                    riding compartments, any other significant departure from the standard motorcycle
+                                    design.
                                 </li>
                             </ol>
                         </div>
@@ -460,16 +471,16 @@ useHead({
                         partial refund is full tuition minus a processing fee.
 
                         <ol class="list-group-numbered list-group-flush mt-3">
-                            <li class="list-group-item">Basic RiderCourse ${{ formObj['brc']['process_amount'] }}</li>
-
-                            <li class="list-group-item">3-Wheel RiderCourse ${{
-                                    formObj['3wbrc']['process_amount']
-                                }}
+                            <li class="list-group-item">
+                                Basic RiderCourse ${{ formObj['brc']['process_amount'] }}
                             </li>
 
-                            <li class="list-group-item">Skilled RiderCourse ${{
-                                    formObj['erc']['process_amount']
-                                }}
+                            <li class="list-group-item">
+                                3-Wheel RiderCourse ${{ formObj['3wbrc']['process_amount'] }}
+                            </li>
+
+                            <li class="list-group-item">
+                                Skilled RiderCourse ${{ formObj['src']['process_amount'] }}
                             </li>
                         </ol>
                     </div>
@@ -495,15 +506,21 @@ useHead({
                      data-bs-parent="#accordionFaq">
                     <div class="accordion-body p-3">
                         <p>There is no charge for postponement provided the student calls or emails at least 48 hours
-                            prior to their scheduled class. If less than 48 hours prior or if a student does not
-                            complete the entire class, a seat in a subsequent class may be purchased:</p>
+                           prior to their scheduled class. If less than 48 hours prior or if a student does not
+                           complete the entire class, a seat in a subsequent class may be purchased:</p>
 
                         <ol class="list-group-numbered list-group-flush">
-                            <li class="list-group-item">Basic RiderCourse ${{ formObj['brc']['re_amount'] }}</li>
+                            <li class="list-group-item">
+                                Basic RiderCourse ${{ formObj['brc']['re_amount'] }}
+                            </li>
 
-                            <li class="list-group-item">3-Wheel RiderCourse ${{ formObj['3wbrc']['re_amount'] }}</li>
+                            <li class="list-group-item">
+                                3-Wheel RiderCourse ${{ formObj['3wbrc']['re_amount'] }}
+                            </li>
 
-                            <li class="list-group-item">Skilled RiderCourse ${{ formObj['erc']['re_amount'] }}</li>
+                            <li class="list-group-item">
+                                Skilled RiderCourse ${{ formObj['src']['re_amount'] }}
+                            </li>
                         </ol>
                     </div>
                 </div>
@@ -553,16 +570,19 @@ useHead({
                      class="accordion-collapse collapse"
                      data-bs-parent="#accordionFaq">
                     <div class="accordion-body p-3">
-                        <div class="fw-bold mb-3">The eCourse is a requirement prior to taking the BRC or 3-wheel BRC.
+                        <div class="fw-bold mb-3">
+                            The eCourse is a requirement prior to taking the BRC or 3-wheel BRC.
                         </div>
 
-                        <div class="mb-3">Once you have registered for a class we will email you a unique link to
-                            complete the 5-hour online eCourse.
+                        <div class="mb-3">
+                            Once you have registered for a class we will email you a unique link to complete the 5-hour
+                            online eCourse.
                         </div>
 
-                        <div>After successful completion of the eCourse you'll receive a certificate which is good for
-                            30 days. If the certificate is older than 30 days you must retake the online eCourse to earn
-                            a new certificate.
+                        <div>
+                            After successful completion of the eCourse you'll receive a certificate which is good for 30
+                            days. If the certificate is older than 30 days you must retake the online eCourse to earn a
+                            new certificate.
                         </div>
                     </div>
                 </div>
@@ -627,34 +647,34 @@ useHead({
 
 <style scoped>
 .accordion-body {
-  padding: 0;
+    padding: 0;
 }
 
 .accordion-button {
-  background-color: #212529;
-  color: #FFFFFF;
+    background-color: #212529;
+    color: #FFFFFF;
 }
 
 .accordion-button.collapsed::after {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FFF'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FFF'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
 .accordion-button:hover {
-  background-color: #FE5C26 !important;
-  color: #FFFFFF;
+    background-color: #FE5C26 !important;
+    color: #FFFFFF;
 }
 
 .accordion-button:not(.collapsed) {
-  background-color: #FE5C26;
-  color: #FFFFFF;
-  box-shadow: 0 0 0 0;
+    background-color: #FE5C26;
+    color: #FFFFFF;
+    box-shadow: 0 0 0 0;
 }
 
 .accordion-button:not(.collapsed)::after {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FFF'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FFF'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
 .accordion-item {
-  border-bottom: 0;
+    border-bottom: 0;
 }
 </style>

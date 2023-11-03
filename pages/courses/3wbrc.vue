@@ -2,6 +2,8 @@
         setup>
 const { formObj, getPrices } = useClientPrice();
 
+const { loadingState } = usePageLoading();
+
 const route = useRoute();
 
 definePageMeta({
@@ -12,7 +14,11 @@ definePageMeta({
 });
 
 onMounted(async () => {
+    loadingState.isActive = true;
+
     await getPrices();
+
+    loadingState.isActive = false;
 });
 
 useHead({
@@ -86,11 +92,11 @@ useHead({
                               target="_blank"
                               to="https://learntoride3wheel.com/webreg/production/reactapp/?book=canamregister&SC=FLBKTR01&CC=3WBU">
                         <img alt="Can-AM Learn to ride for $199"
-                                 class="d-block mx-auto img-fluid bg-black"
-                                 height="175"
-                                 loading="lazy"
-                                 src="/img/brp/199.webp"
-                                 width="400"/>
+                             class="d-block mx-auto img-fluid bg-black"
+                             height="175"
+                             loading="lazy"
+                             src="/img/brp/199.webp"
+                             width="400"/>
                     </NuxtLink>
 
                     <div class="mt-3 text-start mx-auto">

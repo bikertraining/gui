@@ -1,29 +1,12 @@
-/**
- * UseClientFraudInterface represents the interface for managing frauds in the Client app.
- *
- * @interface
- */
 interface UseClientFraudInterface {
     getFraud: (values: Record<string, string>) => Promise<void>;
 }
 
-/**
- * Function to interact with the Client Fraud module.
- * @returns {UseClientFraudInterface} The object with the available functions and data.
- */
 export const useClientFraud = (): UseClientFraudInterface => {
     const { loadingState } = usePageLoading();
 
     const router = useRouter();
 
-    /**
-     * Process the given values to check for fraud.
-     *
-     * @param {Record<string, string>} values - An object containing the values to check for fraud.
-     * @returns {Promise<void>} - A promise that resolves when the fraud check is complete.
-     *
-     * @throws {Error} - If a fraud string is found, the function throws an error and redirects to "/callus".
-     */
     const getFraud = async (values: Record<string, string>): Promise<void> => {
         const { doProcess, processorObj } = await useProcessor();
 

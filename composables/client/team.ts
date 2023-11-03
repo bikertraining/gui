@@ -8,7 +8,6 @@ interface UseClientTeamInterface {
         name: string;
         phone: string;
     }>;
-    formSuccess: ComputedRef<boolean>;
     submitContact: (values: Record<string, unknown>, actions: {
         setErrors: (arg0: Record<string, unknown>) => void
     }) => Promise<void>;
@@ -27,10 +26,6 @@ export const useClientTeam = (): UseClientTeamInterface => {
         return localTeam.formObj;
     });
 
-    const formSuccess = computed(() => {
-        return localTeam.formSuccess;
-    });
-
     const localTeam: UnwrapNestedRefs<any> = reactive({
         formErrors: {},
         formObj: {
@@ -38,8 +33,7 @@ export const useClientTeam = (): UseClientTeamInterface => {
             message: '',
             name: '',
             phone: ''
-        },
-        formSuccess: false,
+        }
     });
 
     const submitContact = async (values: Record<string, unknown>, actions: {
@@ -49,7 +43,7 @@ export const useClientTeam = (): UseClientTeamInterface => {
 
         const { doProcess, processorErrors, processorSuccess } = await useProcessor();
 
-        await doProcess('client/team/index', 'POST', values);
+        await doProcess('client/team/', 'POST', values);
 
         if (!processorSuccess.value) {
             actions.setErrors(processorErrors.value);
@@ -63,7 +57,6 @@ export const useClientTeam = (): UseClientTeamInterface => {
     return {
         formErrors,
         formObj,
-        formSuccess,
         submitContact
     };
 };

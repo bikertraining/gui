@@ -2,6 +2,8 @@
         setup>
 const { formArr, frtp_expiration, getSearch, msf_expiration } = useAdminCoach();
 
+const { loadingState } = usePageLoading();
+
 const route = useRoute();
 
 const router = useRouter();
@@ -14,7 +16,11 @@ definePageMeta({
 });
 
 onMounted(async () => {
+    loadingState.isActive = true;
+
     await getSearch();
+
+    loadingState.isActive = false;
 });
 
 useHead({
@@ -68,7 +74,7 @@ useHead({
             <tbody>
             <tr v-for="coach in formArr"
                 v-bind:key="coach"
-                v-on:click="router.push({ path: `/admin/coach/edit/${coach['id']}`})">
+                v-on:click="router.push({ path: `/admin/coach/${coach['id']}/edit`})">
                 <td v-if="coach['msf_id'] > 0">
                     {{ coach['msf_id'] }}<br>
                 </td>

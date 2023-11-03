@@ -1,8 +1,10 @@
 <script lang="ts"
         setup>
-const route = useRoute();
-
 const { deleteContact } = useClientContact();
+
+const { loadingState } = usePageLoading();
+
+const route = useRoute();
 
 definePageMeta({
     auth: false,
@@ -11,8 +13,12 @@ definePageMeta({
     title: 'Unsubscribe from Contact List'
 });
 
-onMounted(() => {
-    deleteContact(route.params['email'].toString());
+onMounted(async () => {
+    loadingState.isActive = true;
+
+    await deleteContact(route.params['email'].toString());
+
+    loadingState.isActive = false;
 });
 
 useHead({

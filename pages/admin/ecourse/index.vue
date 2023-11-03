@@ -4,11 +4,15 @@ import { object, string } from "yup";
 
 const { formObj, getEdit, updateEcourse } = useAdminEcourse();
 
+const { loadingState } = usePageLoading();
+
 const route = useRoute();
 
 const schema = object({
     link_3wbrc: string().required(),
-    link_brc_e5: string().required()
+    link_brc_e3: string(),
+    link_brc_e5: string().required(),
+    link_src: string()
 });
 
 definePageMeta({
@@ -19,7 +23,11 @@ definePageMeta({
 });
 
 onMounted(async () => {
+    loadingState.isActive = true;
+
     await getEdit();
+
+    loadingState.isActive = false;
 });
 
 useHead({
@@ -42,11 +50,27 @@ useHead({
                 </div>
 
                 <div class="col-md-12">
+                    <FormText v-model="formObj['link_brc_e3']"
+                              :required="false"
+                              help-text="MSF Unique Link"
+                              label="BRC URL - e3x5x10"
+                              name="link_brc_e3"/>
+                </div>
+
+                <div class="col-md-12">
                     <FormText v-model="formObj['link_brc_e5']"
                               :required="true"
                               help-text="MSF Unique Link"
                               label="BRC URL - eP1x11"
                               name="link_brc_e5"/>
+                </div>
+
+                <div class="col-md-12">
+                    <FormText v-model="formObj['link_src']"
+                              :required="false"
+                              help-text="MSF Unique Link"
+                              label="SRC URL - SS1"
+                              name="link_src"/>
                 </div>
 
                 <div class="d-flex justify-content-between">

@@ -39,9 +39,9 @@ useHead({
                 <div class="d-flex justify-content-center">
                     <NuxtLink to="/">
                         <img alt="Login"
-                                 height="100"
-                                 src="/img/bikertraining/logo_llc_color.webp"
-                                 width="255"/>
+                             height="100"
+                             src="/img/bikertraining/logo_llc_color.webp"
+                             width="255"/>
                     </NuxtLink>
                 </div>
 

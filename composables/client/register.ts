@@ -26,14 +26,14 @@ interface UseClientRegisterInterface {
         ipaddress: string;
         last_name: string;
         phone: string;
+        process_amount: string;
         schedule: string;
         schedule_details: object;
         state: string;
         xpl: string;
         zipcode: string;
     }>;
-    formSuccess: ComputedRef<boolean>;
-    getDefaults: (routeParams: any) => void;
+    getDefaults: (routeParams: any) => Promise<void>;
     getIpaddress: () => Promise<void>;
     getPrice: (id: number | string | string[]) => void;
     getSchedule: (id: number | string | string[]) => Promise<void>;
@@ -49,9 +49,9 @@ interface UseClientRegisterInterface {
 }
 
 export const useClientRegister = (): UseClientRegisterInterface => {
-    const { loadingState } = usePageLoading();
-
     const { getFraud } = useClientFraud();
+
+    const { loadingState } = usePageLoading();
 
     const router = useRouter();
 
@@ -67,11 +67,9 @@ export const useClientRegister = (): UseClientRegisterInterface => {
         return localRegister.formObj;
     });
 
-    const formSuccess = computed(() => {
-        return localRegister.formSuccess;
-    });
-
     const getDefaults = async (routeParams: any) => {
+        await getIpaddress();
+
         await getPrice(routeParams['id'].toString());
 
         await getSchedule(routeParams['id'].toString());
@@ -84,34 +82,27 @@ export const useClientRegister = (): UseClientRegisterInterface => {
     const getIpaddress = async () => {
         const { doProcess, processorObj } = await useProcessor();
 
-        await doProcess('client/whatsmyip', 'GET', null);
+        await doProcess('client/whatsmyip/', 'GET', null);
 
         localRegister.formObj['ipaddress'] = processorObj.value;
     };
 
     const getPrice = async (id: number | string | string[]) => {
-        loadingState.isActive = true;
-
         const { doProcess, processorObj } = await useProcessor();
 
-        await doProcess(`client/register/price/${id}`, 'GET', null);
+        await doProcess(`client/register/${id}/price`, 'GET', null);
 
         localRegister.formObj['amount'] = processorObj.value['amount'];
         localRegister.formObj['class_type'] = processorObj.value['class_type'];
-
-        loadingState.isActive = false;
+        localRegister.formObj['process_amount'] = processorObj.value['process_amount'];
     };
 
     const getSchedule = async (id: number | string | string[]) => {
-        loadingState.isActive = true;
-
         const { doProcess, processorObj } = await useProcessor();
 
-        await doProcess(`client/schedule/${id}`, 'GET', null);
+        await doProcess(`client/schedule/search/${id}/id`, 'GET', null);
 
         localRegister.formObj['schedule_details'] = processorObj.value;
-
-        loadingState.isActive = false;
     };
 
     const localRegister: UnwrapNestedRefs<any> = reactive({
@@ -140,13 +131,13 @@ export const useClientRegister = (): UseClientRegisterInterface => {
             ipaddress: '',
             last_name: '',
             phone: '',
+            process_amount: '0.00',
             schedule: '',
             schedule_details: {},
             state: '',
             xpl: '',
             zipcode: ''
         },
-        formSuccess: false,
         nonFieldFormError: false,
         nonFieldFormMessage: ''
     });
@@ -170,13 +161,15 @@ export const useClientRegister = (): UseClientRegisterInterface => {
 
         const { doProcess, processorErrors, processorSuccess } = await useProcessor();
 
-        await doProcess('client/register/index', 'POST', values);
+        await doProcess('client/register/', 'POST', values);
 
         if (!processorSuccess.value) {
             if ('non_field_errors' in processorErrors.value) {
                 localRegister.nonFieldFormError = true;
 
                 localRegister.nonFieldFormMessage = processorErrors.value['non_field_errors'];
+
+                await router.push({ path: `/register/failed/${values['schedule']}/${processorErrors.value['non_field_errors']}` });
             } else {
                 actions.setErrors(processorErrors.value);
             }
@@ -213,6 +206,8 @@ export const useClientRegister = (): UseClientRegisterInterface => {
     const utilValidateCoupon = async (values: Record<string, any>, actions: {
         setErrors: (arg0: Record<string, unknown>) => void;
     }) => {
+        loadingState.isActive = true;
+
         const { doProcess, processorObj } = await useProcessor();
 
         await doProcess(`client/coupon/validate/${values['coupon_code'].toLowerCase()}/${localRegister.formObj['class_type']}`, 'GET', null);
@@ -232,13 +227,14 @@ export const useClientRegister = (): UseClientRegisterInterface => {
 
             localRegister.formObj['coupon_code'] = values['coupon_code'].toLowerCase();
         }
+
+        loadingState.isActive = false;
     }
 
     return {
         formArr,
         formErrors,
         formObj,
-        formSuccess,
         getDefaults,
         getIpaddress,
         getPrice,

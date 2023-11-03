@@ -2,6 +2,8 @@
         setup>
 const { formArr, getSearch } = useAdminFraud();
 
+const { loadingState } = usePageLoading();
+
 const route = useRoute();
 
 const router = useRouter();
@@ -14,7 +16,11 @@ definePageMeta({
 });
 
 onMounted(async () => {
+    loadingState.isActive = true;
+
     await getSearch();
+
+    loadingState.isActive = false;
 });
 
 useHead({
@@ -60,11 +66,11 @@ useHead({
             </thead>
 
             <tbody>
-            <tr v-for="coupon in formArr"
-                v-bind:key="coupon"
-                v-on:click="router.push({ path: `/admin/fraud/${coupon['id']}/edit`})">
-                <td>{{ coupon['name'] }}</td>
-                <td>{{ coupon['fraud_type_name'] }}</td>
+            <tr v-for="fraud in formArr"
+                v-bind:key="fraud"
+                v-on:click="router.push({ path: `/admin/fraud/${fraud['id']}/edit`})">
+                <td>{{ fraud['name'] }}</td>
+                <td>{{ fraud['fraud_type_name'] }}</td>
             </tr>
             </tbody>
         </table>

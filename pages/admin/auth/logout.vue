@@ -12,8 +12,8 @@ definePageMeta({
     title: 'Logout'
 });
 
-onMounted(() => {
-    logout();
+onMounted(async () => {
+    await logout();
 });
 
 useHead({

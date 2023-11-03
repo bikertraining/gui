@@ -2,6 +2,8 @@
         setup>
 const { formArr, getSearch, utilClassDate } = useClientSchedule();
 
+const { loadingState } = usePageLoading();
+
 const route = useRoute();
 
 const router = useRouter();
@@ -14,7 +16,11 @@ definePageMeta({
 });
 
 onMounted(async () => {
+    loadingState.isActive = true;
+
     await getSearch(route.params['class_type']);
+
+    loadingState.isActive = false;
 });
 
 useHead({
@@ -81,10 +87,15 @@ useHead({
             Sorry but there are no available Basic Rider classes.
             </tbody>
 
-            <tbody v-if="formArr.length === 0 && route.params['class_type'] === 'erc'"
+            <tbody v-if="formArr.length === 0 && route.params['class_type'] === 'src'"
                    class="text-danger fw-bold text-center">
             Sorry but there are no available Skilled Rider classes. However, if you had a group of at least 4
             students we can add a private class. Call us for more information.
+            </tbody>
+
+            <tbody v-if="formArr.length === 0 && route.params['class_type'] === ''"
+                   class="text-danger fw-bold text-center">
+            Sorry but there are no available classes.
             </tbody>
         </table>
     </div>
@@ -100,15 +111,23 @@ useHead({
                     Class Times
                 </div>
 
-                <p><span class="fw-bold">Basic RiderCourse</span> - <span class="fw-bold">Saturday & Sunday</span> or
-                    <span class="fw-bold">Monday & Tuesday</span> 7:00 AM to 4:00 PM</p>
+                <div class="mb-3">
+                    <span class="fw-bold">3-Wheel Basic RiderCourse</span> -
+                    <span class="fw-bold">Sunday</span> 1:00 PM to 4:00 PM and
+                    <span class="fw-bold">Monday</span> 7:00 AM to 3:00 PM
+                </div>
 
-                <p><span class="fw-bold">Skilled RiderCourse</span> - <span class="fw-bold">Sunday</span> 12:00 PM
-                                                                    (Noon) to 5:30 PM</p>
+                <div class="mb-3">
+                    <span class="fw-bold">Basic RiderCourse</span> -
+                    <span class="fw-bold">Saturday & Sunday</span> or
+                    <span class="fw-bold">Monday & Tuesday</span> or
+                    <span class="fw-bold">Thursday & Friday</span> 7:00 AM to 4:00 PM
+                </div>
 
-                <p><span class="fw-bold">3-Wheel Basic RiderCourse</span> - <span class="fw-bold">Sunday</span> 1:00 PM
-                                                                          to 4:00 PM and <span
-                            class="fw-bold">Monday</span> 7:00 AM to 3:00 PM</p>
+                <div>
+                    <span class="fw-bold">Skilled RiderCourse</span> -
+                    <span class="fw-bold">Sunday</span> 12:00 PM (Noon) to 5:30 PM
+                </div>
             </div>
         </div>
 

@@ -29,13 +29,13 @@ useHead({
                     <li class="mt-3 fw-bold">You must provide your own motorcycle.</li>
 
                     <li class="mt-3">Private instruction is available for riders of all skill levels from beginners to
-                        advanced.
+                                     advanced.
                     </li>
 
                     <li class="mt-3">We can provide tailored instruction to meet your exact needs.</li>
 
                     <li class="mt-3 fw-bold">Note: This course is NOT FOR ENDORSEMENT. You must already have your
-                        motorcycle endorsement.
+                                             motorcycle endorsement.
                     </li>
                 </ul>
 

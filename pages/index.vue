@@ -94,12 +94,12 @@ useHead({
 
                             <div class="card border-0">
                                 <NuxtLink class="mx-auto mt-4"
-                                          to="/schedule/erc">
+                                          to="/schedule/src">
                                     <img alt="Skilled Rider Course"
                                          class="d-block mx-auto img-fluid bg-black"
                                          height="150"
                                          loading="lazy"
-                                         src="/img/erc/hdsrc.webp"
+                                         src="/img/src/hdsrc.webp"
                                          width="500"/>
                                 </NuxtLink>
 
@@ -109,7 +109,7 @@ useHead({
                                                               your motorcycle on a military installation?</p>
 
                                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-3">
-                                        <NuxtLink to="/schedule/erc">
+                                        <NuxtLink to="/schedule/src">
                                             <button class="btn btn-success btn-lg px-4"
                                                     type="button">
                                                 <svg class="bi-button">

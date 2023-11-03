@@ -19,7 +19,6 @@ interface UseAdminCoachInterface {
         state: string;
         zipcode: string;
     }>;
-    formSuccess: ComputedRef<boolean>;
     frtp_expiration: (value: string) => number;
     getEdit: (id: string) => Promise<void>;
     getSearch: () => Promise<void>;
@@ -30,9 +29,9 @@ interface UseAdminCoachInterface {
 }
 
 export const useAdminCoach = (): UseAdminCoachInterface => {
-    const { loadingState } = usePageLoading();
-
     const { $event } = useNuxtApp();
+
+    const { loadingState } = usePageLoading();
 
     const router = useRouter();
 
@@ -71,12 +70,10 @@ export const useAdminCoach = (): UseAdminCoachInterface => {
 
         const { doProcess, processorErrors, processorSuccess } = await useProcessor();
 
-        await doProcess(`admin/coach/delete/${values['id']}`, 'DELETE', null);
+        await doProcess(`admin/coach/${values['id']}/delete`, 'DELETE', null);
 
         if (!processorSuccess.value) {
             localCoach.formErrors = processorErrors.value;
-        } else {
-            localCoach.formSuccess = true;
         }
 
         loadingState.isActive = false;
@@ -96,10 +93,6 @@ export const useAdminCoach = (): UseAdminCoachInterface => {
         return localCoach.formObj;
     });
 
-    const formSuccess = computed(() => {
-        return localCoach.formSuccess;
-    });
-
     const frtp_expiration = (value: string) => {
         const frtp_date = new Date(dayjs(value).format('MM/DD/YYYY'));
         const current_date = new Date(dayjs(new Date()).format('MM/DD/YYYY'));
@@ -110,30 +103,22 @@ export const useAdminCoach = (): UseAdminCoachInterface => {
     };
 
     const getEdit = async (id: string) => {
-        loadingState.isActive = true;
-
         const { doProcess, processorObj } = await useProcessor();
 
-        await doProcess(`admin/coach/edit/${id}`, 'GET', null);
+        await doProcess(`admin/coach/${id}/edit`, 'GET', null);
 
         localCoach.formObj['date_to'] = dayjs(localCoach.formObj['date_to']).format('YYYY/MM/DD');
         localCoach.formObj['frtp_date_from'] = dayjs(localCoach.formObj['frtp_date_from']).format('YYYY/MM/DD');
 
         localCoach.formObj = processorObj.value;
-
-        loadingState.isActive = false;
     };
 
     const getSearch = async () => {
-        loadingState.isActive = true;
-
         const { doProcess, processorArr } = await useProcessor();
 
         await doProcess('admin/coach/search', 'GET', null);
 
         localCoach.formArr = processorArr.value
-
-        loadingState.isActive = false;
     };
 
     const localCoach: UnwrapNestedRefs<any> = reactive({
@@ -150,8 +135,7 @@ export const useAdminCoach = (): UseAdminCoachInterface => {
             phone: '',
             state: '',
             zipcode: ''
-        },
-        formSuccess: false
+        }
     });
 
     const msf_expiration = (value: string) => {
@@ -174,7 +158,7 @@ export const useAdminCoach = (): UseAdminCoachInterface => {
 
         const { doProcess, processorErrors, processorSuccess } = await useProcessor();
 
-        await doProcess(`admin/coach/edit/${values['id']}`, 'PATCH', values);
+        await doProcess(`admin/coach/${values['id']}/edit`, 'PATCH', values);
 
         if (!processorSuccess.value) {
             actions.setErrors(processorErrors.value);
@@ -198,7 +182,6 @@ export const useAdminCoach = (): UseAdminCoachInterface => {
         formArr,
         formErrors,
         formObj,
-        formSuccess,
         frtp_expiration,
         getEdit,
         getSearch,

@@ -1,5 +1,5 @@
 interface useAuthorizationInterface {
-    logout: () => void;
+    logout: () => Promise<void>;
     submitLogin: (values: Record<string, unknown>, actions: {
         setErrors: (arg0: Record<string, unknown>) => void
     }) => Promise<void>;

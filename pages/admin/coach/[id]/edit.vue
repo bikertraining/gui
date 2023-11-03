@@ -4,6 +4,8 @@ import { object, string } from "yup";
 
 const { deleteCoach, formErrors, formObj, getEdit, updateCoach } = useAdminCoach();
 
+const { loadingState } = usePageLoading();
+
 const route = useRoute();
 
 const schema = object({
@@ -27,7 +29,11 @@ definePageMeta({
 });
 
 onMounted(async () => {
+    loadingState.isActive = true;
+
     await getEdit(route.params['id'].toString());
+
+    loadingState.isActive = false;
 });
 
 useHead({

@@ -4,6 +4,8 @@ import { boolean, object, string } from "yup";
 
 const { formObj, getEdit, updatePrice } = useAdminPrice();
 
+const { loadingState } = usePageLoading();
+
 const route = useRoute();
 
 const schema = object({
@@ -19,7 +21,11 @@ definePageMeta({
 });
 
 onMounted(async () => {
+    loadingState.isActive = true;
+
     await getEdit(route.params['id'].toString());
+
+    loadingState.isActive = false;
 });
 
 useHead({

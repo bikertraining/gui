@@ -4,6 +4,8 @@ import { object, string } from "yup";
 
 const { choices, deleteSchedule, formErrors, formObj, getChoices, getEdit, updateSchedule } = useAdminSchedule();
 
+const { loadingState } = usePageLoading();
+
 const route = useRoute();
 
 const schema = object({
@@ -22,9 +24,13 @@ definePageMeta({
 });
 
 onMounted(async () => {
+    loadingState.isActive = true;
+
     await getChoices();
 
     await getEdit(route.params['id'].toString());
+
+    loadingState.isActive = false;
 });
 
 useHead({

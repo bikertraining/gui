@@ -2,6 +2,8 @@
         setup>
 const { formArr, getSearch } = useAdminPrice();
 
+const { loadingState } = usePageLoading();
+
 const route = useRoute();
 
 const router = useRouter();
@@ -14,7 +16,11 @@ definePageMeta({
 });
 
 onMounted(async () => {
+    loadingState.isActive = true;
+
     await getSearch();
+
+    loadingState.isActive = false;
 });
 
 useHead({
@@ -44,7 +50,7 @@ useHead({
             <tbody>
             <tr v-for="price in formArr"
                 v-bind:key="price"
-                v-on:click="router.push({ path: `/admin/price/edit/${price['id']}`})">
+                v-on:click="router.push({ path: `/admin/price/${price['id']}/edit`})">
                 <td>{{ price['class_type_name'] }}</td>
                 <td>${{ price['amount'] }}</td>
                 <td>

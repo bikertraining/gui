@@ -37,15 +37,15 @@ useHead({
                     <li class="mt-3 fw-bold">Note: This course is NOT FOR ENDORSEMENT</li>
 
                     <li class="mt-3">The KickStart Course can be given just about any time during the week and on most
-                        weekends.
+                                     weekends.
                     </li>
 
                     <li class="mt-3">Novice riders that complete this course find they are quite comfortable with the
-                        motorcycle and better prepared for the BRC.
+                                     motorcycle and better prepared for the BRC.
                     </li>
 
                     <li class="mt-3 fw-bold">This course is only available to those who have taken the BRC and were not
-                        comfortable enough to continue.
+                                             comfortable enough to continue.
                     </li>
                 </ul>
 

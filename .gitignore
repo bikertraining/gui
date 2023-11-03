@@ -1,5 +1,6 @@
 # Nuxt dev/build outputs
 .output
+.data
 .nuxt
 .nitro
 .cache
@@ -16,9 +17,11 @@ logs
 .DS_Store
 .fleet
 .idea
-package-lock.json
 
 # Local env files
 .env
 .env.*
 !.env.example
+
+# Custom
+package-lock.json

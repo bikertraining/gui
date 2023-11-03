@@ -12,7 +12,6 @@ interface UseAdminContactInterface {
         email: string;
         name: string;
     }>;
-    formSuccess: ComputedRef<boolean>;
     getEdit: (id: string) => Promise<void>;
     getSearch: () => Promise<void>;
     updateContact: (values: Record<string, string>, actions: {
@@ -21,9 +20,9 @@ interface UseAdminContactInterface {
 }
 
 export const useAdminContact = (): UseAdminContactInterface => {
-    const { loadingState } = usePageLoading();
-
     const { $event } = useNuxtApp();
+
+    const { loadingState } = usePageLoading();
 
     const router = useRouter();
 
@@ -59,12 +58,10 @@ export const useAdminContact = (): UseAdminContactInterface => {
 
         const { doProcess, processorErrors, processorSuccess } = await useProcessor();
 
-        await doProcess(`admin/contact/delete/${values['id']}`, 'DELETE', null);
+        await doProcess(`admin/contact/${values['id']}/delete`, 'DELETE', null);
 
         if (!processorSuccess.value) {
             localContact.formErrors = processorErrors.value;
-        } else {
-            localContact.formSuccess = true;
         }
 
         loadingState.isActive = false;
@@ -94,32 +91,20 @@ export const useAdminContact = (): UseAdminContactInterface => {
         return localContact.formObj;
     });
 
-    const formSuccess = computed(() => {
-        return localContact.formSuccess;
-    });
-
     const getEdit = async (id: string) => {
-        loadingState.isActive = true;
-
         const { doProcess, processorObj } = await useProcessor();
 
-        await doProcess(`admin/contact/edit/${id}`, 'GET', null);
+        await doProcess(`admin/contact/${id}/edit`, 'GET', null);
 
         localContact.formObj = processorObj.value;
-
-        loadingState.isActive = false;
     };
 
     const getSearch = async () => {
-        loadingState.isActive = true;
-
         const { doProcess, processorArr } = await useProcessor();
 
         await doProcess('admin/contact/search', 'GET', null);
 
         localContact.formArr = processorArr.value
-
-        loadingState.isActive = false;
     };
 
     const localContact: UnwrapNestedRefs<any> = reactive({
@@ -128,8 +113,7 @@ export const useAdminContact = (): UseAdminContactInterface => {
         formObj: {
             email: '',
             name: ''
-        },
-        formSuccess: false
+        }
     });
 
     const updateContact = async (values: Record<string, string>, actions: {
@@ -139,7 +123,7 @@ export const useAdminContact = (): UseAdminContactInterface => {
 
         const { doProcess, processorErrors, processorSuccess } = await useProcessor();
 
-        await doProcess(`admin/contact/edit/${values['id']}`, 'PATCH', values);
+        await doProcess(`admin/contact/${values['id']}/edit`, 'PATCH', values);
 
         if (!processorSuccess.value) {
             actions.setErrors(processorErrors.value);
@@ -164,7 +148,6 @@ export const useAdminContact = (): UseAdminContactInterface => {
         formArr,
         formErrors,
         formObj,
-        formSuccess,
         getEdit,
         getSearch,
         updateContact

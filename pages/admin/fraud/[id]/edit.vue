@@ -4,10 +4,12 @@ import { number, object, string } from "yup";
 
 const { choices, deleteFraud, formErrors, formObj, getChoices, getEdit, updateFraud } = useAdminFraud();
 
+const { loadingState } = usePageLoading();
+
 const route = useRoute();
 
 const schema = object({
-    fraud_id: number().required(),
+    id: number().required(),
     fraud_type: string().required(),
     name: string().required()
 });
@@ -20,9 +22,13 @@ definePageMeta({
 });
 
 onMounted(async () => {
+    loadingState.isActive = true;
+
     await getChoices();
 
-    await getEdit(route.params['fraud_id'].toString());
+    await getEdit(route.params['id'].toString());
+
+    loadingState.isActive = false;
 });
 
 useHead({
@@ -35,9 +41,9 @@ useHead({
         <div class="d-inline-flex">
             <Form :validation-schema="schema"
                   @submit="updateFraud">
-                <FormHidden v-model="route.params['fraud_id']"
+                <FormHidden v-model="route.params['id']"
                             :required="true"
-                            name="fraud_id"/>
+                            name="id"/>
 
                 <div class="row g-3">
                     <FormText v-model="formObj['name']"
@@ -60,7 +66,7 @@ useHead({
 
                     <ModalDelete :delete="deleteFraud"
                                  :message-error="formErrors"
-                                 :params="{ id: route.params['fraud_id'] }"
+                                 :params="{ id: route.params['id'] }"
                                  message-alert="Continuing will remove this fraud string."
                                  message-success="Fraud string has been removed."
                                  redirect="/admin/fraud"/>

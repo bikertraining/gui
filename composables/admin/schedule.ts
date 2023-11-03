@@ -16,7 +16,6 @@ interface UseAdminScheduleInterface {
         price: string;
         seats: string;
     }>;
-    formSuccess: ComputedRef<boolean>;
     getChoices: () => Promise<void>;
     getEdit: (id: string) => Promise<void>;
     getSearch: () => Promise<void>;
@@ -27,9 +26,9 @@ interface UseAdminScheduleInterface {
 }
 
 export const useAdminSchedule = (): UseAdminScheduleInterface => {
-    const { loadingState } = usePageLoading();
-
     const { $event } = useNuxtApp();
+
+    const { loadingState } = usePageLoading();
 
     const router = useRouter();
 
@@ -72,12 +71,10 @@ export const useAdminSchedule = (): UseAdminScheduleInterface => {
 
         const { doProcess, processorErrors, processorSuccess } = await useProcessor();
 
-        await doProcess(`admin/schedule/delete/${values['id']}`, 'DELETE', null);
+        await doProcess(`admin/schedule/${values['id']}/delete`, 'DELETE', null);
 
         if (!processorSuccess.value) {
             localSchedule.formErrors = processorErrors.value;
-        } else {
-            localSchedule.formSuccess = true;
         }
 
         loadingState.isActive = false;
@@ -97,10 +94,6 @@ export const useAdminSchedule = (): UseAdminScheduleInterface => {
         return localSchedule.formObj;
     });
 
-    const formSuccess = computed(() => {
-        return localSchedule.formSuccess;
-    });
-
     const getChoices = async () => {
         const { doProcess, processorObj } = await useProcessor();
 
@@ -110,30 +103,22 @@ export const useAdminSchedule = (): UseAdminScheduleInterface => {
     };
 
     const getEdit = async (id: string) => {
-        loadingState.isActive = true;
-
         const { doProcess, processorObj } = await useProcessor();
 
-        await doProcess(`admin/schedule/edit/${id}`, 'GET', null);
+        await doProcess(`admin/schedule/${id}/edit`, 'GET', null);
 
         localSchedule.formObj = processorObj.value;
 
         localSchedule.formObj['date_from'] = dayjs(localSchedule.formObj['date_from']).format('YYYY/MM/DD');
         localSchedule.formObj['date_to'] = dayjs(localSchedule.formObj['date_to']).format('YYYY/MM/DD');
-
-        loadingState.isActive = false;
     };
 
     const getSearch = async () => {
-        loadingState.isActive = true;
-
         const { doProcess, processorArr } = await useProcessor();
 
         await doProcess('admin/schedule/search', 'GET', null);
 
         localSchedule.formArr = processorArr.value;
-
-        loadingState.isActive = false;
     };
 
     const localSchedule: UnwrapNestedRefs<any> = reactive({
@@ -147,8 +132,7 @@ export const useAdminSchedule = (): UseAdminScheduleInterface => {
             day_type: '',
             price: '',
             seats: ''
-        },
-        formSuccess: false
+        }
     });
 
     const updateSchedule = async (values: Record<string, string>, actions: {
@@ -161,7 +145,7 @@ export const useAdminSchedule = (): UseAdminScheduleInterface => {
 
         const { doProcess, processorErrors, processorSuccess } = await useProcessor();
 
-        await doProcess(`admin/schedule/edit/${values['id']}`, 'PATCH', values);
+        await doProcess(`admin/schedule/${values['id']}/edit`, 'PATCH', values);
 
         if (!processorSuccess.value) {
             actions.setErrors(processorErrors.value);
@@ -207,7 +191,6 @@ export const useAdminSchedule = (): UseAdminScheduleInterface => {
         formArr,
         formErrors,
         formObj,
-        formSuccess,
         getChoices,
         getEdit,
         getSearch,

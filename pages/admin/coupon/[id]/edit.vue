@@ -4,6 +4,8 @@ import { boolean, object, string } from "yup";
 
 const { choices, deleteCoupon, formErrors, formObj, getChoices, getEdit, updateCoupon } = useAdminCoupon();
 
+const { loadingState } = usePageLoading();
+
 const route = useRoute();
 
 const schema = object({
@@ -21,9 +23,13 @@ definePageMeta({
 });
 
 onMounted(async () => {
+    loadingState.isActive = true;
+
     await getChoices();
 
     await getEdit(route.params['id'].toString());
+
+    loadingState.isActive = false;
 });
 
 useHead({

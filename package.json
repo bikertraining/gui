@@ -1,6 +1,7 @@
 {
   "name": "gui",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -12,7 +13,6 @@
     "@nuxt/devtools": "latest",
     "@nuxtjs/robots": "^3.0.0",
     "@sidebase/nuxt-auth": "^0.6.0-rc.1",
-    "@types/node": "^20",
     "@vee-validate/nuxt": "^4.11.8",
     "@vee-validate/yup": "^4.11.8",
     "@vuepic/vue-datepicker": "^7.2.0",
@@ -25,5 +25,7 @@
     "sass": "^1.69.5"
   },
   "dependencies": {
+    "vue": "^3.3.7",
+    "vue-router": "^4.2.5"
   }
 }

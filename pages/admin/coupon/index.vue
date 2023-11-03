@@ -2,6 +2,8 @@
         setup>
 const { formArr, getSearch } = useAdminCoupon();
 
+const { loadingState } = usePageLoading();
+
 const route = useRoute();
 
 const router = useRouter();
@@ -14,7 +16,11 @@ definePageMeta({
 });
 
 onMounted(async () => {
+    loadingState.isActive = true;
+
     await getSearch();
+
+    loadingState.isActive = false;
 });
 
 useHead({
@@ -68,7 +74,7 @@ useHead({
             <tbody>
             <tr v-for="coupon in formArr"
                 v-bind:key="coupon"
-                v-on:click="router.push({ path: `/admin/coupon/edit/${coupon['id']}`})">
+                v-on:click="router.push({ path: `/admin/coupon/${coupon['id']}/edit`})">
                 <td>{{ coupon['name'] }}</td>
                 <td>{{ coupon['class_type_name'] }}</td>
                 <td>{{ coupon['amount'] }}</td>

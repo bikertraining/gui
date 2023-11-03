@@ -1,7 +1,7 @@
 import { computed, type ComputedRef, reactive, type UnwrapNestedRefs } from "vue";
 
 interface UseClientContactInterface {
-    deleteContact: (email: string) => void;
+    deleteContact: (email: string) => Promise<void>;
     formErrors: ComputedRef<Record<string, unknown>>;
     formObj: ComputedRef<{
         can_email: boolean;
@@ -10,7 +10,6 @@ interface UseClientContactInterface {
         name: string;
         phone: string;
     }>;
-    formSuccess: ComputedRef<boolean>;
     submitContact: (values: Record<string, unknown>, actions: {
         setErrors: (arg0: Record<string, unknown>) => void
     }) => Promise<void>;
@@ -26,9 +25,7 @@ export const useClientContact = (): UseClientContactInterface => {
 
         const { doProcess } = await useProcessor();
 
-        await doProcess(`client/contact/unsubscribe/${email}`, 'DELETE', null);
-
-        localContact.formSuccess = true;
+        await doProcess(`client/contact/${email}/unsubscribe`, 'DELETE', null);
 
         loadingState.isActive = false;
 
@@ -43,10 +40,6 @@ export const useClientContact = (): UseClientContactInterface => {
         return localContact.formObj;
     });
 
-    const formSuccess = computed(() => {
-        return localContact.formSuccess;
-    });
-
     const localContact: UnwrapNestedRefs<any> = reactive({
         formErrors: {},
         formObj: {
@@ -55,8 +48,7 @@ export const useClientContact = (): UseClientContactInterface => {
             message: '',
             name: '',
             phone: ''
-        },
-        formSuccess: false
+        }
     });
 
     const submitContact = async (values: Record<string, unknown>, actions: {
@@ -66,7 +58,7 @@ export const useClientContact = (): UseClientContactInterface => {
 
         const { doProcess, processorErrors, processorSuccess } = await useProcessor();
 
-        await doProcess('client/contact/index', 'POST', values);
+        await doProcess('client/contact/', 'POST', values);
 
         if (!processorSuccess.value) {
             actions.setErrors(processorErrors.value);
@@ -81,7 +73,6 @@ export const useClientContact = (): UseClientContactInterface => {
         deleteContact,
         formErrors,
         formObj,
-        formSuccess,
         submitContact
     };
 };

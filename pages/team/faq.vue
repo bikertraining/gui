@@ -45,23 +45,28 @@ useHead({
                                 Be at least 18 years of age.
                             </li>
 
-                            <li class="list-group-item">Have a motorcycle license or endorsement.
+                            <li class="list-group-item">
+                                Have a motorcycle license or endorsement.
                             </li>
 
-                            <li class="list-group-item">Have a good driving record.
+                            <li class="list-group-item">
+                                Have a good driving record.
                             </li>
 
-                            <li class="list-group-item">Have no criminal history.
+                            <li class="list-group-item">
+                                Have no criminal history.
                             </li>
 
-                            <li class="list-group-item">Ride a registered and insured motorcycle frequently on the
-                                street.
+                            <li class="list-group-item">
+                                Ride a registered and insured motorcycle frequently on the street.
                             </li>
 
-                            <li class="list-group-item">Good communication skills.
+                            <li class="list-group-item">
+                                Good communication skills.
                             </li>
 
-                            <li class="list-group-item">Sincere desire to help others.
+                            <li class="list-group-item">
+                                Sincere desire to help others.
                             </li>
                         </ol>
                     </div>
@@ -123,19 +128,21 @@ useHead({
                                 setup rest area for students.
                             </li>
 
-                            <li class="list-group-item">Motorcycle demonstrations. This shows the proper path of travel,
-                                speed, and ease of use.
+                            <li class="list-group-item">
+                                Motorcycle demonstrations. This shows the proper path of travel, speed, and ease of use.
                             </li>
 
-                            <li class="list-group-item">How to setup the classroom; Reading material for students and
-                                computer for presentation materials.
+                            <li class="list-group-item">
+                                How to setup the classroom; Reading material for students and computer for presentation
+                                materials.
                             </li>
 
-                            <li class="list-group-item">Classroom facilitation.
+                            <li class="list-group-item">
+                                Classroom facilitation.
                             </li>
 
-                            <li class="list-group-item">Dealer activities to help students find the proper gear and
-                                motorcycle fit.
+                            <li class="list-group-item">
+                                Dealer activities to help students find the proper gear and motorcycle fit.
                             </li>
                         </ol>
                     </div>
@@ -161,14 +168,14 @@ useHead({
                      data-bs-parent="#accordionFaq">
                     <div class="accordion-body p-3">
                         <p>Demo Boot Camp is a 2 day course that all RiderCoach Candidates must complete before being
-                            allowed to ride demonstrations in front of students.</p>
+                           allowed to ride demonstrations in front of students.</p>
 
                         <p>This will prepare you to learn the proper path of travel, proper speed, and smoothness of how
-                            a demonstration should look like.</p>
+                           a demonstration should look like.</p>
 
                         <p>We will also cover how to properly setup the range for each exercise with proper cone
-                            placement and how to coordinate the color of cones to help students with the proper path of
-                            travel.</p>
+                           placement and how to coordinate the color of cones to help students with the proper path of
+                           travel.</p>
                     </div>
                 </div>
             </div>
@@ -196,29 +203,37 @@ useHead({
                         <ol class="list-group-numbered list-group-flush">
                             <li class="list-group-item">
                                 <span class="fw-bold">Over the ankle sturdy footwear</span>. It's recommended you wear a
-                                shoe that allows you to feel the foot controls. Shoes or boots with a large heel or
-                                steel toe make it increasingly difficult to shift, especially for women.
+                                                                                           shoe that allows you to feel
+                                                                                           the foot controls. Shoes or
+                                                                                           boots with a large heel or
+                                                                                           steel toe make it
+                                                                                           increasingly difficult to
+                                                                                           shift, especially for women.
                             </li>
 
-                            <li class="list-group-item">Long pants made out of sturdy materials. No spandex or
-                                sweatpants.
+                            <li class="list-group-item">
+                                Long pants made out of sturdy materials. No spandex or sweatpants.
                             </li>
 
-                            <li class="list-group-item">Long sleeve shirt or jacket. Light colors work best when it's
-                                hot outside.
+                            <li class="list-group-item">
+                                Long sleeve shirt or jacket. Light colors work best when it's hot outside.
                             </li>
 
-                            <li class="list-group-item"><span class="fw-bold">Full fingered</span> gloves.
+                            <li class="list-group-item">
+                                <span class="fw-bold">Full fingered</span> gloves.
                             </li>
 
-                            <li class="list-group-item"><span class="fw-bold">D.O.T</span> helmet</li>
-
-                            <li class="list-group-item">Eye protection. Glasses are considered eye protection for the
-                                purpose of this course.
+                            <li class="list-group-item">
+                                <span class="fw-bold">D.O.T</span> helmet
                             </li>
 
-                            <li class="list-group-item">As it may rain, it's recommended to have motorcycle rain gear or
-                                consider bringing a change of clothes.
+                            <li class="list-group-item">
+                                Eye protection. Glasses are considered eye protection for the purpose of this course.
+                            </li>
+
+                            <li class="list-group-item">
+                                As it may rain, it's recommended to have motorcycle rain gear or consider bringing a
+                                change of clothes.
                             </li>
                         </ol>
                     </div>
@@ -318,10 +333,10 @@ useHead({
                         <p>If you are already certified by MSF give us a call at
                             <a class="text-dark text-decoration-none"
                                v-bind:href="'tel:' + getBusinessPhone(true)">{{ getBusinessPhone(false) }}</a> and let's
-                            talk!</p>
+                           talk!</p>
 
                         <p>If you are certified by another state we can help you with the required paperwork to get you
-                            into the FRTP program (Florida Rider Training Program). This is a simple process!</p>
+                           into the FRTP program (Florida Rider Training Program). This is a simple process!</p>
 
                         <p>FRTP paperwork is required to teach in the State of Florida.</p>
                     </div>
@@ -383,34 +398,34 @@ useHead({
 
 <style scoped>
 .accordion-body {
-  padding: 0;
+    padding: 0;
 }
 
 .accordion-button {
-  background-color: #212529;
-  color: #FFFFFF;
+    background-color: #212529;
+    color: #FFFFFF;
 }
 
 .accordion-button.collapsed::after {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FFF'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FFF'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
 .accordion-button:hover {
-  background-color: #FE5C26 !important;
-  color: #FFFFFF;
+    background-color: #FE5C26 !important;
+    color: #FFFFFF;
 }
 
 .accordion-button:not(.collapsed) {
-  background-color: #FE5C26;
-  color: #FFFFFF;
-  box-shadow: 0 0 0 0;
+    background-color: #FE5C26;
+    color: #FFFFFF;
+    box-shadow: 0 0 0 0;
 }
 
 .accordion-button:not(.collapsed)::after {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FFF'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FFF'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
 .accordion-item {
-  border-bottom: 0;
+    border-bottom: 0;
 }
 </style>

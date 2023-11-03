@@ -22,7 +22,7 @@ useHead({
             Please call us at <a class="text-dark text-decoration-none"
                                  v-bind:href="'tel:' + getBusinessPhone(true)">{{
                 getBusinessPhone(false)
-            }}</a>
+                                                                               }}</a>
         </h1>
 
         <div class="fw-bold fs-5">

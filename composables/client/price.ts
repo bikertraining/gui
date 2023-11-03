@@ -19,14 +19,6 @@ interface UseClientPriceInterface {
             process_amount: string;
             re_amount: string;
         };
-        erc: {
-            amount: string;
-            class_type: string;
-            id: string;
-            is_active: string;
-            process_amount: string;
-            re_amount: string;
-        };
         ime: {
             amount: string;
             class_type: string;
@@ -43,13 +35,19 @@ interface UseClientPriceInterface {
             process_amount: string;
             re_amount: string;
         };
+        src: {
+            amount: string;
+            class_type: string;
+            id: string;
+            is_active: string;
+            process_amount: string;
+            re_amount: string;
+        };
     }>;
     getPrices: () => Promise<void>;
 }
 
 export const useClientPrice = (): UseClientPriceInterface => {
-    const { loadingState } = usePageLoading();
-
     const formArr = computed(() => {
         return localPrice.formArr;
     });
@@ -59,8 +57,6 @@ export const useClientPrice = (): UseClientPriceInterface => {
     });
 
     const getPrices = async () => {
-        loadingState.isActive = true;
-
         const { doProcess, processorArr } = await useProcessor();
 
         await doProcess('client/price/search', 'GET', null);
@@ -71,8 +67,6 @@ export const useClientPrice = (): UseClientPriceInterface => {
             // @ts-ignore
             localPrice.formObj[key['class_type']] = key;
         });
-
-        loadingState.isActive = false;
     };
 
     const localPrice: UnwrapNestedRefs<any> = reactive({
@@ -94,14 +88,6 @@ export const useClientPrice = (): UseClientPriceInterface => {
                 process_amount: '',
                 re_amount: ''
             },
-            erc: {
-                amount: '',
-                class_type: '',
-                id: '',
-                is_active: '',
-                process_amount: '',
-                re_amount: ''
-            },
             ime: {
                 amount: '',
                 class_type: '',
@@ -111,6 +97,14 @@ export const useClientPrice = (): UseClientPriceInterface => {
                 re_amount: ''
             },
             private: {
+                amount: '',
+                class_type: '',
+                id: '',
+                is_active: '',
+                process_amount: '',
+                re_amount: ''
+            },
+            src: {
                 amount: '',
                 class_type: '',
                 id: '',

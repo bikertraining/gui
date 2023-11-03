@@ -2,6 +2,8 @@
         setup>
 const { formObj, getPrices } = useClientPrice();
 
+const { loadingState } = usePageLoading();
+
 const route = useRoute();
 
 const { getBusinessPhone } = useUtils();
@@ -14,7 +16,11 @@ definePageMeta({
 });
 
 onMounted(async () => {
+    loadingState.isActive = true;
+
     await getPrices();
+
+    loadingState.isActive = false;
 });
 
 useHead({
@@ -77,7 +83,7 @@ useHead({
 
                 <div class="card-body">
                     <div class="card-title fw-semibold fs-1">
-                        ${{ formObj['erc']['amount'].slice(0, -3) }}
+                        ${{ formObj['src']['amount'].slice(0, -3) }}
                     </div>
 
                     <ul class="list-unstyled mt-3 mb-4 text-start">
@@ -89,7 +95,7 @@ useHead({
                 </div>
 
                 <div class="card-footer bg-white border-0">
-                    <NuxtLink to="/schedule/erc">
+                    <NuxtLink to="/schedule/src">
                         <button class="w-100 btn btn-lg btn-outline-success"
                                 type="button">
                             <svg class="bi">
@@ -100,7 +106,7 @@ useHead({
                         </button>
                     </NuxtLink>
 
-                    <NuxtLink to="/courses/erc">
+                    <NuxtLink to="/courses/src">
                         <button class="w-100 btn btn-lg btn-outline-primary mt-3"
                                 type="button">
                             <svg class="bi">

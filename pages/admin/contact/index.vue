@@ -2,6 +2,8 @@
         setup>
 const { emailContacts, formArr, getSearch } = useAdminContact();
 
+const { loadingState } = usePageLoading();
+
 const route = useRoute();
 
 const router = useRouter();
@@ -14,7 +16,11 @@ definePageMeta({
 });
 
 onMounted(async () => {
+    loadingState.isActive = true;
+
     await getSearch();
+
+    loadingState.isActive = false;
 });
 
 useHead({
@@ -73,7 +79,7 @@ useHead({
             <tbody>
             <tr v-for="contact in formArr"
                 v-bind:key="contact"
-                v-on:click="router.push({ path: `/admin/contact/edit/${contact['id']}`})">
+                v-on:click="router.push({ path: `/admin/contact/${contact['id']}/edit`})">
                 <td>{{ contact['name'] }}</td>
                 <td>{{ contact['email'] }}</td>
             </tr>

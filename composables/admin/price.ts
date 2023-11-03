@@ -12,7 +12,6 @@ interface UseAdminPriceInterface {
         process_amount: string;
         re_amount: string;
     }>;
-    formSuccess: ComputedRef<boolean>;
     getChoices: () => Promise<void>;
     getEdit: (id: string) => Promise<void>;
     getSearch: () => Promise<void>;
@@ -22,9 +21,9 @@ interface UseAdminPriceInterface {
 }
 
 export const useAdminPrice = (): UseAdminPriceInterface => {
-    const { loadingState } = usePageLoading();
-
     const { $event } = useNuxtApp();
+
+    const { loadingState } = usePageLoading();
 
     const router = useRouter();
 
@@ -44,10 +43,6 @@ export const useAdminPrice = (): UseAdminPriceInterface => {
         return localPrice.formObj;
     });
 
-    const formSuccess = computed(() => {
-        return localPrice.formSuccess;
-    });
-
     const getChoices = async () => {
         const { doProcess, processorObj } = await useProcessor();
 
@@ -57,27 +52,19 @@ export const useAdminPrice = (): UseAdminPriceInterface => {
     };
 
     const getEdit = async (id: string) => {
-        loadingState.isActive = true;
-
         const { doProcess, processorObj } = await useProcessor();
 
-        await doProcess(`admin/price/edit/${id}`, 'GET', null);
+        await doProcess(`admin/price/${id}/edit`, 'GET', null);
 
         localPrice.formObj = processorObj.value;
-
-        loadingState.isActive = false;
     };
 
     const getSearch = async () => {
-        loadingState.isActive = true;
-
         const { doProcess, processorArr } = await useProcessor();
 
         await doProcess('admin/price/search', 'GET', null);
 
         localPrice.formArr = processorArr.value;
-
-        loadingState.isActive = false;
     };
 
     const localPrice: UnwrapNestedRefs<any> = reactive({
@@ -91,8 +78,7 @@ export const useAdminPrice = (): UseAdminPriceInterface => {
             is_active: '',
             process_amount: '',
             re_amount: ''
-        },
-        formSuccess: false
+        }
     });
 
     const updatePrice = async (values: Record<string, string>, actions: {
@@ -102,7 +88,7 @@ export const useAdminPrice = (): UseAdminPriceInterface => {
 
         const { doProcess, processorErrors, processorSuccess } = await useProcessor();
 
-        await doProcess(`admin/price/edit/${values['id']}`, 'PATCH', values);
+        await doProcess(`admin/price/${values['id']}/edit`, 'PATCH', values);
 
         if (!processorSuccess.value) {
             actions.setErrors(processorErrors.value);
@@ -125,7 +111,6 @@ export const useAdminPrice = (): UseAdminPriceInterface => {
         formArr,
         formErrors,
         formObj,
-        formSuccess,
         getChoices,
         getEdit,
         getSearch,

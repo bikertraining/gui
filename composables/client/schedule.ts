@@ -7,30 +7,24 @@ interface UseClientScheduleInterface {
 }
 
 export const useClientSchedule = (): UseClientScheduleInterface => {
-    const { loadingState } = usePageLoading();
-
     const formArr = computed(() => {
         return localSchedule.formArr;
     });
 
     const getSearch = async (class_type: string | string[]) => {
-        loadingState.isActive = true;
-
         const { doProcess, processorArr } = await useProcessor();
 
         if (class_type === '3wbrc') {
-            await doProcess('client/schedule/search/3wbrc', 'GET', null);
+            await doProcess('client/schedule/search/3wbrc/type', 'GET', null);
         } else if (class_type === 'brc') {
-            await doProcess('client/schedule/search/brc', 'GET', null);
-        } else if (class_type === 'erc') {
-            await doProcess('client/schedule/search/erc', 'GET', null);
+            await doProcess('client/schedule/search/brc/type', 'GET', null);
+        } else if (class_type === 'src') {
+            await doProcess('client/schedule/search/src/type', 'GET', null);
         } else {
             await doProcess('client/schedule/search', 'GET', null);
         }
 
         localSchedule.formArr = processorArr.value;
-
-        loadingState.isActive = false;
     };
 
     const localSchedule: UnwrapNestedRefs<any> = reactive({

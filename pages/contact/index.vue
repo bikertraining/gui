@@ -55,7 +55,7 @@ useHead({
 
         <div class="d-flex flex-row mb-3">
             <span class="fw-bold">Mailing Address:</span>&nbsp;Biker Training LLC<br>&nbsp;6385 Pensacola Blvd<br>&nbsp;Pensacola,
-            Florida, 32505
+                                                         Florida, 32505
         </div>
 
         <div class="d-inline-flex">

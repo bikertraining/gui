@@ -2,19 +2,18 @@
         setup>
 import { boolean, object, string } from "yup";
 
-const { formObj: priceObj, getPrices } = useClientPrice();
-
 const {
     formArr,
     formObj,
     getDefaults,
-    getIpaddress,
     nonFieldFormError,
     nonFieldFormMessage,
     submitRegistration,
     utilClassDate,
     utilValidateCoupon
 } = useClientRegister();
+
+const { loadingState } = usePageLoading();
 
 const couponSchema = object({
     coupon_code: string().required()
@@ -59,11 +58,11 @@ definePageMeta({
 });
 
 onMounted(async () => {
-    getDefaults(route.params);
+    loadingState.isActive = true;
 
-    await getIpaddress();
+    await getDefaults(route.params);
 
-    await getPrices();
+    loadingState.isActive = false;
 });
 
 useHead({
@@ -143,7 +142,7 @@ useHead({
                         <div>Class times are from 7:00 AM to 4:00 PM each day</div>
                     </div>
 
-                    <div v-if="formObj['class_type'] === 'erc'"
+                    <div v-if="formObj['class_type'] === 'src'"
                          class="col-md-12 fw-bolder mt-3">
                         <div class="mb-1">{{ formObj['schedule_details']['class_type_name'] }}</div>
 
@@ -444,10 +443,10 @@ useHead({
                 Notice
             </h5>
 
-            <div class="mb-3">After submitting your application, you will receive an email by the next business day (or
-                              before your class starts) confirming your enrollment and providing all details about your
-                              specific
-                              class. If you’d prefer to enroll on the phone, give us a call at
+            <div class="mb-3">
+                After submitting your application, you will receive an email by the next business day (or before your
+                class starts) confirming your enrollment and providing all details about your specific class. If you’d
+                prefer to enroll on the phone, give us a call at
                 <a class="text-dark text-decoration-none"
                    v-bind:href="'tel:' + getBusinessPhone(true)">{{ getBusinessPhone(false) }}</a>.
             </div>
@@ -455,71 +454,46 @@ useHead({
             <div>
                 <div class="fw-bold mb-3">REFUND / CANCELLATION POLICY</div>
 
-                <div class="mb-3">When enrolling, you are purchasing a seat in the class of your choice. Once purchased,
-                                  that seat is set aside for only your use. Please select the date that will ensure you
-                                  can attend
-                                  each day for the times indicated. You must attend all class/range sessions.
+                <div class="mb-3">
+                    When enrolling, you are purchasing a seat in the class of your choice. Once purchased, that seat is
+                    set aside for only your use. Please select the date that will ensure you can attend each day for the
+                    times indicated. You must attend all class/range sessions.
                 </div>
 
-                <div class="mb-3"><span class="fw-bold">Cancellation:</span> All fees are nonrefundable unless students
-                                                                             call <a
-                            class="text-dark text-decoration-none"
-                            v-bind:href="'tel:' + getBusinessPhone(true)">{{ getBusinessPhone(false) }}</a> or email
+                <div class="mb-3">
+                    <span class="fw-bold">Cancellation:</span>
+                    All fees are nonrefundable unless students call <a
+                        class="text-dark text-decoration-none"
+                        v-bind:href="'tel:' + getBusinessPhone(true)">{{ getBusinessPhone(false) }}</a> or email
                     <a v-bind:href="'mailto:' + getBusinessEmail()"> {{ getBusinessEmail() }}</a> 6 days prior to their
-                                                                             scheduled class to obtain a partial refund.
-                                                                             A partial refund is full tuition minus a
-                                                                             processing fee.
-
-                    <ol class="list-group-numbered list-group-flush mt-3">
-                        <li class="list-group-item">Basic RiderCourse ${{
-                                priceObj['brc']['process_amount'].slice(0, -3)
-                                                    }}
-                        </li>
-
-                        <li class="list-group-item">3-Wheel RiderCourse ${{
-                                priceObj['3wbrc']['process_amount'].slice(0, -3)
-                                                    }}
-                        </li>
-
-                        <li class="list-group-item">Skilled RiderCourse ${{
-                                priceObj['erc']['process_amount'].slice(0, -3)
-                                                    }}
-                        </li>
-                    </ol>
+                    scheduled class to obtain a partial refund. A partial refund is full tuition minus a
+                    ${{ formObj['process_amount'] }} processing fee.
                 </div>
 
-                <div class="mb-3">There is a minimum of four students per class. If minimum is not met, student has
-                                  option to move to any future class or receive a full refund.
+                <div class="mb-3">
+                    There is a minimum of four students per class. If minimum is not met, student has option to move to
+                    any future class or receive a full refund.
                 </div>
 
-                <div class="mb-3"><span class="fw-bold">Postponement:</span> There is no charge for postponement
-                                                                             provided the student calls or emails at
-                                                                             least 48 hours prior to the start of their
-                                                                             scheduled class.
-                                                                             If less than 48 hours prior or if a student
-                                                                             does not complete the entire class, a seat
-                                                                             in a
-                                                                             subsequent class may be purchased.
+                <div class="mb-3">
+                    <span class="fw-bold">Postponement:</span>
+                    There is no charge for postponement provided the student calls or emails at least 48 hours prior to
+                    the start of their scheduled class. If less than 48 hours prior or if a student does not complete
+                    the entire class, a seat in a subsequent class may be purchased.
                 </div>
 
-                <div class="mb-3"><span class="fw-bold">Late Arrivals:</span> Learning to ride a motorcycle requires
-                                                                              skill progression. This progression begins
-                                                                              with small tasks and builds to larger,
-                                                                              more complex
-                                                                              tasks. It is critical that students arrive
-                                                                              on time. Preferably, come early! If you
-                                                                              miss a class or
-                                                                              range session, you will not be allowed to
-                                                                              complete the course and will have to
-                                                                              purchase another seat
-                                                                              in a later class.
+                <div class="mb-3">
+                    <span class="fw-bold">Late Arrivals:</span>
+                    Learning to ride a motorcycle requires skill progression. This progression begins with small tasks
+                    and builds to larger, more complex tasks. It is critical that students arrive on time. Preferably,
+                    come early! If you miss a class or range session, you will not be allowed to complete the course and
+                    will have to purchase another seat in a later class.
                 </div>
 
-                <div class="mb-3"><span class="fw-bold">eCourse:</span> The eCourse is a national requirement for
-                                                                        motorcycle training. You will be emailed a
-                                                                        unique link to complete the eCourse before
-                                                                        attending
-                                                                        class.
+                <div class="mb-3" v-if="formObj['class_type'] != 'src'">
+                    <span class="fw-bold">eCourse:</span>
+                    The eCourse is a national requirement for motorcycle training. You will be emailed a unique link to
+                    complete the eCourse before attending class.
                 </div>
             </div>
         </div>
