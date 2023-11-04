@@ -65,13 +65,18 @@ useHead({
                 v-bind:key="schedule"
                 v-on="schedule['seats'] > 0 ? { click: () => router.push(`/register/${schedule['id']}`) } : { click: () => { return false; } }">
                 <td>
-                    {{ utilClassDate(schedule['date_from'], schedule['date_to']) }} <br>
-                    <span v-if="schedule['seats'] > 0"
-                          class="badge rounded-pill bg-secondary border border-dark">Sign Up Here</span>
+                    <div>
+                        {{ utilClassDate(schedule['date_from'], schedule['date_to']) }}
+                    </div>
+
+                    <div v-if="schedule['seats'] > 0" class="badge rounded-pill bg-secondary border border-dark">
+                        Sign Up Here
+                    </div>
                 </td>
                 <td>{{ schedule['day_type_name'] }}</td>
                 <td>{{ schedule['class_type_name'] }}</td>
                 <td v-if="schedule['seats'] > 0">{{ schedule['seats'] }}</td>
+                <td v-else-if="schedule['class_type'] == '3wbrc' && schedule['seats'] == 0">Call for Availability</td>
                 <td v-else>CLASS FULL</td>
             </tr>
             </tbody>
