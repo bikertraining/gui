@@ -23,7 +23,5 @@
     "nuxt-gtag": "^1.1.1",
     "nuxt-simple-sitemap": "^4.1.3",
     "sass": "^1.69.5"
-  },
-  "dependencies": {
   }
 }
