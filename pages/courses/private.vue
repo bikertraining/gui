@@ -12,7 +12,38 @@ definePageMeta({
 });
 
 useHead({
-    title: `${route.meta['title']}`
+    title: `${route.meta['title']}`,
+    script: [
+        {
+            innerHTML: `
+                {
+                  "@context": "https://schema.org",
+                  "@type": "BreadcrumbList",
+                  "itemListElement": [
+                      {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://bikertraining.com"
+                      },
+                      {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "FAQ",
+                        "item": "https://bikertraining.com/courses"
+                      },
+                      {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Private",
+                        "item": "https://bikertraining.com/courses/private"
+                      }
+                  ]
+                }
+                    `,
+            type: 'application/ld+json'
+        }
+    ]
 });
 </script>
 

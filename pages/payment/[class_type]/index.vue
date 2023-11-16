@@ -60,7 +60,32 @@ onMounted(async () => {
 });
 
 useHead({
-    title: `${route.meta['title']}`
+    title: `${route.meta['title']}`,
+    script: [
+        {
+            innerHTML: `
+                {
+                  "@context": "https://schema.org",
+                  "@type": "BreadcrumbList",
+                  "itemListElement": [
+                      {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://bikertraining.com"
+                      },
+                      {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Pay Online",
+                        "item": "https://bikertraining.com/payment"
+                      }
+                  ]
+                }
+                    `,
+            type: 'application/ld+json'
+        }
+    ]
 });
 </script>
 

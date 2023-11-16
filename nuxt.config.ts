@@ -16,6 +16,101 @@ export default defineNuxtConfig({
             script: [
                 {
                     src: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js'
+                },
+                {
+                    innerHTML: `
+                        {
+                          "@context": "https://schema.org",
+                          "@type": "Organization",
+                          "url": "https://bikertraining.com",
+                          "logo": "https://bikertraining.com/img/bikertraining/logo_llc_color.png"
+                        }
+                    `,
+                    type: 'application/ld+json'
+                },
+                {
+                    innerHTML: `
+                        {
+                          "@context": "https://schema.org",
+                          "@type": "School",
+                          "image": [
+                            "https://bikertraining.com/img/bikertraining/logo_llc_color.png"
+                           ],
+                          "name": "Biker Training LLC",
+                          "address": {
+                            "@type": "PostalAddress",
+                            "streetAddress": "6385 Pensacola Blvd",
+                            "addressLocality": "Pensacola",
+                            "addressRegion": "FL",
+                            "postalCode": "32505",
+                            "addressCountry": "US"
+                          },
+                          "geo": {
+                            "@type": "GeoCoordinates",
+                            "latitude": 30.47919,
+                            "longitude": -87.25403
+                          },
+                          "url": "https://bikertraining.com",
+                          "telephone": "+18504562277",
+                          "openingHoursSpecification": [
+                            {
+                              "@type": "OpeningHoursSpecification",
+                              "dayOfWeek": [
+                                "Sunday",
+                                "Monday",
+                                "Tuesday",
+                                "Wednesday",
+                                "Thursday",
+                                "Friday",
+                                "Saturday"
+                              ],
+                              "opens": "9:00",
+                              "closes": "19:00"
+                            }
+                          ]
+                        }
+                    `,
+                    type: 'application/ld+json'
+                },
+                {
+                    innerHTML: `
+                        {
+                          "@context": "https://schema.org/",
+                          "@id": "https://bikertraining.com",
+                          "@type": "Course",
+                          "name": "Motorcycle Endorsement",
+                          "description": "Whether you are totally new to motorcycles, a returning rider or already experienced, we have a course to meet your needs. Our Basic RiderCourse meets the state of Florida license endorsement requirement.",
+                          "publisher": {
+                            "@type": "Organization",
+                            "name": "Biker Training LLC",
+                            "url": "https://bikertraining.com"
+                          },
+                          "provider": {
+                            "@type": "Organization",
+                            "name": "Biker Training LLC",
+                            "url": "https://bikertraining.com"
+                          },
+                          "offers": [{
+                            "@type": "Offer",
+                            "category": "Paid",
+                            "priceCurrency": "USD",
+                            "price": 349.00
+                          }],
+                          "inLanguage": "en",
+                          "coursePrerequisites": [
+                            "MSF 5-hour eCourse",
+                            "https://bikertraining.com"
+                          ],
+                          "hasCourseInstance": [
+                            {
+                              "@type": "CourseInstance",
+                              "courseMode": "Online",
+                              "courseWorkload": "P2D"
+                            }
+                          ]
+                        }
+                    `,
+                    type: 'application/ld+json'
                 }
             ]
         }

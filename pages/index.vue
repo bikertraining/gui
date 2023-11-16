@@ -10,7 +10,24 @@ definePageMeta({
 });
 
 useHead({
-    title: `${route.meta['title']}`
+    title: `${route.meta['title']}`,
+    script: [
+        {
+            innerHTML: `
+                {
+                  "@context": "https://schema.org",
+                  "@type": "BreadcrumbList",
+                  "itemListElement": [{
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://bikertraining.com"
+                  }]
+                }
+                    `,
+            type: 'application/ld+json'
+        }
+    ]
 });
 </script>
 

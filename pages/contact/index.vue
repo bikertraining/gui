@@ -23,7 +23,32 @@ definePageMeta({
 });
 
 useHead({
-    title: `${route.meta['title']}`
+    title: `${route.meta['title']}`,
+    script: [
+        {
+            innerHTML: `
+                {
+                  "@context": "https://schema.org",
+                  "@type": "BreadcrumbList",
+                  "itemListElement": [
+                      {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://bikertraining.com"
+                      },
+                      {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Contact US",
+                        "item": "https://bikertraining.com/contact"
+                      }
+                  ]
+                }
+                    `,
+            type: 'application/ld+json'
+        }
+    ]
 });
 </script>
 
