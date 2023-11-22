@@ -1,6 +1,12 @@
 export default [
     { UserAgent: '*' },
     { Allow: '/' },
+    { Disallow: '/admin/' },
+    { Disallow: '/callus' },
+    { Disallow: '/contact/confirmation' },
+    { Disallow: '/contact/unsubscribe/confirmation' },
+    { Disallow: '/payment/' },
+    { Disallow: '/team/confirmation' },
 
     { BlankLine: true },
 
