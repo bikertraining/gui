@@ -92,6 +92,11 @@ useHead({
 <template>
     <div class="py-5 pt-3 row">
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
+            <div v-if="formObj['class_type'] === '3wbrc'"
+                 class="row g-2 ms-1 mb-3 text-danger fw-bold">
+                You *must* bring your own 3-wheel motorcycle for training purposes.
+            </div>
+
             <Form :validation-schema="schema"
                   @submit="submitPayment">
                 <FormHidden v-model="formObj['coupon_code']"
