@@ -144,7 +144,7 @@ useHead({
                 <div class="mb-3">
                     <span class="fw-bold">3-Wheel Basic RiderCourse</span> -
                     <span class="fw-bold">Sunday</span> 1:00 PM to 4:00 PM and
-                    <span class="fw-bold">Monday</span> 7:00 AM to 3:00 PM
+                    <span class="fw-bold">Monday</span> 7:00 AM to 4:00 PM
                 </div>
 
                 <div class="mb-3">
