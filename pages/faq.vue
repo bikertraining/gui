@@ -631,10 +631,10 @@ useHead({
                      class="accordion-collapse collapse"
                      data-bs-parent="#accordionFaq">
                     <div class="accordion-body p-3">
-                        The MSF Basic eCourse is a highly interactive 5-hour online program that provides riders of all
+                        The MSF ePackage-1 eCourse is a highly interactive 5-hour online program that provides riders of all
                         skill levels with the basics of motorcycling. With integrated graphics, photos and video to
                         illustrate the lessons, and allows you to control the pace of your learning. Please note that
-                        the Basic eCourse alone is NOT accepted as a license waiver by any state's department of motor
+                        the ePackage-1 eCourse alone is NOT accepted as a license waiver by any state's department of motor
                         vehicles, or as a license to ride a motorcycle or as a learner’s permit.
                     </div>
                 </div>
