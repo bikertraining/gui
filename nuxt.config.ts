@@ -179,8 +179,6 @@ export default defineNuxtConfig({
             '/payment/**',
             '/team/confirmation'
         ],
-        gzip: true,
-        hostname: process.env.NUXT_PUBLIC_GUI_URL,
         sitemapName: 'sitemap.xml',
         urls: [
             '/schedule'
