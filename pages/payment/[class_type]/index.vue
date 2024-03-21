@@ -4,7 +4,6 @@ import { object, string } from "yup";
 
 const {
     formObj,
-    getIpaddress,
     getPrice,
     nonFieldFormError,
     nonFieldFormMessage,
@@ -33,7 +32,6 @@ const schema = object({
     credit_card_year: string().required().length(4),
     email: string().required().email(),
     first_name: string().required(),
-    ipaddress: string(),
     last_name: string().required(),
     phone: string().required(),
     state: string().required(),
@@ -51,8 +49,6 @@ definePageMeta({
 
 onMounted(async () => {
     loadingState.isActive = true;
-
-    await getIpaddress();
 
     await getPrice(route.params['class_type']);
 

@@ -108,11 +108,6 @@ useHead({
                             :required="false"
                             name="coupon_code"/>
 
-                <FormHidden v-model="formObj['ipaddress']"
-                            :required="false"
-                            name="ipaddress"
-                            type="hidden"/>
-
                 <FormHidden v-model="route.params['id']"
                             :required="false"
                             name="schedule"

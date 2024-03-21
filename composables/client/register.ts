@@ -23,7 +23,6 @@ interface UseClientRegisterInterface {
         dob: string;
         email: string;
         first_name: string;
-        ipaddress: string;
         last_name: string;
         phone: string;
         process_amount: string;
@@ -34,7 +33,6 @@ interface UseClientRegisterInterface {
         zipcode: string;
     }>;
     getDefaults: (routeParams: any) => Promise<void>;
-    getIpaddress: () => Promise<void>;
     getPrice: (id: number | string | string[]) => void;
     getSchedule: (id: number | string | string[]) => Promise<void>;
     nonFieldFormError: ComputedRef<boolean>;
@@ -49,8 +47,6 @@ interface UseClientRegisterInterface {
 }
 
 export const useClientRegister = (): UseClientRegisterInterface => {
-    const { getFraud } = useClientFraud();
-
     const { loadingState } = usePageLoading();
 
     const router = useRouter();
@@ -68,8 +64,6 @@ export const useClientRegister = (): UseClientRegisterInterface => {
     });
 
     const getDefaults = async (routeParams: any) => {
-        await getIpaddress();
-
         await getPrice(routeParams['id'].toString());
 
         await getSchedule(routeParams['id'].toString());
@@ -78,14 +72,6 @@ export const useClientRegister = (): UseClientRegisterInterface => {
 
         localRegister.formObj['xpl'] = 'none';
     }
-
-    const getIpaddress = async () => {
-        const { doProcess, processorObj } = await useProcessor();
-
-        await doProcess('client/whatsmyip/', 'GET', null);
-
-        localRegister.formObj['ipaddress'] = processorObj.value;
-    };
 
     const getPrice = async (id: number | string | string[]) => {
         const { doProcess, processorObj } = await useProcessor();
@@ -128,7 +114,6 @@ export const useClientRegister = (): UseClientRegisterInterface => {
             dob: '',
             email: '',
             first_name: '',
-            ipaddress: '',
             last_name: '',
             phone: '',
             process_amount: '0.00',
@@ -155,20 +140,12 @@ export const useClientRegister = (): UseClientRegisterInterface => {
     }) => {
         loadingState.isActive = true;
 
-        // Check for fraud before processing the payment, if found then redirect to another page.
-        // @ts-ignore
-        await getFraud(values);
-
         const { doProcess, processorErrors, processorSuccess } = await useProcessor();
 
         await doProcess('client/register/', 'POST', values);
 
         if (!processorSuccess.value) {
             if ('non_field_errors' in processorErrors.value) {
-                localRegister.nonFieldFormError = true;
-
-                localRegister.nonFieldFormMessage = processorErrors.value['non_field_errors'];
-
                 await router.push({ path: `/register/failed/${values['schedule']}/${processorErrors.value['non_field_errors']}` });
             } else {
                 actions.setErrors(processorErrors.value);
@@ -218,6 +195,10 @@ export const useClientRegister = (): UseClientRegisterInterface => {
             localRegister.formObj['coupon_is_active'] = false;
 
             localRegister.formObj['coupon_code'] = '';
+
+            localRegister.nonFieldFormError = true;
+
+            localRegister.nonFieldFormMessage = 'Invalid Coupon Code';
         } else {
             const finalPrice = parseInt(localRegister.formObj['amount']) - parseInt(<string>processorObj.value['amount']);
 
@@ -226,6 +207,10 @@ export const useClientRegister = (): UseClientRegisterInterface => {
             localRegister.formObj['coupon_is_active'] = true;
 
             localRegister.formObj['coupon_code'] = values['coupon_code'].toLowerCase();
+
+            localRegister.nonFieldFormError = false;
+
+            localRegister.nonFieldFormMessage = '';
         }
 
         loadingState.isActive = false;
@@ -236,7 +221,6 @@ export const useClientRegister = (): UseClientRegisterInterface => {
         formErrors,
         formObj,
         getDefaults,
-        getIpaddress,
         getPrice,
         getSchedule,
         nonFieldFormError,

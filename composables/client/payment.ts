@@ -17,14 +17,12 @@ interface UseClientPaymentInterface {
         credit_card_year: string;
         email: string;
         first_name: string;
-        ipaddress: string;
         last_name: string;
         phone: string;
         process_amount: string;
         state: string;
         zipcode: string;
     }>;
-    getIpaddress: () => Promise<void>;
     getPrice: (class_type: string | string[]) => Promise<void>;
     nonFieldFormError: ComputedRef<boolean>;
     nonFieldFormMessage: ComputedRef<string>;
@@ -37,8 +35,6 @@ interface UseClientPaymentInterface {
 }
 
 export const useClientPayment = (): UseClientPaymentInterface => {
-    const { getFraud } = useClientFraud();
-
     const { loadingState } = usePageLoading();
 
     const router = useRouter();
@@ -50,14 +46,6 @@ export const useClientPayment = (): UseClientPaymentInterface => {
     const formObj = computed(() => {
         return localPayment.formObj;
     });
-
-    const getIpaddress = async () => {
-        const { doProcess, processorObj } = await useProcessor();
-
-        await doProcess('client/whatsmyip/', 'GET', null);
-
-        localPayment.formObj['ipaddress'] = processorObj.value;
-    };
 
     const getPrice = async (class_type: string | string[]) => {
         const { doProcess, processorObj } = await useProcessor();
@@ -86,7 +74,6 @@ export const useClientPayment = (): UseClientPaymentInterface => {
             credit_card_year: '',
             email: '',
             first_name: '',
-            ipaddress: '',
             last_name: '',
             phone: '',
             process_amount: '0.00',
@@ -110,20 +97,12 @@ export const useClientPayment = (): UseClientPaymentInterface => {
     }) => {
         loadingState.isActive = true;
 
-        // Check for fraud before processing the payment, if found then redirect to another page.
-        // @ts-ignore
-        await getFraud(values);
-
         const { doProcess, processorErrors, processorSuccess } = await useProcessor();
 
         await doProcess('client/payment/', 'POST', values);
 
         if (!processorSuccess.value) {
             if ('non_field_errors' in processorErrors.value) {
-                localPayment.nonFieldFormError = true;
-
-                localPayment.nonFieldFormMessage = processorErrors.value['non_field_errors'];
-
                 await router.push({ path: `/payment/failed/${values['class_type']}/${processorErrors.value['non_field_errors']}` });
             } else {
                 actions.setErrors(processorErrors.value);
@@ -150,6 +129,10 @@ export const useClientPayment = (): UseClientPaymentInterface => {
             localPayment.formObj['coupon_is_active'] = false;
 
             localPayment.formObj['coupon_code'] = '';
+
+            localPayment.nonFieldFormError = true;
+
+            localPayment.nonFieldFormMessage = 'Invalid Coupon Code';
         } else {
             const finalPrice = parseInt(localPayment.formObj['amount']) - parseInt(<string>processorObj.value['amount']);
 
@@ -158,6 +141,10 @@ export const useClientPayment = (): UseClientPaymentInterface => {
             localPayment.formObj['coupon_is_active'] = true;
 
             localPayment.formObj['coupon_code'] = values['coupon_code'].toLowerCase();
+
+            localPayment.nonFieldFormError = false;
+
+            localPayment.nonFieldFormMessage = '';
         }
 
         loadingState.isActive = false;
@@ -166,7 +153,6 @@ export const useClientPayment = (): UseClientPaymentInterface => {
     return {
         formErrors,
         formObj,
-        getIpaddress,
         getPrice,
         nonFieldFormError,
         nonFieldFormMessage,

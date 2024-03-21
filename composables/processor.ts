@@ -24,6 +24,7 @@ export const useProcessor = async (): Promise<UseProcessorInterface> => {
     const processorSuccess = computed(() => {
         return localProcessor.processorSuccess;
     });
+
     const doProcess = async (url: string, method: "DELETE" | "GET" | "PATCH" | "POST" | "PUT", values = {}) => {
         const runtimeConfig = useRuntimeConfig();
 

@@ -153,11 +153,11 @@ export default defineNuxtConfig({
     },
     modules: [
         '@nuxtjs/robots',
+        '@nuxtjs/sitemap',
         '@sidebase/nuxt-auth',
         '@vee-validate/nuxt',
         'dayjs-nuxt',
-        'nuxt-gtag',
-        'nuxt-simple-sitemap'
+        'nuxt-gtag'
     ],
     runtimeConfig: {
         public: {
@@ -167,10 +167,6 @@ export default defineNuxtConfig({
             business_phone: process.env.NUXT_PUBLIC_BUSINESS_PHONE,
             gui_url: process.env.NUXT_PUBLIC_GUI_URL
         }
-    },
-    site: {
-        gzip: true,
-        url: process.env.NUXT_PUBLIC_GUI_URL
     },
     sitemap: {
         autoLastmod: true,
@@ -183,6 +179,8 @@ export default defineNuxtConfig({
             '/payment/**',
             '/team/confirmation'
         ],
+        gzip: true,
+        hostname: process.env.NUXT_PUBLIC_GUI_URL,
         sitemapName: 'sitemap.xml',
         urls: [
             '/schedule'

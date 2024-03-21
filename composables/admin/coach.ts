@@ -13,6 +13,7 @@ interface UseAdminCoachInterface {
         date_to: string;
         email: string;
         frtp_date_from: string;
+        is_active: boolean;
         msf_id: string;
         name: string;
         phone: string;
@@ -113,10 +114,18 @@ export const useAdminCoach = (): UseAdminCoachInterface => {
         localCoach.formObj = processorObj.value;
     };
 
-    const getSearch = async () => {
+    const getSearchActive = async () => {
         const { doProcess, processorArr } = await useProcessor();
 
-        await doProcess('admin/coach/search', 'GET', null);
+        await doProcess('admin/coach/search/active', 'GET', null);
+
+        localCoach.formArr = processorArr.value
+    };
+
+    const getSearchInactive = async () => {
+        const { doProcess, processorArr } = await useProcessor();
+
+        await doProcess('admin/coach/search/inactive', 'GET', null);
 
         localCoach.formArr = processorArr.value
     };
@@ -130,6 +139,7 @@ export const useAdminCoach = (): UseAdminCoachInterface => {
             date_to: '',
             email: '',
             frtp_date_from: '',
+            is_active: '',
             msf_id: '',
             name: '',
             phone: '',
@@ -184,7 +194,8 @@ export const useAdminCoach = (): UseAdminCoachInterface => {
         formObj,
         frtp_expiration,
         getEdit,
-        getSearch,
+        getSearchActive,
+        getSearchInactive,
         msf_expiration,
         updateCoach
     };

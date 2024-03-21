@@ -1,6 +1,6 @@
 <script lang="ts"
         setup>
-const { formArr, frtp_expiration, getSearchActive, msf_expiration } = useAdminCoach();
+const { formArr, frtp_expiration, getSearchInactive, msf_expiration } = useAdminCoach();
 
 const { loadingState } = usePageLoading();
 
@@ -18,7 +18,7 @@ definePageMeta({
 onMounted(async () => {
     loadingState.isActive = true;
 
-    await getSearchActive();
+    await getSearchInactive();
 
     loadingState.isActive = false;
 });
@@ -45,14 +45,14 @@ useHead({
             </div>
 
             <div class="col-auto">
-                <NuxtLink to="/admin/coach/inactive">
+                <NuxtLink to="/admin/coach">
                     <button class="btn btn-primary"
                             type="button">
                         <svg class="bi">
-                            <use xlink:href="#trash-can"/>
+                            <use xlink:href="#users"/>
                         </svg>
 
-                        Inactive Coaches
+                        Active Coaches
                     </button>
                 </NuxtLink>
             </div>

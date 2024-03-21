@@ -63,6 +63,8 @@ useHead({
                 </svg>
 
                 <span class="fw-bold text-dark ms-1">Click on a contact to edit</span>
+
+                <div class="fw-bold text-dark mt-3">{{ formArr.length }} Contacts</div>
             </caption>
 
             <thead class="table-light border-top border-bottom border-dark border-2 border-start-0 border-end-0">

@@ -1,6 +1,6 @@
 <script lang="ts"
         setup>
-import { object, string } from "yup";
+import { boolean, object, string } from "yup";
 
 const { deleteCoach, formErrors, formObj, getEdit, updateCoach } = useAdminCoach();
 
@@ -14,6 +14,7 @@ const schema = object({
     date_to: string().required(),
     email: string().email().required(),
     frtp_date_from: string().required(),
+    is_active: boolean(),
     msf_id: string(),
     name: string().required(),
     phone: string().required(),
@@ -122,6 +123,12 @@ useHead({
                                       help-text="YYYY-MM-DD"
                                       label="FRTP Update Date"
                                       name="frtp_date_from"/>
+                    </div>
+
+                    <div class="col-md-1 mb-3">
+                        <FormSwitch v-model="formObj['is_active']"
+                                    label="Active"
+                                    name="is_active"/>
                     </div>
                 </div>
 
