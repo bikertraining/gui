@@ -1,4 +1,4 @@
-import { type ComputedRef, type UnwrapNestedRefs } from "vue";
+import {type ComputedRef, type UnwrapNestedRefs} from "vue";
 
 interface UseAdminCouponInterface {
     choices: ComputedRef<Record<string, string>>;
@@ -24,9 +24,9 @@ interface UseAdminCouponInterface {
 }
 
 export const useAdminCoupon = (): UseAdminCouponInterface => {
-    const { $event } = useNuxtApp();
+    const {$event} = useNuxtApp();
 
-    const { loadingState } = usePageLoading();
+    const {loadingState} = usePageLoading();
 
     const router = useRouter();
 
@@ -39,7 +39,7 @@ export const useAdminCoupon = (): UseAdminCouponInterface => {
     }) => {
         loadingState.isActive = true;
 
-        const { doProcess, processorErrors, processorSuccess } = await useProcessor();
+        const {doProcess, processorErrors, processorSuccess} = await useProcessor();
 
         await doProcess('admin/coupon/create', 'POST', values);
 
@@ -53,7 +53,7 @@ export const useAdminCoupon = (): UseAdminCouponInterface => {
                 type: 'success'
             });
 
-            await router.push({ path: '/admin/coupon' });
+            await router.push({path: '/admin/coupon'});
         }
 
         loadingState.isActive = false;
@@ -62,7 +62,7 @@ export const useAdminCoupon = (): UseAdminCouponInterface => {
     const deleteCoupon = async (values: { id: string; }) => {
         loadingState.isActive = true;
 
-        const { doProcess, processorErrors, processorSuccess } = await useProcessor();
+        const {doProcess, processorErrors, processorSuccess} = await useProcessor();
 
         await doProcess(`admin/coupon/${values['id']}/delete`, 'DELETE', null);
 
@@ -88,7 +88,7 @@ export const useAdminCoupon = (): UseAdminCouponInterface => {
     });
 
     const getChoices = async () => {
-        const { doProcess, processorObj } = await useProcessor();
+        const {doProcess, processorObj} = await useProcessor();
 
         await doProcess('admin/coupon/choices', 'GET', null);
 
@@ -96,7 +96,7 @@ export const useAdminCoupon = (): UseAdminCouponInterface => {
     };
 
     const getEdit = async (id: string) => {
-        const { doProcess, processorObj } = await useProcessor();
+        const {doProcess, processorObj} = await useProcessor();
 
         await doProcess(`admin/coupon/${id}/edit`, 'GET', null);
 
@@ -104,7 +104,7 @@ export const useAdminCoupon = (): UseAdminCouponInterface => {
     };
 
     const getSearch = async () => {
-        const { doProcess, processorArr } = await useProcessor();
+        const {doProcess, processorArr} = await useProcessor();
 
         await doProcess('admin/coupon/search', 'GET', null);
 
@@ -129,7 +129,7 @@ export const useAdminCoupon = (): UseAdminCouponInterface => {
     }) => {
         loadingState.isActive = true;
 
-        const { doProcess, processorErrors, processorSuccess } = await useProcessor();
+        const {doProcess, processorErrors, processorSuccess} = await useProcessor();
 
         await doProcess(`admin/coupon/${values['id']}/edit`, 'PATCH', values);
 
@@ -143,7 +143,7 @@ export const useAdminCoupon = (): UseAdminCouponInterface => {
                 type: 'success'
             });
 
-            await router.push({ path: '/admin/coupon' });
+            await router.push({path: '/admin/coupon'});
         }
 
         loadingState.isActive = false;

@@ -1,176 +1,194 @@
-<script lang="ts"
-        setup>
-const { status } = useAuth();
+<script setup lang="ts">
+const {status} = useAuth();
 
-const { getBusinessPhone } = useUtils();
+const {getBusinessPhone} = useUtils();
 
 const close = () => {
-    (document.getElementById("navbarSupportedContent") as HTMLElement).classList.remove('show');
+  (document.getElementById("navbarSupportedContent") as HTMLElement).classList.remove('show');
 };
 </script>
 
 <template>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-print-none">
-        <div class="container-fluid">
-            <NuxtLink class="navbar-brand"
-                      to="/"
-                      v-on:click="close()">
-                <img alt="Biker Training LLC"
-                     height="100"
-                     src="/img/bikertraining/logo_color_white.webp"
-                     width="255"/>
+  <nav
+      class="navbar bg-dark navbar-expand-lg d-print-none"
+      data-bs-theme="dark">
+    <div
+        class="container-fluid">
+      <NuxtLink
+          v-on:click="close()"
+          to="/">
+        <img
+            alt="Biker Training LLC"
+            class="inline-block img-fluid"
+            height="100"
+            loading="eager"
+            src="/img/bikertraining/logo_color_white.webp"
+            width="255"/>
+      </NuxtLink>
+
+      <button
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          data-bs-target="#navbarSupportedContent"
+          data-bs-toggle="collapse"
+          class="navbar-toggler"
+          type="button">
+        <span
+            class="navbar-toggler-icon"/>
+      </button>
+
+      <div
+          class="collapse navbar-collapse ms-5"
+          id="navbarSupportedContent">
+        <ul
+            class="navbar-nav me-auto mb-lg-0">
+          <li
+              class="nav-item me-2">
+            <NuxtLink
+                v-on:click="close()"
+                class="nav-link"
+                to="/schedule">
+              <BootstrapIcon
+                  class="me-1"
+                  name="calendar3"/>
+
+              Schedule
             </NuxtLink>
+          </li>
 
-            <button aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                    class="navbar-toggler"
-                    data-bs-target="#navbarSupportedContent"
-                    data-bs-toggle="collapse"
-                    type="button">
-                <span class="navbar-toggler-icon"/>
-            </button>
+          <li
+              class="nav-item me-2">
+            <NuxtLink
+                v-on:click="close()"
+                class="nav-link"
+                to="/courses">
+              <BootstrapIcon
+                  class="me-1"
+                  name="mortarboard-fill"/>
 
-            <div id="navbarSupportedContent"
-                 class="collapse navbar-collapse">
-                <ul class="navbar-nav mb-2 mb-lg-0 me-auto px-4">
-                    <!-- Start Schedule -->
-                    <li class="nav-item me-2"
-                        v-on:click="close()">
-                        <NuxtLink class="nav-link fw-bold"
-                                  to="/schedule">
-                            <svg class="bi">
-                                <use xlink:href="#calendar-days"/>
-                            </svg>
+              Courses
+            </NuxtLink>
+          </li>
 
-                            Schedule
-                        </NuxtLink>
-                    </li>
-                    <!-- End Schedule -->
+          <li
+              class="nav-item me-2">
+            <NuxtLink
+                v-on:click="close()"
+                class="nav-link"
+                to="/faq">
+              <BootstrapIcon
+                  class="me-1"
+                  name="patch-question"/>
 
-                    <!-- Start Courses -->
-                    <li class="nav-item me-2"
-                        v-on:click="close()">
-                        <NuxtLink class="nav-link fw-bold"
-                                  to="/courses">
-                            <svg class="bi">
-                                <use xlink:href="#graduation-cap"/>
-                            </svg>
+              FAQs
+            </NuxtLink>
+          </li>
 
-                            Courses
-                        </NuxtLink>
-                    </li>
-                    <!-- End Courses -->
+          <li
+              class="nav-item me-2">
+            <NuxtLink
+                v-on:click="close()"
+                class="nav-link"
+                to="/contact">
+              <BootstrapIcon
+                  class="me-1"
+                  name="envelope-at-fill"/>
 
-                    <!-- Start FAQ -->
-                    <li class="nav-item me-2"
-                        v-on:click="close()">
-                        <NuxtLink class="nav-link fw-bold"
-                                  to="/faq">
-                            <svg class="bi">
-                                <use xlink:href="#circle-question"/>
-                            </svg>
+              Contact Us
+            </NuxtLink>
+          </li>
 
-                            FAQs
-                        </NuxtLink>
-                    </li>
-                    <!-- End FAQ -->
+          <li
+              class="nav-item me-2">
+            <NuxtLink
+                v-on:click="close()"
+                class="nav-link"
+                to="/team">
+              <BootstrapIcon
+                  class="me-1"
+                  name="people-fill"/>
 
-                    <!-- Start Contact -->
-                    <li class="nav-item me-2"
-                        v-on:click="close()">
-                        <NuxtLink class="nav-link fw-bold"
-                                  to="/contact">
-                            <svg class="bi">
-                                <use xlink:href="#envelope"/>
-                            </svg>
+              Join Our Team
+            </NuxtLink>
+          </li>
 
-                            Contact Us
-                        </NuxtLink>
-                    </li>
-                    <!-- End Contact -->
+          <li
+              class="nav-item me-2">
+            <NuxtLink
+                v-bind:href="'tel:' + getBusinessPhone(true)"
+                v-on:click="close()"
+                class="nav-link">
+              <BootstrapIcon
+                  class="me-1"
+                  name="telephone-fill"/>
 
-                    <!-- Start RC -->
-                    <li class="nav-item me-2"
-                        v-on:click="close()">
-                        <NuxtLink class="nav-link fw-bold"
-                                  to="/team">
-                            <svg class="bi">
-                                <use xlink:href="#book-open-reader"/>
-                            </svg>
+              {{ getBusinessPhone(false) }}
+            </NuxtLink>
+          </li>
 
-                            Join our Team
-                        </NuxtLink>
-                    </li>
-                    <!-- End RC -->
+          <li
+              v-if="status == 'authenticated'"
+              class="nav-item me-2">
+            <NuxtLink
+                v-on:click="close()"
+                class="nav-link text-danger"
+                to="/admin/schedule">
+              <BootstrapIcon
+                  class="me-1"
+                  name="incognito"/>
 
-                    <!-- Start Minimized Phone -->
-                    <li class="nav-item d-lg-none"
-                        v-on:click="close()">
-                        <a class="nav-link fw-bold"
-                           v-bind:href="'tel:' + getBusinessPhone(true)">
-                            <svg class="bi">
-                                <use xlink:href="#phone"/>
-                            </svg>
+              Admin
+            </NuxtLink>
+          </li>
+        </ul>
 
-                            {{ getBusinessPhone(false) }}</a>
-                    </li>
-                    <!-- End Minimized Phone -->
+        <ul
+            class="navbar-nav">
+          <li
+              class="nav-item me-3">
+            <NuxtLink
+                v-on:click="close()"
+                target="_blank"
+                to="https://www.facebook.com/bikertraining">
+              <img
+                  alt="Facebook"
+                  class="img-fluid me-3 mt-3"
+                  height="25"
+                  loading="eager"
+                  src="/img/fb/Facebook_Logo_Primary.webp"
+                  width="25"/>
+            </NuxtLink>
+          </li>
 
-                    <!-- Start Admin -->
-                    <li v-if="status === 'authenticated'"
-                        class="nav-item"
-                        v-on:click="close()">
-                        <NuxtLink class="nav-link fw-bold text-danger"
-                                  to="/admin/schedule">
-                            <svg class="bi">
-                                <use xlink:href="#user-secret"/>
-                            </svg>
-
-                            Admin
-                        </NuxtLink>
-                    </li>
-                    <!-- End Admin -->
-                </ul>
-
-                <!-- Start Phone -->
-                <div class="d-flex me-5 fs-5 fw-bold d-none d-lg-flex">
-                    <a class="nav-link fw-bold text-white"
-                       v-bind:href="'tel:' + getBusinessPhone(true)">
-                        <svg class="bi">
-                            <use xlink:href="#phone"/>
-                        </svg>
-
-                        {{ getBusinessPhone(false) }}</a>
-                </div>
-                <!-- End Phone -->
-            </div>
-        </div>
-    </nav>
+          <li
+              class="nav-item me-3">
+            <NuxtLink
+                v-on:click="close()"
+                target="_blank"
+                to="https://www.instagram.com/bikertraining">
+              <img
+                  alt="Instagram"
+                  class="img-fluid me-3 mt-3"
+                  height="25"
+                  loading="eager"
+                  src="/img/ig/Instagram_Glyph_Gradient.webp"
+                  width="25"/>
+            </NuxtLink>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <style scoped>
-.bi {
-    display: inline-block;
-    width: 1.5rem;
-    height: 1rem;
-    vertical-align: -.125em;
-    overflow: visible;
+.nav-link {
+  color: #F8F9FA;
+  font-weight: bolder;
 }
 
-.nav .nav-item .nav-link {
-    color: #F8F9FA;
-}
-
-.nav .nav-item .nav-link:hover {
-    color: #FE541F;
-}
-
-.navbar-nav .nav-item .nav-link {
-    color: #F8F9FA;
-}
-
-.navbar-nav .nav-item .nav-link:hover {
-    color: #FE541F;
+.nav-link:hover {
+  color: #FE541F;
 }
 </style>

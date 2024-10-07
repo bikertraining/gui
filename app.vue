@@ -1,29 +1,12 @@
-<script lang="ts"
-        setup>
-
-</script>
-
 <template>
+  <NuxtRouteAnnouncer/>
+
+  <div
+      class="d-flex flex-column min-vh-100">
+    <PageLoading/>
+
     <NuxtLayout>
-        <PageLoading/>
-
-        <NuxtPage/>
+      <NuxtPage/>
     </NuxtLayout>
+  </div>
 </template>
-
-<style lang="css">
-html, body {
-    height: 100%;
-}
-
-body {
-    background-color: #FFFFFF;
-    display: flex;
-    flex-direction: column;
-}
-
-main {
-    flex-grow: 1;
-    height: 100%;
-}
-</style>

@@ -17,5 +17,9 @@ npm run build
 ### Check for dependency updates
 
 ```
+# Check for updates
 ncu
+
+# Update versions
+ncu -u
 ```

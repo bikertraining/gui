@@ -1,4 +1,4 @@
-import { type ComputedRef, type UnwrapNestedRefs } from "vue";
+import {type ComputedRef, type UnwrapNestedRefs} from "vue";
 
 interface UseClientScheduleInterface {
     formArr: ComputedRef<string[]>;
@@ -12,7 +12,7 @@ export const useClientSchedule = (): UseClientScheduleInterface => {
     });
 
     const getSearch = async (class_type: string | string[]) => {
-        const { doProcess, processorArr } = await useProcessor();
+        const {doProcess, processorArr} = await useProcessor();
 
         if (class_type === '3wbrc') {
             await doProcess('client/schedule/search/3wbrc/type', 'GET', null);

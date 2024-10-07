@@ -1,4 +1,4 @@
-import { type ComputedRef, type UnwrapNestedRefs } from "vue";
+import {type ComputedRef, type UnwrapNestedRefs} from "vue";
 
 interface UseClientPaymentInterface {
     formErrors: ComputedRef<Record<string, unknown>>;
@@ -35,7 +35,7 @@ interface UseClientPaymentInterface {
 }
 
 export const useClientPayment = (): UseClientPaymentInterface => {
-    const { loadingState } = usePageLoading();
+    const {loadingState} = usePageLoading();
 
     const router = useRouter();
 
@@ -48,7 +48,7 @@ export const useClientPayment = (): UseClientPaymentInterface => {
     });
 
     const getPrice = async (class_type: string | string[]) => {
-        const { doProcess, processorObj } = await useProcessor();
+        const {doProcess, processorObj} = await useProcessor();
 
         await doProcess(`client/payment/${class_type}/price`, 'GET', null);
 
@@ -97,18 +97,18 @@ export const useClientPayment = (): UseClientPaymentInterface => {
     }) => {
         loadingState.isActive = true;
 
-        const { doProcess, processorErrors, processorSuccess } = await useProcessor();
+        const {doProcess, processorErrors, processorSuccess} = await useProcessor();
 
         await doProcess('client/payment/', 'POST', values);
 
         if (!processorSuccess.value) {
             if ('non_field_errors' in processorErrors.value) {
-                await router.push({ path: `/payment/failed/${values['class_type']}/${processorErrors.value['non_field_errors']}` });
+                await router.push({path: `/payment/failed/${values['class_type']}/${processorErrors.value['non_field_errors']}`});
             } else {
                 actions.setErrors(processorErrors.value);
             }
         } else {
-            await router.push({ path: `/payment/${values['class_type']}/confirmation` });
+            await router.push({path: `/payment/${values['class_type']}/confirmation`});
         }
 
         loadingState.isActive = false;
@@ -119,7 +119,7 @@ export const useClientPayment = (): UseClientPaymentInterface => {
     }) => {
         loadingState.isActive = true;
 
-        const { doProcess, processorObj } = await useProcessor();
+        const {doProcess, processorObj} = await useProcessor();
 
         await doProcess(`client/coupon/validate/${values['coupon_code'].toLowerCase()}/${values['class_type']}`, 'GET', null);
 

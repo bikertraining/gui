@@ -1,4 +1,4 @@
-import { type ComputedRef, type UnwrapNestedRefs } from "vue";
+import {type ComputedRef, type UnwrapNestedRefs} from "vue";
 
 interface UseAdminContactInterface {
     createContact: (values: Record<string, string>, actions: {
@@ -20,20 +20,20 @@ interface UseAdminContactInterface {
 }
 
 export const useAdminContact = (): UseAdminContactInterface => {
-    const { $event } = useNuxtApp();
+    const {$event} = useNuxtApp();
 
-    const { loadingState } = usePageLoading();
+    const {loadingState} = usePageLoading();
 
     const router = useRouter();
 
-    const { getBusinessEmail } = useUtils();
+    const {getBusinessEmail} = useUtils();
 
     const createContact = async (values: Record<string, string>, actions: {
         setErrors: (arg0: Record<string, unknown>) => void;
     }) => {
         loadingState.isActive = true;
 
-        const { doProcess, processorErrors, processorSuccess } = await useProcessor();
+        const {doProcess, processorErrors, processorSuccess} = await useProcessor();
 
         await doProcess('admin/contact/create', 'POST', values);
 
@@ -47,7 +47,7 @@ export const useAdminContact = (): UseAdminContactInterface => {
                 type: 'success'
             });
 
-            await router.push({ path: '/admin/contact' });
+            await router.push({path: '/admin/contact'});
         }
 
         loadingState.isActive = false;
@@ -56,7 +56,7 @@ export const useAdminContact = (): UseAdminContactInterface => {
     const deleteContact = async (values: { id: string; }) => {
         loadingState.isActive = true;
 
-        const { doProcess, processorErrors, processorSuccess } = await useProcessor();
+        const {doProcess, processorErrors, processorSuccess} = await useProcessor();
 
         await doProcess(`admin/contact/${values['id']}/delete`, 'DELETE', null);
 
@@ -92,7 +92,7 @@ export const useAdminContact = (): UseAdminContactInterface => {
     });
 
     const getEdit = async (id: string) => {
-        const { doProcess, processorObj } = await useProcessor();
+        const {doProcess, processorObj} = await useProcessor();
 
         await doProcess(`admin/contact/${id}/edit`, 'GET', null);
 
@@ -100,7 +100,7 @@ export const useAdminContact = (): UseAdminContactInterface => {
     };
 
     const getSearch = async () => {
-        const { doProcess, processorArr } = await useProcessor();
+        const {doProcess, processorArr} = await useProcessor();
 
         await doProcess('admin/contact/search', 'GET', null);
 
@@ -121,7 +121,7 @@ export const useAdminContact = (): UseAdminContactInterface => {
     }) => {
         loadingState.isActive = true;
 
-        const { doProcess, processorErrors, processorSuccess } = await useProcessor();
+        const {doProcess, processorErrors, processorSuccess} = await useProcessor();
 
         await doProcess(`admin/contact/${values['id']}/edit`, 'PATCH', values);
 
@@ -135,7 +135,7 @@ export const useAdminContact = (): UseAdminContactInterface => {
                 type: 'success'
             });
 
-            await router.push({ path: '/admin/contact' });
+            await router.push({path: '/admin/contact'});
         }
 
         loadingState.isActive = false;

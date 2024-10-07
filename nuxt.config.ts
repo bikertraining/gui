@@ -2,28 +2,14 @@
 export default defineNuxtConfig({
     app: {
         head: {
-            link: [
-                {
-                    rel: 'preload',
-                    href: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css',
-                    as: 'style'
-                },
-                {
-                    rel: 'stylesheet',
-                    href: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css'
-                }
-            ],
             script: [
-                {
-                    src: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js'
-                },
                 {
                     innerHTML: `
                         {
                           "@context": "https://schema.org",
                           "@type": "Organization",
-                          "url": "https://bikertraining.com",
-                          "logo": "https://bikertraining.com/img/bikertraining/logo_llc_color.png"
+                          "url": "${process.env.NUXT_PUBLIC_GUI_URL}",
+                          "logo": "${process.env.NUXT_PUBLIC_GUI_URL}/img/bikertraining/logo_llc_color.png"
                         }
                     `,
                     type: 'application/ld+json'
@@ -34,7 +20,7 @@ export default defineNuxtConfig({
                           "@context": "https://schema.org",
                           "@type": "School",
                           "image": [
-                            "https://bikertraining.com/img/bikertraining/logo_llc_color.png"
+                            "${process.env.NUXT_PUBLIC_GUI_URL}/img/bikertraining/logo_llc_color.png"
                            ],
                           "name": "Biker Training LLC",
                           "address": {
@@ -50,7 +36,7 @@ export default defineNuxtConfig({
                             "latitude": 30.47919,
                             "longitude": -87.25403
                           },
-                          "url": "https://bikertraining.com",
+                          "url": "${process.env.NUXT_PUBLIC_GUI_URL}",
                           "telephone": "+18504562277",
                           "openingHoursSpecification": [
                             {
@@ -76,19 +62,19 @@ export default defineNuxtConfig({
                     innerHTML: `
                         {
                           "@context": "https://schema.org/",
-                          "@id": "https://bikertraining.com",
+                          "@id": "${process.env.NUXT_PUBLIC_GUI_URL}",
                           "@type": "Course",
                           "name": "Motorcycle Endorsement",
                           "description": "Whether you are totally new to motorcycles, a returning rider or already experienced, we have a course to meet your needs. Our Basic RiderCourse meets the state of Florida license endorsement requirement.",
                           "publisher": {
                             "@type": "Organization",
                             "name": "Biker Training LLC",
-                            "url": "https://bikertraining.com"
+                            "url": "${process.env.NUXT_PUBLIC_GUI_URL}"
                           },
                           "provider": {
                             "@type": "Organization",
                             "name": "Biker Training LLC",
-                            "url": "https://bikertraining.com"
+                            "url": "${process.env.NUXT_PUBLIC_GUI_URL}"
                           },
                           "offers": [{
                             "@type": "Offer",
@@ -99,7 +85,7 @@ export default defineNuxtConfig({
                           "inLanguage": "en",
                           "coursePrerequisites": [
                             "MSF 5-hour eCourse",
-                            "https://bikertraining.com"
+                            "${process.env.NUXT_PUBLIC_GUI_URL}"
                           ],
                           "hasCourseInstance": [
                             {
@@ -124,9 +110,9 @@ export default defineNuxtConfig({
         isEnabled: true,
         provider: {
             endpoints: {
-                getSession: { path: 'dj-rest-auth/user/', method: 'get' },
-                signIn: { path: 'dj-rest-auth/api-token-auth/', method: 'post' },
-                signOut: { path: 'dj-rest-auth/logout/', method: 'post' }
+                getSession: {path: 'dj-rest-auth/user/', method: 'get'},
+                signIn: {path: 'dj-rest-auth/api-token-auth/', method: 'post'},
+                signOut: {path: 'dj-rest-auth/logout/', method: 'post'}
             },
             pages: {
                 login: '/admin/auth'
@@ -144,8 +130,15 @@ export default defineNuxtConfig({
             enableRefreshPeriodically: false
         }
     },
+    compatibilityDate: '2024-04-03',
+    css: [
+        'bootstrap/dist/css/bootstrap.min.css'
+    ],
     devtools: {
         enabled: true
+    },
+    bootstrapIcons: {
+        display: "inline"
     },
     gtag: {
         id: process.env.NUXT_PUBLIC_GOOGLE_TAG,
@@ -157,8 +150,19 @@ export default defineNuxtConfig({
         '@sidebase/nuxt-auth',
         '@vee-validate/nuxt',
         'dayjs-nuxt',
+        'nuxt-bootstrap-icons',
         'nuxt-gtag'
     ],
+    robots: {
+        credits: false,
+        disallow: [
+            '/admin/',
+            '/callus',
+            '/contact/confirmation',
+            '/payment/',
+            '/team/confirmation'
+        ]
+    },
     runtimeConfig: {
         public: {
             api_title: process.env.NUXT_PUBLIC_API_TITLE,
@@ -185,4 +189,4 @@ export default defineNuxtConfig({
         ],
         xslTips: false
     }
-})
+});

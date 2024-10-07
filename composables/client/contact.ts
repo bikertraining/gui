@@ -1,10 +1,9 @@
-import { computed, type ComputedRef, reactive, type UnwrapNestedRefs } from "vue";
+import {computed, type ComputedRef, reactive, type UnwrapNestedRefs} from "vue";
 
 interface UseClientContactInterface {
     deleteContact: (email: string) => Promise<void>;
     formErrors: ComputedRef<Record<string, unknown>>;
     formObj: ComputedRef<{
-        can_email: boolean;
         email: string;
         message: string;
         name: string;
@@ -16,20 +15,20 @@ interface UseClientContactInterface {
 }
 
 export const useClientContact = (): UseClientContactInterface => {
-    const { loadingState } = usePageLoading();
+    const {loadingState} = usePageLoading();
 
     const router = useRouter();
 
     const deleteContact = async (email: string) => {
         loadingState.isActive = true;
 
-        const { doProcess } = await useProcessor();
+        const {doProcess} = await useProcessor();
 
         await doProcess(`client/contact/${email}/unsubscribe`, 'DELETE', null);
 
         loadingState.isActive = false;
 
-        await router.push({ path: '/contact/unsubscribe/confirmation' });
+        await router.push({path: '/contact/unsubscribe/confirmation'});
     };
 
     const formErrors = computed(() => {
@@ -43,7 +42,6 @@ export const useClientContact = (): UseClientContactInterface => {
     const localContact: UnwrapNestedRefs<any> = reactive({
         formErrors: {},
         formObj: {
-            can_email: false,
             email: '',
             message: '',
             name: '',
@@ -56,14 +54,14 @@ export const useClientContact = (): UseClientContactInterface => {
     }) => {
         loadingState.isActive = true;
 
-        const { doProcess, processorErrors, processorSuccess } = await useProcessor();
+        const {doProcess, processorErrors, processorSuccess} = await useProcessor();
 
         await doProcess('client/contact/', 'POST', values);
 
         if (!processorSuccess.value) {
             actions.setErrors(processorErrors.value);
         } else {
-            await router.push({ path: '/contact/confirmation' });
+            await router.push({path: '/contact/confirmation'});
         }
 
         loadingState.isActive = false;

@@ -1,4 +1,4 @@
-import { type ComputedRef, type UnwrapNestedRefs } from "vue";
+import {type ComputedRef, type UnwrapNestedRefs} from "vue";
 
 interface UseAdminPriceInterface {
     choices: ComputedRef<Record<string, string>>;
@@ -21,9 +21,9 @@ interface UseAdminPriceInterface {
 }
 
 export const useAdminPrice = (): UseAdminPriceInterface => {
-    const { $event } = useNuxtApp();
+    const {$event} = useNuxtApp();
 
-    const { loadingState } = usePageLoading();
+    const {loadingState} = usePageLoading();
 
     const router = useRouter();
 
@@ -44,7 +44,7 @@ export const useAdminPrice = (): UseAdminPriceInterface => {
     });
 
     const getChoices = async () => {
-        const { doProcess, processorObj } = await useProcessor();
+        const {doProcess, processorObj} = await useProcessor();
 
         await doProcess('admin/price/choices', 'GET', null);
 
@@ -52,7 +52,7 @@ export const useAdminPrice = (): UseAdminPriceInterface => {
     };
 
     const getEdit = async (id: string) => {
-        const { doProcess, processorObj } = await useProcessor();
+        const {doProcess, processorObj} = await useProcessor();
 
         await doProcess(`admin/price/${id}/edit`, 'GET', null);
 
@@ -60,7 +60,7 @@ export const useAdminPrice = (): UseAdminPriceInterface => {
     };
 
     const getSearch = async () => {
-        const { doProcess, processorArr } = await useProcessor();
+        const {doProcess, processorArr} = await useProcessor();
 
         await doProcess('admin/price/search', 'GET', null);
 
@@ -86,7 +86,7 @@ export const useAdminPrice = (): UseAdminPriceInterface => {
     }) => {
         loadingState.isActive = true;
 
-        const { doProcess, processorErrors, processorSuccess } = await useProcessor();
+        const {doProcess, processorErrors, processorSuccess} = await useProcessor();
 
         await doProcess(`admin/price/${values['id']}/edit`, 'PATCH', values);
 
@@ -100,7 +100,7 @@ export const useAdminPrice = (): UseAdminPriceInterface => {
                 type: 'success'
             });
 
-            await router.push({ path: '/admin/price' });
+            await router.push({path: '/admin/price'});
         }
 
         loadingState.isActive = false;

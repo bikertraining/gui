@@ -1,4 +1,4 @@
-import { type ComputedRef, type UnwrapNestedRefs } from "vue";
+import {type ComputedRef, type UnwrapNestedRefs} from "vue";
 
 interface UseAdminScheduleInterface {
     choices: ComputedRef<Record<string, string>>;
@@ -26,9 +26,9 @@ interface UseAdminScheduleInterface {
 }
 
 export const useAdminSchedule = (): UseAdminScheduleInterface => {
-    const { $event } = useNuxtApp();
+    const {$event} = useNuxtApp();
 
-    const { loadingState } = usePageLoading();
+    const {loadingState} = usePageLoading();
 
     const router = useRouter();
 
@@ -46,7 +46,7 @@ export const useAdminSchedule = (): UseAdminScheduleInterface => {
         values['date_from'] = dayjs(values['date_from']).format('YYYY-MM-DD');
         values['date_to'] = dayjs(values['date_to']).format('YYYY-MM-DD');
 
-        const { doProcess, processorErrors, processorSuccess } = await useProcessor();
+        const {doProcess, processorErrors, processorSuccess} = await useProcessor();
 
         await doProcess('admin/schedule/create', 'POST', values);
 
@@ -60,7 +60,7 @@ export const useAdminSchedule = (): UseAdminScheduleInterface => {
                 type: 'success'
             });
 
-            await router.push({ path: '/admin/schedule' });
+            await router.push({path: '/admin/schedule'});
         }
 
         loadingState.isActive = false;
@@ -69,7 +69,7 @@ export const useAdminSchedule = (): UseAdminScheduleInterface => {
     const deleteSchedule = async (values: { id: string; }) => {
         loadingState.isActive = true;
 
-        const { doProcess, processorErrors, processorSuccess } = await useProcessor();
+        const {doProcess, processorErrors, processorSuccess} = await useProcessor();
 
         await doProcess(`admin/schedule/${values['id']}/delete`, 'DELETE', null);
 
@@ -95,7 +95,7 @@ export const useAdminSchedule = (): UseAdminScheduleInterface => {
     });
 
     const getChoices = async () => {
-        const { doProcess, processorObj } = await useProcessor();
+        const {doProcess, processorObj} = await useProcessor();
 
         await doProcess('admin/schedule/choices', 'GET', null);
 
@@ -103,7 +103,7 @@ export const useAdminSchedule = (): UseAdminScheduleInterface => {
     };
 
     const getEdit = async (id: string) => {
-        const { doProcess, processorObj } = await useProcessor();
+        const {doProcess, processorObj} = await useProcessor();
 
         await doProcess(`admin/schedule/${id}/edit`, 'GET', null);
 
@@ -114,7 +114,7 @@ export const useAdminSchedule = (): UseAdminScheduleInterface => {
     };
 
     const getSearch = async () => {
-        const { doProcess, processorArr } = await useProcessor();
+        const {doProcess, processorArr} = await useProcessor();
 
         await doProcess('admin/schedule/search', 'GET', null);
 
@@ -143,7 +143,7 @@ export const useAdminSchedule = (): UseAdminScheduleInterface => {
         values['date_from'] = dayjs(values['date_from']).format('YYYY-MM-DD');
         values['date_to'] = dayjs(values['date_to']).format('YYYY-MM-DD');
 
-        const { doProcess, processorErrors, processorSuccess } = await useProcessor();
+        const {doProcess, processorErrors, processorSuccess} = await useProcessor();
 
         await doProcess(`admin/schedule/${values['id']}/edit`, 'PATCH', values);
 
@@ -157,7 +157,7 @@ export const useAdminSchedule = (): UseAdminScheduleInterface => {
                 type: 'success'
             });
 
-            await router.push({ path: '/admin/schedule' });
+            await router.push({path: '/admin/schedule'});
         }
 
         loadingState.isActive = false;

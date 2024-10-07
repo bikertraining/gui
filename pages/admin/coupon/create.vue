@@ -1,76 +1,93 @@
-<script lang="ts"
-        setup>
-import { boolean, object, string } from "yup";
+<script setup lang="ts">
+import {boolean, object, string} from "yup";
+import {Form} from "vee-validate";
 
-const { choices, createCoupon, formObj, getChoices } = useAdminCoupon();
+const {choices, createCoupon, formObj, getChoices} = useAdminCoupon();
 
-const { loadingState } = usePageLoading();
+const {loadingState} = usePageLoading();
 
 const route = useRoute();
 
 const schema = object({
-    amount: string().required(),
-    class_type: string().required(),
-    is_active: boolean(),
-    name: string().required()
+  amount: string().required(),
+  class_type: string().required(),
+  is_active: boolean(),
+  name: string().required()
 });
 
 definePageMeta({
-    description: 'Create coupon',
-    keywords: 'create coupon, coupon, create',
-    layout: 'admin',
-    title: 'Create Coupon'
+  description: 'Create coupon',
+  layout: 'admin',
+  title: 'Create Coupon'
 });
 
 onMounted(async () => {
-    loadingState.isActive = true;
+  loadingState.isActive = true;
 
-    await getChoices();
+  await getChoices();
 
-    loadingState.isActive = false;
+  loadingState.isActive = false;
 });
 
 useHead({
-    title: `${route.meta['title']}`
+  title: `${route.meta['title']}`
 });
 </script>
 
 <template>
-    <div class="py-5">
-        <div class="d-inline-flex">
-            <Form :validation-schema="schema"
-                  @submit="createCoupon">
-                <div class="row g-3">
-                    <FormText v-model="formObj['name']"
-                              :required="true"
-                              label="Name"
-                              name="name"
-                              v-on:change="formObj['name'].toLowerCase()"/>
+  <div
+      class="mt-3">
+    <Form
+        :validation-schema="schema"
+        @submit="createCoupon">
 
-                    <FormSelect v-model="formObj['class_type']"
-                                :options="choices['class']"
-                                :required="true"
-                                label="Class Type"
-                                name="class_type"/>
-
-                    <FormText v-model="formObj['amount']"
-                              :required="true"
-                              label="Amount"
-                              name="amount"/>
-
-                    <FormSwitch v-model="formObj['is_active']"
-                                label="Active"
-                                name="is_active"/>
-                </div>
-
-                <div class="d-flex justify-content-between mt-3">
-                    <button class="btn btn-outline-success px-4"
-                            type="submit">Create
-                    </button>
-                </div>
-            </Form>
+      <div
+          class="row">
+        <div
+            class="col-md-6">
+          <FormText
+              v-on:change="formObj['name'].toLowerCase()"
+              v-model="formObj['name']"
+              :required="true"
+              label="Name"
+              name="name"/>
         </div>
-    </div>
+
+        <div
+            class="col-md-6">
+          <FormSelect
+              v-model="formObj['class_type']"
+              :options="choices['class']"
+              :required="true"
+              label="Class Type"
+              name="class_type"/>
+        </div>
+
+        <div
+            class="col-md-6">
+          <FormText
+              v-model="formObj['amount']"
+              :required="true"
+              label="Amount"
+              name="amount"/>
+        </div>
+
+        <div
+            class="col-md-6">
+          <FormSwitch
+              v-model="formObj['is_active']"
+              label="Active"
+              name="is_active"/>
+        </div>
+      </div>
+
+      <button
+          class="px-4 btn btn-outline-success mt-3"
+          type="submit">
+        Create
+      </button>
+    </Form>
+  </div>
 </template>
 
 <style scoped>

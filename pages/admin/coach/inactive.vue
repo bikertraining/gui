@@ -1,165 +1,167 @@
-<script lang="ts"
-        setup>
-const { formArr, frtp_expiration, getSearchInactive, msf_expiration } = useAdminCoach();
+<script setup lang="ts">
+const {formArr, frtp_expiration, getSearchInactive, msf_expiration} = useAdminCoach();
 
-const { loadingState } = usePageLoading();
+const {loadingState} = usePageLoading();
 
 const route = useRoute();
 
 const router = useRouter();
 
 definePageMeta({
-    description: 'Search coaches',
-    keywords: 'search coaches, coaches, search',
-    layout: 'admin',
-    title: 'Search Coaches'
+  description: 'Search coaches',
+  layout: 'admin',
+  title: 'Search Coaches'
 });
 
 onMounted(async () => {
-    loadingState.isActive = true;
+  loadingState.isActive = true;
 
-    await getSearchInactive();
+  await getSearchInactive();
 
-    loadingState.isActive = false;
+  loadingState.isActive = false;
 });
 
 useHead({
-    title: `${route.meta['title']}`
+  title: `${route.meta['title']}`
 });
 </script>
 
 <template>
-    <div class="py-5">
-        <div class="row mb-3 d-print-none">
-            <div class="col-auto">
-                <NuxtLink to="/admin/coach/create">
-                    <button class="btn btn-success"
-                            type="button">
-                        <svg class="bi">
-                            <use xlink:href="#user-plus"/>
-                        </svg>
+  <table
+      class="table table-striped table-hover caption-top">
+    <caption
+        v-if="formArr.length > 0"
+        class="d-print-none fw-bold mb-3 mt-2">
+      <BootstrapIcon
+          name="exclamation-diamond"/>
+      {{ formArr.length }} Inactive Coaches
+    </caption>
 
-                        Create Coach
-                    </button>
-                </NuxtLink>
-            </div>
+    <thead
+        v-if="formArr.length > 0"
+        class="border border-dark border-2 border-start-0 border-end-0">
+    <tr>
+      <th
+          class="w-25"
+          scope="col">
+        MSF ID
+      </th>
 
-            <div class="col-auto">
-                <NuxtLink to="/admin/coach">
-                    <button class="btn btn-primary"
-                            type="button">
-                        <svg class="bi">
-                            <use xlink:href="#users"/>
-                        </svg>
+      <th
+          class="w-25"
+          scope="col">
+        Name
+      </th>
 
-                        Active Coaches
-                    </button>
-                </NuxtLink>
-            </div>
+      <th
+          class="w-25"
+          scope="col">
+        MSF
+      </th>
+
+      <th
+          class="w-25"
+          scope="col">
+        FRTP
+      </th>
+    </tr>
+    </thead>
+
+    <tbody
+        v-if="formArr.length > 0">
+    <tr
+        v-for="coach in formArr"
+        v-bind:key="coach"
+        v-on:click="router.push({ path: `/admin/coach/${coach['id']}/edit`})">
+      <td>
+        <div
+            v-if="coach['msf_id'] > 0">
+          {{ coach['msf_id'] }}
         </div>
 
-        <table class="table table-hover caption-top table-striped">
-            <caption class="mb-3 d-print-none">
-                <svg class="bi text-warning">
-                    <use xlink:href="#star"/>
-                </svg>
+        <div
+            v-else>
+          Range Aide
+        </div>
+      </td>
 
-                <span class="fw-bold text-dark ms-1">Click on a coach to edit</span>
+      <td>
+        {{ coach['name'] }}
+      </td>
 
-                <div class="fw-bold text-dark mt-3">{{ formArr.length }} Coaches</div>
-            </caption>
+      <td>
+        <div
+            v-if="coach['msf_id'] > 0">
+          Expires: {{ coach['date_to'] }}
 
-            <thead class="table-light border-top border-bottom border-dark border-2 border-start-0 border-end-0">
-            <tr>
-                <th scope="col"
-                    style="width: 25%;">MSF ID
-                </th>
-                <th scope="col"
-                    style="width: 25%;">Name
-                </th>
-                <th scope="col"
-                    style="width: 25%;">MSF
-                </th>
-                <th scope="col"
-                    style="width: 25%;">FRTP
-                </th>
-            </tr>
-            </thead>
+          <span
+              v-if="msf_expiration(coach['date_to']) >= 6">
+              <BootstrapIcon
+                  class="text-success"
+                  name="check-lg"/>
+            </span>
 
-            <tbody>
-            <tr v-for="coach in formArr"
-                v-bind:key="coach"
-                v-on:click="router.push({ path: `/admin/coach/${coach['id']}/edit`})">
-                <td v-if="coach['msf_id'] > 0">
-                    {{ coach['msf_id'] }}<br>
-                </td>
-                <td v-else>
-                    Range Aide
-                </td>
-                <td>{{ coach['name'] }}</td>
-                <td v-if="coach['msf_id'] > 0">
-                    Expires: {{ coach['date_to'] }}
+          <span
+              v-else-if="msf_expiration(coach['date_to']) < 6 && msf_expiration(coach['date_to']) >= 0">
+              <BootstrapIcon
+                  class="text-warning"
+                  name="exclamation-triangle-fill"/>
+            </span>
 
-                    <svg v-if="msf_expiration(coach['date_to']) >= 6"
-                         class="bi text-success d-print-none">
-                        <use xlink:href="#check"/>
-                    </svg>
+          <span
+              v-else-if="msf_expiration(coach['date_to']) <= 0">
+              <BootstrapIcon
+                  class="text-danger"
+                  name="x"/>
+            </span>
+        </div>
 
-                    <svg v-else-if="msf_expiration(coach['date_to']) < 6 && msf_expiration(coach['date_to']) >= 0"
-                         class="bi text-warning d-print-none">
-                        <use xlink:href="#triangle-exclamation"/>
-                    </svg>
+        <div
+            v-else>
+          &nbsp;
+        </div>
+      </td>
 
-                    <svg v-else-if="msf_expiration(coach['date_to']) <= 0"
-                         class="bi text-danger d-print-none">
-                        <use xlink:href="#xmark"/>
-                    </svg>
-                </td>
-                <td v-else>
-                    &nbsp;
-                </td>
-                <td v-if="coach['msf_id'] > 0">
-                    Update: {{ coach['frtp_date_from'] }}
+      <td>
+        <div
+            v-if="coach['msf_id'] > 0">
+          Update: {{ coach['frtp_date_from'] }}
 
-                    <svg v-if="frtp_expiration(coach['frtp_date_from']) <= 365"
-                         class="bi text-success d-print-none">
-                        <use xlink:href="#check"/>
-                    </svg>
+          <span
+              v-if="frtp_expiration(coach['frtp_date_from']) <= 365">
+              <BootstrapIcon
+                  class="text-success"
+                  name="check-lg"/>
+            </span>
 
-                    <svg v-else-if="frtp_expiration(coach['frtp_date_from']) >= 365 && frtp_expiration(coach['frtp_date_from']) < 730"
-                         class="bi text-warning d-print-none">
-                        <use xlink:href="#triangle-exclamation"/>
-                    </svg>
+          <span
+              v-else-if="frtp_expiration(coach['frtp_date_from']) >= 365 && frtp_expiration(coach['frtp_date_from']) < 730">
+              <BootstrapIcon
+                  class="text-warning"
+                  name="exclamation-triangle-fill"/>
+            </span>
 
-                    <svg v-else-if="frtp_expiration(coach['frtp_date_from']) >= 730"
-                         class="bi text-danger d-print-none">
-                        <use xlink:href="#xmark"/>
-                    </svg>
-                </td>
-                <td v-else>
-                    &nbsp;
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+          <span
+              v-else-if="frtp_expiration(coach['frtp_date_from']) >= 730">
+              <BootstrapIcon
+                  class="text-danger"
+                  name="x"/>
+            </span>
+
+          <div
+              v-else>
+            &nbsp;
+          </div>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </template>
 
 <style scoped>
-.bi {
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    vertical-align: -.125em;
-    overflow: visible;
-}
-
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-    background-color: #198754;
-    color: #FFFFFF;
-}
-
-.table tbody > tr:nth-last-child(1) {
-    border-color: #FFFFFF;
+  background-color: #198754;
+  color: #FFFFFF;
 }
 </style>

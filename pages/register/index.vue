@@ -1,21 +1,21 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 const route = useRoute();
 
 const router = useRouter();
 
 onMounted(async () => {
-    await router.push({ path: '/schedule' });
+  await router.push({path: '/schedule'});
 });
 
 definePageMeta({
-    auth: false,
-    description: 'Register Online',
-    keywords: 'register online, register',
-    title: 'Register Online'
+  auth: false,
+  description: 'Register Online',
+  keywords: 'register online, register',
+  title: 'Register Online'
 });
 
 useHead({
-    title: `${route.meta['title']}`
+  title: `${route.meta['title']}`
 });
 </script>
 

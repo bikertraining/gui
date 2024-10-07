@@ -1,34 +1,36 @@
-<script lang="ts"
-        setup>
+<script setup lang="ts">
 const route = useRoute();
 
-const { getBusinessPhone } = useUtils();
+const {getBusinessPhone} = useUtils();
 
 definePageMeta({
-    auth: false,
-    description: 'Please call us',
-    keywords: 'please, call, us',
-    title: 'Please Call'
+  auth: false,
+  description: 'Please call us',
+  keywords: 'please, call, us',
+  title: 'Please Call'
 });
 
 useHead({
-    title: `${route.meta['title']}`
+  title: `${route.meta['title']}`
 });
 </script>
 
 <template>
-    <div class="px-4 py-5 pb-3 my-1 text-center" style="min-height: calc(100vh - 274px) !important;">
-        <h1 class="fw-bold mb-4 fs-4">
-            Please call us at <a class="text-dark text-decoration-none"
-                                 v-bind:href="'tel:' + getBusinessPhone(true)">{{
-                getBusinessPhone(false)
-                                                                               }}</a>
-        </h1>
+  <div
+      class="fs-3 fw-bold mt-5 text-center">
+    Please call us at
 
-        <div class="fw-bold fs-5">
-            There appears to be a problem processing your payment.
-        </div>
-    </div>
+    <NuxtLink
+        v-bind:href="'tel:' + getBusinessPhone(true)"
+        class="link-underline link-underline-opacity-0">
+      {{ getBusinessPhone(false) }}
+    </NuxtLink>
+  </div>
+
+  <div
+      class="fs-3 text-center">
+    There appears to be a problem processing your payment.
+  </div>
 </template>
 
 <style scoped>

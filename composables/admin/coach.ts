@@ -1,4 +1,4 @@
-import { type ComputedRef, type UnwrapNestedRefs } from "vue";
+import {type ComputedRef, type UnwrapNestedRefs} from "vue";
 
 interface UseAdminCoachInterface {
     createCoach: (values: Record<string, string>, actions: {
@@ -30,9 +30,9 @@ interface UseAdminCoachInterface {
 }
 
 export const useAdminCoach = (): UseAdminCoachInterface => {
-    const { $event } = useNuxtApp();
+    const {$event} = useNuxtApp();
 
-    const { loadingState } = usePageLoading();
+    const {loadingState} = usePageLoading();
 
     const router = useRouter();
 
@@ -44,7 +44,7 @@ export const useAdminCoach = (): UseAdminCoachInterface => {
         values['date_to'] = dayjs(values['date_to']).format('YYYY-MM-DD');
         values['frtp_date_from'] = dayjs(values['frtp_date_from']).format('YYYY-MM-DD');
 
-        const { doProcess, processorErrors, processorSuccess } = await useProcessor();
+        const {doProcess, processorErrors, processorSuccess} = await useProcessor();
 
         await doProcess('admin/coach/create', 'POST', values);
 
@@ -58,7 +58,7 @@ export const useAdminCoach = (): UseAdminCoachInterface => {
                 type: 'success'
             });
 
-            await router.push({ path: '/admin/coach' });
+            await router.push({path: '/admin/coach'});
         }
 
         loadingState.isActive = false;
@@ -69,7 +69,7 @@ export const useAdminCoach = (): UseAdminCoachInterface => {
     const deleteCoach = async (values: { id: string; }) => {
         loadingState.isActive = true;
 
-        const { doProcess, processorErrors, processorSuccess } = await useProcessor();
+        const {doProcess, processorErrors, processorSuccess} = await useProcessor();
 
         await doProcess(`admin/coach/${values['id']}/delete`, 'DELETE', null);
 
@@ -104,7 +104,7 @@ export const useAdminCoach = (): UseAdminCoachInterface => {
     };
 
     const getEdit = async (id: string) => {
-        const { doProcess, processorObj } = await useProcessor();
+        const {doProcess, processorObj} = await useProcessor();
 
         await doProcess(`admin/coach/${id}/edit`, 'GET', null);
 
@@ -115,7 +115,7 @@ export const useAdminCoach = (): UseAdminCoachInterface => {
     };
 
     const getSearchActive = async () => {
-        const { doProcess, processorArr } = await useProcessor();
+        const {doProcess, processorArr} = await useProcessor();
 
         await doProcess('admin/coach/search/active', 'GET', null);
 
@@ -123,7 +123,7 @@ export const useAdminCoach = (): UseAdminCoachInterface => {
     };
 
     const getSearchInactive = async () => {
-        const { doProcess, processorArr } = await useProcessor();
+        const {doProcess, processorArr} = await useProcessor();
 
         await doProcess('admin/coach/search/inactive', 'GET', null);
 
@@ -166,7 +166,7 @@ export const useAdminCoach = (): UseAdminCoachInterface => {
         values['date_to'] = dayjs(values['date_to']).format('YYYY-MM-DD');
         values['frtp_date_from'] = dayjs(values['frtp_date_from']).format('YYYY-MM-DD');
 
-        const { doProcess, processorErrors, processorSuccess } = await useProcessor();
+        const {doProcess, processorErrors, processorSuccess} = await useProcessor();
 
         await doProcess(`admin/coach/${values['id']}/edit`, 'PATCH', values);
 
@@ -180,7 +180,7 @@ export const useAdminCoach = (): UseAdminCoachInterface => {
                 type: 'success'
             });
 
-            await router.push({ path: '/admin/coach' });
+            await router.push({path: '/admin/coach'});
         }
 
         loadingState.isActive = false;

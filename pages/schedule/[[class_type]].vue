@@ -1,33 +1,34 @@
-<script lang="ts"
-        setup>
-const { formArr, getSearch, utilClassDate } = useClientSchedule();
+<script setup lang="ts">
+const {formArr, getSearch, utilClassDate} = useClientSchedule();
 
-const { loadingState } = usePageLoading();
+const {loadingState} = usePageLoading();
 
 const route = useRoute();
 
 const router = useRouter();
 
+const {getGuiUrl} = useUtils();
+
 definePageMeta({
-    auth: false,
-    description: 'Motorcycle Training Schedule',
-    keywords: 'motorcycle training schedule, harley davidson motorcycle class schedule, 7 day motorcycle course, 1 day motorcycle course near me, msf course schedule, motorcycle class schedule, motorcycle safety course schedule, motorcycle track training days, csn motorcycle class schedule, msf class schedule',
-    title: 'Schedule'
+  auth: false,
+  description: 'Motorcycle Training Schedule',
+  keywords: 'motorcycle training schedule, motorcycle classes near me, msf course, brc course',
+  title: 'Schedule'
 });
 
 onMounted(async () => {
-    loadingState.isActive = true;
+  loadingState.isActive = true;
 
-    await getSearch(route.params['class_type']);
+  await getSearch(route.params['class_type']);
 
-    loadingState.isActive = false;
+  loadingState.isActive = false;
 });
 
 useHead({
-    title: `${route.meta['title']}`,
-    script: [
-        {
-            innerHTML: `
+  title: `${route.meta['title']}`,
+  script: [
+    {
+      innerHTML: `
                 {
                   "@context": "https://schema.org",
                   "@type": "BreadcrumbList",
@@ -36,196 +37,204 @@ useHead({
                         "@type": "ListItem",
                         "position": 1,
                         "name": "Home",
-                        "item": "https://bikertraining.com"
+                        "item": "${getGuiUrl()}"
                       },
                       {
                         "@type": "ListItem",
                         "position": 2,
                         "name": "Schedule",
-                        "item": "https://bikertraining.com/schedule"
+                        "item": "${getGuiUrl()}/schedule"
                       }
                   ]
                 }
                     `,
-            type: 'application/ld+json'
-        }
-    ]
+      type: 'application/ld+json'
+    }
+  ]
 });
 </script>
 
 <template>
-    <div class="py-5 pt-3">
-        <table class="table table-hover caption-top table-striped">
-            <caption v-if="formArr.length > 0"
-                     class="mb-3 d-print-none">
-                <svg class="bi text-warning">
-                    <use xlink:href="#star"/>
-                </svg>
+  <table
+      v-if="formArr.length > 0"
+      class="caption-top table table-hover table-striped">
+    <caption
+        class="d-print-none fw-bold mb-3 mt-2">
+      <BootstrapIcon
+          name="exclamation-diamond"/>
+      Click on a class to register
 
-                <span class="fw-bold text-dark ms-1">Click on a class to register.</span>
+      <div
+          v-if="route.params['class_type'] === '3wbrc'"
+          class="fw-bold mt-3 text-danger">
+        You *must* bring your own 3-wheel motorcycle for training purposes and show proof of insurance.
 
-                <p class="ms-2">The class starting and ending times can be found at the bottom of this page.</p>
-            </caption>
+        <div
+            class="fw-normal mt-3 text-dark">
+          <NuxtLink
+              class="btn btn-success btn-sm"
+              to="https://learntoride3wheel.com/webreg/production/reactapp/?book=canamregister&SC=FLBKTR01&CC=3WBU">
+            Click Here
+          </NuxtLink>
 
-            <thead v-if="formArr.length > 0"
-                   class="table-light border-top border-bottom border-dark border-2 border-start-0 border-end-0">
-            <tr>
-                <th scope="col"
-                    style="width: 25%;">Dates
-                </th>
-                <th scope="col"
-                    style="width: 25%;">Days
-                </th>
-                <th scope="col"
-                    style="width: 25%;">Course
-                </th>
-                <th scope="col"
-                    style="width: 25%;">Seats Available
-                </th>
-            </tr>
-            </thead>
+          for the
 
-            <tbody v-if="formArr.length > 0">
-            <tr v-for="schedule in formArr"
-                v-bind:key="schedule"
-                v-on="schedule['seats'] > 0 ? { click: () => router.push(`/register/${schedule['id']}`) } : { click: () => { return false; } }">
-                <td>
-                    <div>
-                        {{ utilClassDate(schedule['date_from'], schedule['date_to']) }}
-                    </div>
+          <NuxtLink
+              target="_blank"
+              to="https://learntoride3wheel.com/webreg/production/reactapp/?book=canamregister&SC=FLBKTR01&CC=3WBU">
+            <img
+                alt="Can-AM BRP"
+                class="img-fluid"
+                height="75"
+                src="/img/brp/logo.webp"
+                width="150"/>
+          </NuxtLink>
 
-                    <div v-if="schedule['seats'] > 0" class="badge rounded-pill bg-secondary border border-dark">
-                        Sign Up Here
-                    </div>
-                </td>
-                <td>{{ schedule['day_type_name'] }}</td>
-                <td>{{ schedule['class_type_name'] }}</td>
-                <td v-if="schedule['seats'] > 0">{{ schedule['seats'] }}</td>
-                <td v-else-if="schedule['class_type'] == '3wbrc' && schedule['seats'] == 0">Call for Availability</td>
-                <td v-else>CLASS FULL</td>
-            </tr>
-            </tbody>
+          program. Can-AM will supply you with a training bike.
+        </div>
+      </div>
 
-            <tbody v-if="formArr.length === 0 && route.params['class_type'] === '3wbrc'"
-                   class="text-danger fw-bold text-center">
-            Sorry but there are no available 3-Wheel classes. However, if you had a group of at least 2 students we can
-            add a private class. Call us for more information.
-            </tbody>
+      <div
+          v-if="route.params['class_type'] === 'src'"
+          class="fw-bold mt-3 text-danger">
+        You *must* bring your own motorcycle for training purposes and show proof of insurance.
 
-            <tbody v-if="formArr.length === 0 && route.params['class_type'] === 'brc'"
-                   class="text-danger fw-bold text-center">
-            Sorry but there are no available Basic Rider classes.
-            </tbody>
+        <div
+            class="mt-3">
+          You *must* have the motorcycle endorsement on your drivers
+          license.
+        </div>
+      </div>
+    </caption>
 
-            <tbody v-if="formArr.length === 0 && route.params['class_type'] === 'src'"
-                   class="text-danger fw-bold text-center">
-            Sorry but there are no available Skilled Rider classes. However, if you had a group of at least 4
-            students we can add a private class. Call us for more information.
-            </tbody>
+    <thead
+        class="border-dark border-2 border-start-0 border-end-0">
+    <tr>
+      <th
+          class="w-25"
+          scope="col">
+        Dates
+      </th>
 
-            <tbody v-if="formArr.length === 0 && route.params['class_type'] === ''"
-                   class="text-danger fw-bold text-center">
-            Sorry but there are no available classes.
-            </tbody>
-        </table>
-    </div>
+      <th
+          class="w-25"
+          scope="col">
+        Days
+      </th>
 
-    <div class="row g-4 row-cols-1 row-cols-lg-2">
-        <div class="col d-flex align-items-start">
-            <div>
-                <div class="fs-3 fw-semibold mb-3">
-                    <svg class="bi-clock-map">
-                        <use xlink:href="#clock"/>
-                    </svg>
+      <th
+          class="w-25"
+          scope="col">
+        Course
+      </th>
 
-                    Class Times
-                </div>
+      <th
+          class="w-25"
+          scope="col">
+        Seats Available
+      </th>
+    </tr>
+    </thead>
 
-                <div class="mb-3">
-                    <span class="fw-bold">3-Wheel Basic RiderCourse</span> -
-                    <span class="fw-bold">Sunday</span> 1:00 PM to 4:00 PM and
-                    <span class="fw-bold">Monday</span> 7:00 AM to 4:00 PM
-                </div>
-
-                <div class="mb-3">
-                    <span class="fw-bold">Basic RiderCourse</span> -
-                    <span class="fw-bold">Saturday & Sunday</span> or
-                    <span class="fw-bold">Monday & Tuesday</span> or
-                    <span class="fw-bold">Thursday & Friday</span> 7:00 AM to 4:00 PM
-                </div>
-
-                <div>
-                    <span class="fw-bold">Skilled RiderCourse</span> -
-                    <span class="fw-bold">Sunday</span> 12:00 PM (Noon) to 5:30 PM
-                </div>
-            </div>
+    <tbody>
+    <tr
+        v-for="schedule in formArr"
+        v-bind:key="schedule"
+        v-on="schedule['seats'] > 0 ? { click: () => router.push(`/register/${schedule['id']}`) } : { click: () => { return false; } }">
+      <td>
+        <div>
+          {{ utilClassDate(schedule['date_from'], schedule['date_to']) }}
         </div>
 
-        <div class="col d-flex align-items-start">
-            <div class="flex-grow-1">
-                <div class="fs-3 fw-semibold mb-3">
-                    <svg class="bi-clock-map">
-                        <use xlink:href="#map"/>
-                    </svg>
-
-                    Training Location
-                </div>
-
-                <div class="mt-0">Pensacola Harley-Davidson</div>
-                <div class="mt-0">6385 Pensacola Blvd</div>
-                <div class="mb-3">Pensacola, Florida, 32505</div>
-
-                <div class="google-map">
-                    <iframe allowfullscreen=""
-                            height="450"
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3438.483493187533!2d-87.25672752386812!3d30.479064597846907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8890bfc8ff1757f1%3A0x3fbb458075146bc2!2s6385%20Pensacola%20Blvd%2C%20Pensacola%2C%20FL%2032505!5e0!3m2!1sen!2sus!4v1688132572004!5m2!1sen!2sus"
-                            style="border:0;"
-                            title="Google Map"
-                            width="600"/>
-                </div>
-            </div>
+        <div
+            v-if="schedule['seats'] > 0"
+            class="badge rounded-pill bg-secondary border border-dark d-print-none">
+          Sign Up Here
         </div>
-    </div>
+      </td>
+
+      <td>
+        <div
+            class="fw-bold">
+          {{ schedule['day_type_name'] }}
+        </div>
+
+        <div
+            v-if="schedule['day_type'] == 'thursday_friday' || schedule['day_type'] == 'saturday_sunday' || schedule['day_type'] == 'monday_tuesday'">
+          7:00 AM - 4:00 PM
+        </div>
+
+        <div
+            v-if="schedule['day_type'] == 'sunday'">
+          12:00 PM (Noon) - 5:30 PM
+        </div>
+
+        <div
+            v-if="schedule['day_type'] == 'sunday_monday'">
+          <div>
+            Sunday 1:00 PM - 4:00 PM
+          </div>
+
+          <div>
+            Monday 7:00 AM - 4:00 PM
+          </div>
+        </div>
+      </td>
+
+      <td>
+        {{ schedule['class_type_name'] }}
+      </td>
+
+      <td>
+        <div
+            v-if="schedule['seats'] > 0">
+          {{ schedule['seats'] }}
+        </div>
+
+        <div
+            v-else-if="schedule['class_type'] == '3wbrc' && schedule['seats'] == 0">
+          Call for Availability
+        </div>
+
+        <div
+            v-else>
+          CLASS FULL
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div
+      v-if="formArr.length === 0 && route.params['class_type'] === '3wbrc'"
+      class="fw-bold mt-3 text-danger text-center">
+    Sorry but there are no available 3-Wheel classes. However, if you had a group of at least 2 students we can
+    add a private class. Call us for more information.
+  </div>
+
+  <div
+      v-if="formArr.length === 0 && route.params['class_type'] === 'brc'"
+      class="fw-bold mt-3 text-danger text-center">
+    Sorry but there are no available Basic Rider classes.
+  </div>
+
+  <div
+      v-if="formArr.length === 0 && route.params['class_type'] === 'src'"
+      class="fw-bold mt-3 text-danger text-center">
+    Sorry but there are no available Skilled Rider classes. However, if you had a group of at least 4 students we
+    can add a private class. Call us for more information.
+  </div>
+
+  <div
+      v-if="formArr.length === 0 && route.params['class_type'] === ''"
+      class="fw-bold mt-3 text-danger text-center">
+    Sorry but there are no available classes.
+  </div>
 </template>
 
 <style scoped>
-.bi {
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    vertical-align: -.125em;
-    overflow: visible;
-}
-
-.bi-clock-map {
-    display: inline-block;
-    width: 1.5rem;
-    height: 1.5rem;
-    vertical-align: -.125em;
-    overflow: visible;
-}
-
-.google-map {
-    padding-bottom: 50%;
-    position: relative;
-}
-
-.google-map iframe {
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top: 0;
-    position: absolute;
-}
-
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-    background-color: #198754;
-    color: #FFFFFF;
-}
-
-.table tbody > tr:nth-last-child(1) {
-    border-color: #FFFFFF;
+  background-color: #198754;
+  color: #FFFFFF;
 }
 </style>

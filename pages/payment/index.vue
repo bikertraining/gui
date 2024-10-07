@@ -1,20 +1,20 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 const route = useRoute();
 
-const { getBusinessPhone } = useUtils();
+const {getBusinessPhone, getGuiUrl} = useUtils();
 
 definePageMeta({
-    auth: false,
-    description: 'Pay Online',
-    keywords: 'payment, pay online',
-    title: 'Pay Online'
+  auth: false,
+  description: 'Pay Online',
+  keywords: 'payment, pay online',
+  title: 'Pay Online'
 });
 
 useHead({
-    title: `${route.meta['title']}`,
-    script: [
-        {
-            innerHTML: `
+  title: `${route.meta['title']}`,
+  script: [
+    {
+      innerHTML: `
                 {
                   "@context": "https://schema.org",
                   "@type": "BreadcrumbList",
@@ -23,83 +23,74 @@ useHead({
                         "@type": "ListItem",
                         "position": 1,
                         "name": "Home",
-                        "item": "https://bikertraining.com"
+                        "item": "${getGuiUrl()}"
                       },
                       {
                         "@type": "ListItem",
                         "position": 2,
                         "name": "Pay Online",
-                        "item": "https://bikertraining.com/payment"
+                        "item": "${getGuiUrl()}/payment"
                       }
                   ]
                 }
                     `,
-            type: 'application/ld+json'
-        }
-    ]
+      type: 'application/ld+json'
+    }
+  ]
 });
 </script>
 
 <template>
-    <div class="px-4 py-5 pb-3 my-1 text-center" style="min-height: calc(100vh - 274px) !important;">
-        <h1 class="fw-bold mb-4 fs-4">
-            Please choose a class type:
-        </h1>
+  <h1
+      class="text-center fs-4 mt-3">
+    Please choose a class type:
+  </h1>
 
-        <div class="fw-bold fs-5 mb-5">
-            <NuxtLink to="/payment/brc">
-                <button class="btn btn-success btn-lg"
-                        type="submit">
-                    <svg class="bi">
-                        <use xlink:href="#link"/>
-                    </svg>
+  <div
+      class="fs-3 fw-bold mt-5 mb-3 text-center">
+    <NuxtLink
+        class="btn btn-lg btn-success mb-3"
+        to="/payment/brc">
+      <BootstrapIcon
+          name="link-45deg"/>
+      Basic RiderCourse
+    </NuxtLink>
+  </div>
 
-                    Basic RiderCourse
-                </button>
-            </NuxtLink>
-        </div>
+  <div
+      class="fs-3 fw-bold mb-3 text-center">
+    <NuxtLink
+        class="btn btn-lg btn-success mb-3"
+        to="/payment/3wbrc">
+      <BootstrapIcon
+          name="link-45deg"/>
+      3-Wheel Basic RiderCourse
+    </NuxtLink>
+  </div>
 
-        <div class="fw-bold fs-5 mb-5">
-            <NuxtLink to="/payment/3wbrc">
-                <button class="btn btn-success btn-lg"
-                        type="submit">
-                    <svg class="bi">
-                        <use xlink:href="#link"/>
-                    </svg>
+  <div
+      class="fs-3 fw-bold text-center">
+    <NuxtLink
+        class="btn btn-lg btn-success mb-3"
+        to="/payment/src">
+      <BootstrapIcon
+          name="link-45deg"/>
+      Skilled RiderCourse
+    </NuxtLink>
+  </div>
 
-                    3-Wheel Basic RiderCourse
-                </button>
-            </NuxtLink>
-        </div>
+  <div
+      class="fs-4 fw-bold text-center mt-3">
+    If you are not sure, please call us at
 
-        <div class="fw-bold fs-5 mb-5">
-            <NuxtLink to="/payment/src">
-                <button class="btn btn-success btn-lg"
-                        type="submit">
-                    <svg class="bi">
-                        <use xlink:href="#link"/>
-                    </svg>
-
-                    Skilled RiderCourse
-                </button>
-            </NuxtLink>
-        </div>
-
-        <div class="fw-bold fs-5 mb-5">
-            If you are not sure, please call us at <a class="text-dark text-decoration-none"
-                                                      v-bind:href="'tel:' + getBusinessPhone(true)">{{
-                getBusinessPhone(false)
-                                                                                                    }}</a>
-        </div>
-    </div>
+    <NuxtLink
+        v-bind:href="'tel:' + getBusinessPhone(true)"
+        class="text-decoration-none">
+      {{ getBusinessPhone(false) }}
+    </NuxtLink>
+  </div>
 </template>
 
 <style scoped>
-.bi {
-    display: inline-block;
-    width: 1.5rem;
-    height: 1.5rem;
-    vertical-align: -.125em;
-    overflow: visible;
-}
+
 </style>

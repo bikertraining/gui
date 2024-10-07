@@ -1,10 +1,16 @@
-import { type ComputedRef, type UnwrapNestedRefs } from "vue";
+import {type ComputedRef, type UnwrapNestedRefs} from "vue";
 
 interface UseClientTeamInterface {
     formErrors: ComputedRef<Record<string, unknown>>;
     formObj: ComputedRef<{
         email: string;
-        message: string;
+        message1: string;
+        message2: string;
+        message3: string;
+        message4: string;
+        message5: string;
+        message6: string;
+        message7: string;
         name: string;
         phone: string;
     }>;
@@ -14,7 +20,7 @@ interface UseClientTeamInterface {
 }
 
 export const useClientTeam = (): UseClientTeamInterface => {
-    const { loadingState } = usePageLoading();
+    const {loadingState} = usePageLoading();
 
     const router = useRouter();
 
@@ -30,7 +36,13 @@ export const useClientTeam = (): UseClientTeamInterface => {
         formErrors: {},
         formObj: {
             email: '',
-            message: '',
+            message1: '',
+            message2: '',
+            message3: '',
+            message4: '',
+            message5: '',
+            message6: '',
+            message7: '',
             name: '',
             phone: ''
         }
@@ -41,14 +53,14 @@ export const useClientTeam = (): UseClientTeamInterface => {
     }) => {
         loadingState.isActive = true;
 
-        const { doProcess, processorErrors, processorSuccess } = await useProcessor();
+        const {doProcess, processorErrors, processorSuccess} = await useProcessor();
 
         await doProcess('client/team/', 'POST', values);
 
         if (!processorSuccess.value) {
             actions.setErrors(processorErrors.value);
         } else {
-            await router.push({ path: '/team/confirmation' });
+            await router.push({path: '/team/confirmation'});
         }
 
         loadingState.isActive = false;

@@ -1,109 +1,109 @@
-<script lang="ts"
-        setup>
+<script setup lang="ts">
+const {formArr, getSearch, utilClassDate} = useAdminSchedule();
 
-const { formArr, getSearch, utilClassDate } = useAdminSchedule();
-
-const { loadingState } = usePageLoading();
+const {loadingState} = usePageLoading();
 
 const route = useRoute();
 
 const router = useRouter();
 
 definePageMeta({
-    description: 'Search schedule',
-    keywords: 'search schedule, schedule, search',
-    layout: 'admin',
-    title: 'Search Schedule'
+  description: 'Search schedule',
+  layout: 'admin',
+  title: 'Search Schedule'
 });
 
 onMounted(async () => {
-    loadingState.isActive = true;
+  loadingState.isActive = true;
 
-    await getSearch();
+  await getSearch();
 
-    loadingState.isActive = false;
+  loadingState.isActive = false;
 });
 
 useHead({
-    title: 'Search Schedule'
+  title: 'Search Schedule'
 });
 </script>
 
 <template>
-    <div class="py-5">
-        <div class="row mb-3">
-            <div class="col-auto">
-                <NuxtLink to="/admin/schedule/create">
-                    <button class="btn btn-success"
-                            type="button">
-                        <svg class="bi">
-                            <use xlink:href="#calendar-days"/>
-                        </svg>
+  <table
+      class="table table-striped table-hover caption-top">
+    <caption
+        v-if="formArr.length > 0"
+        class="d-print-none fw-bold mb-4 mt-2">
+      <BootstrapIcon
+          name="exclamation-diamond"/>
+      {{ formArr.length }} Classes
+    </caption>
 
-                        Create Schedule
-                    </button>
-                </NuxtLink>
-            </div>
+    <thead
+        v-if="formArr.length > 0"
+        class="border border-dark border-2 border-start-0 border-end-0">
+    <tr>
+      <th
+          class="w-25"
+          scope="col">
+        Dates
+      </th>
+
+      <th
+          class="w-25"
+          scope="col">
+        Days
+      </th>
+
+      <th
+          class="w-25"
+          scope="col">
+        Course
+      </th>
+
+      <th
+          class="w-25"
+          scope="col">
+        Seats Available
+      </th>
+    </tr>
+    </thead>
+
+    <tbody
+        v-if="formArr.length > 0">
+    <tr
+        v-for="schedule in formArr"
+        v-bind:key="schedule"
+        v-on:click="router.push({ path: `/admin/schedule/${schedule['id']}/edit`})">
+      <td>
+        {{ utilClassDate(schedule['date_from'], schedule['date_to']) }}
+      </td>
+
+      <td>
+        {{ schedule['day_type_name'] }}
+      </td>
+
+      <td>
+        {{ schedule['class_type_name'] }}
+      </td>
+
+      <td>
+        <div
+            v-if="schedule['seats'] > 0">
+          {{ schedule['seats'] }}
         </div>
 
-        <table class="table table-hover caption-top table-striped">
-            <caption class="mb-3">
-                <svg class="bi text-warning">
-                    <use xlink:href="#star"/>
-                </svg>
-
-                <span class="fw-bold text-dark ms-1">Click on a class to edit</span>
-
-                <div class="fw-bold text-dark mt-3">{{ formArr.length }} Classes</div>
-            </caption>
-
-            <thead class="table-light border-top border-bottom border-dark border-2 border-start-0 border-end-0">
-            <tr>
-                <th scope="col"
-                    style="width: 25%;">Dates
-                </th>
-                <th scope="col"
-                    style="width: 25%;">Days
-                </th>
-                <th scope="col"
-                    style="width: 25%;">Course
-                </th>
-                <th scope="col"
-                    style="width: 25%;">Seats Available
-                </th>
-            </tr>
-            </thead>
-
-            <tbody>
-            <tr v-for="schedule in formArr"
-                v-bind:key="schedule"
-                v-on:click="router.push({ path: `/admin/schedule/${schedule['id']}/edit`})">
-                <td>{{ utilClassDate(schedule['date_from'], schedule['date_to']) }}</td>
-                <td>{{ schedule['day_type_name'] }}</td>
-                <td>{{ schedule['class_type_name'] }}</td>
-                <td v-if="schedule['seats'] > 0">{{ schedule['seats'] }}</td>
-                <td v-else>CLASS FULL</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+        <div
+            v-else>
+          CLASS FULL
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </template>
 
 <style scoped>
-.bi {
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    vertical-align: -.125em;
-    overflow: visible;
-}
-
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-    background-color: #198754;
-    color: #FFFFFF;
-}
-
-.table tbody > tr:nth-last-child(1) {
-    border-color: #FFFFFF;
+  background-color: #198754;
+  color: #FFFFFF;
 }
 </style>

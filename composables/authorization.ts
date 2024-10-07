@@ -6,14 +6,14 @@ interface useAuthorizationInterface {
 }
 
 export const useAuthorization = (): useAuthorizationInterface => {
-    const { loadingState } = usePageLoading();
+    const {loadingState} = usePageLoading();
 
     const logout = async () => {
         loadingState.isActive = true;
 
-        const { signOut } = useAuth();
+        const {signOut} = useAuth();
 
-        await signOut({ callbackUrl: '/admin/auth' });
+        await signOut({callbackUrl: '/admin/auth'});
 
         loadingState.isActive = false;
     };
@@ -23,12 +23,12 @@ export const useAuthorization = (): useAuthorizationInterface => {
     }) => {
         loadingState.isActive = true;
 
-        const { signIn } = useAuth();
+        const {signIn} = useAuth();
 
         try {
-            await signIn(values, { callbackUrl: '/admin/schedule' });
+            await signIn(values, {callbackUrl: '/admin/schedule'});
         } catch {
-            actions.setErrors({ username: 'Are you sure?', password: 'I think not...' });
+            actions.setErrors({username: 'Are you sure?', password: 'I think not...'});
         }
 
         loadingState.isActive = false;

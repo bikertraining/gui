@@ -1,4 +1,4 @@
-import { type ComputedRef, type UnwrapNestedRefs } from "vue";
+import {type ComputedRef, type UnwrapNestedRefs} from "vue";
 
 interface UseClientEcourseInterface {
     formObj: ComputedRef<{
@@ -16,7 +16,7 @@ export const useClientEcourse = (): UseClientEcourseInterface => {
     });
 
     const getEcourseLink = async () => {
-        const { doProcess, processorObj } = await useProcessor();
+        const {doProcess, processorObj} = await useProcessor();
 
         await doProcess('client/ecourse/search', 'GET', null);
 

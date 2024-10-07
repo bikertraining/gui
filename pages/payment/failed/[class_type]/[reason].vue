@@ -1,66 +1,64 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 const route = useRoute();
 
-const { getBusinessPhone } = useUtils();
+const {getBusinessPhone} = useUtils();
 
 definePageMeta({
-    auth: false,
-    description: 'Payment failed',
-    keywords: 'payment fails',
-    title: 'Payment Failed'
+  auth: false,
+  description: 'Payment failed',
+  keywords: 'payment failed',
+  title: 'Payment Failed'
 });
 
 useHead({
-    title: `${route.meta['title']}`
+  title: `${route.meta['title']}`
 });
 </script>
 
 <template>
-    <div class="px-4 py-5 pb-3 my-1 text-center" style="min-height: calc(100vh - 274px) !important;">
-        <h1 class="fw-bold mb-4 fs-4">
-            Please call us at <a class="text-dark text-decoration-none"
-                                 v-bind:href="'tel:' + getBusinessPhone(true)">{{
-                getBusinessPhone(false)
-                                                                               }}</a>
-        </h1>
+  <div
+      class="fs-3 fw-bold mt-5 text-center">
+    Please call us at
 
-        <div class="fw-bold fs-5 mb-4">
-            There appears to be a problem processing your payment.
-        </div>
+    <NuxtLink
+        v-bind:href="'tel:' + getBusinessPhone(true)"
+        class="text-decoration-none">
+      {{ getBusinessPhone(false) }}
+    </NuxtLink>
+  </div>
 
-        <div class="fw-bold fs-5">
-            Your bank returned the following information:
-        </div>
+  <div
+      class="fs-3 text-center">
+    There appears to be a problem processing your payment.
+  </div>
 
-        <div class="fw-bold fs-5 text-danger mb-4">
-            {{ route.params['reason'] }}
-        </div>
+  <div
+      class="fs-3 text-center mb-3">
+    Your bank returned the following information:
+  </div>
 
-        <div class="fw-bold fs-5 mb-4">
-            OR
-        </div>
+  <div
+      class="fs-3 fw-bold text-center text-danger">
+    {{ route.params['reason'] }}
+  </div>
 
-        <div class="fw-bold fs-5">
-            <NuxtLink :to="`/payment/${route.params['class_type']}`">
-                <button class="btn btn-success btn-lg"
-                        type="submit">
-                    <svg class="bi">
-                        <use xlink:href="#link"/>
-                    </svg>
+  <div
+      class="fs-3 fw-bold text-center mt-3 mb-3">
+    OR
+  </div>
 
-                    Click here to try again
-                </button>
-            </NuxtLink>
-        </div>
-    </div>
+  <div
+      class="fs-3 text-center fw-bold">
+    <NuxtLink
+        :to="`/payment/${route.params['class_type']}`"
+        class="btn btn-lg btn-success mb-3">
+      <BootstrapIcon
+          name="link-45deg"/>
+      Click here to try again
+    </NuxtLink>
+  </div>
 </template>
 
 <style scoped>
-.bi {
-    display: inline-block;
-    width: 1.5rem;
-    height: 1.5rem;
-    vertical-align: -.125em;
-    overflow: visible;
-}
+
 </style>

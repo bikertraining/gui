@@ -1,4 +1,4 @@
-import { type ComputedRef, type UnwrapNestedRefs } from "vue";
+import {type ComputedRef, type UnwrapNestedRefs} from "vue";
 
 interface UseAdminEcourseInterface {
     formObj: ComputedRef<{
@@ -14,9 +14,9 @@ interface UseAdminEcourseInterface {
 }
 
 export const useAdminEcourse = (): UseAdminEcourseInterface => {
-    const { $event } = useNuxtApp();
+    const {$event} = useNuxtApp();
 
-    const { loadingState } = usePageLoading();
+    const {loadingState} = usePageLoading();
 
     const router = useRouter();
 
@@ -25,7 +25,7 @@ export const useAdminEcourse = (): UseAdminEcourseInterface => {
     });
 
     const getEdit = async () => {
-        const { doProcess, processorObj } = await useProcessor();
+        const {doProcess, processorObj} = await useProcessor();
 
         await doProcess('admin/ecourse/search', 'GET', null);
 
@@ -46,7 +46,7 @@ export const useAdminEcourse = (): UseAdminEcourseInterface => {
     }) => {
         loadingState.isActive = true;
 
-        const { doProcess, processorErrors, processorSuccess } = await useProcessor();
+        const {doProcess, processorErrors, processorSuccess} = await useProcessor();
 
         await doProcess('admin/ecourse/search', 'PATCH', values);
 
@@ -60,7 +60,7 @@ export const useAdminEcourse = (): UseAdminEcourseInterface => {
                 type: 'success'
             });
 
-            await router.push({ path: '/admin/ecourse' });
+            await router.push({path: '/admin/ecourse'});
         }
 
         loadingState.isActive = false;

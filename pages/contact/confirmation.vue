@@ -1,32 +1,41 @@
-<script lang="ts"
-        setup>
+<script setup lang="ts">
 const route = useRoute();
 
 definePageMeta({
-    auth: false,
-    description: 'Contact Us - Thank You',
-    keywords: 'thanks for contacting us, thank you for contacting us message, thank you for contacting us email, contact form thank you message, thank you for contacting us how can we help you, thank you for contacting us message sample, thank you for the call today email, thank you for contacting with us, contact us thank you message, thank you message for contacting us, thank you for contacting us regarding our services, thank you for contacting us business letter, thank you for contacting us email example, thank you for contacting us page, thank you email after business visit, thank you for contacting us email sample, contact us thank you',
-    title: 'Contact Us - Thank You'
+  auth: false,
+  description: 'Contact Us - Thank You',
+  keywords: 'contact us, contact',
+  title: 'Contact Us - Thank You'
 });
 
 useHead({
-    title: `${route.meta['title']}`
+  title: `${route.meta['title']}`
 });
 </script>
 
 <template>
-    <div class="py-5"
-         style="min-height: calc(100vh - 270px) !important;">
-        <p>Thank you for contacting us!</p>
+  <div
+      class="fw-bold mt-3">
+    Thank you for contacting us!
+  </div>
 
-        <p>We will reply to your message as soon as we can.</p>
+  <div
+      class="mt-3">
+    We will reply to your message as soon as we can.
+  </div>
 
-        In the meantime, our
-        <NuxtLink class="text-decoration-none"
-                  to="/faq">FAQs
-        </NuxtLink>
-        can answer most questions.
-    </div>
+  <div
+      class="mt-3">
+    In the meantime, our
+
+    <NuxtLink
+        class="text-decoration-none"
+        to="/faq">
+      FAQs
+    </NuxtLink>
+
+    can answer most questions.
+  </div>
 </template>
 
 <style scoped>

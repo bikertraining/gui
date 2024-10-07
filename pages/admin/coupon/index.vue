@@ -1,111 +1,111 @@
-<script lang="ts"
-        setup>
-const { formArr, getSearch } = useAdminCoupon();
+<script setup lang="ts">
+const {formArr, getSearch} = useAdminCoupon();
 
-const { loadingState } = usePageLoading();
+const {loadingState} = usePageLoading();
 
 const route = useRoute();
 
 const router = useRouter();
 
 definePageMeta({
-    description: 'Search coupons',
-    keywords: 'search coupons, coupons, search',
-    layout: 'admin',
-    title: 'Search Coupons'
+  description: 'Search coupons',
+  layout: 'admin',
+  title: 'Search Coupons'
 });
 
 onMounted(async () => {
-    loadingState.isActive = true;
+  loadingState.isActive = true;
 
-    await getSearch();
+  await getSearch();
 
-    loadingState.isActive = false;
+  loadingState.isActive = false;
 });
 
 useHead({
-    title: `${route.meta['title']}`
+  title: `${route.meta['title']}`
 });
 </script>
 
 <template>
-    <div class="py-5">
-        <div class="row mb-3 d-print-none">
-            <div class="col-auto">
-                <NuxtLink to="/admin/coupon/create">
-                    <button class="btn btn-success"
-                            type="button">
-                        <svg class="bi">
-                            <use xlink:href="#tag"/>
-                        </svg>
+  <table
+      class="table table-striped table-hover caption-top">
+    <caption
+        v-if="formArr.length > 0"
+        class="d-print-none fw-bold mb-3 mt-2">
+      <BootstrapIcon
+          name="exclamation-diamond"/>
+      {{ formArr.length }} Coupons
+    </caption>
 
-                        Create Coupon
-                    </button>
-                </NuxtLink>
-            </div>
-        </div>
+    <thead
+        v-if="formArr.length > 0"
+        class="border border-dark border-2 border-start-0 border-end-0">
+      <tr>
+        <th
+            class="w-25"
+            scope="col">
+          Name
+        </th>
 
-        <table class="table table-hover caption-top table-striped">
-            <caption class="mb-3 d-print-none">
-                <svg class="bi text-warning">
-                    <use xlink:href="#star"/>
-                </svg>
+        <th
+            class="w-25"
+            scope="col">
+          Class Type
+        </th>
 
-                <span class="fw-bold text-dark ms-1">Click on a coupon to edit</span>
-            </caption>
+        <th
+            class="w-25"
+            scope="col">
+          Amount
+        </th>
 
-            <thead class="table-light border-top border-bottom border-dark border-2 border-start-0 border-end-0">
-            <tr>
-                <th scope="col"
-                    style="width: 25%;">Name
-                </th>
-                <th scope="col"
-                    style="width: 25%;">Class Type
-                </th>
-                <th scope="col"
-                    style="width: 25%;">Amount
-                </th>
-                <th scope="col"
-                    style="width: 25%;">Status
-                </th>
-            </tr>
-            </thead>
+        <th
+            class="w-25"
+            scope="col">
+          Status
+        </th>
+      </tr>
+    </thead>
 
-            <tbody>
-            <tr v-for="coupon in formArr"
-                v-bind:key="coupon"
-                v-on:click="router.push({ path: `/admin/coupon/${coupon['id']}/edit`})">
-                <td>{{ coupon['name'] }}</td>
-                <td>{{ coupon['class_type_name'] }}</td>
-                <td>{{ coupon['amount'] }}</td>
-                <td>
-                    <span v-if="coupon['is_active']"
-                          class="text-success">Yes</span>
+    <tbody
+        v-if="formArr.length > 0">
+      <tr
+          v-for="coupon in formArr"
+          v-bind:key="coupon"
+          v-on:click="router.push({ path: `/admin/coupon/${coupon['id']}/edit`})">
+        <td>
+          {{ coupon['name'] }}
+        </td>
 
-                    <span v-else
-                          class="text-danger">No</span>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+        <td>
+          {{ coupon['class_type_name'] }}
+        </td>
+
+        <td>
+          {{ coupon['amount'] }}
+        </td>
+
+        <td>
+          <span
+              v-if="coupon['is_active']"
+              class="text-success">
+            Yes
+          </span>
+
+          <span
+              v-else
+              class="text-danger">
+            No
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </template>
 
 <style scoped>
-.bi {
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    vertical-align: -.125em;
-    overflow: visible;
-}
-
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-    background-color: #198754;
-    color: #FFFFFF;
-}
-
-.table tbody > tr:nth-last-child(1) {
-    border-color: #FFFFFF;
+  background-color: #198754;
+  color: #FFFFFF;
 }
 </style>

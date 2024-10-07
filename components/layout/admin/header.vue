@@ -1,189 +1,271 @@
-<script lang="ts"
-        setup>
-const { getBusinessPhone } = useUtils();
+<script setup lang="ts">
+const {status} = useAuth();
+
+const {getBusinessPhone} = useUtils();
 
 const close = () => {
-    (document.getElementById("navbarSupportedContent") as HTMLElement).classList.remove('show');
+  (document.getElementById("navbarSupportedContent") as HTMLElement).classList.remove('show');
 };
 </script>
 
 <template>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-print-none">
-        <div class="container-fluid">
-            <NuxtLink class="navbar-brand"
-                      to="/admin/schedule"
-                      v-on:click="close()">
-                <img alt="Biker Training LLC"
-                     height="100"
-                     src="/img/bikertraining/logo_color_white.webp"
-                     width="255"/>
+  <nav
+      class="navbar bg-dark navbar-expand-lg d-print-none"
+      data-bs-theme="dark">
+    <div
+        class="container-fluid">
+      <NuxtLink
+          v-on:click="close()"
+          to="/admin/schedule">
+        <img
+            alt="Biker Training LLC"
+            class="inline-block img-fluid"
+            height="100"
+            loading="eager"
+            src="/img/bikertraining/logo_color_white.webp"
+            width="255"/>
+      </NuxtLink>
+
+      <button
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          data-bs-target="#navbarSupportedContent"
+          data-bs-toggle="collapse"
+          class="navbar-toggler"
+          type="button">
+        <span
+            class="navbar-toggler-icon"/>
+      </button>
+
+      <div
+          class="collapse navbar-collapse ms-5"
+          id="navbarSupportedContent">
+        <ul
+            class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li
+              class="nav-item me-2">
+            <NuxtLink
+                v-on:click="close()"
+                class="nav-link"
+                to="/">
+              <BootstrapIcon
+                  class="me-1"
+                  name="house-door-fill"/>
+
+              Home
             </NuxtLink>
+          </li>
 
-            <button aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                    class="navbar-toggler"
-                    data-bs-target="#navbarSupportedContent"
-                    data-bs-toggle="collapse"
-                    type="button">
-                <span class="navbar-toggler-icon"/>
-            </button>
+          <li
+              class="nav-item dropdown me-2">
+            <a
+                aria-expanded="false"
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                href="#"
+                role="button">
+              <BootstrapIcon
+                  class="me-1"
+                  name="calendar3"/>
+              Schedule
+            </a>
 
-            <div id="navbarSupportedContent"
-                 class="collapse navbar-collapse">
-                <ul class="navbar-nav mb-2 mb-lg-0 me-auto px-4">
-                    <!-- Start Home -->
-                    <li class="nav-item me-1"
-                        v-on:click="close()">
-                        <NuxtLink class="nav-link fw-bold"
-                                  to="/">
-                            <svg class="bi">
-                                <use xlink:href="#house"/>
-                            </svg>
+            <ul class="dropdown-menu">
+              <li>
+                <a
+                    v-on:click="close()"
+                    class="dropdown-item"
+                    href="/admin/schedule">
+                  <BootstrapIcon
+                      class="me-1"
+                      name="search"/>
+                  Search
+                </a>
+              </li>
 
-                            Home
-                        </NuxtLink>
-                    </li>
-                    <!-- End Home -->
+              <li>
+                <hr
+                    class="dropdown-divider"/>
+              </li>
 
-                    <!-- Start Schedule -->
-                    <li class="nav-item me-1"
-                        v-on:click="close()">
-                        <NuxtLink class="nav-link fw-bold"
-                                  to="/admin/schedule">
-                            <svg class="bi">
-                                <use xlink:href="#calendar-days"/>
-                            </svg>
+              <li>
+                <a
+                    v-on:click="close()"
+                    class="dropdown-item"
+                    href="/admin/schedule/create">
+                  <BootstrapIcon
+                      class="me-1"
+                      name="plus-lg"/>
+                  Create Schedule
+                </a>
+              </li>
+            </ul>
+          </li>
 
-                            Schedule
-                        </NuxtLink>
-                    </li>
-                    <!-- End Schedule -->
+          <li
+              class="nav-item me-2">
+            <NuxtLink
+                v-on:click="close()"
+                class="nav-link"
+                to="/admin/price">
+              <BootstrapIcon
+                  class="me-1"
+                  name="cash-coin"/>
+              Prices
+            </NuxtLink>
+          </li>
 
-                    <!-- Start Prices -->
-                    <li class="nav-item me-1"
-                        v-on:click="close()">
-                        <NuxtLink class="nav-link fw-bold"
-                                  to="/admin/price">
-                            <svg class="bi">
-                                <use xlink:href="#hand-holding-dollar"/>
-                            </svg>
+          <li
+              class="nav-item dropdown me-2">
+            <a
+                aria-expanded="false"
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                href="#"
+                role="button">
+              <BootstrapIcon
+                  class="me-1"
+                  name="person-arms-up"/>
+              Coaches
+            </a>
 
-                            Prices
-                        </NuxtLink>
-                    </li>
-                    <!-- End Prices -->
+            <ul class="dropdown-menu">
+              <li>
+                <a
+                    v-on:click="close()"
+                    class="dropdown-item"
+                    href="/admin/coach">
+                  <BootstrapIcon
+                      class="me-1"
+                      name="search"/>
+                  Active Coaches
+                </a>
+              </li>
 
-                    <!-- Start Coaches -->
-                    <li class="nav-item me-1"
-                        v-on:click="close()">
-                        <NuxtLink class="nav-link fw-bold"
-                                  to="/admin/coach">
-                            <svg class="bi">
-                                <use xlink:href="#users"/>
-                            </svg>
+              <li>
+                <hr
+                    class="dropdown-divider"/>
+              </li>
 
-                            Coaches
-                        </NuxtLink>
-                    </li>
-                    <!-- End Coaches -->
+              <li>
+                <a
+                    v-on:click="close()"
+                    class="dropdown-item"
+                    href="/admin/coach/create">
+                  <BootstrapIcon
+                      class="me-1"
+                      name="plus-lg"/>
+                  Create Coach
+                </a>
+              </li>
 
-                    <!-- Start Coupons -->
-                    <li class="nav-item me-1"
-                        v-on:click="close()">
-                        <NuxtLink class="nav-link fw-bold"
-                                  to="/admin/coupon">
-                            <svg class="bi">
-                                <use xlink:href="#tag"/>
-                            </svg>
+              <li>
+                <hr
+                    class="dropdown-divider"/>
+              </li>
 
-                            Coupons
-                        </NuxtLink>
-                    </li>
-                    <!-- End Coupons -->
+              <li>
+                <a
+                    v-on:click="close()"
+                    class="dropdown-item"
+                    href="/admin/coach/inactive">
+                  <BootstrapIcon
+                      class="me-1"
+                      name="search"/>
+                  InActive Coaches
+                </a>
+              </li>
+            </ul>
+          </li>
 
-                    <!-- Start eCourse -->
-                    <li class="nav-item me-1"
-                        v-on:click="close()">
-                        <NuxtLink class="nav-link fw-bold"
-                                  to="/admin/ecourse">
-                            <svg class="bi">
-                                <use xlink:href="#link"/>
-                            </svg>
+          <li
+              class="nav-item dropdown me-2">
+            <a
+                aria-expanded="false"
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                href="#"
+                role="button">
+              <BootstrapIcon
+                  class="me-1"
+                  name="tags-fill"/>
+              Coupons
+            </a>
 
-                            eCourse
-                        </NuxtLink>
-                    </li>
-                    <!-- End eCourse -->
+            <ul class="dropdown-menu">
+              <li>
+                <a
+                    v-on:click="close()"
+                    class="dropdown-item"
+                    href="/admin/coupon">
+                  <BootstrapIcon
+                      class="me-1"
+                      name="search"/>
+                  Search
+                </a>
+              </li>
 
-                    <!-- Start Contact -->
-                    <li class="nav-item me-1"
-                        v-on:click="close()">
-                        <NuxtLink class="nav-link fw-bold"
-                                  to="/admin/contact">
-                            <svg class="bi">
-                                <use xlink:href="#address-book"/>
-                            </svg>
+              <li>
+                <hr
+                    class="dropdown-divider"/>
+              </li>
 
-                            Contact
-                        </NuxtLink>
-                    </li>
-                    <!-- End Contact -->
+              <li>
+                <a
+                    v-on:click="close()"
+                    class="dropdown-item"
+                    href="/admin/coupon/create">
+                  <BootstrapIcon
+                      class="me-1"
+                      name="plus-lg"/>
+                  Create Coupon
+                </a>
+              </li>
+            </ul>
+          </li>
 
-                    <!-- Start Minimized Logout -->
-                    <li class="nav-item d-lg-none"
-                        v-on:click="close()">
-                        <NuxtLink class="nav-link fw-bold text-danger"
-                                  to="/admin/auth/logout">
-                            <svg class="bi">
-                                <use xlink:href="#right-from-bracket"/>
-                            </svg>
+          <li
+              class="nav-item me-2">
+            <NuxtLink
+                v-on:click="close()"
+                class="nav-link"
+                to="/admin/ecourse">
+              <BootstrapIcon
+                  class="me-1"
+                  name="link-45deg"/>
+              eCourse
+            </NuxtLink>
+          </li>
+        </ul>
 
-                            Logout
-                        </NuxtLink>
-                    </li>
-                    <!-- End Minimized Logout -->
-                </ul>
-
-                <!-- Start Logout -->
-                <div class="d-flex me-5 fs-5 fw-bold d-none d-lg-flex">
-                    <NuxtLink class="nav-link fw-bold text-danger"
-                              to="/admin/auth/logout">
-                        <svg class="bi">
-                            <use xlink:href="#right-from-bracket"/>
-                        </svg>
-
-                        Logout
-                    </NuxtLink>
-                </div>
-                <!-- End Logout -->
-            </div>
-        </div>
-    </nav>
+        <ul
+            class="navbar-nav mb-2 mb-lg-0">
+          <li
+              class="nav-item me-2 mt-2">
+            <NuxtLink
+                v-on:click="close()"
+                class="nav-link text-danger"
+                to="/admin/auth/logout">
+              <BootstrapIcon
+                  class="me-1"
+                  name="box-arrow-right"/>
+              Logout
+            </NuxtLink>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <style scoped>
-.bi {
-    display: inline-block;
-    width: 1.5rem;
-    height: 1rem;
-    vertical-align: -.125em;
-    overflow: visible;
+.nav-link {
+  color: #F8F9FA;
+  font-weight: bolder;
 }
 
-.nav .nav-item .nav-link {
-    color: #F8F9FA;
-}
-
-.nav .nav-item .nav-link:hover {
-    color: #FE541F;
-}
-
-.navbar-nav .nav-item .nav-link {
-    color: #F8F9FA;
-}
-
-.navbar-nav .nav-item .nav-link:hover {
-    color: #FE541F;
+.nav-link:hover {
+  color: #FE541F;
 }
 </style>

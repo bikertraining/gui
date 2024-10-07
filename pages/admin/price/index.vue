@@ -1,86 +1,93 @@
-<script lang="ts"
-        setup>
-const { formArr, getSearch } = useAdminPrice();
+<script setup lang="ts">
+const {formArr, getSearch} = useAdminPrice();
 
-const { loadingState } = usePageLoading();
+const {loadingState} = usePageLoading();
 
 const route = useRoute();
 
 const router = useRouter();
 
 definePageMeta({
-    description: 'Search prices',
-    keywords: 'search prices, prices, search',
-    layout: 'admin',
-    title: 'Search Prices'
+  description: 'Search prices',
+  layout: 'admin',
+  title: 'Search Prices'
 });
 
 onMounted(async () => {
-    loadingState.isActive = true;
+  loadingState.isActive = true;
 
-    await getSearch();
+  await getSearch();
 
-    loadingState.isActive = false;
+  loadingState.isActive = false;
 });
 
 useHead({
-    title: `${route.meta['title']}`
+  title: `${route.meta['title']}`
 });
 </script>
 
 <template>
-    <div class="py-5">
-        <table class="table table-hover caption-top table-striped">
-            <caption class="mb-3">
-                <svg class="bi text-warning">
-                    <use xlink:href="#star"/>
-                </svg>
+  <table
+      class="table table-striped table-hover caption-top mt-3">
+    <thead
+        v-if="formArr.length > 0"
+        class="border border-dark border-2 border-start-0 border-end-0">
+    <tr>
+      <th
+          class="w-25"
+          scope="col">
+        Course
+      </th>
 
-                <span class="fw-bold text-dark ms-1">Click on a price to edit</span>
-            </caption>
+      <th
+          class="w-25"
+          scope="col">
+        Amount
+      </th>
 
-            <thead class="table-light border-top border-bottom border-dark border-2 border-start-0 border-end-0">
-            <tr>
-                <th scope="col">Course</th>
-                <th scope="col">Amount</th>
-                <th scope="col">Charge Status</th>
-            </tr>
-            </thead>
+      <th
+          class="w-25"
+          scope="col">
+        Charge Status
+      </th>
+    </tr>
+    </thead>
 
-            <tbody>
-            <tr v-for="price in formArr"
-                v-bind:key="price"
-                v-on:click="router.push({ path: `/admin/price/${price['id']}/edit`})">
-                <td>{{ price['class_type_name'] }}</td>
-                <td>${{ price['amount'] }}</td>
-                <td>
-                    <span v-if="price['is_active']"
-                          class="text-success">Yes</span>
+    <tbody
+        v-if="formArr.length > 0">
+    <tr
+        v-for="price in formArr"
+        v-bind:key="price"
+        v-on:click="router.push({ path: `/admin/price/${price['id']}/edit`})">
+      <td>
+        {{ price['class_type_name'] }}
+      </td>
 
-                    <span v-else
-                          class="text-danger">No</span>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+      <td>
+        ${{ price['amount'] }}
+      </td>
+
+      <td>
+          <span
+              v-if="price['is_active']"
+              class="text-success">
+            Yes
+          </span>
+
+        <span
+            v-else
+            class="text-danger">
+            No
+          </span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </template>
 
 <style scoped>
-.bi {
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    vertical-align: -.125em;
-    overflow: visible;
-}
-
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-    background-color: #198754;
-    color: #FFFFFF;
-}
-
-.table tbody > tr:nth-last-child(1) {
-    border-color: #FFFFFF;
+  background-color: #198754;
+  color: #FFFFFF;
 }
 </style>

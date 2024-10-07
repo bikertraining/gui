@@ -1,4 +1,4 @@
-import mitt, { type Emitter } from "mitt";
+import mitt, {type Emitter} from "mitt";
 
 type Events = {
     alert: string;

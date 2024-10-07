@@ -1,23 +1,21 @@
-<script lang="ts"
-        setup>
-const { logout } = useAuthorization();
+<script setup lang="ts">
+const {logout} = useAuthorization();
 
 const route = useRoute();
 
 definePageMeta({
-    auth: false,
-    description: 'Employee Logout',
-    keywords: 'logout, employee logout',
-    layout: 'authorization',
-    title: 'Logout'
+  auth: false,
+  description: 'Employee Logout',
+  layout: 'authorization',
+  title: 'Logout'
 });
 
 onMounted(async () => {
-    await logout();
+  await logout();
 });
 
 useHead({
-    title: `${route.meta['title']}`
+  title: `${route.meta['title']}`
 });
 </script>
 

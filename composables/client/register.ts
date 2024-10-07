@@ -1,4 +1,4 @@
-import { type ComputedRef, type UnwrapNestedRefs } from "vue";
+import {type ComputedRef, type UnwrapNestedRefs} from "vue";
 
 interface UseClientRegisterInterface {
     formArr: ComputedRef<string[]>;
@@ -6,7 +6,6 @@ interface UseClientRegisterInterface {
     formObj: ComputedRef<{
         address: string;
         amount: string;
-        can_email: boolean;
         city: string;
         class_type: string;
         comment: string;
@@ -47,7 +46,7 @@ interface UseClientRegisterInterface {
 }
 
 export const useClientRegister = (): UseClientRegisterInterface => {
-    const { loadingState } = usePageLoading();
+    const {loadingState} = usePageLoading();
 
     const router = useRouter();
 
@@ -74,7 +73,7 @@ export const useClientRegister = (): UseClientRegisterInterface => {
     }
 
     const getPrice = async (id: number | string | string[]) => {
-        const { doProcess, processorObj } = await useProcessor();
+        const {doProcess, processorObj} = await useProcessor();
 
         await doProcess(`client/register/${id}/price`, 'GET', null);
 
@@ -84,7 +83,7 @@ export const useClientRegister = (): UseClientRegisterInterface => {
     };
 
     const getSchedule = async (id: number | string | string[]) => {
-        const { doProcess, processorObj } = await useProcessor();
+        const {doProcess, processorObj} = await useProcessor();
 
         await doProcess(`client/schedule/search/${id}/id`, 'GET', null);
 
@@ -97,7 +96,6 @@ export const useClientRegister = (): UseClientRegisterInterface => {
         formObj: {
             address: '',
             amount: '0.00',
-            can_email: false,
             city: '',
             class_type: '',
             comment: '',
@@ -140,18 +138,18 @@ export const useClientRegister = (): UseClientRegisterInterface => {
     }) => {
         loadingState.isActive = true;
 
-        const { doProcess, processorErrors, processorSuccess } = await useProcessor();
+        const {doProcess, processorErrors, processorSuccess} = await useProcessor();
 
         await doProcess('client/register/', 'POST', values);
 
         if (!processorSuccess.value) {
             if ('non_field_errors' in processorErrors.value) {
-                await router.push({ path: `/register/failed/${values['schedule']}/${processorErrors.value['non_field_errors']}` });
+                await router.push({path: `/register/failed/${values['schedule']}/${processorErrors.value['non_field_errors']}`});
             } else {
                 actions.setErrors(processorErrors.value);
             }
         } else {
-            await router.push({ path: `/register/confirmation/${values['class_type']}` });
+            await router.push({path: `/register/confirmation/${values['class_type']}`});
         }
 
         loadingState.isActive = false;
@@ -185,7 +183,7 @@ export const useClientRegister = (): UseClientRegisterInterface => {
     }) => {
         loadingState.isActive = true;
 
-        const { doProcess, processorObj } = await useProcessor();
+        const {doProcess, processorObj} = await useProcessor();
 
         await doProcess(`client/coupon/validate/${values['coupon_code'].toLowerCase()}/${localRegister.formObj['class_type']}`, 'GET', null);
 

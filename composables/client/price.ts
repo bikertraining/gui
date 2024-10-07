@@ -1,4 +1,4 @@
-import { type ComputedRef, type UnwrapNestedRefs } from "vue";
+import {type ComputedRef, type UnwrapNestedRefs} from "vue";
 
 interface UseClientPriceInterface {
     formArr: ComputedRef<string[]>;
@@ -57,7 +57,7 @@ export const useClientPrice = (): UseClientPriceInterface => {
     });
 
     const getPrices = async () => {
-        const { doProcess, processorArr } = await useProcessor();
+        const {doProcess, processorArr} = await useProcessor();
 
         await doProcess('client/price/search', 'GET', null);
 

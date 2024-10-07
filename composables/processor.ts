@@ -1,4 +1,4 @@
-import { computed, type ComputedRef, reactive, type UnwrapNestedRefs } from "vue";
+import {computed, type ComputedRef, reactive, type UnwrapNestedRefs} from "vue";
 
 interface UseProcessorInterface {
     doProcess: (url: string, method: "DELETE" | "GET" | "PATCH" | "POST" | "PUT", values: any) => Promise<void>;
@@ -29,21 +29,21 @@ export const useProcessor = async (): Promise<UseProcessorInterface> => {
         const runtimeConfig = useRuntimeConfig();
 
         await useFetch(url, {
-            onRequest({ options }) {
+            onRequest({options}) {
                 // Set the request headers
                 options.headers = {
                     'Authorization': <string>useAuth().token.value
                 }
             },
-            onRequestError({ request }) {
+            onRequestError({request}) {
                 if (request) {
                     // Timeout
                     localProcessor.processorSuccess = false;
 
-                    throw showError({ fatal: true, statusCode: 408, statusMessage: 'Timeout' });
+                    throw showError({fatal: true, statusCode: 408, statusMessage: 'Timeout'});
                 }
             },
-            onResponse({ response }) {
+            onResponse({response}) {
                 if (response.status === 200) {
                     // Get Success
                     localProcessor.processorSuccess = true;
@@ -66,20 +66,20 @@ export const useProcessor = async (): Promise<UseProcessorInterface> => {
                     // Permission denied
                     localProcessor.processorSuccess = false;
 
-                    throw showError({ fatal: true, statusCode: 403, statusMessage: 'Permission Denied' });
+                    throw showError({fatal: true, statusCode: 403, statusMessage: 'Permission Denied'});
                 } else if (response.status === 404) {
                     // Page not found
                     localProcessor.processorSuccess = false;
 
-                    throw showError({ fatal: true, statusCode: 404, statusMessage: 'Page Not Found' });
+                    throw showError({fatal: true, statusCode: 404, statusMessage: 'Page Not Found'});
                 } else if (response.status === 500) {
                     // Internal server error
                     localProcessor.processorSuccess = false;
 
-                    throw showError({ fatal: true, statusCode: 500, statusMessage: 'Internal Server Error' });
+                    throw showError({fatal: true, statusCode: 500, statusMessage: 'Internal Server Error'});
                 }
             },
-            onResponseError({ response }) {
+            onResponseError({response}) {
                 localProcessor.processorErrors = response._data;
             },
             baseURL: runtimeConfig['public']['api_url'],
