@@ -73,6 +73,7 @@ useHead({
             class="fw-normal mt-3 text-dark">
           <NuxtLink
               class="btn btn-success btn-sm"
+              target="_blank"
               to="https://learntoride3wheel.com/webreg/production/reactapp/?book=canamregister&SC=FLBKTR01&CC=3WBU">
             Click Here
           </NuxtLink>
