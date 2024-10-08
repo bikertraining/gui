@@ -139,6 +139,7 @@ useHead({
     </div>
 
     <div
+        v-if="formObj['comment'] !== ''"
         class="bg-dark-subtle fw-bold ps-2 py-2 text-dark">
       Comments
     </div>
