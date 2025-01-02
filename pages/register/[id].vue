@@ -426,7 +426,6 @@ useHead({
             <FormSelect
                 v-model="formObj['credit_card_year']"
                 :options="{
-                  '2024': '2024',
                   '2025': '2025',
                   '2026': '2026',
                   '2027': '2027',
@@ -442,7 +441,8 @@ useHead({
                   '2037': '2037',
                   '2038': '2038',
                   '2039': '2039',
-                  '2040': '2040'
+                  '2040': '2040',
+                  '2041': '2041'
                 }"
                 :required="true"
                 label="Expiration Year"
